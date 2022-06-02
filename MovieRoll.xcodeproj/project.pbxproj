@@ -41,6 +41,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		421693F02849796A001F431E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		421693F128497972001F431E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4256CE4F283E4CAB0017DD5F /* LaunchScreen.storyboard */,
+				4256CE4A283E4CAA0017DD5F /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		421693F228497979001F431E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4256CE38283E4CAA0017DD5F = {
 			isa = PBXGroup;
 			children = (
@@ -60,14 +83,15 @@
 		4256CE43283E4CAA0017DD5F /* MovieRoll */ = {
 			isa = PBXGroup;
 			children = (
+				421693F02849796A001F431E /* Model */,
+				421693F128497972001F431E /* View */,
+				421693F228497979001F431E /* ViewModel */,
 				4256CE44283E4CAA0017DD5F /* AppDelegate.swift */,
 				4256CE46283E4CAA0017DD5F /* SceneDelegate.swift */,
 				8A72D0B5283FA14600977B34 /* InicioViewController.swift */,
 				8A72D0B3283FA12800977B34 /* RoletaViewController.swift */,
 				4256CE48283E4CAA0017DD5F /* PerfilViewController.swift */,
-				4256CE4A283E4CAA0017DD5F /* Main.storyboard */,
 				4256CE4D283E4CAB0017DD5F /* Assets.xcassets */,
-				4256CE4F283E4CAB0017DD5F /* LaunchScreen.storyboard */,
 				4256CE52283E4CAB0017DD5F /* Info.plist */,
 			);
 			path = MovieRoll;
