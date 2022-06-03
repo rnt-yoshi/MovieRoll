@@ -7,11 +7,9 @@
 
 import UIKit
 
-class InicioViewController: UIViewController {
+class LancamentosViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
-    
 }

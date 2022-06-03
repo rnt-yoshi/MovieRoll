@@ -13,8 +13,14 @@
 		4256CE4C283E4CAA0017DD5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4256CE4A283E4CAA0017DD5F /* Main.storyboard */; };
 		4256CE4E283E4CAB0017DD5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4256CE4D283E4CAB0017DD5F /* Assets.xcassets */; };
 		4256CE51283E4CAB0017DD5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4256CE4F283E4CAB0017DD5F /* LaunchScreen.storyboard */; };
+		8A3BA16F284A5F6800C74C77 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA16E284A5F6800C74C77 /* User.swift */; };
+		8A3BA171284A607100C74C77 /* PerfilData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA170284A607100C74C77 /* PerfilData.swift */; };
+		8A3BA173284A63E100C74C77 /* UserPerfilTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA172284A63E100C74C77 /* UserPerfilTableViewCell.swift */; };
+		8A3BA175284A640500C74C77 /* OptionsPerfilTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA174284A640500C74C77 /* OptionsPerfilTableViewCell.swift */; };
+		8A3BA177284A659E00C74C77 /* PerfilViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA176284A659E00C74C77 /* PerfilViewModel.swift */; };
+		8A3BA179284A723E00C74C77 /* CellTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA178284A723E00C74C77 /* CellTableViewModel.swift */; };
 		8A72D0B4283FA12800977B34 /* RoletaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A72D0B3283FA12800977B34 /* RoletaViewController.swift */; };
-		8A72D0B6283FA14600977B34 /* InicioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A72D0B5283FA14600977B34 /* InicioViewController.swift */; };
+		8A72D0B6283FA14600977B34 /* LancamentosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A72D0B5283FA14600977B34 /* LancamentosViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +32,14 @@
 		4256CE4D283E4CAB0017DD5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4256CE50283E4CAB0017DD5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4256CE52283E4CAB0017DD5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A3BA16E284A5F6800C74C77 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8A3BA170284A607100C74C77 /* PerfilData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilData.swift; sourceTree = "<group>"; };
+		8A3BA172284A63E100C74C77 /* UserPerfilTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPerfilTableViewCell.swift; sourceTree = "<group>"; };
+		8A3BA174284A640500C74C77 /* OptionsPerfilTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsPerfilTableViewCell.swift; sourceTree = "<group>"; };
+		8A3BA176284A659E00C74C77 /* PerfilViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewModel.swift; sourceTree = "<group>"; };
+		8A3BA178284A723E00C74C77 /* CellTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTableViewModel.swift; sourceTree = "<group>"; };
 		8A72D0B3283FA12800977B34 /* RoletaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoletaViewController.swift; sourceTree = "<group>"; };
-		8A72D0B5283FA14600977B34 /* InicioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicioViewController.swift; sourceTree = "<group>"; };
+		8A72D0B5283FA14600977B34 /* LancamentosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LancamentosViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +56,7 @@
 		421693F02849796A001F431E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8A3BA16E284A5F6800C74C77 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -52,8 +65,10 @@
 			isa = PBXGroup;
 			children = (
 				4256CE48283E4CAA0017DD5F /* PerfilViewController.swift */,
+				8A3BA172284A63E100C74C77 /* UserPerfilTableViewCell.swift */,
+				8A3BA174284A640500C74C77 /* OptionsPerfilTableViewCell.swift */,
 				8A72D0B3283FA12800977B34 /* RoletaViewController.swift */,
-				8A72D0B5283FA14600977B34 /* InicioViewController.swift */,
+				8A72D0B5283FA14600977B34 /* LancamentosViewController.swift */,
 				4256CE4A283E4CAA0017DD5F /* Main.storyboard */,
 			);
 			path = View;
@@ -62,6 +77,8 @@
 		421693F228497979001F431E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				8A3BA176284A659E00C74C77 /* PerfilViewModel.swift */,
+				8A3BA178284A723E00C74C77 /* CellTableViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -93,6 +110,7 @@
 				4256CE4F283E4CAB0017DD5F /* LaunchScreen.storyboard */,
 				4256CE4D283E4CAB0017DD5F /* Assets.xcassets */,
 				4256CE52283E4CAB0017DD5F /* Info.plist */,
+				8A3BA170284A607100C74C77 /* PerfilData.swift */,
 			);
 			path = MovieRoll;
 			sourceTree = "<group>";
@@ -168,11 +186,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A3BA171284A607100C74C77 /* PerfilData.swift in Sources */,
 				4256CE49283E4CAA0017DD5F /* PerfilViewController.swift in Sources */,
 				4256CE45283E4CAA0017DD5F /* AppDelegate.swift in Sources */,
+				8A3BA16F284A5F6800C74C77 /* User.swift in Sources */,
+				8A3BA173284A63E100C74C77 /* UserPerfilTableViewCell.swift in Sources */,
 				4256CE47283E4CAA0017DD5F /* SceneDelegate.swift in Sources */,
-				8A72D0B6283FA14600977B34 /* InicioViewController.swift in Sources */,
+				8A72D0B6283FA14600977B34 /* LancamentosViewController.swift in Sources */,
 				8A72D0B4283FA12800977B34 /* RoletaViewController.swift in Sources */,
+				8A3BA179284A723E00C74C77 /* CellTableViewModel.swift in Sources */,
+				8A3BA177284A659E00C74C77 /* PerfilViewModel.swift in Sources */,
+				8A3BA175284A640500C74C77 /* OptionsPerfilTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
