@@ -20,11 +20,11 @@ class UserPerfilTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setupUserCell(user: OptionsPerfil) {
-        userImage.image = UIImage(named: user.imagem)
-        userImage.layer.cornerRadius = userImage.frame.height / 2
+    func setupUserCell(viewModel: UserPerfilTableViewCellViewModel ) {
+        userImage.image = viewModel.getImage
+        userImage.layer.cornerRadius = 32
         userImage.layer.borderWidth = 0.3
-        userNameLabel.text = user.titulo
+        userNameLabel.text = viewModel.getName
     }
 
 }

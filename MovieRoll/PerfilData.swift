@@ -20,11 +20,7 @@ class OptionsPerfil {
     }
 }
 
-var userPerfil = OptionsPerfil(
-    titulo: "Renato",
-    subtitulo: "",
-    imagem: "Renato"
-)
+var userPerfil = User(name: "Renato", image: "Renato")
 
 var optionsPerfil = [
     OptionsPerfil(

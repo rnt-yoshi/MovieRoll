@@ -21,12 +21,11 @@ class OptionsPerfilTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setupOptionCell(dados: OptionsPerfil) {
-        imageOptions.image = UIImage(systemName: dados.imagem)
+    func setupOptionCell(viewModel: OptionsPerfilTableViewCellViewModel ) {
+        imageOptions.image = viewModel.getImage
         imageOptions.layer.cornerRadius = 5
         imageOptions.layer.borderWidth = 0.2
-        tituloOptionsLabel.text = dados.titulo
-        subtitleOptionsLabel.text = dados.subtitulo
+        tituloOptionsLabel.text = viewModel.getTitulo
+        subtitleOptionsLabel.text = viewModel.getSubtitulo
     }
-
 }

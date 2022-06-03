@@ -31,22 +31,8 @@ extension PerfilViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = viewModel.tableViewCell(tableView: tableView, section: indexPath.section)
-//        let cellViewModel = viewModel.getCellViewModel(section: indexPath.section, row: indexPath.row)
-//        cell.
-//        return cell
-        if indexPath.section < 1 {
-            if let cell = perfilTableView.dequeueReusableCell(withIdentifier: "userPerfilCell", for: indexPath) as? UserPerfilTableViewCell {
-                cell.setupUserCell(user: userPerfil)
-                return cell
-            }
-        } else {
-            if let cell = perfilTableView.dequeueReusableCell(withIdentifier: "optionsPerfilCell", for: indexPath) as? OptionsPerfilTableViewCell {
-                cell.setupOptionCell(dados: optionsPerfil[indexPath.row])
-                return cell
-            }
-        }
-        return UITableViewCell()
+        let cell = viewModel.tableViewCell(tableView: tableView, indexPath: indexPath)
+        return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
