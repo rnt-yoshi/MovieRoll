@@ -7,23 +7,27 @@
 
 import UIKit
 
+protocol LancamentosDelegate: AnyObject {
+    
+    func didSelectItem (index:Int)
+}
+
 class LancamentosTableViewCell: UITableViewCell {
     
     @IBOutlet weak var lancamentosCollectionView: UICollectionView!
     
     var viewModel = LancamentosTableViewModel()
     
+    weak var delegate:LancamentosDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         lancamentosCollectionView.dataSource = self
+        lancamentosCollectionView.delegate = self
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-    }
-    
+  
 }
 
 extension LancamentosTableViewCell: UICollectionViewDataSource {
@@ -41,5 +45,19 @@ extension LancamentosTableViewCell: UICollectionViewDataSource {
         
         return cell ?? UICollectionViewCell()
     }
+    
+}
+
+
+extension LancamentosTableViewCell:UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        delegate?.didSelectItem(index: indexPath.item)
+        
+    }
+    
+    
+    
     
 }

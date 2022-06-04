@@ -19,6 +19,8 @@
 		4256CE4C283E4CAA0017DD5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4256CE4A283E4CAA0017DD5F /* Main.storyboard */; };
 		4256CE4E283E4CAB0017DD5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4256CE4D283E4CAB0017DD5F /* Assets.xcassets */; };
 		4256CE51283E4CAB0017DD5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4256CE4F283E4CAB0017DD5F /* LaunchScreen.storyboard */; };
+		429FFF2E284BD5200079C159 /* DetalhesFilmeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429FFF2D284BD5200079C159 /* DetalhesFilmeViewController.swift */; };
+		429FFF30284BD92C0079C159 /* DetalhesFilmeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429FFF2F284BD92C0079C159 /* DetalhesFilmeViewModel.swift */; };
 		8A3BA16F284A5F6800C74C77 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA16E284A5F6800C74C77 /* User.swift */; };
 		8A3BA171284A607100C74C77 /* PerfilData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA170284A607100C74C77 /* PerfilData.swift */; };
 		8A3BA177284A659E00C74C77 /* PerfilViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA176284A659E00C74C77 /* PerfilViewModel.swift */; };
@@ -45,6 +47,8 @@
 		4256CE4D283E4CAB0017DD5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4256CE50283E4CAB0017DD5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4256CE52283E4CAB0017DD5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		429FFF2D284BD5200079C159 /* DetalhesFilmeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesFilmeViewController.swift; sourceTree = "<group>"; };
+		429FFF2F284BD92C0079C159 /* DetalhesFilmeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesFilmeViewModel.swift; sourceTree = "<group>"; };
 		8A3BA16E284A5F6800C74C77 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8A3BA170284A607100C74C77 /* PerfilData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilData.swift; sourceTree = "<group>"; };
 		8A3BA176284A659E00C74C77 /* PerfilViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewModel.swift; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 				4247B017284B8D1F004A12EE /* Lancamentos */,
 				2BA7C7C1284BD30800013C13 /* Roleta */,
 				2BA7C7BE284BD2A100013C13 /* Perfil */,
+				429FFF2D284BD5200079C159 /* DetalhesFilmeViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 			children = (
 				4247B018284B95FE004A12EE /* LancamentosTableViewModel.swift */,
 				4247B01A284B9677004A12EE /* UmLancamentoCollectionViewModel.swift */,
+				429FFF2F284BD92C0079C159 /* DetalhesFilmeViewModel.swift */,
 			);
 			path = Lancamentos;
 			sourceTree = "<group>";
@@ -257,6 +263,7 @@
 			files = (
 				8A3BA171284A607100C74C77 /* PerfilData.swift in Sources */,
 				4247B012284B8632004A12EE /* Filme.swift in Sources */,
+				429FFF2E284BD5200079C159 /* DetalhesFilmeViewController.swift in Sources */,
 				8ADFC41D284B7A6000CBDBA2 /* MeusDadosViewController.swift in Sources */,
 				4247B014284B886D004A12EE /* LancamentosTableViewCell.swift in Sources */,
 				4247B019284B95FE004A12EE /* LancamentosTableViewModel.swift in Sources */,
@@ -264,6 +271,7 @@
 				4247B01B284B9677004A12EE /* UmLancamentoCollectionViewModel.swift in Sources */,
 				8ADFC421284B7AAC00CBDBA2 /* ConfiguracoesViewController.swift in Sources */,
 				4256CE45283E4CAA0017DD5F /* AppDelegate.swift in Sources */,
+				429FFF30284BD92C0079C159 /* DetalhesFilmeViewModel.swift in Sources */,
 				8A3BA16F284A5F6800C74C77 /* User.swift in Sources */,
 				4256CE47283E4CAA0017DD5F /* SceneDelegate.swift in Sources */,
 				8ADFC423284B7ABE00CBDBA2 /* AjudaViewController.swift in Sources */,

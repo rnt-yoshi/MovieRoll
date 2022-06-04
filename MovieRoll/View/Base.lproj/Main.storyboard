@@ -205,78 +205,79 @@
                     <navigationItem key="navigationItem" title="Lançamentos" id="96H-jz-a2R"/>
                     <connections>
                         <outlet property="lancamentosTableView" destination="hzZ-aW-cqL" id="TS1-v7-rwC"/>
+                        <segue destination="UKH-yS-01C" kind="show" identifier="detalhesFilme" id="JfF-sx-3IG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mPx-FB-uDT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1910.144927536232" y="243.75"/>
         </scene>
-        <!--View Controller-->
+        <!--Detalhes Filme View Controller-->
         <scene sceneID="jJk-Y6-uXO">
             <objects>
-                <viewController id="UKH-yS-01C" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wgr-gu-yo1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <viewController id="UKH-yS-01C" customClass="DetalhesFilmeViewController" customModule="MovieRoll" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="wgr-gu-yo1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="665"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unc" translatesAutoresizingMaskIntoConstraints="NO" id="e6W-CU-RSO">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="unc" translatesAutoresizingMaskIntoConstraints="NO" id="e6W-CU-RSO">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="600"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="414" id="7PC-kV-VqH"/>
                                     <constraint firstAttribute="height" constant="600" id="xqi-bG-lN7"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEV-0m-nBb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEV-0m-nBb">
                                 <rect key="frame" x="10" y="600" width="41" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TMBD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofr-SR-YY8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="TMBD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofr-SR-YY8">
                                 <rect key="frame" x="71" y="600" width="47.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.15338663313755335" green="0.59769254044038689" blue="0.26446310996326172" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terror" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n21-h2-gVO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Terror" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n21-h2-gVO">
                                 <rect key="frame" x="10" y="624" width="36.5" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="HARRY POTTER E O PRISIONEIRO DE ASKABAN" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1X-VV-yar">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" ambiguous="YES" text="HARRY POTTER E O PRISIONEIRO DE ASKABAN" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1X-VV-yar">
                                 <rect key="frame" x="10" y="650" width="282" height="55"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9.1/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="be2-0v-4LG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="9.1/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="be2-0v-4LG">
                                 <rect key="frame" x="77" y="621" width="38" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eQV-7f-We1">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eQV-7f-We1">
                                 <rect key="frame" x="148.5" y="600" width="31" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="31" id="HYN-ep-073"/>
                                     <constraint firstAttribute="height" constant="31" id="luo-mi-l5K"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drogas, linguagem imprópria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5xK-TU-drL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Drogas, linguagem imprópria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5xK-TU-drL">
                                 <rect key="frame" x="189.5" y="605" width="197.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="msN-oc-R4v">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" ambiguous="YES" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="msN-oc-R4v">
                                 <rect key="frame" x="10" y="725" width="394" height="132"/>
                                 <string key="text">Chris é um jovem fotógrafo negro que está prestes a conhecer os pais de Rose, sua namorada caucasiana. Com o tempo, ele percebe que a família dela esconde algo muito perturbador.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3sI-HM-Qfv">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3sI-HM-Qfv">
                                 <rect key="frame" x="332" y="648" width="62" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="aVI-cM-dbV"/>
@@ -316,6 +317,18 @@
                             <constraint firstItem="3sI-HM-Qfv" firstAttribute="leading" secondItem="m1X-VV-yar" secondAttribute="trailing" constant="40" id="ucw-4f-vaT"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="HLN-0a-Ewe"/>
+                    <connections>
+                        <outlet property="anoLabel" destination="EEV-0m-nBb" id="Ona-VE-1L8"/>
+                        <outlet property="classificacaoIndicativaImage" destination="eQV-7f-We1" id="cIA-Un-TBX"/>
+                        <outlet property="classificacaoIndicativaLabel" destination="5xK-TU-drL" id="uvp-EV-iGv"/>
+                        <outlet property="generoLabel" destination="n21-h2-gVO" id="YAq-SL-63U"/>
+                        <outlet property="nomeDoFilmeLabel" destination="m1X-VV-yar" id="zq3-de-EAB"/>
+                        <outlet property="notaDoFilme" destination="be2-0v-4LG" id="Xbu-8X-ajr"/>
+                        <outlet property="plataformaImageView" destination="3sI-HM-Qfv" id="ghf-ts-GQ8"/>
+                        <outlet property="posterFilme" destination="e6W-CU-RSO" id="ciD-g4-q6Z"/>
+                        <outlet property="sinopseLabel" destination="msN-oc-R4v" id="UL0-X5-elA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4uP-Vx-gm4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -30,9 +30,10 @@ class LancamentosTableViewModel {
         return service.generos[section]
     }
     
-//    func retornaFilmes() -> [Filme] {
-//        return service.filmes
-//    }
+    func retornaFilmes(index: Int) -> Filme {
+        
+        return service.filmes[index]
+    }
     
     func getCellViewModel(index: Int) -> UmLancamentoCollectionViewModel {
         let filme = service.filmes[index]
