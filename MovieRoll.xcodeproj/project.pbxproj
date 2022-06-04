@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4247B010284B85E9004A12EE /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4247B00F284B85E9004A12EE /* Service.swift */; };
+		4247B012284B8632004A12EE /* Filme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4247B011284B8632004A12EE /* Filme.swift */; };
+		4247B014284B886D004A12EE /* LancamentosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4247B013284B886D004A12EE /* LancamentosTableViewCell.swift */; };
+		4247B016284B8BFF004A12EE /* LancamentosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4247B015284B8BFF004A12EE /* LancamentosCollectionViewCell.swift */; };
+		4247B019284B95FE004A12EE /* LancamentosTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4247B018284B95FE004A12EE /* LancamentosTableViewModel.swift */; };
+		4247B01B284B9677004A12EE /* UmLancamentoCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4247B01A284B9677004A12EE /* UmLancamentoCollectionViewModel.swift */; };
 		4256CE45283E4CAA0017DD5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4256CE44283E4CAA0017DD5F /* AppDelegate.swift */; };
 		4256CE47283E4CAA0017DD5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4256CE46283E4CAA0017DD5F /* SceneDelegate.swift */; };
 		4256CE49283E4CAA0017DD5F /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4256CE48283E4CAA0017DD5F /* PerfilViewController.swift */; };
@@ -29,6 +35,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4247B00F284B85E9004A12EE /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		4247B011284B8632004A12EE /* Filme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filme.swift; sourceTree = "<group>"; };
+		4247B013284B886D004A12EE /* LancamentosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LancamentosTableViewCell.swift; sourceTree = "<group>"; };
+		4247B015284B8BFF004A12EE /* LancamentosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LancamentosCollectionViewCell.swift; sourceTree = "<group>"; };
+		4247B018284B95FE004A12EE /* LancamentosTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LancamentosTableViewModel.swift; sourceTree = "<group>"; };
+		4247B01A284B9677004A12EE /* UmLancamentoCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UmLancamentoCollectionViewModel.swift; sourceTree = "<group>"; };
 		4256CE41283E4CAA0017DD5F /* MovieRoll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieRoll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4256CE44283E4CAA0017DD5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4256CE46283E4CAA0017DD5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				8A3BA16E284A5F6800C74C77 /* User.swift */,
+				4247B011284B8632004A12EE /* Filme.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -75,7 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				4256CE4A283E4CAA0017DD5F /* Main.storyboard */,
-				8A72D0B5283FA14600977B34 /* LancamentosViewController.swift */,
+				4247B017284B8D1F004A12EE /* Lancamentos */,
 				8A72D0B3283FA12800977B34 /* RoletaViewController.swift */,
 				4256CE48283E4CAA0017DD5F /* PerfilViewController.swift */,
 				8A3BA172284A63E100C74C77 /* UserPerfilTableViewCell.swift */,
@@ -91,11 +104,31 @@
 		421693F228497979001F431E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4247B01C284B967F004A12EE /* Lancamentos */,
 				8A3BA176284A659E00C74C77 /* PerfilViewModel.swift */,
 				8A3BA178284A723E00C74C77 /* UserPerfilTableViewCellViewModel.swift */,
 				8A3BA17A284A834C00C74C77 /* OptionsPerfilTableViewCellViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4247B017284B8D1F004A12EE /* Lancamentos */ = {
+			isa = PBXGroup;
+			children = (
+				8A72D0B5283FA14600977B34 /* LancamentosViewController.swift */,
+				4247B013284B886D004A12EE /* LancamentosTableViewCell.swift */,
+				4247B015284B8BFF004A12EE /* LancamentosCollectionViewCell.swift */,
+			);
+			path = Lancamentos;
+			sourceTree = "<group>";
+		};
+		4247B01C284B967F004A12EE /* Lancamentos */ = {
+			isa = PBXGroup;
+			children = (
+				4247B018284B95FE004A12EE /* LancamentosTableViewModel.swift */,
+				4247B01A284B9677004A12EE /* UmLancamentoCollectionViewModel.swift */,
+			);
+			path = Lancamentos;
 			sourceTree = "<group>";
 		};
 		4256CE38283E4CAA0017DD5F = {
@@ -117,6 +150,7 @@
 		4256CE43283E4CAA0017DD5F /* MovieRoll */ = {
 			isa = PBXGroup;
 			children = (
+				4247B00F284B85E9004A12EE /* Service.swift */,
 				421693F02849796A001F431E /* Model */,
 				421693F128497972001F431E /* View */,
 				421693F228497979001F431E /* ViewModel */,
@@ -202,8 +236,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A3BA171284A607100C74C77 /* PerfilData.swift in Sources */,
+				4247B012284B8632004A12EE /* Filme.swift in Sources */,
 				8ADFC41D284B7A6000CBDBA2 /* MeusDadosViewController.swift in Sources */,
+				4247B014284B886D004A12EE /* LancamentosTableViewCell.swift in Sources */,
+				4247B019284B95FE004A12EE /* LancamentosTableViewModel.swift in Sources */,
 				4256CE49283E4CAA0017DD5F /* PerfilViewController.swift in Sources */,
+				4247B01B284B9677004A12EE /* UmLancamentoCollectionViewModel.swift in Sources */,
 				8ADFC421284B7AAC00CBDBA2 /* ConfiguracoesViewController.swift in Sources */,
 				4256CE45283E4CAA0017DD5F /* AppDelegate.swift in Sources */,
 				8A3BA16F284A5F6800C74C77 /* User.swift in Sources */,
@@ -212,6 +250,8 @@
 				8ADFC423284B7ABE00CBDBA2 /* AjudaViewController.swift in Sources */,
 				8A72D0B6283FA14600977B34 /* LancamentosViewController.swift in Sources */,
 				8A72D0B4283FA12800977B34 /* RoletaViewController.swift in Sources */,
+				4247B010284B85E9004A12EE /* Service.swift in Sources */,
+				4247B016284B8BFF004A12EE /* LancamentosCollectionViewCell.swift in Sources */,
 				8ADFC41F284B7A8C00CBDBA2 /* HistoricoViewController.swift in Sources */,
 				8A3BA179284A723E00C74C77 /* UserPerfilTableViewCellViewModel.swift in Sources */,
 				8A3BA17B284A834C00C74C77 /* OptionsPerfilTableViewCellViewModel.swift in Sources */,

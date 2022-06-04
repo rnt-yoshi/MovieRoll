@@ -212,7 +212,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="211" id="LYm-u7-zqK">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="idCellTable" rowHeight="211" id="LYm-u7-zqK" customClass="LancamentosTableViewCell" customModule="MovieRoll" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="211"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LYm-u7-zqK" id="99V-jg-7CZ">
@@ -220,26 +220,26 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uaU-ng-UaL">
-                                                    <rect key="frame" x="5" y="11" width="409" height="201"/>
+                                                    <rect key="frame" x="5" y="11" width="409" height="200"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="201" id="Q7I-ft-2fK"/>
                                                     </constraints>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YNf-xG-dIc">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YNf-xG-dIc">
                                                         <size key="itemSize" width="147" height="219"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jCI-6N-6tz">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="idCellCollection" id="jCI-6N-6tz" customClass="LancamentosCollectionViewCell" customModule="MovieRoll" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="120" height="200"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gBj-AI-84h">
                                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="200"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hOJ-Y6-so7">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hOJ-Y6-so7">
                                                                         <rect key="frame" x="0.0" y="0.0" width="120" height="200"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="120" id="cWC-m8-Ixu"/>
@@ -255,17 +255,24 @@
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                             <size key="customSize" width="120" height="200"/>
+                                                            <connections>
+                                                                <outlet property="imagemFilmeUIImageView" destination="hOJ-Y6-so7" id="zVF-f1-Rih"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="uaU-ng-UaL" secondAttribute="bottom" id="3tx-2f-7XR"/>
                                                 <constraint firstItem="uaU-ng-UaL" firstAttribute="leading" secondItem="99V-jg-7CZ" secondAttribute="leading" constant="5" id="X84-d7-ulD"/>
                                                 <constraint firstAttribute="trailing" secondItem="uaU-ng-UaL" secondAttribute="trailing" id="nSW-gb-pPV"/>
                                                 <constraint firstItem="uaU-ng-UaL" firstAttribute="top" secondItem="99V-jg-7CZ" secondAttribute="topMargin" id="z1D-Sp-clW"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="lancamentosCollectionView" destination="uaU-ng-UaL" id="vwj-eY-UrW"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -280,6 +287,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Lançamentos" id="96H-jz-a2R"/>
+                    <connections>
+                        <outlet property="lancamentosTableView" destination="hzZ-aW-cqL" id="TS1-v7-rwC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mPx-FB-uDT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -423,7 +433,7 @@
                     <tabBarItem key="tabBarItem" title="Lançamentos" image="house" catalog="system" id="Ic1-5w-yFh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" largeTitles="YES" id="jK2-PM-Uyh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
