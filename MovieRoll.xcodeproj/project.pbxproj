@@ -67,6 +67,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BA7C7BE284BD2A100013C13 /* Perfil */ = {
+			isa = PBXGroup;
+			children = (
+				4256CE48283E4CAA0017DD5F /* PerfilViewController.swift */,
+				8ADFC41C284B7A6000CBDBA2 /* MeusDadosViewController.swift */,
+				8ADFC41E284B7A8C00CBDBA2 /* HistoricoViewController.swift */,
+				8ADFC420284B7AAC00CBDBA2 /* ConfiguracoesViewController.swift */,
+				8ADFC422284B7ABE00CBDBA2 /* AjudaViewController.swift */,
+			);
+			path = Perfil;
+			sourceTree = "<group>";
+		};
+		2BA7C7BF284BD2C300013C13 /* Perfil */ = {
+			isa = PBXGroup;
+			children = (
+				8A3BA176284A659E00C74C77 /* PerfilViewModel.swift */,
+			);
+			path = Perfil;
+			sourceTree = "<group>";
+		};
+		2BA7C7C0284BD2F000013C13 /* Roleta */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Roleta;
+			sourceTree = "<group>";
+		};
+		2BA7C7C1284BD30800013C13 /* Roleta */ = {
+			isa = PBXGroup;
+			children = (
+				8A72D0B3283FA12800977B34 /* RoletaViewController.swift */,
+			);
+			path = Roleta;
+			sourceTree = "<group>";
+		};
 		421693F02849796A001F431E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,12 +116,8 @@
 			children = (
 				4256CE4A283E4CAA0017DD5F /* Main.storyboard */,
 				4247B017284B8D1F004A12EE /* Lancamentos */,
-				8A72D0B3283FA12800977B34 /* RoletaViewController.swift */,
-				4256CE48283E4CAA0017DD5F /* PerfilViewController.swift */,
-				8ADFC41C284B7A6000CBDBA2 /* MeusDadosViewController.swift */,
-				8ADFC41E284B7A8C00CBDBA2 /* HistoricoViewController.swift */,
-				8ADFC420284B7AAC00CBDBA2 /* ConfiguracoesViewController.swift */,
-				8ADFC422284B7ABE00CBDBA2 /* AjudaViewController.swift */,
+				2BA7C7C1284BD30800013C13 /* Roleta */,
+				2BA7C7BE284BD2A100013C13 /* Perfil */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -95,7 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				4247B01C284B967F004A12EE /* Lancamentos */,
-				8A3BA176284A659E00C74C77 /* PerfilViewModel.swift */,
+				2BA7C7C0284BD2F000013C13 /* Roleta */,
+				2BA7C7BF284BD2C300013C13 /* Perfil */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
