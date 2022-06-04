@@ -5,7 +5,7 @@
 //  Created by Renato Yoshinari on 03/06/22.
 //
 
-import UIKit
+import Foundation
 
 class OptionsPerfilTableViewCellViewModel {
     private let option: OptionsPerfil
@@ -22,7 +22,7 @@ class OptionsPerfilTableViewCellViewModel {
         return option.subtitulo
     }
     
-    var getImage: UIImage {
-        return UIImage(systemName: option.imagem) ?? UIImage()
+    var getImage: String {
+        return option.imagem
     }
 }

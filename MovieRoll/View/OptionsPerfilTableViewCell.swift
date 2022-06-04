@@ -22,7 +22,7 @@ class OptionsPerfilTableViewCell: UITableViewCell {
     }
     
     func setupOptionCell(viewModel: OptionsPerfilTableViewCellViewModel ) {
-        imageOptions.image = viewModel.getImage
+        imageOptions.image = UIImage(systemName: viewModel.getImage)
         imageOptions.layer.cornerRadius = 5
         imageOptions.layer.borderWidth = 0.2
         tituloOptionsLabel.text = viewModel.getTitulo

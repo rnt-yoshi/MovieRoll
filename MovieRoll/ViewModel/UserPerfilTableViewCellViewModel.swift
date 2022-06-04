@@ -5,7 +5,7 @@
 //  Created by Renato Yoshinari on 03/06/22.
 //
 
-import UIKit
+import Foundation
 
 class UserPerfilTableViewCellViewModel {
     private let user: User
@@ -18,7 +18,7 @@ class UserPerfilTableViewCellViewModel {
         return user.name
     }
     
-    var getImage: UIImage {
-        return UIImage(named: user.image) ?? UIImage()
+    var getImage: String {
+        return user.image
     }
 }

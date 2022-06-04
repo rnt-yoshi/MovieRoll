@@ -21,7 +21,7 @@ class UserPerfilTableViewCell: UITableViewCell {
     }
     
     func setupUserCell(viewModel: UserPerfilTableViewCellViewModel ) {
-        userImage.image = viewModel.getImage
+        userImage.image = UIImage(named: viewModel.getImage)
         userImage.layer.cornerRadius = 32
         userImage.layer.borderWidth = 0.3
         userNameLabel.text = viewModel.getName
