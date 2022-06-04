@@ -22,6 +22,11 @@ class DetalhesFilmeViewModel {
         return filme.image
     }
     
+    var getNome:String {
+        
+        return filme.nome
+    }
+    
     
     var getAno:String {
         

@@ -9,13 +9,20 @@ import UIKit
 
 class LancamentosCollectionViewCell: UICollectionViewCell {
 
-    
-    
-    
     @IBOutlet weak var imagemFilmeUIImageView: UIImageView!
     
-    func configure(viewModel: UmLancamentoCollectionViewModel) {
-        imagemFilmeUIImageView.image = viewModel.getImage()
+    var filme: Filme? {
+        didSet {
+            if let filme = filme {
+                configure(filme: filme)
+            }
+        }
+
+    }
+   
+    
+    func configure(filme: Filme) {
+        imagemFilmeUIImageView.image = UIImage(named: filme.image)
     }
         
 }

@@ -8,43 +8,20 @@
 import UIKit
 
 class LancamentosViewController: UIViewController {
-  
+    
     
     @IBOutlet weak var lancamentosTableView: UITableView!
     
-
-    var filme:Filme?
-    
-    
-    var viewModel = LancamentosTableViewModel ()
+    var viewModel = LancamentosViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         lancamentosTableView.dataSource = self
         lancamentosTableView.delegate = self
+        viewModel.pegarFilmesEGeneros()
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        
-        guard segue.identifier == "detalhesFilme" else {return}
-                
-        if let detalhes = segue.destination as? DetalhesFilmeViewController, let filme = filme {
-            
-            
-            
-    let viewModel = DetalhesFilmeViewModel(filme: filme)
-            detalhes.viewModel = viewModel
-            
-            
-    
-        }
-        
-    }
-    
 }
-
 extension LancamentosViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -59,13 +36,12 @@ extension LancamentosViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = lancamentosTableView.dequeueReusableCell(withIdentifier: "idCellTable", for: indexPath) as? LancamentosTableViewCell
+        guard let cell = lancamentosTableView.dequeueReusableCell(withIdentifier: "idCellTable", for: indexPath) as? LancamentosTableViewCell else { return UITableViewCell() }
         
+        let filmes = viewModel.filmes
+        cell.config(delegate: self, filmes: filmes)
         
-        cell?.delegate = self
-        
-        
-        return cell ?? UITableViewCell()
+        return cell
     }
     
 }
@@ -86,15 +62,21 @@ extension LancamentosViewController: LancamentosDelegate {
     
     func didSelectItem(index: Int) {
         
-       let filme = viewModel.retornaFilmes(index: index)
+        let filme = viewModel.retornaFilmes(index: index)
+        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
         
-        self.filme = filme
+        let viewModel = DetalhesFilmeViewModel(filme: filme)
         
-        performSegue(withIdentifier: "detalhesFilme", sender: self)
+        detalhesFilme.viewModel = viewModel
+        
+        navigationController?.pushViewController(detalhesFilme, animated: true)
+        
+        
+        
         
     }
     
 }
 
-
+// View -> ViewController -> ViewModel -> Model
 

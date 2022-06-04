@@ -16,9 +16,8 @@ class LancamentosTableViewCell: UITableViewCell {
     
     @IBOutlet weak var lancamentosCollectionView: UICollectionView!
     
-    var viewModel = LancamentosTableViewModel()
-    
-    weak var delegate:LancamentosDelegate?
+    var filmes: [Filme]?
+    weak var delegate: LancamentosDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,28 +26,29 @@ class LancamentosTableViewCell: UITableViewCell {
         lancamentosCollectionView.delegate = self
     }
     
-  
+    func config(delegate: LancamentosDelegate, filmes: [Filme] ){
+        self.delegate = delegate
+        self.filmes = filmes
+    }
+    
 }
-
+//MARK: - CollectionView DataSoure
 extension LancamentosTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.numberOfItems(section: section)
-        //        return Service().filmes.count
+        return filmes?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = lancamentosCollectionView.dequeueReusableCell(withReuseIdentifier: "idCellCollection", for: indexPath) as? LancamentosCollectionViewCell
+        guard let cell = lancamentosCollectionView.dequeueReusableCell(withReuseIdentifier: "idCellCollection", for: indexPath) as? LancamentosCollectionViewCell else { return UICollectionViewCell()}
         
-        let cellViewModel = viewModel.getCellViewModel(index: indexPath.row)
+        guard let filme = filmes?[indexPath.row] else { return UICollectionViewCell()}
+        cell.configure(filme: filme) 
         
-        cell?.configure(viewModel: cellViewModel)
-        
-        return cell ?? UICollectionViewCell()
+        return cell
     }
     
 }
-
-
+//MARK: - CollectionView Delegate
 extension LancamentosTableViewCell:UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
