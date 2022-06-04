@@ -21,11 +21,7 @@
 		4256CE51283E4CAB0017DD5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4256CE4F283E4CAB0017DD5F /* LaunchScreen.storyboard */; };
 		8A3BA16F284A5F6800C74C77 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA16E284A5F6800C74C77 /* User.swift */; };
 		8A3BA171284A607100C74C77 /* PerfilData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA170284A607100C74C77 /* PerfilData.swift */; };
-		8A3BA173284A63E100C74C77 /* UserPerfilTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA172284A63E100C74C77 /* UserPerfilTableViewCell.swift */; };
-		8A3BA175284A640500C74C77 /* OptionsPerfilTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA174284A640500C74C77 /* OptionsPerfilTableViewCell.swift */; };
 		8A3BA177284A659E00C74C77 /* PerfilViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA176284A659E00C74C77 /* PerfilViewModel.swift */; };
-		8A3BA179284A723E00C74C77 /* UserPerfilTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA178284A723E00C74C77 /* UserPerfilTableViewCellViewModel.swift */; };
-		8A3BA17B284A834C00C74C77 /* OptionsPerfilTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA17A284A834C00C74C77 /* OptionsPerfilTableViewCellViewModel.swift */; };
 		8A72D0B4283FA12800977B34 /* RoletaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A72D0B3283FA12800977B34 /* RoletaViewController.swift */; };
 		8A72D0B6283FA14600977B34 /* LancamentosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A72D0B5283FA14600977B34 /* LancamentosViewController.swift */; };
 		8ADFC41D284B7A6000CBDBA2 /* MeusDadosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADFC41C284B7A6000CBDBA2 /* MeusDadosViewController.swift */; };
@@ -51,11 +47,7 @@
 		4256CE52283E4CAB0017DD5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A3BA16E284A5F6800C74C77 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8A3BA170284A607100C74C77 /* PerfilData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilData.swift; sourceTree = "<group>"; };
-		8A3BA172284A63E100C74C77 /* UserPerfilTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPerfilTableViewCell.swift; sourceTree = "<group>"; };
-		8A3BA174284A640500C74C77 /* OptionsPerfilTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsPerfilTableViewCell.swift; sourceTree = "<group>"; };
 		8A3BA176284A659E00C74C77 /* PerfilViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewModel.swift; sourceTree = "<group>"; };
-		8A3BA178284A723E00C74C77 /* UserPerfilTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPerfilTableViewCellViewModel.swift; sourceTree = "<group>"; };
-		8A3BA17A284A834C00C74C77 /* OptionsPerfilTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsPerfilTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		8A72D0B3283FA12800977B34 /* RoletaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoletaViewController.swift; sourceTree = "<group>"; };
 		8A72D0B5283FA14600977B34 /* LancamentosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LancamentosViewController.swift; sourceTree = "<group>"; };
 		8ADFC41C284B7A6000CBDBA2 /* MeusDadosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeusDadosViewController.swift; sourceTree = "<group>"; };
@@ -91,8 +83,6 @@
 				4247B017284B8D1F004A12EE /* Lancamentos */,
 				8A72D0B3283FA12800977B34 /* RoletaViewController.swift */,
 				4256CE48283E4CAA0017DD5F /* PerfilViewController.swift */,
-				8A3BA172284A63E100C74C77 /* UserPerfilTableViewCell.swift */,
-				8A3BA174284A640500C74C77 /* OptionsPerfilTableViewCell.swift */,
 				8ADFC41C284B7A6000CBDBA2 /* MeusDadosViewController.swift */,
 				8ADFC41E284B7A8C00CBDBA2 /* HistoricoViewController.swift */,
 				8ADFC420284B7AAC00CBDBA2 /* ConfiguracoesViewController.swift */,
@@ -106,8 +96,6 @@
 			children = (
 				4247B01C284B967F004A12EE /* Lancamentos */,
 				8A3BA176284A659E00C74C77 /* PerfilViewModel.swift */,
-				8A3BA178284A723E00C74C77 /* UserPerfilTableViewCellViewModel.swift */,
-				8A3BA17A284A834C00C74C77 /* OptionsPerfilTableViewCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -245,7 +233,6 @@
 				8ADFC421284B7AAC00CBDBA2 /* ConfiguracoesViewController.swift in Sources */,
 				4256CE45283E4CAA0017DD5F /* AppDelegate.swift in Sources */,
 				8A3BA16F284A5F6800C74C77 /* User.swift in Sources */,
-				8A3BA173284A63E100C74C77 /* UserPerfilTableViewCell.swift in Sources */,
 				4256CE47283E4CAA0017DD5F /* SceneDelegate.swift in Sources */,
 				8ADFC423284B7ABE00CBDBA2 /* AjudaViewController.swift in Sources */,
 				8A72D0B6283FA14600977B34 /* LancamentosViewController.swift in Sources */,
@@ -253,10 +240,7 @@
 				4247B010284B85E9004A12EE /* Service.swift in Sources */,
 				4247B016284B8BFF004A12EE /* LancamentosCollectionViewCell.swift in Sources */,
 				8ADFC41F284B7A8C00CBDBA2 /* HistoricoViewController.swift in Sources */,
-				8A3BA179284A723E00C74C77 /* UserPerfilTableViewCellViewModel.swift in Sources */,
-				8A3BA17B284A834C00C74C77 /* OptionsPerfilTableViewCellViewModel.swift in Sources */,
 				8A3BA177284A659E00C74C77 /* PerfilViewModel.swift in Sources */,
-				8A3BA175284A640500C74C77 /* OptionsPerfilTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

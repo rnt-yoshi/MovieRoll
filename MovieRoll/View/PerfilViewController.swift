@@ -56,17 +56,27 @@ extension PerfilViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "userPerfilCell") as? UserPerfilTableViewCell
-            cell?.setupUserCell(viewModel: UserPerfilTableViewCellViewModel(user: userPerfil))
-            return cell ?? UITableViewCell()
-        }
-        if indexPath.section == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "optionsPerfilCell") as? OptionsPerfilTableViewCell
-            cell?.setupOptionCell(viewModel: OptionsPerfilTableViewCellViewModel(option: optionsPerfil[indexPath.row]))
-            return cell ?? UITableViewCell()
-        }
-        return UITableViewCell()
+        let cell = UITableViewCell()
+        cell.backgroundColor = .darkGray
+        
+        var content = cell.defaultContentConfiguration()
+        
+        content.image = UIImage(named: viewModel.getImage(indexPath: indexPath))
+
+        content.imageProperties.maximumSize = CGSize(
+            width: viewModel.getMaximumSize(indexPath: indexPath),
+            height: viewModel.getMaximumSize(indexPath: indexPath)
+        )
+        content.imageProperties.cornerRadius = CGFloat(viewModel.getCornerRadius(indexPath: indexPath))
+        
+        content.text = viewModel.getText(indexPath: indexPath)
+        content.secondaryText = viewModel.getSecondaryText(indexPath: indexPath)
+        content.textProperties.color = .white
+        content.secondaryTextProperties.color = .white
+        
+        cell.contentConfiguration = content
+        
+        return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
