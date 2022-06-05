@@ -80,6 +80,16 @@ class RoletaViewController: UIViewController {
     }
     
     @IBAction func roletarButtonPressed(_ sender: Any) {
+
+            let filme = viewModel.roletaFilmeFiltrado()
+            guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
+            
+            let viewModel = DetalhesFilmeViewModel(filme: filme)
+            
+            detalhesFilme.viewModel = viewModel
+            
+            navigationController?.pushViewController(detalhesFilme, animated: true)
+        
     }
     
     

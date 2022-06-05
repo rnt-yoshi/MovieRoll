@@ -25,6 +25,12 @@ class RoletaViewModel {
     var dataInicial = ""
     var dataFinal = ""
     
+    let filmes: [Filme]
+    
+    init() {
+        filmes = service.filmes
+    }
+    
     var getPlataformas: [String] {
         return service.plataformas
     }
@@ -59,4 +65,11 @@ class RoletaViewModel {
 
         return "De \(dataInicial) Até \(dataFinal)"
     }
+    
+    func roletaFilmeFiltrado() -> Filme {
+    
+        return filmes[1]
+    
+    }
+    
 }

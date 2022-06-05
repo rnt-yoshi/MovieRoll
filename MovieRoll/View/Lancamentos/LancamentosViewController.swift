@@ -62,15 +62,21 @@ extension LancamentosViewController: LancamentosDelegate {
     
     func didSelectItem(index: Int) {
         
-        let filme = viewModel.retornaFilmes(index: index)
-        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
-        
-        let viewModel = DetalhesFilmeViewModel(filme: filme)
-        
-        detalhesFilme.viewModel = viewModel
-        
-        navigationController?.pushViewController(detalhesFilme, animated: true)
-        
+        func didSelectItem(index: Int) {
+            
+            let filme = viewModel.retornaFilmes(index: index)
+            guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
+            
+            let viewModel = DetalhesFilmeViewModel(filme: filme)
+            
+            detalhesFilme.viewModel = viewModel
+            
+            navigationController?.pushViewController(detalhesFilme, animated: true)
+            
+            
+            
+            
+        }
         
         
         
