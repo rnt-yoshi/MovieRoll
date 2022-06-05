@@ -95,13 +95,6 @@
 			path = Perfil;
 			sourceTree = "<group>";
 		};
-		2BA7C7C0284BD2F000013C13 /* Roleta */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Roleta;
-			sourceTree = "<group>";
-		};
 		2BA7C7C1284BD30800013C13 /* Roleta */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,9 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				4247B01C284B967F004A12EE /* Lancamentos */,
-				2BA7C7C0284BD2F000013C13 /* Roleta */,
+				42E2BFE8284D22C700B01F08 /* Roleta */,
 				2BA7C7BF284BD2C300013C13 /* Perfil */,
-				C635E81F284C4EF000DF525E /* RoletaViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -194,6 +186,14 @@
 				8A3BA170284A607100C74C77 /* PerfilData.swift */,
 			);
 			path = MovieRoll;
+			sourceTree = "<group>";
+		};
+		42E2BFE8284D22C700B01F08 /* Roleta */ = {
+			isa = PBXGroup;
+			children = (
+				C635E81F284C4EF000DF525E /* RoletaViewModel.swift */,
+			);
+			path = Roleta;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

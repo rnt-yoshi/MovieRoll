@@ -49,7 +49,7 @@ extension LancamentosTableViewCell: UICollectionViewDataSource {
     
 }
 //MARK: - CollectionView Delegate
-extension LancamentosTableViewCell:UICollectionViewDelegate {
+extension LancamentosTableViewCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
