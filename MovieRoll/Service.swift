@@ -9,6 +9,17 @@ import Foundation
 
 class Service {
     
+    let plataformas: [String] = [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6",
+        "p7",
+        "p8",
+        "p9"
+    ]
     
     let generos: [String] = [
         "Ação",
@@ -30,7 +41,8 @@ class Service {
               nota: 9,
               sinopse: "01-TextoSinopse",
               classificaIndicativaImage: "",
-              classificacaoIndicativa: "", plataforma: ""
+              classificacaoIndicativa: "",
+              plataforma: ""
              ),
         
         Filme(image: "02-simpsons",
@@ -40,7 +52,8 @@ class Service {
               nota: 7,
               sinopse: "02-TextoSinopse",
               classificaIndicativaImage: "",
-              classificacaoIndicativa: "", plataforma: ""
+              classificacaoIndicativa: "",
+              plataforma: ""
              ),
         Filme(image: "03-segredos",
               nome: "segredos",
