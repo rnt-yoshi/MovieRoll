@@ -60,8 +60,6 @@ extension LancamentosViewController: UITableViewDelegate {
 
 extension LancamentosViewController: LancamentosDelegate {
     
-    func didSelectItem(index: Int) {
-        
         func didSelectItem(index: Int) {
             
             let filme = viewModel.retornaFilmes(index: index)
@@ -77,11 +75,6 @@ extension LancamentosViewController: LancamentosDelegate {
             
             
         }
-        
-        
-        
-    }
-    
 }
 
 // View -> ViewController -> ViewModel -> Model

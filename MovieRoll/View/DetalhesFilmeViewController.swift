@@ -41,30 +41,22 @@ class DetalhesFilmeViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.tintColor = .white
         
-        let botao = UIBarButtonItem(barButtonSystemItem: .edit , target: self, action: nil)
-        let botao2 = UIBarButtonItem(barButtonSystemItem: .edit , target: self, action: nil)
-
-        navigationItem.setRightBarButtonItems([botao,botao2], animated: true)
-        
-        let backButton = UIBarButtonItem(barButtonSystemItem: .close , target: self, action: #selector(didTouchBackButton))
+        let backButton = UIBarButtonItem(image: UIImage(named: "back"), style: .done, target: self, action: #selector(didTouchBackButton))
         navigationItem.setLeftBarButton(backButton, animated: true)
         navigationItem.setHidesBackButton(true, animated: true)
-
         
+        let favoritosButton = UIBarButtonItem(image: UIImage(named: "heartnil"), style: .done, target: self, action: nil)
+        let checkButton = UIBarButtonItem(image: UIImage(named: "check"), style: .done, target: self, action: nil)
+        navigationItem.setRightBarButtonItems([checkButton, favoritosButton], animated: true)
+
     }
+    
     //MARK: - Funcoes Privadas
     @objc private func didTouchBackButton(){
         navigationController?.popViewController(animated: true)
-        
     }
 
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//
-//        // Restore the navigation bar to default
-//        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-//        navigationController?.navigationBar.shadowImage = nil
-//    }
+
 
     private func configureUI () {
         
