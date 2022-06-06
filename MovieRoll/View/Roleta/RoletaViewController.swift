@@ -77,8 +77,6 @@ extension RoletaViewController: UICollectionViewDataSource {
         
         return cell
     }
-    
-    
 }
 
 
@@ -99,27 +97,29 @@ extension RoletaViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         viewModel.titleForRow(row: row)
     }
-    
 }
 
 
 extension RoletaViewController: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
         dataDeLancamentoTextField.text = viewModel.getTitleForTextField(row: row, componente: component)
         dataDeLancamentoTextField.resignFirstResponder()
     }
-    
 }
 
 extension RoletaViewController: RoletaViewModelDelegate {
     func botaoSelecionado(tag: Int) {
-        generosBotoes[tag].alpha = 0.4
+        generosBotoes[tag].alpha = 0.60
+        generosBotoes[tag].layer.cornerRadius = 10
+        generosBotoes[tag].layer.borderWidth = 3
+        generosBotoes[tag].layer.borderColor = UIColor.orange.cgColor
     }
     
     func botaoSemSelecao(tag: Int) {
         generosBotoes[tag].alpha = 1
+        generosBotoes[tag].layer.borderWidth = 0
+        
     }
     
     func estrelaVazia(tag: Int) {

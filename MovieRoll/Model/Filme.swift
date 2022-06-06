@@ -10,7 +10,7 @@ import Foundation
 class Filme {
     let image: String
     let nome: String
-    let ano: Int
+    let ano: String
     let genero: String
     let nota: Int
     let sinopse: String
@@ -18,7 +18,7 @@ class Filme {
     let classificacaoIndicativa: String
     let plataforma: String
     
-    init(image: String, nome: String, ano: Int, genero: String, nota: Int, sinopse: String, classificaIndicativaImage: String,classificacaoIndicativa:String, plataforma: String
+    init(image: String, nome: String, ano: String, genero: String, nota: Int, sinopse: String, classificaIndicativaImage: String,classificacaoIndicativa:String, plataforma: String
     ) {
         self.image = image
         self.nome = nome

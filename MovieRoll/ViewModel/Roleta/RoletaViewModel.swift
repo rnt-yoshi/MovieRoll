@@ -21,22 +21,26 @@ class RoletaViewModel {
     var delegate: RoletaViewModelDelegate?
     
     private var anos: [String] = [
-        "1970",
-        "1980",
-        "1990",
-        "2000",
-        "2010",
-        "2020",
+        "2022",
         "2021",
-        "2022"
+        "2020",
+        "2010",
+        "2000",
+        "1990",
+        "1980",
+        "1970",
+        "1960",
+        "1950",
+        "1940",
+        "1930"
     ]
     
     private var notasFiltrosEstrela = 0
     
     private var generosFiltro: [String] = []
-    
-    var dataInicial = ""
-    var dataFinal = ""
+    private var plataformaFiltro: [String] = []
+    private var dataInicial = "1930"
+    private var dataFinal = "2022"
     
     let filmes: [Filme]
     
@@ -69,7 +73,6 @@ class RoletaViewModel {
     }
     
     func getTitleForTextField(row: Int, componente: Int) -> String {
-        
         if componente == 0 {
             dataInicial = anos[row]
         } else {
@@ -80,12 +83,43 @@ class RoletaViewModel {
     }
     
     func roletaFilmeFiltrado() -> Filme {
-        let filme = filmes.filter { filme in
-            filme.nota >= notasFiltrosEstrela
-            
-        }
-        return filme[0]
+        var filme: Filme?
+        let filmeFiltradoGenero = filtraPorGenero(generos: generosFiltro, filmes: service.filmes)
         
+        let filmeFiltradoNota = filtrarPorNota(nota: notasFiltrosEstrela, filmes: filmeFiltradoGenero)
+        
+        let filmeFiltradoData = filtrarPorData(dataInicial: dataInicial, dataFinal: dataFinal, filmes: filmeFiltradoNota)
+        
+        filme = filmeFiltradoData.randomElement()
+        
+        return filme ?? service.filmeNil
+    }
+    
+    private func filtrarPorData(dataInicial: String, dataFinal: String, filmes: [Filme]) -> [Filme] {
+        let filmesData = filmes.filter { filmesData in
+            filmesData.ano >= dataInicial && filmesData.ano <= dataFinal
+        }
+        return filmesData
+    }
+    
+    private func filtrarPorNota(nota: Int, filmes: [Filme]) -> [Filme] {
+            let filmesNota = filmes.filter { filmesNota in
+            filmesNota.nota >= notasFiltrosEstrela
+        }
+        return filmesNota
+    }
+    
+    private func filtraPorGenero(generos: [String], filmes: [Filme]) -> [Filme] {
+        var filme: [Filme] = []
+        
+        for genero in generos {
+            let filmesFiltrados = filmes.filter { filme in
+                filme.genero == genero
+            }
+            filme.append(contentsOf: filmesFiltrados)
+        }
+        
+        return filme
     }
     
     func estrelaNotaPressionada(_ tag: Int) {
