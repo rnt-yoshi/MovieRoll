@@ -11,8 +11,6 @@ class DetalhesFilmeViewController: UIViewController {
     
     var viewModel:DetalhesFilmeViewModel?
     
-    
-    
     @IBOutlet weak var posterFilme: UIImageView!
     
     @IBOutlet weak var nomeDoFilmeLabel: UILabel!
@@ -29,7 +27,6 @@ class DetalhesFilmeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,15 +45,12 @@ class DetalhesFilmeViewController: UIViewController {
         let favoritosButton = UIBarButtonItem(image: UIImage(named: "heartnil"), style: .done, target: self, action: nil)
         let checkButton = UIBarButtonItem(image: UIImage(named: "check"), style: .done, target: self, action: nil)
         navigationItem.setRightBarButtonItems([checkButton, favoritosButton], animated: true)
-
     }
     
     //MARK: - Funcoes Privadas
     @objc private func didTouchBackButton(){
         navigationController?.popViewController(animated: true)
     }
-
-
 
     private func configureUI () {
         
@@ -70,9 +64,6 @@ class DetalhesFilmeViewController: UIViewController {
         classificacaoIndicativaImage.image = UIImage(named: viewModel.getClassificacaoIndicativaImage)
         classificacaoIndicativaLabel.text = viewModel.getClassificacaoIndicativa
         sinopseLabel.text = viewModel.getSinopse
-        plataformaImageView.image = UIImage(named:         viewModel.getPlataforma)
-        
+        plataformaImageView.image = UIImage(named: viewModel.getPlataforma)
     }
-    
-
 }

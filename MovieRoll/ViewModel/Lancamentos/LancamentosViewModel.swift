@@ -27,13 +27,7 @@ class LancamentosViewModel {
         generos = service.generos
     }
     
-    
     func numberOfItems(section: Int) -> Int {
-        //fazer filtro de genero
-        //        let filmesFiltrado = service.filmes.filter { filmes in
-        //            service.generos[section]
-        //        }
-        
         let filmesFiltrado = filmes
         
         return filmesFiltrado.count
@@ -47,14 +41,4 @@ class LancamentosViewModel {
         
         return filmes[index]
     }
-    
-//    func getCellViewModel(index: Int) -> UmLancamentoCollectionViewModel {
-//        let filme = filmes[index]
-//
-//        let cellViewModel = UmLancamentoCollectionViewModel(filme: filme)
-//
-//        return cellViewModel
-//    }
-    
-    
 }

@@ -9,21 +9,32 @@ import UIKit
 
 class MeusDadosViewController: UIViewController {
 
+    @IBOutlet weak var meusDadosImage: UIImageView!
+    @IBOutlet weak var meusDadosNomeTextField: UITextField!
+    @IBOutlet weak var meusDadosEmailTextField: UITextField!
+    
+    var viewModel: MeusDadosViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        configuraTela()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func configuraTela() {
+        guard let viewModel = viewModel else { return }
+        meusDadosImage.image = UIImage(named: viewModel.getUserImage)
+        meusDadosImage.layer.cornerRadius = 80
     }
-    */
-
+    
+    @IBAction func alterarFotoButtonAction(_ sender: Any) {
+    }
+    
+    
+    
+    @IBAction func salvarButtonAction(_ sender: Any) {
+        viewModel?.setUserName(nome: meusDadosNomeTextField.text)
+        navigationController?.popViewController(animated: true)
+    }
+    
 }

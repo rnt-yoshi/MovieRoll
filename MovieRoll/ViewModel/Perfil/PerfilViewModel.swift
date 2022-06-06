@@ -10,6 +10,31 @@ import UIKit
 
 class PerfilViewModel {
     
+    private var userPerfil = User(name: "Renato", image: "Renato")
+    
+    private var optionsDoPerfil = [
+        OptionsDoPerfil(
+            titulo: "Meus Dados",
+            subtitulo: "Meus dados pessoais.",
+            imagem: "meusdados"
+        ),
+        OptionsDoPerfil(
+            titulo: "Histórico",
+            subtitulo: "Histórico da Roleta, favoritos e assistidos.",
+            imagem: "roleta"
+        ),
+        OptionsDoPerfil(
+            titulo: "Configurações",
+            subtitulo: "Configurações do app.",
+            imagem: "config"
+        ),
+        OptionsDoPerfil(
+            titulo: "Ajuda",
+            subtitulo: "Ajuda do app.",
+            imagem: "ajuda"
+        )
+    ]
+    
     var numberOfSection: Int {
         return 2
     }
@@ -19,7 +44,7 @@ class PerfilViewModel {
             return 1
         }
         if section == 1 {
-            return optionsPerfil.count
+            return optionsDoPerfil.count
         }
         return 0
     }
@@ -28,7 +53,7 @@ class PerfilViewModel {
         if indexPath.section == 0 {
             return userPerfil.image
         } else {
-            return optionsPerfil[indexPath.row].imagem
+            return optionsDoPerfil[indexPath.row].imagem
         }
     }
     
@@ -52,7 +77,7 @@ class PerfilViewModel {
         if indexPath.section == 0 {
             return userPerfil.name
         } else {
-            return optionsPerfil[indexPath.row].titulo
+            return optionsDoPerfil[indexPath.row].titulo
         }
     }
     
@@ -60,7 +85,15 @@ class PerfilViewModel {
         if indexPath.section == 0 {
             return nil
         } else {
-            return optionsPerfil[indexPath.row].subtitulo
+            return optionsDoPerfil[indexPath.row].subtitulo
         }
+    }
+    
+    func getMeusDadosViewModel() -> MeusDadosViewModel? {
+        return MeusDadosViewModel(user: userPerfil)
+    }
+    
+    func getHistoricoViewModel() -> HistoricoViewModel? {
+        return HistoricoViewModel()
     }
 }

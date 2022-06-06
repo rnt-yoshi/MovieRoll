@@ -17,15 +17,11 @@ class LancamentosCollectionViewCell: UICollectionViewCell {
                 configure(filme: filme)
             }
         }
-
     }
    
-    
     func configure(filme: Filme) {
         imagemFilmeUIImageView.image = UIImage(named: filme.image)
-        
         imagemFilmeUIImageView.layer.cornerRadius = 10
     }
-        
 }
 

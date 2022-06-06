@@ -25,26 +25,22 @@ extension PerfilViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             if let meusDadosVC = storyboard?.instantiateViewController(withIdentifier: "meusDadosVC") as? MeusDadosViewController {
+                meusDadosVC.viewModel = viewModel.getMeusDadosViewModel()
                 meusDadosVC.navigationItem.largeTitleDisplayMode = .never
                 navigationController?.pushViewController(meusDadosVC, animated: true)
             }
         }
         if indexPath.row == 1 {
             if let historicoVC = storyboard?.instantiateViewController(withIdentifier: "historicoVC") as? HistoricoViewController {
+                historicoVC.viewModel = viewModel.getHistoricoViewModel()
                 historicoVC.navigationItem.largeTitleDisplayMode = .never
                 navigationController?.pushViewController(historicoVC, animated: true)
             }
         }
         if indexPath.row == 2 {
-            if let configuracoesVC = storyboard?.instantiateViewController(withIdentifier: "configuracoesVC") as? ConfiguracoesViewController {
+            if let configuracoesVC = storyboard?.instantiateViewController(withIdentifier: "configuracoesViewController") as? ConfiguracoesViewController {
                 configuracoesVC.navigationItem.largeTitleDisplayMode = .never
                 navigationController?.pushViewController(configuracoesVC, animated: true)
-            }
-        }
-        if indexPath.row == 3 {
-            if let ajudaVC = storyboard?.instantiateViewController(withIdentifier: "ajudaVC") as? AjudaViewController {
-                ajudaVC.navigationItem.largeTitleDisplayMode = .never
-                navigationController?.pushViewController(ajudaVC, animated: true)
             }
         }
     }

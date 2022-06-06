@@ -22,6 +22,7 @@ class LancamentosViewController: UIViewController {
         viewModel.pegarFilmesEGeneros()
     }
 }
+
 extension LancamentosViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -43,7 +44,6 @@ extension LancamentosViewController: UITableViewDataSource {
         
         return cell
     }
-    
 }
 
 extension LancamentosViewController: UITableViewDelegate {
@@ -51,31 +51,16 @@ extension LancamentosViewController: UITableViewDelegate {
         let tableHeader = view as! UITableViewHeaderFooterView
         tableHeader.tintColor = UIColor.clear
         tableHeader.textLabel?.textColor = .white
-        //        tableHeader.textLabel?.font = UIFont(name: "Helvetica-Neue", size: 25)
-        //        tableHeader.textLabel?.font = UIFont.boldSystemFont(ofSize: 25)
     }
-    
 }
 
 
 extension LancamentosViewController: LancamentosDelegate {
-    
-        func didSelectItem(index: Int) {
-            
-            let filme = viewModel.retornaFilmes(index: index)
-            guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
-            
-            let viewModel = DetalhesFilmeViewModel(filme: filme)
-            
-            detalhesFilme.viewModel = viewModel
-            
-            navigationController?.pushViewController(detalhesFilme, animated: true)
-            
-            
-            
-            
-        }
+    func didSelectItem(index: Int) {
+        let filme = viewModel.retornaFilmes(index: index)
+        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
+        let viewModel = DetalhesFilmeViewModel(filme: filme)
+        detalhesFilme.viewModel = viewModel
+        navigationController?.pushViewController(detalhesFilme, animated: true)
+    }
 }
-
-// View -> ViewController -> ViewModel -> Model
-

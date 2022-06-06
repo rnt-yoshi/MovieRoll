@@ -12,7 +12,6 @@
 		4247B014284B886D004A12EE /* LancamentosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4247B013284B886D004A12EE /* LancamentosTableViewCell.swift */; };
 		4247B016284B8BFF004A12EE /* LancamentosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4247B015284B8BFF004A12EE /* LancamentosCollectionViewCell.swift */; };
 		4247B019284B95FE004A12EE /* LancamentosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4247B018284B95FE004A12EE /* LancamentosViewModel.swift */; };
-		4247B01B284B9677004A12EE /* UmLancamentoCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4247B01A284B9677004A12EE /* UmLancamentoCollectionViewModel.swift */; };
 		4256CE45283E4CAA0017DD5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4256CE44283E4CAA0017DD5F /* AppDelegate.swift */; };
 		4256CE47283E4CAA0017DD5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4256CE46283E4CAA0017DD5F /* SceneDelegate.swift */; };
 		4256CE49283E4CAA0017DD5F /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4256CE48283E4CAA0017DD5F /* PerfilViewController.swift */; };
@@ -22,7 +21,7 @@
 		429FFF2E284BD5200079C159 /* DetalhesFilmeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429FFF2D284BD5200079C159 /* DetalhesFilmeViewController.swift */; };
 		429FFF30284BD92C0079C159 /* DetalhesFilmeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429FFF2F284BD92C0079C159 /* DetalhesFilmeViewModel.swift */; };
 		8A3BA16F284A5F6800C74C77 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA16E284A5F6800C74C77 /* User.swift */; };
-		8A3BA171284A607100C74C77 /* PerfilData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA170284A607100C74C77 /* PerfilData.swift */; };
+		8A3BA171284A607100C74C77 /* OptionsDoPerfil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA170284A607100C74C77 /* OptionsDoPerfil.swift */; };
 		8A3BA177284A659E00C74C77 /* PerfilViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA176284A659E00C74C77 /* PerfilViewModel.swift */; };
 		8A72D0B4283FA12800977B34 /* RoletaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A72D0B3283FA12800977B34 /* RoletaViewController.swift */; };
 		8A72D0B6283FA14600977B34 /* LancamentosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A72D0B5283FA14600977B34 /* LancamentosViewController.swift */; };
@@ -30,6 +29,10 @@
 		8ADFC41F284B7A8C00CBDBA2 /* HistoricoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADFC41E284B7A8C00CBDBA2 /* HistoricoViewController.swift */; };
 		8ADFC421284B7AAC00CBDBA2 /* ConfiguracoesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADFC420284B7AAC00CBDBA2 /* ConfiguracoesViewController.swift */; };
 		8ADFC423284B7ABE00CBDBA2 /* AjudaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADFC422284B7ABE00CBDBA2 /* AjudaViewController.swift */; };
+		8AF64927284E2B4F00308711 /* MeusDadosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF64926284E2B4F00308711 /* MeusDadosViewModel.swift */; };
+		8AF64929284E2B6F00308711 /* HistoricoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF64928284E2B6F00308711 /* HistoricoViewModel.swift */; };
+		8AF6492B284E2C1100308711 /* HistoricoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF6492A284E2C1100308711 /* HistoricoCellViewModel.swift */; };
+		8AF6492D284E350400308711 /* HistoricoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF6492C284E350400308711 /* HistoricoCollectionViewCell.swift */; };
 		C635E81E284C4DAF00DF525E /* PlataformasCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C635E81D284C4DAE00DF525E /* PlataformasCollectionViewCell.swift */; };
 		C635E820284C4EF100DF525E /* RoletaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C635E81F284C4EF000DF525E /* RoletaViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -40,7 +43,6 @@
 		4247B013284B886D004A12EE /* LancamentosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LancamentosTableViewCell.swift; sourceTree = "<group>"; };
 		4247B015284B8BFF004A12EE /* LancamentosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LancamentosCollectionViewCell.swift; sourceTree = "<group>"; };
 		4247B018284B95FE004A12EE /* LancamentosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LancamentosViewModel.swift; sourceTree = "<group>"; };
-		4247B01A284B9677004A12EE /* UmLancamentoCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UmLancamentoCollectionViewModel.swift; sourceTree = "<group>"; };
 		4256CE41283E4CAA0017DD5F /* MovieRoll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieRoll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4256CE44283E4CAA0017DD5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4256CE46283E4CAA0017DD5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +54,7 @@
 		429FFF2D284BD5200079C159 /* DetalhesFilmeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesFilmeViewController.swift; sourceTree = "<group>"; };
 		429FFF2F284BD92C0079C159 /* DetalhesFilmeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesFilmeViewModel.swift; sourceTree = "<group>"; };
 		8A3BA16E284A5F6800C74C77 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		8A3BA170284A607100C74C77 /* PerfilData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilData.swift; sourceTree = "<group>"; };
+		8A3BA170284A607100C74C77 /* OptionsDoPerfil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsDoPerfil.swift; sourceTree = "<group>"; };
 		8A3BA176284A659E00C74C77 /* PerfilViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewModel.swift; sourceTree = "<group>"; };
 		8A72D0B3283FA12800977B34 /* RoletaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoletaViewController.swift; sourceTree = "<group>"; };
 		8A72D0B5283FA14600977B34 /* LancamentosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LancamentosViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,10 @@
 		8ADFC41E284B7A8C00CBDBA2 /* HistoricoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoViewController.swift; sourceTree = "<group>"; };
 		8ADFC420284B7AAC00CBDBA2 /* ConfiguracoesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguracoesViewController.swift; sourceTree = "<group>"; };
 		8ADFC422284B7ABE00CBDBA2 /* AjudaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjudaViewController.swift; sourceTree = "<group>"; };
+		8AF64926284E2B4F00308711 /* MeusDadosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeusDadosViewModel.swift; sourceTree = "<group>"; };
+		8AF64928284E2B6F00308711 /* HistoricoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoViewModel.swift; sourceTree = "<group>"; };
+		8AF6492A284E2C1100308711 /* HistoricoCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoCellViewModel.swift; sourceTree = "<group>"; };
+		8AF6492C284E350400308711 /* HistoricoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoCollectionViewCell.swift; sourceTree = "<group>"; };
 		C635E81D284C4DAE00DF525E /* PlataformasCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlataformasCollectionViewCell.swift; sourceTree = "<group>"; };
 		C635E81F284C4EF000DF525E /* RoletaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoletaViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +87,7 @@
 				4256CE48283E4CAA0017DD5F /* PerfilViewController.swift */,
 				8ADFC41C284B7A6000CBDBA2 /* MeusDadosViewController.swift */,
 				8ADFC41E284B7A8C00CBDBA2 /* HistoricoViewController.swift */,
+				8AF6492C284E350400308711 /* HistoricoCollectionViewCell.swift */,
 				8ADFC420284B7AAC00CBDBA2 /* ConfiguracoesViewController.swift */,
 				8ADFC422284B7ABE00CBDBA2 /* AjudaViewController.swift */,
 			);
@@ -91,6 +98,9 @@
 			isa = PBXGroup;
 			children = (
 				8A3BA176284A659E00C74C77 /* PerfilViewModel.swift */,
+				8AF64926284E2B4F00308711 /* MeusDadosViewModel.swift */,
+				8AF64928284E2B6F00308711 /* HistoricoViewModel.swift */,
+				8AF6492A284E2C1100308711 /* HistoricoCellViewModel.swift */,
 			);
 			path = Perfil;
 			sourceTree = "<group>";
@@ -107,6 +117,7 @@
 		421693F02849796A001F431E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8A3BA170284A607100C74C77 /* OptionsDoPerfil.swift */,
 				8A3BA16E284A5F6800C74C77 /* User.swift */,
 				4247B011284B8632004A12EE /* Filme.swift */,
 			);
@@ -149,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				4247B018284B95FE004A12EE /* LancamentosViewModel.swift */,
-				4247B01A284B9677004A12EE /* UmLancamentoCollectionViewModel.swift */,
 				429FFF2F284BD92C0079C159 /* DetalhesFilmeViewModel.swift */,
 			);
 			path = Lancamentos;
@@ -174,7 +184,6 @@
 		4256CE43283E4CAA0017DD5F /* MovieRoll */ = {
 			isa = PBXGroup;
 			children = (
-				8A3BA170284A607100C74C77 /* PerfilData.swift */,
 				4247B00F284B85E9004A12EE /* Service.swift */,
 				421693F02849796A001F431E /* Model */,
 				421693F128497972001F431E /* View */,
@@ -267,15 +276,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A3BA171284A607100C74C77 /* PerfilData.swift in Sources */,
+				8A3BA171284A607100C74C77 /* OptionsDoPerfil.swift in Sources */,
 				4247B012284B8632004A12EE /* Filme.swift in Sources */,
 				429FFF2E284BD5200079C159 /* DetalhesFilmeViewController.swift in Sources */,
+				8AF64929284E2B6F00308711 /* HistoricoViewModel.swift in Sources */,
 				8ADFC41D284B7A6000CBDBA2 /* MeusDadosViewController.swift in Sources */,
 				C635E81E284C4DAF00DF525E /* PlataformasCollectionViewCell.swift in Sources */,
+				8AF6492B284E2C1100308711 /* HistoricoCellViewModel.swift in Sources */,
 				4247B014284B886D004A12EE /* LancamentosTableViewCell.swift in Sources */,
 				4247B019284B95FE004A12EE /* LancamentosViewModel.swift in Sources */,
 				4256CE49283E4CAA0017DD5F /* PerfilViewController.swift in Sources */,
-				4247B01B284B9677004A12EE /* UmLancamentoCollectionViewModel.swift in Sources */,
 				8ADFC421284B7AAC00CBDBA2 /* ConfiguracoesViewController.swift in Sources */,
 				4256CE45283E4CAA0017DD5F /* AppDelegate.swift in Sources */,
 				429FFF30284BD92C0079C159 /* DetalhesFilmeViewModel.swift in Sources */,
@@ -286,7 +296,9 @@
 				8A72D0B4283FA12800977B34 /* RoletaViewController.swift in Sources */,
 				C635E820284C4EF100DF525E /* RoletaViewModel.swift in Sources */,
 				4247B010284B85E9004A12EE /* Service.swift in Sources */,
+				8AF6492D284E350400308711 /* HistoricoCollectionViewCell.swift in Sources */,
 				4247B016284B8BFF004A12EE /* LancamentosCollectionViewCell.swift in Sources */,
+				8AF64927284E2B4F00308711 /* MeusDadosViewModel.swift in Sources */,
 				8ADFC41F284B7A8C00CBDBA2 /* HistoricoViewController.swift in Sources */,
 				8A3BA177284A659E00C74C77 /* PerfilViewModel.swift in Sources */,
 			);
