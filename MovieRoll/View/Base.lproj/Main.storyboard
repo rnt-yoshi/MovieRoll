@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aZD-Fa-hBu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aZD-Fa-hBu">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2Zk-7j-FYU">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -129,10 +129,10 @@
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="acaoButtonPressed:" destination="CJU-TO-Pve" eventType="touchUpInside" id="gRT-Wd-a7T"/>
+                                                    <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="i4m-d5-UeV"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l94-TN-Vgk">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l94-TN-Vgk">
                                                 <rect key="frame" x="134.5" y="0.0" width="125" height="80"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -146,10 +146,10 @@
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="ficcaoButtonPressed:" destination="CJU-TO-Pve" eventType="touchUpInside" id="NfA-EU-2ha"/>
+                                                    <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="1ot-S4-xaf"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A67-lh-XIn">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A67-lh-XIn">
                                                 <rect key="frame" x="269.5" y="0.0" width="124.5" height="80"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -164,7 +164,7 @@
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="comediaButtonPressed:" destination="CJU-TO-Pve" eventType="touchUpInside" id="8ID-Hx-vZN"/>
+                                                    <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="nc4-h0-Far"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -175,7 +175,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Hx1-mg-98c">
                                         <rect key="frame" x="0.0" y="90" width="394" height="80"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKs-TB-aEx">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKs-TB-aEx">
                                                 <rect key="frame" x="0.0" y="0.0" width="124.5" height="80"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -189,10 +189,10 @@
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="documentarioButtonPressed:" destination="CJU-TO-Pve" eventType="touchUpInside" id="7tX-nu-Gek"/>
+                                                    <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="rVc-cw-8wj"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxy-Qs-Z6p">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxy-Qs-Z6p">
                                                 <rect key="frame" x="134.5" y="0.0" width="125" height="80"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -206,10 +206,10 @@
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="dramaButtonPressed:" destination="CJU-TO-Pve" eventType="touchUpInside" id="B0B-L6-4zh"/>
+                                                    <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="aFH-KW-HgS"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6BU-gl-d3T">
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6BU-gl-d3T">
                                                 <rect key="frame" x="269.5" y="0.0" width="124.5" height="80"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -223,7 +223,7 @@
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="aventuraButtonPressed:" destination="CJU-TO-Pve" eventType="touchUpInside" id="Jnt-DJ-hv2"/>
+                                                    <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="GMd-lg-iXY"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -234,7 +234,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="exu-zA-F6C">
                                         <rect key="frame" x="0.0" y="180" width="394" height="80"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jgk-SW-oaH">
+                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jgk-SW-oaH">
                                                 <rect key="frame" x="0.0" y="0.0" width="124.5" height="80"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -248,10 +248,10 @@
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="infantilButtonPressed:" destination="CJU-TO-Pve" eventType="touchUpInside" id="m4e-yn-o3w"/>
+                                                    <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="8V5-d6-L0V"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2U-6a-SRf">
+                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2U-6a-SRf">
                                                 <rect key="frame" x="134.5" y="0.0" width="125" height="80"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -265,10 +265,10 @@
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="romanceButtonPressed:" destination="CJU-TO-Pve" eventType="touchUpInside" id="bQo-uL-QNj"/>
+                                                    <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="MMc-Ju-H3X"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jci-NV-lOu">
+                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jci-NV-lOu">
                                                 <rect key="frame" x="269.5" y="0.0" width="124.5" height="80"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -282,7 +282,7 @@
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="terrorButtonPressed:" destination="CJU-TO-Pve" eventType="touchUpInside" id="hxz-rY-X9t"/>
+                                                    <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="XmG-0S-KKS"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -305,79 +305,99 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data de lançamento" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAZ-Nq-iiQ">
-                                <rect key="frame" x="10" y="500" width="394" height="23"/>
+                                <rect key="frame" x="10" y="510" width="394" height="23"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oPk-sf-Tz8">
-                                <rect key="frame" x="50" y="459" width="314" height="21"/>
+                                <rect key="frame" x="50" y="459" width="314" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brb-ys-phF">
-                                        <rect key="frame" x="0.0" y="0.0" width="56.5" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="56.5" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal">
                                             <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
                                         </state>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                        </buttonConfiguration>
                                         <connections>
-                                            <action selector="estrelaNotaUmPressed:" destination="CJU-TO-Pve" eventType="touchUpInside" id="kYE-8e-wqX"/>
+                                            <action selector="estrelaNotaButtonAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="pMo-l2-5ll"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIu-0H-yBf">
-                                        <rect key="frame" x="64.5" y="0.0" width="56.5" height="21"/>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIu-0H-yBf">
+                                        <rect key="frame" x="64.5" y="0.0" width="56.5" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal">
                                             <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
                                         </state>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                        </buttonConfiguration>
                                         <connections>
-                                            <action selector="estrelaNotaDoisPressed:" destination="CJU-TO-Pve" eventType="touchUpInside" id="7fk-gL-nBR"/>
+                                            <action selector="estrelaNotaButtonAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="dzG-vF-QRy"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1EQ-Hg-4AH">
-                                        <rect key="frame" x="129" y="0.0" width="56" height="21"/>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1EQ-Hg-4AH">
+                                        <rect key="frame" x="129" y="0.0" width="56" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal">
                                             <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
                                         </state>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                        </buttonConfiguration>
                                         <connections>
-                                            <action selector="estrelaNotaTresPressed:" destination="CJU-TO-Pve" eventType="touchUpInside" id="9er-fZ-gbA"/>
+                                            <action selector="estrelaNotaButtonAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="ZtX-nS-Noq"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69K-f6-i95">
-                                        <rect key="frame" x="193" y="0.0" width="56.5" height="21"/>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69K-f6-i95">
+                                        <rect key="frame" x="193" y="0.0" width="56.5" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal">
                                             <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
                                         </state>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                        </buttonConfiguration>
                                         <connections>
-                                            <action selector="estrelaNotaQuatroPressed:" destination="CJU-TO-Pve" eventType="touchUpInside" id="Cwh-qS-Ahj"/>
+                                            <action selector="estrelaNotaButtonAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="s3S-Lx-CI4"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXB-sN-G91">
-                                        <rect key="frame" x="257.5" y="0.0" width="56.5" height="21"/>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXB-sN-G91">
+                                        <rect key="frame" x="257.5" y="0.0" width="56.5" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal">
                                             <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
                                         </state>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                        </buttonConfiguration>
                                         <connections>
-                                            <action selector="estrelaNotaCincoPressed:" destination="CJU-TO-Pve" eventType="touchUpInside" id="VoX-ou-NVf"/>
+                                            <action selector="estrelaNotaButtonAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="wYe-px-0Xi"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione a plataforma" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UsA-Uh-BNR">
-                                <rect key="frame" x="12" y="597" width="392" height="23"/>
+                                <rect key="frame" x="12" y="607" width="392" height="23"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gNs-tw-YDf">
-                                <rect key="frame" x="0.0" y="640" width="414" height="70"/>
+                                <rect key="frame" x="0.0" y="650" width="414" height="70"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="Nat-rz-Pju"/>
@@ -420,7 +440,7 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THp-sk-NYM">
-                                <rect key="frame" x="125" y="730" width="164" height="38"/>
+                                <rect key="frame" x="125" y="740" width="164" height="38"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Roletar"/>
@@ -434,7 +454,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="a4l-0J-AfY">
-                                <rect key="frame" x="122" y="543" width="170" height="34"/>
+                                <rect key="frame" x="122" y="553" width="170" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="170" id="fJg-fi-vm4"/>
                                 </constraints>
@@ -475,22 +495,22 @@
                     </view>
                     <navigationItem key="navigationItem" id="ZBh-4H-eV5"/>
                     <connections>
-                        <outlet property="acaoButton" destination="iJR-hV-OT2" id="gzj-fB-gDC"/>
-                        <outlet property="aventuraButton" destination="6BU-gl-d3T" id="uuU-V2-GhR"/>
-                        <outlet property="comediaButton" destination="A67-lh-XIn" id="rjP-cU-ttv"/>
-                        <outlet property="dataDeLancamentoTextField" destination="a4l-0J-AfY" id="08G-p1-xbj"/>
-                        <outlet property="documentarioButton" destination="aKs-TB-aEx" id="H04-Qp-RJu"/>
-                        <outlet property="dramaButton" destination="dxy-Qs-Z6p" id="bPC-zp-Rz4"/>
-                        <outlet property="estrelaNotaCinco" destination="IXB-sN-G91" id="Sgz-zW-a6z"/>
-                        <outlet property="estrelaNotaDois" destination="oIu-0H-yBf" id="b7s-EZ-Js7"/>
-                        <outlet property="estrelaNotaQuatro" destination="69K-f6-i95" id="LX4-5r-nZN"/>
-                        <outlet property="estrelaNotaTres" destination="1EQ-Hg-4AH" id="n3P-6L-N7e"/>
-                        <outlet property="estrelaNotaUm" destination="brb-ys-phF" id="TDa-Lu-VK8"/>
-                        <outlet property="ficcaoButton" destination="l94-TN-Vgk" id="u8D-iP-hSL"/>
-                        <outlet property="infantilButton" destination="Jgk-SW-oaH" id="wqy-km-LvI"/>
-                        <outlet property="plataformasCollectionView" destination="gNs-tw-YDf" id="q80-Oe-X7b"/>
-                        <outlet property="romanceButton" destination="e2U-6a-SRf" id="Ed6-Gm-Mu1"/>
-                        <outlet property="terrorButton" destination="jci-NV-lOu" id="skY-Gp-LWF"/>
+                        <outlet property="dataDeLancamentoTextField" destination="a4l-0J-AfY" id="hzP-tO-AeX"/>
+                        <outlet property="plataformasCollectionView" destination="gNs-tw-YDf" id="a1I-R4-wwG"/>
+                        <outletCollection property="estrelasNotaBotao" destination="brb-ys-phF" collectionClass="NSMutableArray" id="80u-ZF-j8o"/>
+                        <outletCollection property="estrelasNotaBotao" destination="oIu-0H-yBf" collectionClass="NSMutableArray" id="92f-YU-JJ1"/>
+                        <outletCollection property="estrelasNotaBotao" destination="1EQ-Hg-4AH" collectionClass="NSMutableArray" id="Oe1-AL-utR"/>
+                        <outletCollection property="estrelasNotaBotao" destination="69K-f6-i95" collectionClass="NSMutableArray" id="MOv-Z2-42h"/>
+                        <outletCollection property="estrelasNotaBotao" destination="IXB-sN-G91" collectionClass="NSMutableArray" id="yIj-CJ-aOv"/>
+                        <outletCollection property="generosBotoes" destination="iJR-hV-OT2" collectionClass="NSMutableArray" id="3vO-QP-GAe"/>
+                        <outletCollection property="generosBotoes" destination="l94-TN-Vgk" collectionClass="NSMutableArray" id="zya-l5-D4i"/>
+                        <outletCollection property="generosBotoes" destination="A67-lh-XIn" collectionClass="NSMutableArray" id="eCg-SH-fSr"/>
+                        <outletCollection property="generosBotoes" destination="aKs-TB-aEx" collectionClass="NSMutableArray" id="lzX-Hr-Fnh"/>
+                        <outletCollection property="generosBotoes" destination="dxy-Qs-Z6p" collectionClass="NSMutableArray" id="bJA-r8-116"/>
+                        <outletCollection property="generosBotoes" destination="6BU-gl-d3T" collectionClass="NSMutableArray" id="yow-qh-KgF"/>
+                        <outletCollection property="generosBotoes" destination="Jgk-SW-oaH" collectionClass="NSMutableArray" id="d7M-cD-FcX"/>
+                        <outletCollection property="generosBotoes" destination="e2U-6a-SRf" collectionClass="NSMutableArray" id="Bv0-U4-CaP"/>
+                        <outletCollection property="generosBotoes" destination="jci-NV-lOu" collectionClass="NSMutableArray" id="xPO-uH-fMF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xgH-f5-XON" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -752,7 +772,7 @@
                     <tabBarItem key="tabBarItem" title="Lançamentos" image="rocket" id="Ic1-5w-yFh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" largeTitles="YES" id="jK2-PM-Uyh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">

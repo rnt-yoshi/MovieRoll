@@ -12,25 +12,13 @@ class RoletaViewController: UIViewController {
     
     var viewModel = RoletaViewModel()
     
-    @IBOutlet weak var acaoButton: UIButton!
-    @IBOutlet weak var ficcaoButton: UIButton!
-    @IBOutlet weak var comediaButton: UIButton!
-    @IBOutlet weak var documentarioButton: UIButton!
-    @IBOutlet weak var dramaButton: UIButton!
-    @IBOutlet weak var aventuraButton: UIButton!
-    @IBOutlet weak var infantilButton: UIButton!
-    @IBOutlet weak var romanceButton: UIButton!
-    @IBOutlet weak var terrorButton: UIButton!
-    
-    @IBOutlet weak var estrelaNotaUm: UIButton!
-    @IBOutlet weak var estrelaNotaDois: UIButton!
-    @IBOutlet weak var estrelaNotaTres: UIButton!
-    @IBOutlet weak var estrelaNotaQuatro: UIButton!
-    @IBOutlet weak var estrelaNotaCinco: UIButton!
+    @IBOutlet var generosBotoes: [UIButton]!
     
     @IBOutlet weak var dataDeLancamentoTextField: UITextField!
     
     @IBOutlet weak var plataformasCollectionView: UICollectionView!
+    
+    @IBOutlet var estrelasNotaBotao: [UIButton]!
     
     var dataLancamentoPickerView = UIPickerView()
     
@@ -38,9 +26,9 @@ class RoletaViewController: UIViewController {
         super.viewDidLoad()
         plataformasCollectionView.dataSource = self
         plataformasCollectionView.delegate = self
+        viewModel.delegate = self
         
         inicializaPickerView()
-        
     }
     
     func inicializaPickerView() {
@@ -48,65 +36,29 @@ class RoletaViewController: UIViewController {
         dataLancamentoPickerView.dataSource = self
         
         dataDeLancamentoTextField.inputView = dataLancamentoPickerView
-//        anoFinalTextField.inputView = dataLancamentoPickerView
+        //        anoFinalTextField.inputView = dataLancamentoPickerView
     }
     
-    
-    @IBAction func acaoButtonPressed(_ sender: Any) {
-    }
-    
-    @IBAction func ficcaoButtonPressed(_ sender: Any) {
-    }
-    
-    @IBAction func comediaButtonPressed(_ sender: Any) {
-    }
-    
-    @IBAction func documentarioButtonPressed(_ sender: Any) {
-    }
-    
-    @IBAction func dramaButtonPressed(_ sender: Any) {
-    }
-    
-    @IBAction func aventuraButtonPressed(_ sender: Any) {
-    }
-    
-    @IBAction func infantilButtonPressed(_ sender: Any) {
-    }
-    
-    @IBAction func romanceButtonPressed(_ sender: Any) {
-    }
-    
-    @IBAction func terrorButtonPressed(_ sender: Any) {
+    @IBAction func generosBotoesAction(_ sender: UIButton) {
+        viewModel.generoPressionado(sender.configuration?.title, alpha: Float(sender.alpha), tag: sender.tag)
     }
     
     @IBAction func roletarButtonPressed(_ sender: Any) {
-
-            let filme = viewModel.roletaFilmeFiltrado()
-            guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
-            
-            let viewModel = DetalhesFilmeViewModel(filme: filme)
-            
-            detalhesFilme.viewModel = viewModel
-            
-            navigationController?.pushViewController(detalhesFilme, animated: true)
+        
+        let filme = viewModel.roletaFilmeFiltrado()
+        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
+        
+        let viewModel = DetalhesFilmeViewModel(filme: filme)
+        
+        detalhesFilme.viewModel = viewModel
+        
+        navigationController?.pushViewController(detalhesFilme, animated: true)
         
     }
     
     
-    @IBAction func estrelaNotaUmPressed(_ sender: Any) {
-        
-    }
-    
-    @IBAction func estrelaNotaDoisPressed(_ sender: Any) {
-    }
-    
-    @IBAction func estrelaNotaTresPressed(_ sender: Any) {
-    }
-    
-    @IBAction func estrelaNotaQuatroPressed(_ sender: Any) {
-    }
-    
-    @IBAction func estrelaNotaCincoPressed(_ sender: Any) {
+    @IBAction func estrelaNotaButtonAction(_ sender: UIButton) {
+        viewModel.estrelaNotaPressionada(sender.tag)
     }
     
 }
@@ -135,7 +87,7 @@ extension RoletaViewController: UICollectionViewDelegate {
 }
 
 extension RoletaViewController: UIPickerViewDataSource {
-
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         viewModel.numberComponents
     }
@@ -154,10 +106,56 @@ extension RoletaViewController: UIPickerViewDataSource {
 extension RoletaViewController: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-                
+        
         dataDeLancamentoTextField.text = viewModel.getTitleForTextField(row: row, componente: component)
         dataDeLancamentoTextField.resignFirstResponder()
     }
     
 }
 
+extension RoletaViewController: RoletaViewModelDelegate {
+    func botaoSelecionado(tag: Int) {
+        generosBotoes[tag].alpha = 0.4
+    }
+    
+    func botaoSemSelecao(tag: Int) {
+        generosBotoes[tag].alpha = 1
+    }
+    
+    func estrelaVazia(tag: Int) {
+        estrelasNotaBotao[tag].configuration?.image = UIImage(systemName: "star")
+        estrelasNotaBotao[tag].configuration?.baseForegroundColor = .systemYellow
+        estrelasNotaBotao[tag].transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        
+        UIView.animate(withDuration: 2.0,
+                       delay: 0,
+                       usingSpringWithDamping: CGFloat(0.20),
+                       initialSpringVelocity: CGFloat(6.0),
+                       options: UIView.AnimationOptions.allowUserInteraction,
+                       animations: {
+            self.estrelasNotaBotao[tag].transform = CGAffineTransform.identity
+        },
+                       completion: { Void in()  }
+        )
+        
+    }
+    
+    func estrelaCheia(tag: Int) {
+        estrelasNotaBotao[tag].configuration?.image = UIImage(systemName: "star.fill")
+        estrelasNotaBotao[tag].configuration?.baseForegroundColor = .systemYellow
+        estrelasNotaBotao[tag].transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        
+        UIView.animate(withDuration: 2.0,
+                       delay: 0,
+                       usingSpringWithDamping: CGFloat(0.20),
+                       initialSpringVelocity: CGFloat(6.0),
+                       options: UIView.AnimationOptions.allowUserInteraction,
+                       animations: {
+            self.estrelasNotaBotao[tag].transform = CGAffineTransform.identity
+        },
+                       completion: { Void in()  }
+        )
+        
+    }
+    
+}
