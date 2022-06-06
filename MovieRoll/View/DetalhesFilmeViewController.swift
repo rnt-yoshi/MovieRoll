@@ -60,10 +60,13 @@ class DetalhesFilmeViewController: UIViewController {
         nomeDoFilmeLabel.text = viewModel.getNome
         anoLabel.text = viewModel.getAno
         generoLabel.text = viewModel.getGenero
-        notaDoFilme.text = viewModel.getNotaFilme
+        notaDoFilme.text = ("\(viewModel.getNotaFilme)/10")
         classificacaoIndicativaImage.image = UIImage(named: viewModel.getClassificacaoIndicativaImage)
         classificacaoIndicativaLabel.text = viewModel.getClassificacaoIndicativa
         sinopseLabel.text = viewModel.getSinopse
         plataformaImageView.image = UIImage(named: viewModel.getPlataforma)
+        
+        classificacaoIndicativaImage.layer.cornerRadius = 10
+        plataformaImageView.layer.cornerRadius = 10
     }
 }

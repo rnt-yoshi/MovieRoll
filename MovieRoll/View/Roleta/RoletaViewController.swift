@@ -9,7 +9,6 @@ import UIKit
 
 class RoletaViewController: UIViewController {
     
-    
     var viewModel = RoletaViewModel()
     
     @IBOutlet var generosBotoes: [UIButton]!
@@ -36,7 +35,9 @@ class RoletaViewController: UIViewController {
         dataLancamentoPickerView.dataSource = self
         
         dataDeLancamentoTextField.inputView = dataLancamentoPickerView
-        //        anoFinalTextField.inputView = dataLancamentoPickerView
+        
+        dataLancamentoPickerView.setValue(UIColor(red: 266.0/255, green: 105.0/255, blue: 64.0/255, alpha: 1.0), forKeyPath: "textColor")
+        dataLancamentoPickerView.backgroundColor = UIColor.black
     }
     
     @IBAction func generosBotoesAction(_ sender: UIButton) {
@@ -56,7 +57,6 @@ class RoletaViewController: UIViewController {
         
     }
     
-    
     @IBAction func estrelaNotaButtonAction(_ sender: UIButton) {
         viewModel.estrelaNotaPressionada(sender.tag)
     }
@@ -64,7 +64,6 @@ class RoletaViewController: UIViewController {
 }
 
 extension RoletaViewController: UICollectionViewDataSource {
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfItems
@@ -98,7 +97,6 @@ extension RoletaViewController: UIPickerViewDataSource {
         viewModel.titleForRow(row: row)
     }
 }
-
 
 extension RoletaViewController: UIPickerViewDelegate {
     
