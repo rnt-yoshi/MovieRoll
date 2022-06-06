@@ -11,6 +11,7 @@ protocol PerfilViewModelDelegate {
     func exibeMeusDados()
     func exibeHistorico()
     func exibeConfiguracoes()
+    func exibeAjuda()
 }
 
 class PerfilViewModel {
@@ -117,6 +118,9 @@ class PerfilViewModel {
         }
         if index == 2 {
             delegate?.exibeConfiguracoes()
+        }
+        if index == 3 {
+            delegate?.exibeAjuda()
         }
     }
 }

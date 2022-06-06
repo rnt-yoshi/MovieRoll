@@ -218,13 +218,26 @@
                     <view key="view" contentMode="scaleToFill" id="lWU-9p-5rf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grupo" translatesAutoresizingMaskIntoConstraints="NO" id="k0Q-RO-1Z3">
+                                <rect key="frame" x="0.0" y="238" width="414" height="420"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="420" id="VHc-rE-TYU"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="KYR-z6-b9a"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.8862745098" green="0.41176470590000003" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="KYR-z6-b9a" firstAttribute="trailing" secondItem="k0Q-RO-1Z3" secondAttribute="trailing" id="OLU-S2-VuZ"/>
+                            <constraint firstItem="k0Q-RO-1Z3" firstAttribute="centerY" secondItem="lWU-9p-5rf" secondAttribute="centerY" id="cPW-es-kCH"/>
+                            <constraint firstItem="k0Q-RO-1Z3" firstAttribute="leading" secondItem="KYR-z6-b9a" secondAttribute="leading" id="dpU-CV-Kz9"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMp-IY-TnH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4930" y="1619"/>
+            <point key="canvasLocation" x="4928.985507246377" y="1618.5267857142856"/>
         </scene>
         <!--Configurações-->
         <scene sceneID="qwz-Gx-fXw">
@@ -764,6 +777,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                 </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="bottom" secondItem="hOJ-Y6-so7" secondAttribute="bottom" id="2QW-gg-tQI"/>
                                                                     <constraint firstItem="hOJ-Y6-so7" firstAttribute="leading" secondItem="gBj-AI-84h" secondAttribute="leading" id="qJS-ts-P9K"/>
@@ -771,6 +785,7 @@
                                                                     <constraint firstAttribute="trailing" secondItem="hOJ-Y6-so7" secondAttribute="trailing" id="yAq-xs-tLj"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
+                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <size key="customSize" width="120" height="200"/>
                                                             <connections>
                                                                 <outlet property="imagemFilmeUIImageView" destination="hOJ-Y6-so7" id="zVF-f1-Rih"/>
@@ -779,6 +794,7 @@
                                                     </cells>
                                                 </collectionView>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="uaU-ng-UaL" secondAttribute="bottom" id="3tx-2f-7XR"/>
                                                 <constraint firstItem="uaU-ng-UaL" firstAttribute="leading" secondItem="99V-jg-7CZ" secondAttribute="leading" constant="5" id="X84-d7-ulD"/>
@@ -975,7 +991,7 @@
                     <tabBarItem key="tabBarItem" title="Perfil" image="perfil" id="1Ng-z2-qh1"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="fJn-bq-8uO">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1020,6 +1036,7 @@
         <image name="documentario" width="748" height="421"/>
         <image name="drama" width="500" height="750"/>
         <image name="ficcaoCientifica" width="748" height="421"/>
+        <image name="grupo" width="1280" height="1080"/>
         <image name="infantil" width="700" height="517"/>
         <image name="logo" width="35" height="33"/>
         <image name="logogrey" width="35" height="33"/>

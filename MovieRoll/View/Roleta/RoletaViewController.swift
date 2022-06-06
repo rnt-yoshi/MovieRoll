@@ -25,6 +25,7 @@ class RoletaViewController: UIViewController {
         super.viewDidLoad()
         plataformasCollectionView.dataSource = self
         plataformasCollectionView.delegate = self
+        
         viewModel.delegate = self
         
         inicializaPickerView()

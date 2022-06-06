@@ -91,6 +91,13 @@ extension PerfilViewController: PerfilViewModelDelegate {
         }
     }
     
+    func exibeAjuda() {
+        if let ajudaVC = storyboard?.instantiateViewController(withIdentifier: "ajudaVC") as? AjudaViewController {
+            ajudaVC.modalPresentationStyle = .pageSheet
+            ajudaVC.modalTransitionStyle = .coverVertical
+            present(ajudaVC, animated: true)
+        }
+    }
     
 }
 
