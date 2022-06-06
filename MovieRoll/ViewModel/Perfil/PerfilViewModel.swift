@@ -6,11 +6,18 @@
 //
 
 import Foundation
-import UIKit
+
+protocol PerfilViewModelDelegate {
+    func exibeMeusDados()
+    func exibeHistorico()
+    func exibeConfiguracoes()
+}
 
 class PerfilViewModel {
     
     private var userPerfil = User(name: "Renato", image: "Renato")
+    
+    var delegate: PerfilViewModelDelegate?
     
     private var optionsDoPerfil = [
         OptionsDoPerfil(
@@ -95,5 +102,21 @@ class PerfilViewModel {
     
     func getHistoricoViewModel() -> HistoricoViewModel? {
         return HistoricoViewModel()
+    }
+    
+    func getConfiguracoesViewMdel() -> ConfiguracoesViewModel? {
+        return ConfiguracoesViewModel()
+    }
+    
+    func opcoesDaTableView(index: Int) {
+        if index == 0 {
+            delegate?.exibeMeusDados()
+        }
+        if index == 1 {
+            delegate?.exibeHistorico()
+        }
+        if index == 2 {
+            delegate?.exibeConfiguracoes()
+        }
     }
 }

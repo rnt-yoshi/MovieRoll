@@ -30,8 +30,6 @@ class MeusDadosViewController: UIViewController {
     @IBAction func alterarFotoButtonAction(_ sender: Any) {
     }
     
-    
-    
     @IBAction func salvarButtonAction(_ sender: Any) {
         viewModel?.setUserName(nome: meusDadosNomeTextField.text)
         navigationController?.popViewController(animated: true)
