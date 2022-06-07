@@ -105,6 +105,17 @@ extension RoletaViewController: UIPickerViewDelegate {
 }
 
 extension RoletaViewController: RoletaViewModelDelegate {
+    func exibirAlerta() {
+        let alerta = UIAlertController(title: "Nenhum filme encontrado com os filtros escolhidos!", message: "Altera os filtros e tente novamente", preferredStyle: .alert)
+        
+       
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alerta.addAction(okAction)
+        
+        present(alerta, animated: true)
+    }
+    
     func botaoSelecionado(tag: Int) {
         generosBotoes[tag].alpha = 0.60
         generosBotoes[tag].layer.cornerRadius = 10

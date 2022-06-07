@@ -12,6 +12,7 @@ protocol RoletaViewModelDelegate {
     func estrelaCheia(tag: Int)
     func botaoSelecionado(tag: Int)
     func botaoSemSelecao(tag: Int)
+    func exibirAlerta()
 }
 
 class RoletaViewModel {
@@ -84,15 +85,39 @@ class RoletaViewModel {
     
     func roletaFilmeFiltrado() -> Filme {
         var filme: Filme?
-        let filmeFiltradoGenero = filtraPorGenero(generos: generosFiltro, filmes: service.filmes)
+        var filmesFiltrados: [Filme] = service.filmes
         
-        let filmeFiltradoNota = filtrarPorNota(nota: notasFiltrosEstrela, filmes: filmeFiltradoGenero)
+        if generosFiltro.count > 0 {
+            let filmeFiltradoGenero = filtraPorGenero(generos: generosFiltro, filmes: filmesFiltrados)
+            filmesFiltrados = filmeFiltradoGenero
+        }
         
-        let filmeFiltradoData = filtrarPorData(dataInicial: dataInicial, dataFinal: dataFinal, filmes: filmeFiltradoNota)
         
-        filme = filmeFiltradoData.randomElement()
+        if notasFiltrosEstrela > 0 {
+            let filmeFiltradoNota = filtrarPorNota(nota: notasFiltrosEstrela, filmes: filmesFiltrados)
+            filmesFiltrados = filmeFiltradoNota
+        }
+        if dataInicial > anos.last ?? "" || dataFinal < anos.first ?? ""{
+            let filmeFiltradoData = filtrarPorData(dataInicial: dataInicial, dataFinal: dataFinal, filmes: filmesFiltrados)
+            filmesFiltrados = filmeFiltradoData
+        }
+        if plataformaFiltro.count > 0 {
+            let filmeFiltradoPlataforma = filtraPorPlataforma(plataformas: plataformaFiltro, filmes: filmesFiltrados)
+            filmesFiltrados = filmeFiltradoPlataforma
+            
+        }
+        
+        filme = filmesFiltrados.randomElement()
+        
+        if filme == nil{
+            delegate?.exibirAlerta()
+        }
         
         return filme ?? service.filmeNil
+    }
+    
+    func tratarFilme(){
+        
     }
     
     private func filtrarPorData(dataInicial: String, dataFinal: String, filmes: [Filme]) -> [Filme] {
@@ -103,7 +128,7 @@ class RoletaViewModel {
     }
     
     private func filtrarPorNota(nota: Int, filmes: [Filme]) -> [Filme] {
-            let filmesNota = filmes.filter { filmesNota in
+        let filmesNota = filmes.filter { filmesNota in
             filmesNota.nota >= notasFiltrosEstrela
         }
         return filmesNota
@@ -120,6 +145,20 @@ class RoletaViewModel {
         }
         
         return filme
+    }
+    
+    private func filtraPorPlataforma(plataformas: [String], filmes: [Filme]) -> [Filme]{
+        var filme: [Filme] = []
+        
+        for plataforma in plataformas {
+            let filmesFiltradosPlataforma = filmes.filter { filme in
+                filme.plataforma == plataforma
+            }
+            filme.append(contentsOf: filmesFiltradosPlataforma)
+        }
+        
+        return filme
+        
     }
     
     func estrelaNotaPressionada(_ tag: Int) {
