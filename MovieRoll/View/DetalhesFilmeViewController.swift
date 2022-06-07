@@ -52,8 +52,7 @@ class DetalhesFilmeViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
-    private func configureUI () {
-        
+    private func configureUI() {
         guard let viewModel = viewModel else { return }
 
         posterFilme.image = UIImage(named: viewModel.getPoster)

@@ -46,7 +46,6 @@ class RoletaViewController: UIViewController {
     }
     
     @IBAction func roletarButtonPressed(_ sender: Any) {
-        
         let filme = viewModel.roletaFilmeFiltrado()
         guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
         
@@ -55,7 +54,6 @@ class RoletaViewController: UIViewController {
         detalhesFilme.viewModel = viewModel
         
         navigationController?.pushViewController(detalhesFilme, animated: true)
-        
     }
     
     @IBAction func estrelaNotaButtonAction(_ sender: UIButton) {
@@ -65,7 +63,6 @@ class RoletaViewController: UIViewController {
 }
 
 extension RoletaViewController: UICollectionViewDataSource {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfItems
     }
@@ -79,13 +76,11 @@ extension RoletaViewController: UICollectionViewDataSource {
     }
 }
 
-
 extension RoletaViewController: UICollectionViewDelegate {
     
 }
 
 extension RoletaViewController: UIPickerViewDataSource {
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         viewModel.numberComponents
     }
@@ -100,7 +95,6 @@ extension RoletaViewController: UIPickerViewDataSource {
 }
 
 extension RoletaViewController: UIPickerViewDelegate {
-    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         dataDeLancamentoTextField.text = viewModel.getTitleForTextField(row: row, componente: component)
         dataDeLancamentoTextField.resignFirstResponder()
@@ -118,7 +112,6 @@ extension RoletaViewController: RoletaViewModelDelegate {
     func botaoSemSelecao(tag: Int) {
         generosBotoes[tag].alpha = 1
         generosBotoes[tag].layer.borderWidth = 0
-        
     }
     
     func estrelaVazia(tag: Int) {
@@ -136,7 +129,6 @@ extension RoletaViewController: RoletaViewModelDelegate {
         },
                        completion: { Void in()  }
         )
-        
     }
     
     func estrelaCheia(tag: Int) {
@@ -154,7 +146,5 @@ extension RoletaViewController: RoletaViewModelDelegate {
         },
                        completion: { Void in()  }
         )
-        
     }
-    
 }

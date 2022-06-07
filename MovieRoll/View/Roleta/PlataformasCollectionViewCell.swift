@@ -12,11 +12,8 @@ class PlataformasCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var plataformaImageView: UIImageView!
     
     func configuraCell(viewModel: RoletaViewModel, index: Int) {
-        
         plataformaImageView.image = UIImage(named: viewModel.getImage(index: index))
-        
         plataformaImageView.layer.cornerRadius = 10
-    
     }
 }
 

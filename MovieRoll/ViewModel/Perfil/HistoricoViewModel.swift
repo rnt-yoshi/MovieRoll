@@ -16,9 +16,9 @@ class HistoricoViewModel {
     let service = Service()
     
     init() {
-        listaDeFilmesRoletados = service.filmes
-        listaDeFilmesFavoritos = service.filmes
-        listaDeFilmesAssistidos = service.filmes
+        listaDeFilmesRoletados = service.filmesRoletados
+        listaDeFilmesFavoritos = service.filmesFavoritos
+        listaDeFilmesAssistidos = service.filmesAssistidos
     }
     
     func numberOfItems(segmentedControlIndex: Int) -> Int {

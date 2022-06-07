@@ -50,7 +50,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZbD-3r-pfK">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZbD-3r-pfK">
                                 <rect key="frame" x="127" y="76" width="160" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="QcU-w2-Rno"/>
@@ -260,7 +260,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="art-Ph-bUQ">
-                                <rect key="frame" x="80" y="204" width="254" height="30"/>
+                                <rect key="frame" x="80" y="170" width="254" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Resetar lista de filmes favoritos">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
@@ -271,7 +271,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJM-hN-9yv">
-                                <rect key="frame" x="80" y="284" width="254" height="30"/>
+                                <rect key="frame" x="80" y="216" width="254" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Resetar lista de filmes assistidos">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
@@ -282,7 +282,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyw-Sg-pxn">
-                                <rect key="frame" x="80" y="364" width="254" height="30"/>
+                                <rect key="frame" x="80" y="262" width="254" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Desconectar conta">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
@@ -297,8 +297,8 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="XqF-Ew-udz" firstAttribute="trailing" secondItem="art-Ph-bUQ" secondAttribute="trailing" constant="80" id="0Bm-Tq-8Io"/>
-                            <constraint firstItem="OJM-hN-9yv" firstAttribute="top" secondItem="art-Ph-bUQ" secondAttribute="bottom" constant="50" id="4a7-pU-pr0"/>
-                            <constraint firstItem="lyw-Sg-pxn" firstAttribute="top" secondItem="OJM-hN-9yv" secondAttribute="bottom" constant="50" id="5sc-gs-HUS"/>
+                            <constraint firstItem="OJM-hN-9yv" firstAttribute="top" secondItem="art-Ph-bUQ" secondAttribute="bottom" constant="16" id="4a7-pU-pr0"/>
+                            <constraint firstItem="lyw-Sg-pxn" firstAttribute="top" secondItem="OJM-hN-9yv" secondAttribute="bottom" constant="16" id="5sc-gs-HUS"/>
                             <constraint firstItem="OJM-hN-9yv" firstAttribute="leading" secondItem="XqF-Ew-udz" secondAttribute="leading" constant="80" id="6hx-ip-Wdu"/>
                             <constraint firstItem="XqF-Ew-udz" firstAttribute="trailing" secondItem="lyw-Sg-pxn" secondAttribute="trailing" constant="80" id="Qks-bC-YiW"/>
                             <constraint firstItem="art-Ph-bUQ" firstAttribute="leading" secondItem="XqF-Ew-udz" secondAttribute="leading" constant="80" id="Xah-vn-CqW"/>
@@ -307,7 +307,7 @@
                             <constraint firstItem="lyw-Sg-pxn" firstAttribute="leading" secondItem="XqF-Ew-udz" secondAttribute="leading" constant="80" id="ckF-oM-igX"/>
                             <constraint firstItem="UZq-pO-N6B" firstAttribute="leading" secondItem="XqF-Ew-udz" secondAttribute="leading" constant="80" id="ieE-As-enH"/>
                             <constraint firstItem="XqF-Ew-udz" firstAttribute="trailing" secondItem="UZq-pO-N6B" secondAttribute="trailing" constant="80" id="o8k-cL-O4A"/>
-                            <constraint firstItem="art-Ph-bUQ" firstAttribute="top" secondItem="UZq-pO-N6B" secondAttribute="bottom" constant="50" id="pFD-MK-Ocn"/>
+                            <constraint firstItem="art-Ph-bUQ" firstAttribute="top" secondItem="UZq-pO-N6B" secondAttribute="bottom" constant="16" id="pFD-MK-Ocn"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -994,7 +994,7 @@
                     <tabBarItem key="tabBarItem" title="Lançamentos" image="rocket" id="Ic1-5w-yFh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" largeTitles="YES" id="jK2-PM-Uyh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">

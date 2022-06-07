@@ -18,6 +18,4 @@ class HistoricoCellViewModel {
     var getImage: String {
         return filme.image
     }
-    
-    
 }
