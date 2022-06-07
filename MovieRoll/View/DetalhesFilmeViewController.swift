@@ -26,6 +26,8 @@ class DetalhesFilmeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel?.delegate = self
+        
         configureUI()
     }
     
@@ -42,8 +44,18 @@ class DetalhesFilmeViewController: UIViewController {
         navigationItem.setLeftBarButton(backButton, animated: true)
         navigationItem.setHidesBackButton(true, animated: true)
         
-        let favoritosButton = UIBarButtonItem(image: UIImage(named: "heartnil"), style: .done, target: self, action: nil)
-        let checkButton = UIBarButtonItem(image: UIImage(named: "check"), style: .done, target: self, action: nil)
+        let favoritosButton = UIBarButtonItem(
+            image: UIImage(named: viewModel?.getFavoritarButtonImage() ?? "heart"),
+            style: .done,
+            target: self,
+            action: #selector(didTouchFavoritosButton)
+        )
+        let checkButton = UIBarButtonItem(
+            image: UIImage(named: viewModel?.getAssistidoButtonImage() ?? "check"),
+            style: .done,
+            target: self,
+            action: #selector(didTouchCheckButton)
+        )
         navigationItem.setRightBarButtonItems([checkButton, favoritosButton], animated: true)
     }
     
@@ -51,6 +63,15 @@ class DetalhesFilmeViewController: UIViewController {
     @objc private func didTouchBackButton(){
         navigationController?.popViewController(animated: true)
     }
+    
+    @objc private func didTouchFavoritosButton() {
+        viewModel?.buttonFavoritoPressed()
+    }
+    
+    @objc private func didTouchCheckButton() {
+        viewModel?.buttonAssistidoPressed()
+    }
+    
 
     private func configureUI() {
         guard let viewModel = viewModel else { return }
@@ -67,5 +88,17 @@ class DetalhesFilmeViewController: UIViewController {
         
         classificacaoIndicativaImage.layer.cornerRadius = 10
         plataformaImageView.layer.cornerRadius = 10
+    }
+}
+
+extension DetalhesFilmeViewController: DetalhesFilmeViewModelDelegate {
+    func alteraFavoritoButton() {
+        guard let viewModel = viewModel else { return }
+        navigationItem.rightBarButtonItems?[1].image = UIImage(named: viewModel.getFavoritarButtonImage())
+    }
+    
+    func alteraAssistidoButton() {
+        guard let viewModel = viewModel else { return }
+        navigationItem.rightBarButtonItems?[0].image = UIImage(named: viewModel.getAssistidoButtonImage())
     }
 }

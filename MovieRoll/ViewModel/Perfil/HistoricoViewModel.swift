@@ -62,4 +62,16 @@ class HistoricoViewModel {
         }
         return HistoricoCellViewModel(filme: filme)
     }
+    
+    func verificaFavorito(filme: Filme) -> Bool {
+        return service.filmesFavoritos.contains { filmeFavorito in
+            filme.nome == filmeFavorito.nome
+        }
+    }
+    
+    func verificaAssistido(filme: Filme) -> Bool {
+        return service.filmesAssistidos.contains { filmeFavorito in
+            filme.nome == filmeFavorito.nome
+        }
+    }
 }

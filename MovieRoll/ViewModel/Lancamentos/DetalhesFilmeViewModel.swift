@@ -7,12 +7,25 @@
 
 import Foundation
 
+protocol DetalhesFilmeViewModelDelegate {
+    func alteraFavoritoButton()
+    func alteraAssistidoButton()
+}
+
 class DetalhesFilmeViewModel {
     
-    private let filme:Filme
+    private let service = Service()
     
-    init(filme:Filme) {
+    private let filme: Filme
+    var ehFavorito: Bool
+    var foiAssistido: Bool
+    
+    var delegate: DetalhesFilmeViewModelDelegate?
+    
+    init(filme: Filme, ehFavorito: Bool, foiAssistido: Bool) {
         self.filme = filme
+        self.ehFavorito = ehFavorito
+        self.foiAssistido = foiAssistido
     }
     
     var getPoster:String {
@@ -51,4 +64,44 @@ class DetalhesFilmeViewModel {
         return filme.plataforma
     }
     
+    func getFavoritarButtonImage() -> String {
+        if ehFavorito {
+            return "heart"
+        } else {
+            return "heartnil"
+        }
+    }
+    
+    func getAssistidoButtonImage() -> String {
+        if foiAssistido {
+            return "checkgreen"
+        } else {
+            return "check"
+        }
+    }
+
+    func buttonAssistidoPressed() {
+        if foiAssistido {
+            service.filmesAssistidos.removeAll { filmeAssistido in
+                filme.nome == filmeAssistido.nome
+            }
+        } else {
+            service.filmesAssistidos.append(filme)
+        }
+        foiAssistido = !foiAssistido
+        delegate?.alteraAssistidoButton()
+    }
+    
+    func buttonFavoritoPressed() {
+        if ehFavorito {
+            service.filmesFavoritos.removeAll { filmeFavorito in
+                filme.nome == filmeFavorito.nome
+            }
+        } else {
+            service.filmesFavoritos.append(filme)
+        }
+        ehFavorito = !ehFavorito
+        delegate?.alteraFavoritoButton()
+
+    }
 }

@@ -45,7 +45,10 @@ extension HistoricoViewController: UICollectionViewDelegate{
         guard let viewModel = viewModel else { return }
         let filme = viewModel.retornaFilme(indexFilme: indexPath.item, indexSegmenterController: segmentedControlIndex)
         guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
-        let detalhesFilmeViewModel = DetalhesFilmeViewModel(filme: filme)
+        let ehFavorito = viewModel.verificaFavorito(filme: filme)
+        let foiAssistido = viewModel.verificaAssistido(filme: filme)
+        
+        let detalhesFilmeViewModel = DetalhesFilmeViewModel(filme: filme, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
         detalhesFilme.viewModel = detalhesFilmeViewModel
         navigationController?.pushViewController(detalhesFilme, animated: true)
     }

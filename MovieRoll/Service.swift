@@ -51,6 +51,19 @@ class Service {
         "Terror"
     ]
     
+    func setListaFavoritos(filmes: [Filme]) {
+        filmesFavoritos = filmes
+    }
+    
+    func setListaRoletados(filmes: [Filme]) {
+        filmesRoletados = filmes
+    }
+    
+    func setListaAssistidos(filmes: [Filme]) {
+        filmesAssistidos = filmes
+    }
+    
+    
     let filmeNil = Filme(image: "uncharted",
                          nome: "Uncharted: Fora do Mapa",
                          ano: "2022",

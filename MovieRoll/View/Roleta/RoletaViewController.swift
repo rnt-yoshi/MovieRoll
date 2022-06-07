@@ -49,7 +49,10 @@ class RoletaViewController: UIViewController {
         let filme = viewModel.roletaFilmeFiltrado()
         guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
         
-        let viewModel = DetalhesFilmeViewModel(filme: filme)
+        let ehFavorito = viewModel.verificaFavorito(filme: filme)
+        let foiAssistido = viewModel.verificaAssistido(filme: filme)
+        
+        let viewModel = DetalhesFilmeViewModel(filme: filme, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
         
         detalhesFilme.viewModel = viewModel
         

@@ -38,7 +38,6 @@ class MeusDadosViewController: UIViewController {
     
     @IBAction func salvarButtonAction(_ sender: Any) {
         viewModel?.setUserName(nome: meusDadosNomeTextField.text)
-      //  viewModel?.setUserImage(image: meusDadosImage.image?.jpegData(compressionQuality: 0.7))
         navigationController?.popViewController(animated: true)
     }
 }
