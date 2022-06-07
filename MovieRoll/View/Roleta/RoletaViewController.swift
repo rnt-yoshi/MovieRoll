@@ -81,6 +81,14 @@ extension RoletaViewController: UICollectionViewDataSource {
 
 extension RoletaViewController: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? PlataformasCollectionViewCell else { return }
+        
+        viewModel.plataformaPressionado(alpha: Float(cell.alpha), indexPath: indexPath)
+        
+        
+    }
+    
 }
 
 extension RoletaViewController: UIPickerViewDataSource {
@@ -105,6 +113,25 @@ extension RoletaViewController: UIPickerViewDelegate {
 }
 
 extension RoletaViewController: RoletaViewModelDelegate {
+    
+    func botaoSelecionadoPlataforma(indexPath: IndexPath) {
+        guard let cell = plataformasCollectionView.cellForItem(at: indexPath) as? PlataformasCollectionViewCell else { return }
+        
+        cell.alpha = 0.60
+        cell.layer.cornerRadius = 10
+        cell.layer.borderWidth = 3
+        cell.layer.borderColor = UIColor.orange.cgColor
+        
+    }
+    
+    func botaoSemSelecaoPlataforma(indexPath: IndexPath) {
+        guard let cell = plataformasCollectionView.cellForItem(at: indexPath) as? PlataformasCollectionViewCell else { return }
+        
+        cell.alpha = 1
+        cell.layer.borderWidth = 0
+        
+    }
+    
     func exibirAlerta() {
         let alerta = UIAlertController(title: "Nenhum filme encontrado com os filtros escolhidos!", message: "Altera os filtros e tente novamente", preferredStyle: .alert)
         
@@ -121,6 +148,8 @@ extension RoletaViewController: RoletaViewModelDelegate {
         generosBotoes[tag].layer.cornerRadius = 10
         generosBotoes[tag].layer.borderWidth = 3
         generosBotoes[tag].layer.borderColor = UIColor.orange.cgColor
+        
+        
     }
     
     func botaoSemSelecao(tag: Int) {

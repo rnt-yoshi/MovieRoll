@@ -93,7 +93,7 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Salvar">
                                     <backgroundConfiguration key="background" cornerRadius="10"/>
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
-                                    <color key="baseBackgroundColor" red="0.8862745098" green="0.41176470590000003" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="baseBackgroundColor" red="0.88627450980392153" green="0.41176470588235292" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="salvarButtonAction:" destination="oqc-Xw-ZtN" eventType="touchUpInside" id="OgH-MF-Nz3"/>
@@ -256,7 +256,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Resetar lista de filmes roletados">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
-                                    <color key="baseBackgroundColor" red="0.8862745098" green="0.41176470590000003" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="baseBackgroundColor" red="0.8862745098" green="0.41176470590000003" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="resetarRoletadosButtonPressed:" destination="lbV-03-VJQ" eventType="touchUpInside" id="IkB-i5-Qem"/>
@@ -270,7 +270,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Resetar lista de filmes favoritos">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
-                                    <color key="baseBackgroundColor" red="0.8862745098" green="0.41176470590000003" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="baseBackgroundColor" red="0.8862745098" green="0.41176470590000003" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="resetarFavoritosButtonPressed:" destination="lbV-03-VJQ" eventType="touchUpInside" id="uBj-X0-MrJ"/>
@@ -281,7 +281,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Resetar lista de filmes assistidos">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
-                                    <color key="baseBackgroundColor" red="0.8862745098" green="0.41176470590000003" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="baseBackgroundColor" red="0.88627450980392153" green="0.41176470588235292" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="resetarAssistidosButtonPressed:" destination="lbV-03-VJQ" eventType="touchUpInside" id="PZ1-sW-GaJ"/>
@@ -292,7 +292,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Desconectar conta">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
-                                    <color key="baseBackgroundColor" red="0.8862745098" green="0.41176470590000003" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="baseBackgroundColor" red="0.8862745098" green="0.41176470590000003" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="desconectarContaButtonPressed:" destination="lbV-03-VJQ" eventType="touchUpInside" id="LsE-Bb-vWg"/>
@@ -663,7 +663,7 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Roletar">
                                     <backgroundConfiguration key="background" cornerRadius="10"/>
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
-                                    <color key="baseBackgroundColor" red="0.8862745098" green="0.41176470590000003" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="baseBackgroundColor" red="0.88627450980392153" green="0.41176470588235292" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="roletarButtonPressed:" destination="CJU-TO-Pve" eventType="touchUpInside" id="1gP-M7-Emh"/>
