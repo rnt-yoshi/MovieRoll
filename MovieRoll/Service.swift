@@ -9,14 +9,14 @@ import Foundation
 
 class Service {
     
-    var filmesLancamentos: [[Filme]] = []
-    var filmesFavoritos: [Filme] = []
-    var filmesRoletados: [Filme] = []
-    var filmesAssistidos: [Filme] = []
+    static var filmesLancamentos: [[Filme]] = []
+    static var filmesFavoritos: [Filme] = []
+    static var filmesRoletados: [Filme] = []
+    static var filmesAssistidos: [Filme] = []
     
     init() {
         for genero in generos{
-            self.filmesLancamentos.append(filtraPorGenero(genero: genero))
+            Service.filmesLancamentos.append(filtraPorGenero(genero: genero))
         }
     }
     
@@ -51,17 +51,36 @@ class Service {
         "Terror"
     ]
     
-    func setListaFavoritos(filmes: [Filme]) {
-        filmesFavoritos = filmes
+    func adicionaNaListaFavoritos(filme: Filme) {
+        Service.filmesFavoritos.append(filme)
     }
     
-    func setListaRoletados(filmes: [Filme]) {
-        filmesRoletados = filmes
+    func removeDaListaFavoritos(filme: Filme) {
+        Service.filmesFavoritos.removeAll { filmeFavorito in
+            return filme.nome == filmeFavorito.nome
+        }
     }
     
-    func setListaAssistidos(filmes: [Filme]) {
-        filmesAssistidos = filmes
+    func adicionaNaListaRoletados(filme: Filme) {
+        Service.filmesRoletados.append(filme)
     }
+    
+    func removeDaListaRoletados(filme: Filme) {
+        Service.filmesRoletados.removeAll { filmeRoletado in
+            return filme.nome == filmeRoletado.nome
+        }
+    }
+    
+    func adicionaNaListaAssistidos(filme: Filme) {
+        Service.filmesAssistidos.append(filme)
+    }
+    
+    func removeDaListaAssistidos(filme: Filme) {
+        Service.filmesAssistidos.removeAll { filmeAssistido in
+            return filme.nome == filmeAssistido.nome
+        }
+    }
+    
     
     
     let filmeNil = Filme(image: "uncharted",

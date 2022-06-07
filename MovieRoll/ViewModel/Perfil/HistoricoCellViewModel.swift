@@ -9,13 +9,14 @@ import Foundation
 
 class HistoricoCellViewModel {
     
-    private let filme: Filme
+    private let filme: Filme?
     
-    init(filme: Filme) {
+    init(filme: Filme?) {
         self.filme = filme
     }
     
     var getImage: String {
-        return filme.image
+        return filme?.image ?? ""
     }
 }
+

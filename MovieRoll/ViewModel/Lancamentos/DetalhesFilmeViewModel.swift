@@ -82,11 +82,9 @@ class DetalhesFilmeViewModel {
 
     func buttonAssistidoPressed() {
         if foiAssistido {
-            service.filmesAssistidos.removeAll { filmeAssistido in
-                filme.nome == filmeAssistido.nome
-            }
+            service.removeDaListaAssistidos(filme: filme)
         } else {
-            service.filmesAssistidos.append(filme)
+            service.adicionaNaListaAssistidos(filme: filme)
         }
         foiAssistido = !foiAssistido
         delegate?.alteraAssistidoButton()
@@ -94,14 +92,11 @@ class DetalhesFilmeViewModel {
     
     func buttonFavoritoPressed() {
         if ehFavorito {
-            service.filmesFavoritos.removeAll { filmeFavorito in
-                filme.nome == filmeFavorito.nome
-            }
+            service.removeDaListaFavoritos(filme: filme)
         } else {
-            service.filmesFavoritos.append(filme)
+            service.adicionaNaListaFavoritos(filme: filme)
         }
         ehFavorito = !ehFavorito
         delegate?.alteraFavoritoButton()
-
     }
 }

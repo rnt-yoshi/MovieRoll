@@ -16,9 +16,9 @@ class HistoricoViewModel {
     let service = Service()
     
     init() {
-        listaDeFilmesRoletados = service.filmesRoletados
-        listaDeFilmesFavoritos = service.filmesFavoritos
-        listaDeFilmesAssistidos = service.filmesAssistidos
+        listaDeFilmesRoletados = Service.filmesRoletados
+        listaDeFilmesFavoritos = Service.filmesFavoritos
+        listaDeFilmesAssistidos = Service.filmesAssistidos
     }
     
     func numberOfItems(segmentedControlIndex: Int) -> Int {
@@ -47,9 +47,8 @@ class HistoricoViewModel {
         return service.filmeNil
     }
     
-    
-    func getCellViewModel(indexPath: IndexPath, segmentedControlIndex: Int) -> HistoricoCellViewModel {
-        var filme = listaDeFilmesRoletados[indexPath.row]
+    func getCellViewModel(indexPath: IndexPath, segmentedControlIndex: Int) -> HistoricoCellViewModel? {
+        var filme : Filme?
         
         if segmentedControlIndex == 0 {
             filme = listaDeFilmesRoletados[indexPath.row]
@@ -64,13 +63,13 @@ class HistoricoViewModel {
     }
     
     func verificaFavorito(filme: Filme) -> Bool {
-        return service.filmesFavoritos.contains { filmeFavorito in
+        return Service.filmesFavoritos.contains { filmeFavorito in
             filme.nome == filmeFavorito.nome
         }
     }
     
     func verificaAssistido(filme: Filme) -> Bool {
-        return service.filmesAssistidos.contains { filmeFavorito in
+        return Service.filmesAssistidos.contains { filmeFavorito in
             filme.nome == filmeFavorito.nome
         }
     }
