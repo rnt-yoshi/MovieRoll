@@ -9,7 +9,6 @@ import UIKit
 
 class LancamentosViewController: UIViewController {
     
-    
     @IBOutlet weak var lancamentosTableView: UITableView!
     
     var viewModel = LancamentosViewModel()
@@ -41,7 +40,7 @@ extension LancamentosViewController: UITableViewDataSource {
 
         let filmes = viewModel.getFilmesLancamentos[indexPath.section]
         cell.config(delegate: self, filmes: filmes)
-
+        cell.lancamentosCollectionView.tag = indexPath.section
         cell.lancamentosCollectionView.reloadData()
         
         return cell
@@ -54,9 +53,7 @@ extension LancamentosViewController: UITableViewDelegate {
         tableHeader.tintColor = UIColor.black
         tableHeader.textLabel?.textColor = .white
     }
-    
 }
-
 
 extension LancamentosViewController: LancamentosDelegate {
     func didSelectItem(row: Int, section: Int) {

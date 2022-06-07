@@ -24,14 +24,12 @@ class LancamentosTableViewCell: UITableViewCell {
         // Initialization code
         lancamentosCollectionView.dataSource = self
         lancamentosCollectionView.delegate = self
-        
     }
     
     func config(delegate: LancamentosDelegate, filmes: [Filme] ){
         self.delegate = delegate
         self.filmes = filmes
     }
-    
 }
 //MARK: - CollectionView DataSoure
 extension LancamentosTableViewCell: UICollectionViewDataSource {
@@ -43,24 +41,17 @@ extension LancamentosTableViewCell: UICollectionViewDataSource {
         guard let cell = lancamentosCollectionView.dequeueReusableCell(withReuseIdentifier: "idCellCollection", for: indexPath) as? LancamentosCollectionViewCell else { return UICollectionViewCell()}
         
         guard let filme = filmes?[indexPath.row] else { return UICollectionViewCell()}
-//        cell.configure(filme: filme)
+
         cell.filme = filme
-        
-        cell.tag = indexPath.section
         
         return cell
     }
-    
 }
 //MARK: - CollectionView Delegate
 extension LancamentosTableViewCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        
         delegate?.didSelectItem(row: indexPath.row, section: collectionView.tag)
-        print("****\(collectionView.tag)")
-        
     }
 
 }

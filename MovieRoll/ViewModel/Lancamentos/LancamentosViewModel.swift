@@ -13,10 +13,8 @@ class LancamentosViewModel {
     var filmes: [Filme] = []
     var generos: [String] = []
     
-    
     init(service: Service = Service() ){
         self.service = service
-        
     }
     
     var numberOfSection: Int {
@@ -30,7 +28,6 @@ class LancamentosViewModel {
     
     func numberOfItems(section: Int) -> Int {
         let filmesFiltrado = filmes
-        
         return filmesFiltrado.count
     }
     
@@ -40,7 +37,6 @@ class LancamentosViewModel {
     
     func retornaFilmes(row: Int, section: Int) -> Filme {
         return service.filmesLancamentos[section][row]
-        
     }
     
     var getFilmesLancamentos: [[Filme]] {
