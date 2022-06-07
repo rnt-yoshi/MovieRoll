@@ -37,7 +37,7 @@ class RoletaViewController: UIViewController {
         
         dataDeLancamentoTextField.inputView = dataLancamentoPickerView
         
-        dataLancamentoPickerView.setValue(UIColor(red: 266.0/255, green: 105.0/255, blue: 64.0/255, alpha: 1.0), forKeyPath: "textColor")
+        dataLancamentoPickerView.setValue(UIColor(red: 226.0/255, green: 105.0/255, blue: 64.0/255, alpha: 1.0), forKeyPath: "textColor")
         dataLancamentoPickerView.backgroundColor = UIColor.black
     }
     

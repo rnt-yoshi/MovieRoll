@@ -18,7 +18,7 @@ class DetalhesFilmeViewController: UIViewController {
     @IBOutlet weak var generoLabel: UILabel!
     @IBOutlet weak var notaDoFilme: UILabel!
     @IBOutlet weak var classificacaoIndicativaLabel: UILabel!
-    @IBOutlet weak var sinopseLabel: UILabel!
+    @IBOutlet weak var sinopseTextView: UITextView!
     
     @IBOutlet weak var classificacaoIndicativaImage: UIImageView!
     
@@ -63,7 +63,7 @@ class DetalhesFilmeViewController: UIViewController {
         notaDoFilme.text = ("\(viewModel.getNotaFilme)/10")
         classificacaoIndicativaImage.image = UIImage(named: viewModel.getClassificacaoIndicativaImage)
         classificacaoIndicativaLabel.text = viewModel.getClassificacaoIndicativa
-        sinopseLabel.text = viewModel.getSinopse
+        sinopseTextView.text = viewModel.getSinopse
         plataformaImageView.image = UIImage(named: viewModel.getPlataforma)
         
         classificacaoIndicativaImage.layer.cornerRadius = 10
