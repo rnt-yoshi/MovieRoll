@@ -9,7 +9,7 @@ import UIKit
 
 protocol LancamentosDelegate: AnyObject {
     
-    func didSelectItem (index:Int)
+    func didSelectItem (row: Int, section: Int )
 }
 
 class LancamentosTableViewCell: UITableViewCell {
@@ -24,6 +24,7 @@ class LancamentosTableViewCell: UITableViewCell {
         // Initialization code
         lancamentosCollectionView.dataSource = self
         lancamentosCollectionView.delegate = self
+        
     }
     
     func config(delegate: LancamentosDelegate, filmes: [Filme] ){
@@ -45,6 +46,8 @@ extension LancamentosTableViewCell: UICollectionViewDataSource {
 //        cell.configure(filme: filme)
         cell.filme = filme
         
+        cell.tag = indexPath.section
+        
         return cell
     }
     
@@ -54,7 +57,9 @@ extension LancamentosTableViewCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        delegate?.didSelectItem(index: indexPath.item)
+        
+        delegate?.didSelectItem(row: indexPath.row, section: collectionView.tag)
+        print("****\(collectionView.tag)")
         
     }
 

@@ -42,6 +42,8 @@ extension LancamentosViewController: UITableViewDataSource {
         let filmes = viewModel.getFilmesLancamentos[indexPath.section]
         cell.config(delegate: self, filmes: filmes)
 
+        cell.lancamentosCollectionView.reloadData()
+        
         return cell
     }
 }
@@ -52,12 +54,13 @@ extension LancamentosViewController: UITableViewDelegate {
         tableHeader.tintColor = UIColor.black
         tableHeader.textLabel?.textColor = .white
     }
+    
 }
 
 
 extension LancamentosViewController: LancamentosDelegate {
-    func didSelectItem(index: Int) {
-        let filme = viewModel.retornaFilmes(index: index)
+    func didSelectItem(row: Int, section: Int) {
+        let filme = viewModel.retornaFilmes(row: row, section: section )
         guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
         let viewModel = DetalhesFilmeViewModel(filme: filme)
         detalhesFilme.viewModel = viewModel

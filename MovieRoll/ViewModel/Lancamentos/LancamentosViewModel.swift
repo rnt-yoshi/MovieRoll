@@ -13,6 +13,7 @@ class LancamentosViewModel {
     var filmes: [Filme] = []
     var generos: [String] = []
     
+    
     init(service: Service = Service() ){
         self.service = service
         
@@ -37,9 +38,8 @@ class LancamentosViewModel {
         return generos[section]
     }
     
-    func retornaFilmes(index: Int) -> Filme {
-        
-        return filmes[index]
+    func retornaFilmes(row: Int, section: Int) -> Filme {
+        return service.filmesLancamentos[section][row]
         
     }
     
