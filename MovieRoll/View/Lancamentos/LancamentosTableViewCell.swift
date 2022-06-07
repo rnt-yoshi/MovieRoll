@@ -42,7 +42,8 @@ extension LancamentosTableViewCell: UICollectionViewDataSource {
         guard let cell = lancamentosCollectionView.dequeueReusableCell(withReuseIdentifier: "idCellCollection", for: indexPath) as? LancamentosCollectionViewCell else { return UICollectionViewCell()}
         
         guard let filme = filmes?[indexPath.row] else { return UICollectionViewCell()}
-        cell.configure(filme: filme) 
+//        cell.configure(filme: filme)
+        cell.filme = filme
         
         return cell
     }
@@ -56,8 +57,5 @@ extension LancamentosTableViewCell: UICollectionViewDelegate {
         delegate?.didSelectItem(index: indexPath.item)
         
     }
-    
-    
-    
-    
+
 }

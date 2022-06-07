@@ -29,10 +29,7 @@ class PerfilViewController: UIViewController {
 extension PerfilViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.opcoesDaTableView(index: indexPath.row)
-        
-        perfilTableView.deselectRow(at: indexPath, animated: true)
     }
-    
     
 }
 
@@ -44,6 +41,7 @@ extension PerfilViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.backgroundColor = UIColor(red: 46.0/255, green: 46.0/255, blue: 46.0/255, alpha: 0.4)
+        cell.selectionStyle = .none
         
         var content = cell.defaultContentConfiguration()
         

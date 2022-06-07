@@ -10,7 +10,7 @@ import UIKit
 class LancamentosCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imagemFilmeUIImageView: UIImageView!
-    
+
     var filme: Filme? {
         didSet {
             if let filme = filme {

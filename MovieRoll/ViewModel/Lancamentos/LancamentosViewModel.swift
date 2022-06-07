@@ -40,5 +40,10 @@ class LancamentosViewModel {
     func retornaFilmes(index: Int) -> Filme {
         
         return filmes[index]
+        
+    }
+    
+    var getFilmesLancamentos: [[Filme]] {
+        return service.filmesLancamentos
     }
 }

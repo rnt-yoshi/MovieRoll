@@ -38,10 +38,10 @@ extension LancamentosViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = lancamentosTableView.dequeueReusableCell(withIdentifier: "idCellTable", for: indexPath) as? LancamentosTableViewCell else { return UITableViewCell() }
-        
-        let filmes = viewModel.filmes
+
+        let filmes = viewModel.getFilmesLancamentos[indexPath.section]
         cell.config(delegate: self, filmes: filmes)
-        
+
         return cell
     }
 }
