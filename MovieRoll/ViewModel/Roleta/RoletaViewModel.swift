@@ -12,8 +12,6 @@ protocol RoletaViewModelDelegate {
     func estrelaCheia(tag: Int)
     func botaoSelecionado(tag: Int)
     func botaoSemSelecao(tag: Int)
-    func botaoSelecionadoPlataforma(indexPath: IndexPath)
-    func botaoSemSelecaoPlataforma(indexPath: IndexPath)
     func exibirAlerta()
 }
 
@@ -163,7 +161,7 @@ class RoletaViewModel {
                 delegate?.estrelaCheia(tag: index)
             }
         }
-        notasFiltrosEstrela = (tag + 1) * 2
+        notasFiltrosEstrela = tag * 2
     }
     
     func generoPressionado(_ genero: String?, alpha: Float, tag: Int) {
@@ -179,19 +177,18 @@ class RoletaViewModel {
         }
     }
     
-    func plataformaPressionado(alpha: Float, indexPath: IndexPath ) {
+    func adicionaPlataformaFiltro(indexPath: IndexPath) {
         let plataforma = service.plataformas[indexPath.item]
-        if alpha == 1 {
-            plataformaFiltro.append(plataforma)
-            delegate?.botaoSelecionadoPlataforma(indexPath: indexPath)
-        } else {
-            plataformaFiltro.removeAll { plataformaFiltro in
-            return  plataforma == plataformaFiltro
-        }
-            delegate?.botaoSemSelecaoPlataforma(indexPath: indexPath)
-        }
+        plataformaFiltro.append(plataforma)
     }
     
+    func removePlataformaFiltro(indexPath: IndexPath) {
+        let plataforma = service.plataformas[indexPath.item]
+        plataformaFiltro.removeAll { plataformaFiltro in
+            return  plataforma == plataformaFiltro
+        }
+    }
+
     func verificaFavorito(filme: Filme) -> Bool {
         return Service.filmesFavoritos.contains { filmeFavorito in
             filme.nome == filmeFavorito.nome
