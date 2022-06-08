@@ -38,11 +38,11 @@ extension ConfiguracoesViewController: ConfiguracoesViewModelDelegate {
     func exibeAlertaRoletado() {
         let alerta = UIAlertController(title: "Você está removendo toda lista de filmes roletados.", message: "Tem certeza que deseja remover toda a lista de filmes roletados?", preferredStyle: .alert)
         
-        let simAction = UIAlertAction(title: "Sim", style: .destructive, handler: {
+        let simAction = UIAlertAction(title: "Sim", style: .default, handler: {
             alerta in
             self.viewModel?.resetarFilmesRoletados()
         })
-        let naoAction = UIAlertAction(title: "Nao", style: .default, handler: nil)
+        let naoAction = UIAlertAction(title: "Nao", style: .destructive, handler: nil)
         
         
         alerta.addAction(naoAction)
@@ -54,11 +54,11 @@ extension ConfiguracoesViewController: ConfiguracoesViewModelDelegate {
     func exibeAlertaFavorito() {
         let alerta = UIAlertController(title: "Você está removendo toda lista de filmes favoritos.", message: "Tem certeza que deseja remover toda a lista de filmes favoritos?", preferredStyle: .alert)
         
-        let simAction = UIAlertAction(title: "Sim", style: .destructive, handler: {
+        let simAction = UIAlertAction(title: "Sim", style: .default, handler: {
             alerta in
             self.viewModel?.resetarFilmesFavoritos()
         })
-        let naoAction = UIAlertAction(title: "Nao", style: .default, handler: nil)
+        let naoAction = UIAlertAction(title: "Nao", style: .destructive, handler: nil)
         
         alerta.addAction(naoAction)
         alerta.addAction(simAction)
@@ -69,11 +69,11 @@ extension ConfiguracoesViewController: ConfiguracoesViewModelDelegate {
     func exibeAlertaAssistido() {
         let alerta = UIAlertController(title: "Você está removendo toda lista de filmes assistidos.", message: "Tem certeza que deseja remover toda a lista de filmes assistidos?", preferredStyle: .alert)
         
-        let simAction = UIAlertAction(title: "Sim", style: .destructive, handler: {
+        let simAction = UIAlertAction(title: "Sim", style: .default, handler: {
             alerta in
                 self.viewModel?.resetarFilmesAssistidos()
         })
-        let naoAction = UIAlertAction(title: "Nao", style: .default, handler: nil)
+        let naoAction = UIAlertAction(title: "Nao", style: .destructive, handler: nil)
         
         alerta.addAction(naoAction)
         alerta.addAction(simAction)
@@ -84,11 +84,11 @@ extension ConfiguracoesViewController: ConfiguracoesViewModelDelegate {
     func exibeAlertaDesconectar() {
         let alerta = UIAlertController(title: "Você está desconectando sua conta deste app.", message: "Tem certeza que deseja desconectar sua conta deste app?", preferredStyle: .alert)
         
-        let simAction = UIAlertAction(title: "Sim", style: .destructive, handler: {
+        let simAction = UIAlertAction(title: "Sim", style: .default, handler: {
             alerta in
             self.viewModel?.desconectarConta()
         })
-        let naoAction = UIAlertAction(title: "Nao", style: .default, handler: nil)
+        let naoAction = UIAlertAction(title: "Nao", style: .destructive, handler: nil)
         
         alerta.addAction(naoAction)
         alerta.addAction(simAction)
