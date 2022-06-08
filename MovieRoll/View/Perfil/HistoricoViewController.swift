@@ -17,8 +17,8 @@ class HistoricoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCollectionViewDataSouceDelegate()
-        
+        historicoCollectionView.delegate = self
+        historicoCollectionView.dataSource = self
         setupSegmentedControl()
     }
     
@@ -33,10 +33,6 @@ class HistoricoViewController: UIViewController {
         )
     }
     
-    private func setupCollectionViewDataSouceDelegate() {
-        historicoCollectionView.delegate = self
-        historicoCollectionView.dataSource = self
-    }
     
     @IBAction func actionSegmentedControl(_ sender: Any) {
         historicoCollectionView.reloadData()
