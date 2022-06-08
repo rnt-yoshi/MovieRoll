@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class OptionsDoPerfil {
     var titulo: String
     var subtitulo: String

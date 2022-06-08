@@ -29,7 +29,5 @@ class LoginViewController: UIViewController {
             tabBar.modalTransitionStyle = .flipHorizontal
             present(tabBar, animated: true)
         }
-        
     }
-
 }

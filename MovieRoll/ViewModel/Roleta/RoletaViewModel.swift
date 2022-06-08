@@ -139,7 +139,6 @@ class RoletaViewModel {
             }
             filme.append(contentsOf: filmesFiltrados)
         }
-        
         return filme
     }
     
@@ -152,9 +151,7 @@ class RoletaViewModel {
             }
             filme.append(contentsOf: filmesFiltradosPlataforma)
         }
-        
         return filme
-        
     }
     
     func estrelaNotaPressionada(_ tag: Int) {
@@ -186,11 +183,11 @@ class RoletaViewModel {
         let plataforma = service.plataformas[indexPath.item]
         if alpha == 1 {
             plataformaFiltro.append(plataforma)
-            delegate?.botaoSelecionadoPlataforma(indexPath: indexPath  )
+            delegate?.botaoSelecionadoPlataforma(indexPath: indexPath)
         } else {
             plataformaFiltro.removeAll { plataformaFiltro in
-                return  plataforma == plataformaFiltro
-            }
+            return  plataforma == plataformaFiltro
+        }
             delegate?.botaoSemSelecaoPlataforma(indexPath: indexPath)
         }
     }
@@ -229,7 +226,6 @@ class RoletaViewModel {
                 }
             }
         }
-
         return filmesARoletar
     }
 }
