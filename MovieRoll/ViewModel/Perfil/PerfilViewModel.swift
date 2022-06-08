@@ -16,7 +16,7 @@ protocol PerfilViewModelDelegate {
 
 class PerfilViewModel {
     
-    private var userPerfil = User(name: "Renato", image: "Renato")
+    private var userPerfil = User(name: "Gato", image: "profileCat")
     
     var delegate: PerfilViewModelDelegate?
     

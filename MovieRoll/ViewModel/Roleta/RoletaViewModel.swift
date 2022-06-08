@@ -87,13 +87,12 @@ class RoletaViewModel {
     
     func roletaFilmeFiltrado() -> Filme {
         var filme: Filme?
-        var filmesFiltrados: [Filme] = service.filmes
+        var filmesFiltrados: [Filme] = filmesQueSeraoRoletados()
         
         if generosFiltro.count > 0 {
             let filmeFiltradoGenero = filtraPorGenero(generos: generosFiltro, filmes: filmesFiltrados)
             filmesFiltrados = filmeFiltradoGenero
         }
-        
         
         if notasFiltrosEstrela > 0 {
             let filmeFiltradoNota = filtrarPorNota(nota: notasFiltrosEstrela, filmes: filmesFiltrados)
@@ -106,20 +105,15 @@ class RoletaViewModel {
         if plataformaFiltro.count > 0 {
             let filmeFiltradoPlataforma = filtraPorPlataforma(plataformas: plataformaFiltro, filmes: filmesFiltrados)
             filmesFiltrados = filmeFiltradoPlataforma
-            
         }
         
         filme = filmesFiltrados.randomElement()
         
-        if filme == nil{
+        if filme == nil {
             delegate?.exibirAlerta()
         }
         
         return filme ?? service.filmeNil
-    }
-    
-    func tratarFilme(){
-        
     }
     
     private func filtrarPorData(dataInicial: String, dataFinal: String, filmes: [Filme]) -> [Filme] {
@@ -211,5 +205,31 @@ class RoletaViewModel {
         return Service.filmesAssistidos.contains { filmeFavorito in
             filme.nome == filmeFavorito.nome
         }
+    }
+    
+    func adicionarListaFilmesRoletados(filme: Filme?) {
+        guard let filme = filme else { return }
+        
+        if filme.nome != "" {
+            Service.filmesRoletados.append(filme)
+        }
+    }
+    
+    private func filmesQueSeraoRoletados() -> [Filme] {
+        var filmesARoletar: [Filme] = []
+        
+        if Service.filmesRoletados.count == 0 {
+            filmesARoletar = filmes
+        } else {
+            for filmeARoletar in filmes {
+                for roletado in Service.filmesRoletados {
+                    if filmeARoletar.nome != roletado.nome {
+                        filmesARoletar.append(filmeARoletar)
+                    }
+                }
+            }
+        }
+
+        return filmesARoletar
     }
 }

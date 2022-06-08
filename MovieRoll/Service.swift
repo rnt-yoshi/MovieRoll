@@ -50,9 +50,13 @@ class Service {
         "Romance",
         "Terror",
     ]
-    
+        
     func adicionaNaListaFavoritos(filme: Filme) {
         Service.filmesFavoritos.append(filme)
+    }
+    
+    func adicionaNaListaAssistidos(filme: Filme) {
+        Service.filmesAssistidos.append(filme)
     }
     
     func removeDaListaFavoritos(filme: Filme) {
@@ -60,36 +64,22 @@ class Service {
             return filme.nome == filmeFavorito.nome
         }
     }
-    
-    func adicionaNaListaRoletados(filme: Filme) {
-        Service.filmesRoletados.append(filme)
-    }
-    
-    func removeDaListaRoletados(filme: Filme) {
-        Service.filmesRoletados.removeAll { filmeRoletado in
-            return filme.nome == filmeRoletado.nome
-        }
-    }
-    
-    func adicionaNaListaAssistidos(filme: Filme) {
-        Service.filmesAssistidos.append(filme)
-    }
-    
+
     func removeDaListaAssistidos(filme: Filme) {
         Service.filmesAssistidos.removeAll { filmeAssistido in
             return filme.nome == filmeAssistido.nome
         }
     }
     
-    let filmeNil = Filme(image: "uncharted",
-                         nome: "Uncharted: Fora do Mapa",
-                         ano: "2022",
-                         genero: "Ação",
-                         nota: 7,
-                         sinopse: "Nathan Drake e seu parceiro canastrão Victor Sully Sullivan embarcam em uma perigosa busca para encontrar o maior tesouro jamais encontrado. Enquanto isso, eles também rastreiam pistas que podem levar ao irmão perdido de Nathan.",
-                         classificaIndicativaImage: "12",
-                         classificacaoIndicativa: "Agressão, consumo de drogas",
-                         plataforma: "now"
+    let filmeNil = Filme(image: "",
+                         nome: "",
+                         ano: "",
+                         genero: "",
+                         nota: 0,
+                         sinopse: "",
+                         classificaIndicativaImage: "",
+                         classificacaoIndicativa: "",
+                         plataforma: ""
     )
     
     let filmes: [Filme] = [

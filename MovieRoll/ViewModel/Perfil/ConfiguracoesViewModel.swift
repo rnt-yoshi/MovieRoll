@@ -33,15 +33,15 @@ class ConfiguracoesViewModel {
     }
     
     func resetarFilmesRoletados() {
-        
+        Service.filmesRoletados.removeAll()
     }
     
     func resetarFilmesFavoritos() {
-        
+        Service.filmesFavoritos.removeAll()
     }
     
     func resetarFilmesAssistidos() {
-        
+        Service.filmesAssistidos.removeAll()
     }
     
     func desconectarConta() {

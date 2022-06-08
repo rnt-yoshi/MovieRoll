@@ -47,6 +47,9 @@ class RoletaViewController: UIViewController {
     
     @IBAction func roletarButtonPressed(_ sender: Any) {
         let filme = viewModel.roletaFilmeFiltrado()
+        
+        viewModel.adicionarListaFilmesRoletados(filme: filme)
+        
         guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
         
         let ehFavorito = viewModel.verificaFavorito(filme: filme)
@@ -55,7 +58,7 @@ class RoletaViewController: UIViewController {
         let viewModel = DetalhesFilmeViewModel(filme: filme, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
         
         detalhesFilme.viewModel = viewModel
-        
+  
         navigationController?.pushViewController(detalhesFilme, animated: true)
     }
     
