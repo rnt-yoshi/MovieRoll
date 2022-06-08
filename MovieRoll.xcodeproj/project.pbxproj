@@ -143,8 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				4256CE4A283E4CAA0017DD5F /* Main.storyboard */,
-				426A9121285049A5009D1AE2 /* LoginViewController.swift */,
 				426A912328504B0D009D1AE2 /* TabBarController.swift */,
+				422B4B202850848A00E67014 /* Login */,
 				2BD40F86284FD24600AD1859 /* DetalhesFilme */,
 				4247B017284B8D1F004A12EE /* Lancamentos */,
 				2BA7C7C1284BD30800013C13 /* Roleta */,
@@ -161,6 +161,14 @@
 				2BA7C7BF284BD2C300013C13 /* Perfil */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		422B4B202850848A00E67014 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				426A9121285049A5009D1AE2 /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		4247B017284B8D1F004A12EE /* Lancamentos */ = {
