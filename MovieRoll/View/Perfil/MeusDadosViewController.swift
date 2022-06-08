@@ -14,9 +14,10 @@ class MeusDadosViewController: UIViewController {
     @IBOutlet weak var meusDadosEmailTextField: UITextField!
     
     var viewModel: MeusDadosViewModel?
-    
+            
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         configuraTela()
     }
@@ -24,6 +25,7 @@ class MeusDadosViewController: UIViewController {
     func configuraTela() {
         guard let viewModel = viewModel else { return }
         meusDadosNomeTextField.text = viewModel.getUserName
+        
         meusDadosImage.image = UIImage(named: viewModel.getUserImage)
         meusDadosImage.layer.cornerRadius = 80
     }
@@ -34,6 +36,7 @@ class MeusDadosViewController: UIViewController {
         imagePicker.delegate = self
         
         present(imagePicker, animated: true)
+        
     }
     
     @IBAction func salvarButtonAction(_ sender: Any) {
@@ -41,6 +44,7 @@ class MeusDadosViewController: UIViewController {
         navigationController?.popViewController(animated: true)
         
     }
+    
 }
 
 extension MeusDadosViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
