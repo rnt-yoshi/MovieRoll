@@ -50,6 +50,10 @@ class RoletaViewController: UIViewController {
         viewModel.generoPressionado(sender.configuration?.title, alpha: Float(sender.alpha), tag: sender.tag)
     }
     
+    @IBAction func estrelaNotaButtonAction(_ sender: UIButton) {
+        viewModel.estrelaNotaPressionada(sender.tag)
+    }
+    
     @IBAction func roletarButtonPressed(_ sender: Any) {
         let filme = viewModel.roletaFilmeFiltrado()
         
@@ -67,9 +71,7 @@ class RoletaViewController: UIViewController {
         navigationController?.pushViewController(detalhesFilme, animated: true)
     }
     
-    @IBAction func estrelaNotaButtonAction(_ sender: UIButton) {
-        viewModel.estrelaNotaPressionada(sender.tag)
-    }
+    
     
 }
 
@@ -182,12 +184,12 @@ extension RoletaViewController: RoletaViewModelDelegate {
         estrelasNotaBotao[tag].configuration?.image = UIImage(systemName: "star.fill")
         estrelasNotaBotao[tag].configuration?.baseForegroundColor = .systemYellow
         estrelasNotaBotao[tag].transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
-        
-        UIView.animate(withDuration: 2.0,
-                       delay: 0,
-                       usingSpringWithDamping: CGFloat(0.20),
-                       initialSpringVelocity: CGFloat(6.0),
-                       options: UIView.AnimationOptions.allowUserInteraction,
+        UIView.animate(
+            withDuration: 2.0,
+            delay: 0,
+            usingSpringWithDamping: CGFloat(0.20),
+            initialSpringVelocity: CGFloat(6.0),
+            options: UIView.AnimationOptions.allowUserInteraction,
                        animations: {
             self.estrelasNotaBotao[tag].transform = CGAffineTransform.identity
         },
