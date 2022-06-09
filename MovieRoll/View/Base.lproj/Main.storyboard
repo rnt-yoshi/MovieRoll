@@ -672,11 +672,13 @@
                                     <action selector="roletarButtonPressed:" destination="CJU-TO-Pve" eventType="touchUpInside" id="1gP-M7-Emh"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="a4l-0J-AfY">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a4l-0J-AfY">
                                 <rect key="frame" x="122" y="553" width="170" height="34"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="170" id="fJg-fi-vm4"/>
                                 </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -930,7 +932,7 @@
                                     <constraint firstAttribute="bottom" secondItem="3HY-uR-KSI" secondAttribute="bottom" constant="10" id="zTa-Z1-yUR"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unc" translatesAutoresizingMaskIntoConstraints="NO" id="e6W-CU-RSO">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="animaisfantasticos" translatesAutoresizingMaskIntoConstraints="NO" id="e6W-CU-RSO">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="435"/>
                             </imageView>
                         </subviews>
@@ -1177,6 +1179,7 @@
     </scenes>
     <resources>
         <image name="acao" width="736" height="542"/>
+        <image name="animaisfantasticos" width="2000" height="3000"/>
         <image name="aventura" width="749" height="562"/>
         <image name="comedia" width="300" height="237"/>
         <image name="documentario" width="748" height="421"/>
@@ -1195,7 +1198,6 @@
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="terror" width="750" height="399"/>
         <image name="trash" catalog="system" width="121" height="128"/>
-        <image name="unc" width="2000" height="3000"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

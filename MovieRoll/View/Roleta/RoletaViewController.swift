@@ -23,10 +23,10 @@ class RoletaViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        inicializaCollectionView()
-        
         viewModel.delegate = self
         
+        inicializaCollectionView()
+        inicializaTextField()
         inicializaPickerView()
     }
     
@@ -36,14 +36,36 @@ class RoletaViewController: UIViewController {
         plataformasCollectionView.allowsMultipleSelection = true
     }
     
+    private func inicializaTextField() {
+        dataDeLancamentoTextField.layer.borderWidth = 1
+        dataDeLancamentoTextField.layer.cornerRadius = 8
+        dataDeLancamentoTextField.layer.borderColor = UIColor(red: 226.0/255, green: 105.0/255, blue: 64.0/255, alpha: 1.0).cgColor
+    }
+    
     private func inicializaPickerView() {
         dataLancamentoPickerView.delegate = self
         dataLancamentoPickerView.dataSource = self
         
+        let okButton = UIBarButtonItem(title: "OK", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.donePickerView))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.black
+        toolBar.tintColor = UIColor(red: 226.0/255, green: 105.0/255, blue: 64.0/255, alpha: 1.0)
+        toolBar.sizeToFit()
+        
+        toolBar.setItems([spaceButton, okButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        
         dataDeLancamentoTextField.inputView = dataLancamentoPickerView
+        dataDeLancamentoTextField.inputAccessoryView = toolBar
         
         dataLancamentoPickerView.setValue(UIColor(red: 226.0/255, green: 105.0/255, blue: 64.0/255, alpha: 1.0), forKeyPath: "textColor")
         dataLancamentoPickerView.backgroundColor = UIColor.black
+    }
+    
+    @objc private func donePickerView() {
+        dataDeLancamentoTextField.resignFirstResponder()
     }
     
     @IBAction func generosBotoesAction(_ sender: UIButton) {
@@ -136,7 +158,6 @@ extension RoletaViewController: UIPickerViewDataSource {
 extension RoletaViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         dataDeLancamentoTextField.text = viewModel.getTitleForTextField(row: row, componente: component)
-        dataDeLancamentoTextField.resignFirstResponder()
     }
 }
 
