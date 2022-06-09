@@ -16,6 +16,7 @@ protocol ConfiguracoesViewModelDelegate {
 
 class ConfiguracoesViewModel {
     var delegate: ConfiguracoesViewModelDelegate?
+    private let service = Service.shared
     
     func resetarRoletadosButton() {
         delegate?.exibeAlertaRoletado()
@@ -33,15 +34,15 @@ class ConfiguracoesViewModel {
     }
     
     func resetarFilmesRoletados() {
-        Service.shared.filmesRoletados.removeAll()
+        service.filmesRoletados.removeAll()
     }
     
     func resetarFilmesFavoritos() {
-        Service.shared.filmesFavoritos.removeAll()
+        service.filmesFavoritos.removeAll()
     }
     
     func resetarFilmesAssistidos() {
-        Service.shared.filmesAssistidos.removeAll()
+        service.filmesAssistidos.removeAll()
     }
     
     func desconectarConta() {

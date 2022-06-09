@@ -87,13 +87,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B179EAD2852911D0050487A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8AF6492C284E350400308711 /* HistoricoCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		2B179EAE285291380050487A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C635E81D284C4DAE00DF525E /* PlataformasCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		2B179EAF285291440050487A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4247B013284B886D004A12EE /* LancamentosTableViewCell.swift */,
+				4247B015284B8BFF004A12EE /* LancamentosCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		2B179EB0285291820050487A /* DetalhesFilme */ = {
+			isa = PBXGroup;
+			children = (
+				429FFF2F284BD92C0079C159 /* DetalhesFilmeViewModel.swift */,
+			);
+			path = DetalhesFilme;
+			sourceTree = "<group>";
+		};
+		2B179EB12852931A0050487A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8AF6492A284E2C1100308711 /* HistoricoCellViewModel.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		2BA7C7BE284BD2A100013C13 /* Perfil */ = {
 			isa = PBXGroup;
 			children = (
+				2B179EAD2852911D0050487A /* Cells */,
 				4256CE48283E4CAA0017DD5F /* PerfilViewController.swift */,
 				8ADFC41C284B7A6000CBDBA2 /* MeusDadosViewController.swift */,
 				8ADFC41E284B7A8C00CBDBA2 /* HistoricoViewController.swift */,
-				8AF6492C284E350400308711 /* HistoricoCollectionViewCell.swift */,
 				8ADFC420284B7AAC00CBDBA2 /* ConfiguracoesViewController.swift */,
 				8ADFC422284B7ABE00CBDBA2 /* AjudaViewController.swift */,
 			);
@@ -103,10 +144,10 @@
 		2BA7C7BF284BD2C300013C13 /* Perfil */ = {
 			isa = PBXGroup;
 			children = (
+				2B179EB12852931A0050487A /* Cells */,
 				8A3BA176284A659E00C74C77 /* PerfilViewModel.swift */,
 				8AF64926284E2B4F00308711 /* MeusDadosViewModel.swift */,
 				8AF64928284E2B6F00308711 /* HistoricoViewModel.swift */,
-				8AF6492A284E2C1100308711 /* HistoricoCellViewModel.swift */,
 				8A1B0172284E67E10097D4D6 /* ConfiguracoesViewModel.swift */,
 			);
 			path = Perfil;
@@ -115,8 +156,8 @@
 		2BA7C7C1284BD30800013C13 /* Roleta */ = {
 			isa = PBXGroup;
 			children = (
+				2B179EAE285291380050487A /* Cells */,
 				8A72D0B3283FA12800977B34 /* RoletaViewController.swift */,
-				C635E81D284C4DAE00DF525E /* PlataformasCollectionViewCell.swift */,
 			);
 			path = Roleta;
 			sourceTree = "<group>";
@@ -142,6 +183,7 @@
 		421693F128497972001F431E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4256CE4F283E4CAB0017DD5F /* LaunchScreen.storyboard */,
 				4256CE4A283E4CAA0017DD5F /* Main.storyboard */,
 				426A912328504B0D009D1AE2 /* TabBarController.swift */,
 				422B4B202850848A00E67014 /* Login */,
@@ -156,6 +198,7 @@
 		421693F228497979001F431E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				2B179EB0285291820050487A /* DetalhesFilme */,
 				4247B01C284B967F004A12EE /* Lancamentos */,
 				42E2BFE8284D22C700B01F08 /* Roleta */,
 				2BA7C7BF284BD2C300013C13 /* Perfil */,
@@ -174,9 +217,8 @@
 		4247B017284B8D1F004A12EE /* Lancamentos */ = {
 			isa = PBXGroup;
 			children = (
+				2B179EAF285291440050487A /* Cells */,
 				8A72D0B5283FA14600977B34 /* LancamentosViewController.swift */,
-				4247B013284B886D004A12EE /* LancamentosTableViewCell.swift */,
-				4247B015284B8BFF004A12EE /* LancamentosCollectionViewCell.swift */,
 			);
 			path = Lancamentos;
 			sourceTree = "<group>";
@@ -185,7 +227,6 @@
 			isa = PBXGroup;
 			children = (
 				4247B018284B95FE004A12EE /* LancamentosViewModel.swift */,
-				429FFF2F284BD92C0079C159 /* DetalhesFilmeViewModel.swift */,
 			);
 			path = Lancamentos;
 			sourceTree = "<group>";
@@ -215,7 +256,6 @@
 				421693F228497979001F431E /* ViewModel */,
 				4256CE44283E4CAA0017DD5F /* AppDelegate.swift */,
 				4256CE46283E4CAA0017DD5F /* SceneDelegate.swift */,
-				4256CE4F283E4CAB0017DD5F /* LaunchScreen.storyboard */,
 				4256CE4D283E4CAB0017DD5F /* Assets.xcassets */,
 				4256CE52283E4CAB0017DD5F /* Info.plist */,
 			);
