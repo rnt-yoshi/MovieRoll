@@ -120,12 +120,12 @@
 			path = DetalhesFilme;
 			sourceTree = "<group>";
 		};
-		2B179EB12852931A0050487A /* Cells */ = {
+		2B179EB12852931A0050487A /* CellsViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				8AF6492A284E2C1100308711 /* HistoricoCellViewModel.swift */,
 			);
-			path = Cells;
+			path = CellsViewModel;
 			sourceTree = "<group>";
 		};
 		2BA7C7BE284BD2A100013C13 /* Perfil */ = {
@@ -144,7 +144,7 @@
 		2BA7C7BF284BD2C300013C13 /* Perfil */ = {
 			isa = PBXGroup;
 			children = (
-				2B179EB12852931A0050487A /* Cells */,
+				2B179EB12852931A0050487A /* CellsViewModel */,
 				8A3BA176284A659E00C74C77 /* PerfilViewModel.swift */,
 				8AF64926284E2B4F00308711 /* MeusDadosViewModel.swift */,
 				8AF64928284E2B6F00308711 /* HistoricoViewModel.swift */,
