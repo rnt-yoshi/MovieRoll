@@ -21,19 +21,41 @@ class RoletaViewModel {
     
     var delegate: RoletaViewModelDelegate?
     
-    private var anos: [String] = [
-        "2022",
-        "2021",
-        "2020",
-        "2010",
-        "2000",
-        "1990",
-        "1980",
-        "1970",
-        "1960",
-        "1950",
-        "1940",
-        "1930"
+    private var anos: [[String]] = [
+        [
+            "De:"
+        ],
+        [
+            "2022",
+            "2021",
+            "2020",
+            "2010",
+            "2000",
+            "1990",
+            "1980",
+            "1970",
+            "1960",
+            "1950",
+            "1940",
+            "1930"
+        ],
+        [
+            "Até:"
+        ],
+        [
+            "2022",
+            "2021",
+            "2020",
+            "2010",
+            "2000",
+            "1990",
+            "1980",
+            "1970",
+            "1960",
+            "1950",
+            "1940",
+            "1930"
+        ]
     ]
     
     private var notasFiltrosEstrela = 0
@@ -57,22 +79,22 @@ class RoletaViewModel {
     }
     
     var numberComponents: Int {
-        return 2
-    }
-    
-    var numberOfRows: Int {
         return anos.count
     }
     
-    func titleForRow(row: Int) -> String {
-        return anos[row]
+    func numberOfRows(component: Int) -> Int {
+        return anos[component].count
+    }
+    
+    func titleForRow(row: Int, component: Int) -> String {
+        return anos[component][row]
     }
     
     func getTitleForTextField(row: Int, componente: Int) -> String {
-        if componente == 0 {
-            dataInicial = anos[row]
-        } else {
-            dataFinal = anos[row]
+        if componente == 1 {
+            dataInicial = anos[componente][row]
+        } else if componente == 3 {
+            dataFinal = anos[componente][row]
         }
         
         return "De \(dataInicial) Até \(dataFinal)"
@@ -91,7 +113,7 @@ class RoletaViewModel {
             let filmeFiltradoNota = filtrarPorNota(nota: notasFiltrosEstrela, filmes: filmesFiltrados)
             filmesFiltrados = filmeFiltradoNota
         }
-        if dataInicial > anos.last ?? "" || dataFinal < anos.first ?? ""{
+        if dataInicial > anos[1].last ?? "" || dataFinal < anos[3].first ?? ""{
             let filmeFiltradoData = filtrarPorData(dataInicial: dataInicial, dataFinal: dataFinal, filmes: filmesFiltrados)
             filmesFiltrados = filmeFiltradoData
         }

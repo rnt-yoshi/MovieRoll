@@ -47,14 +47,15 @@ class RoletaViewController: UIViewController {
         dataLancamentoPickerView.dataSource = self
         
         let okButton = UIBarButtonItem(title: "OK", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.donePickerView))
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
         
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.black
+        toolBar.isTranslucent = false
         toolBar.tintColor = UIColor(red: 226.0/255, green: 105.0/255, blue: 64.0/255, alpha: 1.0)
         toolBar.sizeToFit()
         
-        toolBar.setItems([spaceButton, okButton], animated: false)
+        toolBar.setItems([spaceButton, okButton], animated: true)
         toolBar.isUserInteractionEnabled = true
         
         dataDeLancamentoTextField.inputView = dataLancamentoPickerView
@@ -147,11 +148,11 @@ extension RoletaViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        viewModel.numberOfRows
+        viewModel.numberOfRows(component: component)
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        viewModel.titleForRow(row: row)
+        viewModel.titleForRow(row: row, component: component)
     }
 }
 
