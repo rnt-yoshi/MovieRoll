@@ -8,15 +8,16 @@
 import Foundation
 
 class Service {
-    
-    static var filmesLancamentos: [[Filme]] = []
-    static var filmesFavoritos: [Filme] = []
-    static var filmesRoletados: [Filme] = []
-    static var filmesAssistidos: [Filme] = []
+    static var shared = Service()
+
+     var filmesLancamentos: [[Filme]] = []
+     var filmesFavoritos: [Filme] = []
+     var filmesRoletados: [Filme] = []
+     var filmesAssistidos: [Filme] = []
     
     init() {
         for genero in generos{
-            Service.filmesLancamentos.append(filtraPorGenero(genero: genero))
+            filmesLancamentos.append(filtraPorGenero(genero: genero))
         }
     }
     
@@ -52,21 +53,22 @@ class Service {
     ]
         
     func adicionaNaListaFavoritos(filme: Filme) {
-        Service.filmesFavoritos.append(filme)
+        filmesFavoritos.append(filme)
     }
     
     func adicionaNaListaAssistidos(filme: Filme) {
-        Service.filmesAssistidos.append(filme)
+        filmesAssistidos.append(filme)
     }
     
     func removeDaListaFavoritos(filme: Filme) {
-        Service.filmesFavoritos.removeAll { filmeFavorito in
+        
+        filmesFavoritos.removeAll { filmeFavorito in
             return filme.nome == filmeFavorito.nome
         }
     }
 
     func removeDaListaAssistidos(filme: Filme) {
-        Service.filmesAssistidos.removeAll { filmeAssistido in
+        filmesAssistidos.removeAll { filmeAssistido in
             return filme.nome == filmeAssistido.nome
         }
     }
@@ -338,16 +340,7 @@ class Service {
               classificacaoIndicativa: "Agressão, consumo de drogas",
               plataforma: "primevideo"
              ),
-//        Filme(image: "haloeffect",
-//              nome: "Halo Effect",
-//              ano: "2012",
-//              genero: "Documentário",
-//              nota: 3,
-//              sinopse: "Three of the world's best kayakers take a two-month journey to the Scandinavian paddling meccas of Iceland and Norway. While they search inside the arctic circle for rapids and waterfalls that have never been run, they're also searching for the elusive moments when the stars align and everything goes perfectly, but sometimes... in the blink of an eye... things go horribly wrong. The inevitable externalities of their main goal is what they call 'the halo effect'.",
-//              classificaIndicativaImage: "livre",
-//              classificacaoIndicativa: "Conteúdo livre",
-//              plataforma: "primevideo"
-//             ),
+
 //Ficção
         Filme(image: "avatar",
               nome: "Avatar",
@@ -532,16 +525,6 @@ class Service {
               classificacaoIndicativa: "Agressão, consumo de drogas",
               plataforma: "netflix"
              )
-//        Filme(image: "virus32",
-//              nome: "Virus-32",
-//              ano: "2022",
-//              genero: "Terror",
-//              nota: 7,
-//              sinopse: "A virus is unleashed and a chilling massacre runs through the streets of Montevideo.",
-//              classificaIndicativaImage: "16",
-//              classificacaoIndicativa: "Violência extrema, drogas",
-//              plataforma: "starplus"
-//             )
     ]
     
 }

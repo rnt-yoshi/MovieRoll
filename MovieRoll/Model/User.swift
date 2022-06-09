@@ -5,7 +5,7 @@
 //  Created by Renato Yoshinari on 03/06/22.
 //
 
-import Foundation
+import UIKit
 
 class User {
     var name: String

@@ -36,21 +36,21 @@ class LancamentosViewModel {
     }
     
     func retornaFilmes(row: Int, section: Int) -> Filme {
-        return Service.filmesLancamentos[section][row]
+        return Service.shared.filmesLancamentos[section][row]
     }
     
     var getFilmesLancamentos: [[Filme]] {
-        return Service.filmesLancamentos
+        return Service.shared.filmesLancamentos
     }
     
     func verificaFavorito(filme: Filme) -> Bool {
-        return Service.filmesFavoritos.contains { filmeFavorito in
+        return Service.shared.filmesFavoritos.contains { filmeFavorito in
             filme.nome == filmeFavorito.nome
         }
     }
     
     func verificaAssistido(filme: Filme) -> Bool {
-        return Service.filmesAssistidos.contains { filmeFavorito in
+        return Service.shared.filmesAssistidos.contains { filmeFavorito in
             filme.nome == filmeFavorito.nome
         }
     }

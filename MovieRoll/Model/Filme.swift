@@ -9,7 +9,7 @@ import Foundation
 
 class Filme {
     let image: String
-    let nome: String
+    var nome: String
     let ano: String
     let genero: String
     let nota: Int

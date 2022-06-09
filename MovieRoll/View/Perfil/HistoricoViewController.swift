@@ -26,6 +26,7 @@ class HistoricoViewController: UIViewController {
         historicoCollectionView.reloadData()
     }
     
+    
     private func setupSegmentedControl() {
         segmentedControlRoletadosFavoritosAssistidos.setTitleTextAttributes(
             [.foregroundColor: UIColor.white],
@@ -35,8 +36,8 @@ class HistoricoViewController: UIViewController {
     
     
     @IBAction func actionSegmentedControl(_ sender: Any) {
-        historicoCollectionView.reloadData()
         segmentedControlIndex = segmentedControlRoletadosFavoritosAssistidos.selectedSegmentIndex
+        historicoCollectionView.reloadData()
     }
 }
 

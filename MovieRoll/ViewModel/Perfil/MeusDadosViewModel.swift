@@ -28,8 +28,7 @@ class MeusDadosViewModel {
         user.name = nome
     }
     
-    func setUserImage(image: String?) {
-        guard let image = image else { return }
+    func setUserImage(image: String) {
         user.image = image
     }
 }

@@ -9,67 +9,57 @@ import Foundation
 
 class HistoricoViewModel {
     
-    private var listaDeFilmesRoletados:  [Filme] = []
-    private var listaDeFilmesFavoritos:  [Filme] = []
-    private var listaDeFilmesAssistidos: [Filme] = []
-    
-    let service = Service()
-    
-    init() {
-        listaDeFilmesRoletados = Service.filmesRoletados
-        listaDeFilmesFavoritos = Service.filmesFavoritos
-        listaDeFilmesAssistidos = Service.filmesAssistidos
-    }
+    private let service = Service.shared
     
     func numberOfItems(segmentedControlIndex: Int) -> Int {
         if segmentedControlIndex == 0 {
-            return listaDeFilmesRoletados.count
+            return service.filmesRoletados.count
         }
         if segmentedControlIndex == 1 {
-            return listaDeFilmesFavoritos.count
+            return  service.filmesFavoritos.count
         }
         if segmentedControlIndex == 2 {
-            return listaDeFilmesAssistidos.count
+            return service.filmesAssistidos.count
         }
         return 0
     }
     
     func retornaFilme(indexFilme: Int, indexSegmenterController: Int) -> Filme {
         if indexSegmenterController == 0 {
-            return listaDeFilmesRoletados[indexFilme]
+            return service.filmesRoletados[indexFilme]
         }
         if indexSegmenterController == 1 {
-            return listaDeFilmesFavoritos[indexFilme]
+            return service.filmesFavoritos[indexFilme]
         }
         if indexSegmenterController == 2 {
-            return listaDeFilmesAssistidos[indexFilme]
+            return service.filmesAssistidos[indexFilme]
         }
-        return service.filmeNil
+        return Service.shared.filmeNil
     }
     
     func getCellViewModel(indexPath: IndexPath, segmentedControlIndex: Int) -> HistoricoCellViewModel? {
         var filme : Filme?
         
         if segmentedControlIndex == 0 {
-            filme = listaDeFilmesRoletados[indexPath.row]
+            filme = service.filmesRoletados[indexPath.row]
         }
         if segmentedControlIndex == 1 {
-            filme = listaDeFilmesFavoritos[indexPath.row]
+            filme = service.filmesFavoritos[indexPath.row]
         }
         if segmentedControlIndex == 2 {
-            filme = listaDeFilmesAssistidos[indexPath.row]
+            filme = service.filmesAssistidos[indexPath.row]
         }
         return HistoricoCellViewModel(filme: filme)
     }
     
     func verificaFavorito(filme: Filme) -> Bool {
-        return Service.filmesFavoritos.contains { filmeFavorito in
+        return Service.shared.filmesFavoritos.contains { filmeFavorito in
             filme.nome == filmeFavorito.nome
         }
     }
     
     func verificaAssistido(filme: Filme) -> Bool {
-        return Service.filmesAssistidos.contains { filmeFavorito in
+        return Service.shared.filmesAssistidos.contains { filmeFavorito in
             filme.nome == filmeFavorito.nome
         }
     }

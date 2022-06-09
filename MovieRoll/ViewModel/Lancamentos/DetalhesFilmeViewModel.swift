@@ -14,7 +14,7 @@ protocol DetalhesFilmeViewModelDelegate {
 
 class DetalhesFilmeViewModel {
     
-    private let service = Service()
+    private let service = Service.shared
     
     private let filme: Filme
     var ehFavorito: Bool

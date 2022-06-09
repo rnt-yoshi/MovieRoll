@@ -17,7 +17,7 @@ protocol RoletaViewModelDelegate {
 
 class RoletaViewModel {
     
-    let service = Service()
+    private let service = Service.shared
     
     var delegate: RoletaViewModelDelegate?
     
@@ -43,11 +43,6 @@ class RoletaViewModel {
     private var dataInicial = "1930"
     private var dataFinal = "2022"
     
-    let filmes: [Filme]
-    
-    init() {
-        filmes = service.filmes
-    }
     
     var getPlataformas: [String] {
         return service.plataformas
@@ -190,13 +185,13 @@ class RoletaViewModel {
     }
 
     func verificaFavorito(filme: Filme) -> Bool {
-        return Service.filmesFavoritos.contains { filmeFavorito in
+        return service.filmesFavoritos.contains { filmeFavorito in
             filme.nome == filmeFavorito.nome
         }
     }
     
     func verificaAssistido(filme: Filme) -> Bool {
-        return Service.filmesAssistidos.contains { filmeFavorito in
+        return service.filmesAssistidos.contains { filmeFavorito in
             filme.nome == filmeFavorito.nome
         }
     }
@@ -205,24 +200,35 @@ class RoletaViewModel {
         guard let filme = filme else { return }
         
         if filme.nome != "" {
-            Service.filmesRoletados.append(filme)
+            service.filmesRoletados.append(filme)
         }
     }
     
     private func filmesQueSeraoRoletados() -> [Filme] {
-        var filmesARoletar: [Filme] = []
+        var filmesARoletar = service.filmes
         
-        if Service.filmesRoletados.count == 0 {
-            filmesARoletar = filmes
-        } else {
-            for filmeARoletar in filmes {
-                for roletado in Service.filmesRoletados {
-                    if filmeARoletar.nome != roletado.nome {
-                        filmesARoletar.append(filmeARoletar)
-                    }
-                }
+        for roletado in service.filmesRoletados {
+            filmesARoletar.removeAll { filme in
+                roletado.nome == filme.nome
             }
         }
+       
+        
+            
         return filmesARoletar
     }
+        
+//        if service.filmesRoletados.count == 0 {
+//            filmesARoletar = service.filmes
+//        } else {
+//            for filmeARoletar in service.filmes {
+//                for roletado in service.filmesRoletados {
+//                    if filmeARoletar.nome != roletado.nome {
+//                        filmesARoletar.append(filmeARoletar)
+//                    }
+//                }
+//            }
+//        }
+//        return filmesARoletar
+//    }
 }
