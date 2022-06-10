@@ -996,10 +996,12 @@
         <scene sceneID="tLW-Sc-LKg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZOv-NQ-MTD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Lançamentos" image="rocket" id="Ic1-5w-yFh"/>
+                    <tabBarItem key="tabBarItem" title="Lançamentos" image="rocket" id="Ic1-5w-yFh">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="0.0"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" largeTitles="YES" id="jK2-PM-Uyh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
@@ -1022,10 +1024,12 @@
         <scene sceneID="v1Q-vA-BDJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xeu-yE-pIE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Perfil" image="perfil" id="1Ng-z2-qh1"/>
+                    <tabBarItem key="tabBarItem" title="Perfil" image="perfil" id="1Ng-z2-qh1">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="0.0"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="fJn-bq-8uO">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1047,7 +1051,9 @@
         <scene sceneID="AYm-1f-Mbn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z9p-U0-wvd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Roleta" image="logogrey" selectedImage="logo" id="UpR-y2-mbM"/>
+                    <tabBarItem key="tabBarItem" title="Roleta" image="logogrey" selectedImage="logo" id="UpR-y2-mbM">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="0.0"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mug-az-PvS">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
