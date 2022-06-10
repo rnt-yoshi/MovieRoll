@@ -77,6 +77,13 @@ class RoletaViewController: UIViewController {
         viewModel.estrelaNotaPressionada(sender.tag)
     }
     
+    
+    @IBAction func limparAnosButtonAction(_ sender: Any) {
+        viewModel.limparAnos()
+        dataDeLancamentoTextField.text = ""
+        
+    }
+    
     @IBAction func roletarButtonPressed(_ sender: Any) {
         let filme = viewModel.roletaFilmeFiltrado()
         

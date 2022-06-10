@@ -682,11 +682,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01X-Op-942">
+                                <rect key="frame" x="317" y="556" width="68.5" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="68.5" id="f9y-UN-KHS"/>
+                                    <constraint firstAttribute="height" constant="31" id="lqX-RC-Dzd"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Limpar"/>
+                                <connections>
+                                    <action selector="limparAnosButtonAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="bdf-RV-Ie4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gJF-0y-zVj"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gNs-tw-YDf" firstAttribute="leading" secondItem="gJF-0y-zVj" secondAttribute="leading" id="1wF-1F-6kO"/>
+                            <constraint firstItem="gJF-0y-zVj" firstAttribute="trailing" secondItem="01X-Op-942" secondAttribute="trailing" constant="28.5" id="3F4-eL-MuT"/>
                             <constraint firstItem="a4l-0J-AfY" firstAttribute="top" secondItem="AAZ-Nq-iiQ" secondAttribute="bottom" constant="20" id="4aF-Vw-wJn"/>
                             <constraint firstItem="THp-sk-NYM" firstAttribute="top" secondItem="gNs-tw-YDf" secondAttribute="bottom" constant="20" id="8Mx-z1-8ng"/>
                             <constraint firstItem="cW1-x0-e3q" firstAttribute="leading" secondItem="gJF-0y-zVj" secondAttribute="leading" constant="10" id="CrP-iG-bAP"/>
@@ -701,6 +714,7 @@
                             <constraint firstItem="tUT-5V-95R" firstAttribute="top" secondItem="8Wk-IY-w0m" secondAttribute="bottom" constant="10" id="ScY-dY-DXP"/>
                             <constraint firstItem="cW1-x0-e3q" firstAttribute="top" secondItem="tUT-5V-95R" secondAttribute="bottom" constant="20" id="SqF-aB-0Bw"/>
                             <constraint firstItem="gJF-0y-zVj" firstAttribute="trailing" secondItem="oPk-sf-Tz8" secondAttribute="trailing" constant="50" id="VxI-64-sVX"/>
+                            <constraint firstItem="UsA-Uh-BNR" firstAttribute="top" secondItem="01X-Op-942" secondAttribute="bottom" constant="20" id="YTD-Ot-vg1"/>
                             <constraint firstItem="8Wk-IY-w0m" firstAttribute="leading" secondItem="gJF-0y-zVj" secondAttribute="leading" constant="10" id="Ypi-sz-hoM"/>
                             <constraint firstAttribute="trailing" secondItem="tUT-5V-95R" secondAttribute="trailing" constant="10" id="ZCA-l3-jyu"/>
                             <constraint firstItem="gJF-0y-zVj" firstAttribute="trailing" secondItem="cW1-x0-e3q" secondAttribute="trailing" constant="10" id="b3v-vd-9qS"/>
@@ -709,8 +723,10 @@
                             <constraint firstItem="AAZ-Nq-iiQ" firstAttribute="leading" secondItem="gJF-0y-zVj" secondAttribute="leading" constant="10" id="irM-Ag-Fv1"/>
                             <constraint firstItem="THp-sk-NYM" firstAttribute="leading" secondItem="gJF-0y-zVj" secondAttribute="leading" constant="125" id="jdH-6q-uv9"/>
                             <constraint firstItem="gJF-0y-zVj" firstAttribute="trailing" secondItem="gNs-tw-YDf" secondAttribute="trailing" id="l8p-fS-bpd"/>
+                            <constraint firstItem="01X-Op-942" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="a4l-0J-AfY" secondAttribute="trailing" constant="8" symbolic="YES" id="lVp-UY-8DC"/>
                             <constraint firstItem="oPk-sf-Tz8" firstAttribute="leading" secondItem="gJF-0y-zVj" secondAttribute="leading" constant="50" id="q7w-bT-f0B"/>
                             <constraint firstItem="gNs-tw-YDf" firstAttribute="top" secondItem="UsA-Uh-BNR" secondAttribute="bottom" constant="20" id="uR3-pK-JLK"/>
+                            <constraint firstItem="01X-Op-942" firstAttribute="top" secondItem="AAZ-Nq-iiQ" secondAttribute="bottom" constant="23" id="wWj-ZZ-tgE"/>
                             <constraint firstItem="gJF-0y-zVj" firstAttribute="trailing" secondItem="THp-sk-NYM" secondAttribute="trailing" constant="125" id="zbc-0Z-WT8"/>
                         </constraints>
                     </view>
@@ -1002,7 +1018,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" largeTitles="YES" id="jK2-PM-Uyh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
@@ -1030,7 +1046,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="fJn-bq-8uO">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

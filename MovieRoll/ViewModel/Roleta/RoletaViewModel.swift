@@ -100,6 +100,11 @@ class RoletaViewModel {
         return "De \(dataInicial) Até \(dataFinal)"
     }
     
+    func limparAnos(){
+        dataInicial = "1930"
+        dataFinal = "2022"
+    }
+    
     func roletaFilmeFiltrado() -> Filme {
         var filme: Filme?
         var filmesFiltrados: [Filme] = filmesQueSeraoRoletados()
