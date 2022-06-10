@@ -116,6 +116,16 @@ class Service {
               classificacaoIndicativa: "Agressão, consumo de drogas",
               plataforma: "disneyplus"
              ),
+        Filme(image: "uncharted",
+              nome: "Uncharted: Fora do Mapa",
+              ano: "2022",
+              genero: "Ação",
+              nota: 7,
+              sinopse: "Nathan Drake e seu parceiro canastrão Victor Sully Sullivan embarcam em uma perigosa busca para encontrar o maior tesouro jamais encontrado. Enquanto isso, eles também rastreiam pistas que podem levar ao irmão perdido de Nathan.",
+              classificaIndicativaImage: "12",
+              classificacaoIndicativa: "Agressão, consumo de drogas",
+              plataforma: "paramont"
+             ),
         Filme(image: "morbius",
               nome: "Morbius",
               ano: "2022",
@@ -135,16 +145,6 @@ class Service {
               classificaIndicativaImage: "10",
               classificacaoIndicativa: "Linguagem inapropriada",
               plataforma: "starplus"
-             ),
-        Filme(image: "uncharted",
-              nome: "Uncharted: Fora do Mapa",
-              ano: "2022",
-              genero: "Ação",
-              nota: 7,
-              sinopse: "Nathan Drake e seu parceiro canastrão Victor Sully Sullivan embarcam em uma perigosa busca para encontrar o maior tesouro jamais encontrado. Enquanto isso, eles também rastreiam pistas que podem levar ao irmão perdido de Nathan.",
-              classificaIndicativaImage: "12",
-              classificacaoIndicativa: "Agressão, consumo de drogas",
-              plataforma: "paramont"
              ),
         //Aventura
         Filme(image: "ghostbusters",
@@ -177,16 +177,6 @@ class Service {
               classificacaoIndicativa: "Agressão, consumo de drogas",
               plataforma: "appletv"
              ),
-        Filme(image: "junglecruise",
-              nome: "Jungle Cruise",
-              ano: "2021",
-              genero: "Aventura",
-              nota: 7,
-              sinopse: "O destemido capitão Frank Wolff e a intrépida pesquisadora Lily Houghton se aventuram pela Amazônia a bordo da peculiar embarcação La Quila. Determinados a encontrar uma árvore cujos poderes de cura podem mudar o futuro da medicina, nem mesmo as águas perigosas e as forças sobrenaturais que enfrentam pelo caminho poderão detê-los. Mas os riscos aumentam ainda mais conforme os segredos da árvore se revelam, o destino de Lily e Frank e também de toda a humanidade está em jogo.",
-              classificaIndicativaImage: "12",
-              classificacaoIndicativa: "Agressão, consumo de drogas",
-              plataforma: "disneyplus"
-             ),
         Filme(image: "piratasdocaribe",
               nome: "Piratas do Caribe: Navegando em Águas Misteriosas",
               ano: "2011",
@@ -196,6 +186,16 @@ class Service {
               classificaIndicativaImage: "12",
               classificacaoIndicativa: "Agressão, consumo de drogas",
               plataforma: "primevideo"
+             ),
+        Filme(image: "junglecruise",
+              nome: "Jungle Cruise",
+              ano: "2021",
+              genero: "Aventura",
+              nota: 7,
+              sinopse: "O destemido capitão Frank Wolff e a intrépida pesquisadora Lily Houghton se aventuram pela Amazônia a bordo da peculiar embarcação La Quila. Determinados a encontrar uma árvore cujos poderes de cura podem mudar o futuro da medicina, nem mesmo as águas perigosas e as forças sobrenaturais que enfrentam pelo caminho poderão detê-los. Mas os riscos aumentam ainda mais conforme os segredos da árvore se revelam, o destino de Lily e Frank e também de toda a humanidade está em jogo.",
+              classificaIndicativaImage: "12",
+              classificacaoIndicativa: "Agressão, consumo de drogas",
+              plataforma: "disneyplus"
              ),
         //Comédia
         Filme(image: "cidadeperdida",
@@ -228,16 +228,6 @@ class Service {
               classificacaoIndicativa: "Conteúdo livre",
               plataforma: "disneyplus"
              ),
-        Filme(image: "freeguy",
-              nome: "Free Guy: Assumindo o Controle",
-              ano: "2021",
-              genero: "Comédia",
-              nota: 8,
-              sinopse: "Um caixa de banco preso a uma entediante rotina tem sua vida virada de cabeça para baixo quando ele descobre que é personagem em um brutalmente realista vídeo game de mundo aberto. Agora ele precisa aceitar sua realidade e lidar com o fato de que é o único que pode salvar o mundo.",
-              classificaIndicativaImage: "12",
-              classificacaoIndicativa: "Agressão, consumo de drogas",
-              plataforma: "starplus"
-             ),
         Filme(image: "aeradogelo",
               nome: "A Era do Gelo: As Aventuras de Buck",
               ano: "2022",
@@ -247,6 +237,16 @@ class Service {
               classificaIndicativaImage: "livre",
               classificacaoIndicativa: "Conteúdo livre",
               plataforma: "disneyplus"
+             ),
+        Filme(image: "freeguy",
+              nome: "Free Guy: Assumindo o Controle",
+              ano: "2021",
+              genero: "Comédia",
+              nota: 8,
+              sinopse: "Um caixa de banco preso a uma entediante rotina tem sua vida virada de cabeça para baixo quando ele descobre que é personagem em um brutalmente realista vídeo game de mundo aberto. Agora ele precisa aceitar sua realidade e lidar com o fato de que é o único que pode salvar o mundo.",
+              classificaIndicativaImage: "12",
+              classificacaoIndicativa: "Agressão, consumo de drogas",
+              plataforma: "starplus"
              ),
         //Drama
         Filme(image: "chernobyl",
