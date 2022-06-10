@@ -9,11 +9,11 @@ import Foundation
 
 class Service {
     static var shared = Service()
-
-     var filmesLancamentos: [[Filme]] = []
-     var filmesFavoritos: [Filme] = []
-     var filmesRoletados: [Filme] = []
-     var filmesAssistidos: [Filme] = []
+    
+    var filmesLancamentos: [[Filme]] = []
+    var filmesFavoritos: [Filme] = []
+    var filmesRoletados: [Filme] = []
+    var filmesAssistidos: [Filme] = []
     
     init() {
         for genero in generos{
@@ -51,7 +51,7 @@ class Service {
         "Romance",
         "Terror",
     ]
-        
+    
     func adicionaNaListaFavoritos(filme: Filme) {
         filmesFavoritos.append(filme)
     }
@@ -66,7 +66,7 @@ class Service {
             return filme.nome == filmeFavorito.nome
         }
     }
-
+    
     func removeDaListaAssistidos(filme: Filme) {
         filmesAssistidos.removeAll { filmeAssistido in
             return filme.nome == filmeAssistido.nome
@@ -85,7 +85,7 @@ class Service {
     )
     
     let filmes: [Filme] = [
-//Ação
+        //Ação
         Filme(image: "contratoperigoso",
               nome: "Contrato Perigoso",
               ano: "2022",
@@ -146,7 +146,7 @@ class Service {
               classificacaoIndicativa: "Agressão, consumo de drogas",
               plataforma: "paramont"
              ),
-//Aventura
+        //Aventura
         Filme(image: "ghostbusters",
               nome: "Ghostbusters: Mais Além",
               ano: "2021",
@@ -197,7 +197,7 @@ class Service {
               classificacaoIndicativa: "Agressão, consumo de drogas",
               plataforma: "primevideo"
              ),
-//Comédia
+        //Comédia
         Filme(image: "cidadeperdida",
               nome: "Cidade Perdida",
               ano: "2022",
@@ -248,7 +248,7 @@ class Service {
               classificacaoIndicativa: "Conteúdo livre",
               plataforma: "disneyplus"
              ),
-//Drama
+        //Drama
         Filme(image: "chernobyl",
               nome: "Chernobyl: O Filme",
               ano: "2021",
@@ -279,16 +279,6 @@ class Service {
               classificacaoIndicativa: "Conteúdo livre",
               plataforma: "hbomax"
              ),
-//        Filme(image: "silverton",
-//              nome: "Silverton: Cerco Fechado",
-//              ano: "2022",
-//              genero: "Drama",
-//              nota: 6,
-//              sinopse: "Após o fracasso de uma missão de sabotagem, um trio de rebeldes contra o apartheid acaba em uma situação com reféns em um banco. Baseado em uma história real.",
-//              classificaIndicativaImage: "14",
-//              classificacaoIndicativa: "Violência, linguagem sexual",
-//              plataforma: "netflix"
-//             ),
         Filme(image: "ateoultimohomem",
               nome: "Até o Último Homem",
               ano: "2016",
@@ -299,7 +289,7 @@ class Service {
               classificacaoIndicativa: "Violência extrema, drogas",
               plataforma: "primevideo"
              ),
-//Documentário
+        //Documentário
         Filme(image: "cozinhasdeemergencia",
               nome: "Cozinhas de Emergência",
               ano: "2022",
@@ -330,18 +320,17 @@ class Service {
               classificacaoIndicativa: "Linguagem inapropriada",
               plataforma: "netflix"
              ),
-        Filme(image: "jackass",
-              nome: "Jackass para Sempre",
+        Filme(image: "harry",
+              nome: "Comemoração de 20 anos de Harry Potter: De Volta a Hogwarts",
               ano: "2022",
               genero: "Documentário",
               nota: 7,
-              sinopse: "Comemorando a alegria de estar de volta com seus melhores amigos e uma cena perfeitamente executada para o dingdong, a equipe idiota original retorna para outra rodada de apresentações hilárias, absurdas e muitas vezes perigosas de comédia com uma pequena ajuda de um novo elenco emocionante. Johnny e a equipe vão além do limite em idiotas para sempre.",
+              sinopse: "Uma encantadora história de making-of contada por meio de novas entrevistas em profundidade e conversas com o elenco, convidando os fãs a uma jornada mágica em primeira pessoa através de uma das franquias de filmes mais amadas de todos os tempos.",
               classificaIndicativaImage: "12",
               classificacaoIndicativa: "Agressão, consumo de drogas",
               plataforma: "primevideo"
              ),
-
-//Ficção
+        //Ficção
         Filme(image: "avatar",
               nome: "Avatar",
               ano: "2009",
@@ -392,7 +381,7 @@ class Service {
               classificacaoIndicativa: "Conteúdo livre",
               plataforma: "hbomax"
              ),
-//Infantil
+        //Infantil
         Filme(image: "coracaodefogo",
               nome: "Coração de Fogo",
               ano: "2022",
@@ -433,17 +422,7 @@ class Service {
               classificacaoIndicativa: "Conteúdo livre",
               plataforma: "disneyplus"
              ),
-//        Filme(image: "oscarasmalvados",
-//              nome: "Os Caras Malvados",
-//              ano: "2022",
-//              genero: "Infantil",
-//              nota: 8,
-//              sinopse: "Nunca houve cinco amigos tão infames quanto Os Caras Malvados – o arrojado batedor de carteiras Sr. Wolf, o arrombador de cofres Mr. Snake, o mestre do disfarce do frio Sr. Shark, o “músculo” curto do Sr. Piranha e a especialista em hacker de língua afiada Sra. Tarantula, também conhecido como “Webs”.",
-//              classificaIndicativaImage: "livre",
-//              classificacaoIndicativa: "Conteúdo livre",
-//              plataforma: "appletv"
-//             ),
-//Romance
+        //Romance
         Filme(image: "culpa",
               nome: "A Culpa é das Estrelas",
               ano: "2022",
@@ -484,7 +463,7 @@ class Service {
               classificacaoIndicativa: "Agressão, consumo de drogas",
               plataforma: "paramont"
              ),
-//Terror
+        //Terror
         Filme(image: "rogaipornos",
               nome: "Rogai por Nós",
               ano: "2021",
