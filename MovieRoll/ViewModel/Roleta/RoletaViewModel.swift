@@ -10,16 +10,15 @@ import Foundation
 protocol RoletaViewModelDelegate {
     func estrelaVazia(tag: Int)
     func estrelaCheia(tag: Int)
-    func botaoSelecionado(tag: Int)
-    func botaoSemSelecao(tag: Int)
+    func botaoGeneroSelecionado(tag: Int)
+    func botaoGeneroSemSelecao(tag: Int)
     func exibirAlerta()
 }
 
 class RoletaViewModel {
-    
-    private let service = Service.shared
-    
+    //MARK: - Variaveis
     var delegate: RoletaViewModelDelegate?
+    private let service = Service.shared
     
     private var anos: [[String]] = [
         [
@@ -57,15 +56,12 @@ class RoletaViewModel {
             "1930"
         ]
     ]
-    
     private var notasFiltrosEstrela = 0
-    
     private var generosFiltro: [String] = []
     private var plataformaFiltro: [String] = []
     private var dataInicial = "1930"
     private var dataFinal = "2022"
-    
-    
+    //MARK: - Variaveis computadas
     var getPlataformas: [String] {
         return service.plataformas
     }
@@ -74,12 +70,12 @@ class RoletaViewModel {
         return service.plataformas.count
     }
     
-    func getImage(index: Int) -> String {
-        return service.plataformas[index]
-    }
-    
     var numberComponents: Int {
         return anos.count
+    }
+    //MARK: - Funções públicas
+    func getImagePlataformas(index: Int) -> String {
+        return service.plataformas[index]
     }
     
     func numberOfRows(component: Int) -> Int {
@@ -96,13 +92,7 @@ class RoletaViewModel {
         } else if componente == 3 {
             dataFinal = anos[componente][row]
         }
-        
         return "De \(dataInicial) Até \(dataFinal)"
-    }
-    
-    func limparAnos(){
-        dataInicial = "1930"
-        dataFinal = "2022"
     }
     
     func roletaFilmeFiltrado() -> Filme {
@@ -136,42 +126,30 @@ class RoletaViewModel {
         return filme ?? service.filmeNil
     }
     
-    private func filtrarPorData(dataInicial: String, dataFinal: String, filmes: [Filme]) -> [Filme] {
-        let filmesData = filmes.filter { filmesData in
-            filmesData.ano >= dataInicial && filmesData.ano <= dataFinal
-        }
-        return filmesData
-    }
-    
-    private func filtrarPorNota(nota: Int, filmes: [Filme]) -> [Filme] {
-        let filmesNota = filmes.filter { filmesNota in
-            filmesNota.nota >= notasFiltrosEstrela
-        }
-        return filmesNota
-    }
-    
-    private func filtraPorGenero(generos: [String], filmes: [Filme]) -> [Filme] {
-        var filme: [Filme] = []
+    func adicionarListaFilmesRoletados(filme: Filme?) {
+        guard let filme = filme else { return }
         
-        for genero in generos {
-            let filmesFiltrados = filmes.filter { filme in
-                filme.genero == genero
-            }
-            filme.append(contentsOf: filmesFiltrados)
+        if filme.nome != "" {
+            service.filmesRoletados.append(filme)
         }
-        return filme
     }
     
-    private func filtraPorPlataforma(plataformas: [String], filmes: [Filme]) -> [Filme]{
-        var filme: [Filme] = []
-        
-        for plataforma in plataformas {
-            let filmesFiltradosPlataforma = filmes.filter { filme in
-                filme.plataforma == plataforma
+    func limparFiltroDaData() {
+        dataInicial = "1930"
+        dataFinal = "2022"
+    }
+    
+    func generoPressionado(_ genero: String?, alpha: Float, tag: Int) {
+        guard let genero = genero else { return }
+        if alpha == 1 {
+            generosFiltro.append(genero)
+            delegate?.botaoGeneroSelecionado(tag: tag)
+        } else {
+            generosFiltro.removeAll { generoFiltro in
+                return genero == generoFiltro
             }
-            filme.append(contentsOf: filmesFiltradosPlataforma)
+            delegate?.botaoGeneroSemSelecao(tag: tag)
         }
-        return filme
     }
     
     func estrelaNotaPressionada(_ tag: Int) {
@@ -186,19 +164,6 @@ class RoletaViewModel {
         notasFiltrosEstrela = tag * 2
     }
     
-    func generoPressionado(_ genero: String?, alpha: Float, tag: Int) {
-        guard let genero = genero else { return }
-        if alpha == 1 {
-            generosFiltro.append(genero)
-            delegate?.botaoSelecionado(tag: tag)
-        } else {
-            generosFiltro.removeAll { generoFiltro in
-                return genero == generoFiltro
-            }
-            delegate?.botaoSemSelecao(tag: tag)
-        }
-    }
-    
     func adicionaPlataformaFiltro(indexPath: IndexPath) {
         let plataforma = service.plataformas[indexPath.item]
         plataformaFiltro.append(plataforma)
@@ -210,7 +175,7 @@ class RoletaViewModel {
             return  plataforma == plataformaFiltro
         }
     }
-
+    
     func verificaFavorito(filme: Filme) -> Bool {
         return service.filmesFavoritos.contains { filmeFavorito in
             filme.nome == filmeFavorito.nome
@@ -221,14 +186,47 @@ class RoletaViewModel {
         return service.filmesAssistidos.contains { filmeFavorito in
             filme.nome == filmeFavorito.nome
         }
+        
+    }
+}
+//MARK: - Funções privadas: Filtros da roleta
+extension RoletaViewModel {
+    private func filtraPorGenero(generos: [String], filmes: [Filme]) -> [Filme] {
+        var filme: [Filme] = []
+        
+        for genero in generos {
+            let filmesFiltrados = filmes.filter { filme in
+                filme.genero == genero
+            }
+            filme.append(contentsOf: filmesFiltrados)
+        }
+        return filme
     }
     
-    func adicionarListaFilmesRoletados(filme: Filme?) {
-        guard let filme = filme else { return }
-        
-        if filme.nome != "" {
-            service.filmesRoletados.append(filme)
+    private func filtrarPorNota(nota: Int, filmes: [Filme]) -> [Filme] {
+        let filmesNota = filmes.filter { filmesNota in
+            filmesNota.nota >= notasFiltrosEstrela
         }
+        return filmesNota
+    }
+    
+    private func filtrarPorData(dataInicial: String, dataFinal: String, filmes: [Filme]) -> [Filme] {
+        let filmesData = filmes.filter { filmesData in
+            filmesData.ano >= dataInicial && filmesData.ano <= dataFinal
+        }
+        return filmesData
+    }
+    
+    private func filtraPorPlataforma(plataformas: [String], filmes: [Filme]) -> [Filme]{
+        var filme: [Filme] = []
+        
+        for plataforma in plataformas {
+            let filmesFiltradosPlataforma = filmes.filter { filme in
+                filme.plataforma == plataforma
+            }
+            filme.append(contentsOf: filmesFiltradosPlataforma)
+        }
+        return filme
     }
     
     private func filmesQueSeraoRoletados() -> [Filme] {
@@ -239,23 +237,7 @@ class RoletaViewModel {
                 roletado.nome == filme.nome
             }
         }
-       
-        
-            
         return filmesARoletar
     }
-        
-//        if service.filmesRoletados.count == 0 {
-//            filmesARoletar = service.filmes
-//        } else {
-//            for filmeARoletar in service.filmes {
-//                for roletado in service.filmesRoletados {
-//                    if filmeARoletar.nome != roletado.nome {
-//                        filmesARoletar.append(filmeARoletar)
-//                    }
-//                }
-//            }
-//        }
-//        return filmesARoletar
-//    }
+    
 }
