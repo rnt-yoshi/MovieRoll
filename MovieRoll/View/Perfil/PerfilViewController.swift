@@ -8,11 +8,12 @@
 import UIKit
 
 class PerfilViewController: UIViewController {
-
+    
+    //MARK: - IBOULETS & variáveis
     @IBOutlet weak var perfilTableView: UITableView!
     
     let viewModel = PerfilViewModel()
-    
+    //MARK: - Funções Override
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,49 +26,7 @@ class PerfilViewController: UIViewController {
         perfilTableView.reloadData()
     }
 }
-
-extension PerfilViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.opcoesDaTableView(index: indexPath.row)
-    }
-    
-}
-
-extension PerfilViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRows(section: section)
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.backgroundColor = UIColor(red: 46.0/255, green: 46.0/255, blue: 46.0/255, alpha: 0.4)
-        cell.selectionStyle = .none
-        
-        var content = cell.defaultContentConfiguration()
-        
-        content.image = UIImage(named: viewModel.getImage(indexPath: indexPath))
-
-        content.imageProperties.maximumSize = CGSize(
-            width: viewModel.getMaximumSize(indexPath: indexPath),
-            height: viewModel.getMaximumSize(indexPath: indexPath)
-        )
-        content.imageProperties.cornerRadius = CGFloat(viewModel.getCornerRadius(indexPath: indexPath))
-        
-        content.text = viewModel.getText(indexPath: indexPath)
-        content.secondaryText = viewModel.getSecondaryText(indexPath: indexPath)
-        content.textProperties.color = .white
-        content.secondaryTextProperties.color = .white
-        
-        cell.contentConfiguration = content
-        
-        return cell
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.numberOfSection
-    }
-}
-
+//MARK: - PerfilViewModel Delegate
 extension PerfilViewController: PerfilViewModelDelegate {
     func exibeMeusDados() {
         if let meusDadosVC = storyboard?.instantiateViewController(withIdentifier: "meusDadosVC") as? MeusDadosViewController {
@@ -102,4 +61,45 @@ extension PerfilViewController: PerfilViewModelDelegate {
     }
     
 }
+
+//MARK: - UItableView DataSource & Delegate
+extension PerfilViewController: UITableViewDataSource, UITableViewDelegate{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.numberOfSection
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfRows(section: section)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.backgroundColor = UIColor(red: 46.0/255, green: 46.0/255, blue: 46.0/255, alpha: 0.4)
+        cell.selectionStyle = .none
+        
+        var content = cell.defaultContentConfiguration()
+        
+        content.image = UIImage(named: viewModel.getImage(indexPath: indexPath))
+
+        content.imageProperties.maximumSize = CGSize(
+            width: viewModel.getMaximumSize(indexPath: indexPath),
+            height: viewModel.getMaximumSize(indexPath: indexPath)
+        )
+        content.imageProperties.cornerRadius = CGFloat(viewModel.getCornerRadius(indexPath: indexPath))
+        
+        content.text = viewModel.getText(indexPath: indexPath)
+        content.secondaryText = viewModel.getSecondaryText(indexPath: indexPath)
+        content.textProperties.color = .white
+        content.secondaryTextProperties.color = .white
+        
+        cell.contentConfiguration = content
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.opcoesDaTableView(index: indexPath.row)
+    }
+}
+
 

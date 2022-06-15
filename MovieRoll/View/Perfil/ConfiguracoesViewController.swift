@@ -9,14 +9,16 @@ import UIKit
 
 class ConfiguracoesViewController: UIViewController {
     
+    //MARK: - IBOULETS & variáveis
     var viewModel: ConfiguracoesViewModel?
     
+    //MARK: - Funções Override
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel?.delegate = self
     }
-    
+    //MARK: - IBACTIONS
     @IBAction func resetarRoletadosButtonPressed(_ sender: Any) {
         viewModel?.resetarRoletadosButton()
     }
@@ -33,9 +35,10 @@ class ConfiguracoesViewController: UIViewController {
         viewModel?.desconectarContaButton()
     }
 }
-
+//MARK: - ConfiguracoesViewModel Delegate
 extension ConfiguracoesViewController: ConfiguracoesViewModelDelegate {
     func exibeAlertaRoletado() {
+        
         let alerta = UIAlertController(title: "Você está removendo toda lista de filmes roletados.", message: "Tem certeza que deseja remover toda a lista de filmes roletados?", preferredStyle: .alert)
         
         let simAction = UIAlertAction(title: "Sim", style: .default, handler: {
@@ -52,6 +55,7 @@ extension ConfiguracoesViewController: ConfiguracoesViewModelDelegate {
     }
     
     func exibeAlertaFavorito() {
+        
         let alerta = UIAlertController(title: "Você está removendo toda lista de filmes favoritos.", message: "Tem certeza que deseja remover toda a lista de filmes favoritos?", preferredStyle: .alert)
         
         let simAction = UIAlertAction(title: "Sim", style: .default, handler: {
@@ -67,6 +71,7 @@ extension ConfiguracoesViewController: ConfiguracoesViewModelDelegate {
     }
     
     func exibeAlertaAssistido() {
+        
         let alerta = UIAlertController(title: "Você está removendo toda lista de filmes assistidos.", message: "Tem certeza que deseja remover toda a lista de filmes assistidos?", preferredStyle: .alert)
         
         let simAction = UIAlertAction(title: "Sim", style: .default, handler: {
@@ -95,6 +100,5 @@ extension ConfiguracoesViewController: ConfiguracoesViewModelDelegate {
         
         present(alerta, animated: true)
     }
-    
     
 }

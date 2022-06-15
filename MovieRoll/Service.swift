@@ -8,25 +8,14 @@
 import Foundation
 
 class Service {
+    
+    //MARK: - Variaveis
     static var shared = Service()
     
     var filmesLancamentos: [[Filme]] = []
     var filmesFavoritos: [Filme] = []
     var filmesRoletados: [Filme] = []
     var filmesAssistidos: [Filme] = []
-    
-    init() {
-        for genero in generos{
-            filmesLancamentos.append(filtraPorGenero(genero: genero))
-        }
-    }
-    
-    private func filtraPorGenero(genero: String) -> [Filme] {
-        let filmesFiltradosGenero = filmes.filter { filme in
-            return filme.genero == genero
-        }
-        return filmesFiltradosGenero
-    }
     
     let plataformas: [String] = [
         "appletv",
@@ -52,6 +41,32 @@ class Service {
         "Terror",
     ]
     
+    let filmeNil = Filme(image: "",
+                         nome: "",
+                         ano: "",
+                         genero: "",
+                         nota: 0,
+                         sinopse: "",
+                         classificaIndicativaImage: "",
+                         classificacaoIndicativa: "",
+                         plataforma: ""
+    )
+    
+    
+    init() {
+        for genero in generos{
+            filmesLancamentos.append(filtraPorGenero(genero: genero))
+        }
+    }
+    //MARK: - Funções privadas
+    private func filtraPorGenero(genero: String) -> [Filme] {
+        let filmesFiltradosGenero = filmes.filter { filme in
+            return filme.genero == genero
+        }
+        return filmesFiltradosGenero
+    }
+    
+    //MARK: - Funções públicas
     func adicionaNaListaFavoritos(filme: Filme) {
         filmesFavoritos.append(filme)
     }
@@ -72,18 +87,7 @@ class Service {
             return filme.nome == filmeAssistido.nome
         }
     }
-    
-    let filmeNil = Filme(image: "",
-                         nome: "",
-                         ano: "",
-                         genero: "",
-                         nota: 0,
-                         sinopse: "",
-                         classificaIndicativaImage: "",
-                         classificacaoIndicativa: "",
-                         plataforma: ""
-    )
-    
+    //MARK: - Lista de filmes mocados
     let filmes: [Filme] = [
         //Ação
         Filme(image: "contratoperigoso",

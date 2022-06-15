@@ -17,7 +17,7 @@ protocol PerfilViewModelDelegate {
 
 class PerfilViewModel {
     
-    
+    //MARK: - Variaveis
     private var userPerfil = User(name: "Steve Jobs", image: "profile01")
     
     var delegate: PerfilViewModelDelegate?
@@ -44,11 +44,11 @@ class PerfilViewModel {
             imagem: "ajuda"
         )
     ]
-    
+    //MARK: - Variaveis Computadas
     var numberOfSection: Int {
         return 2
     }
-    
+    //MARK: - Funções Públicas
     func numberOfRows(section: Int) -> Int {
         if section == 0 {
             return 1

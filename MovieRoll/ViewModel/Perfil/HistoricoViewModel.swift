@@ -8,9 +8,10 @@
 import Foundation
 
 class HistoricoViewModel {
-    
+    //MARK: - Variáveis
     private let service = Service.shared
     
+    //MARK: - Funções Públicas
     func numberOfItems(segmentedControlIndex: Int) -> Int {
         if segmentedControlIndex == 0 {
             return service.filmesRoletados.count

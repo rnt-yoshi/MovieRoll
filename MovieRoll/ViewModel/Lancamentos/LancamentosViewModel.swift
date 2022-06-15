@@ -8,7 +8,7 @@
 import Foundation
 
 class LancamentosViewModel {
-    
+    //MARK: - Variáveis
     let service: Service
     var filmes: [Filme] = []
     var generos: [String] = []
@@ -16,11 +16,15 @@ class LancamentosViewModel {
     init(service: Service = Service() ){
         self.service = service
     }
-    
+    //MARK: - Variáveis Computadas
     var numberOfSection: Int {
         return generos.count
     }
     
+    var getFilmesLancamentos: [[Filme]] {
+        return service.filmesLancamentos
+    }
+    //MARK: - Funções Públicas
     func pegarFilmesEGeneros() {
         filmes = service.filmes
         generos = service.generos
@@ -36,21 +40,17 @@ class LancamentosViewModel {
     }
     
     func retornaFilmes(row: Int, section: Int) -> Filme {
-        return Service.shared.filmesLancamentos[section][row]
-    }
-    
-    var getFilmesLancamentos: [[Filme]] {
-        return Service.shared.filmesLancamentos
+        return service.filmesLancamentos[section][row]
     }
     
     func verificaFavorito(filme: Filme) -> Bool {
-        return Service.shared.filmesFavoritos.contains { filmeFavorito in
+        return service.filmesFavoritos.contains { filmeFavorito in
             filme.nome == filmeFavorito.nome
         }
     }
     
     func verificaAssistido(filme: Filme) -> Bool {
-        return Service.shared.filmesAssistidos.contains { filmeFavorito in
+        return service.filmesAssistidos.contains { filmeFavorito in
             filme.nome == filmeFavorito.nome
         }
     }

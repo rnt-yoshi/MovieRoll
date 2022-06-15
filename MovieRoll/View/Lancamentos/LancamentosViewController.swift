@@ -21,8 +21,22 @@ class LancamentosViewController: UIViewController {
         viewModel.pegarFilmesEGeneros()
     }
 }
-
-extension LancamentosViewController: UITableViewDataSource {
+//MARK: - LancamentosTableViewCell Delegate
+extension LancamentosViewController: LancamentosTableViewCellDelegate {
+    
+    func didSelectItem(row: Int, section: Int) {
+        let filme = viewModel.retornaFilmes(row: row, section: section )
+        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
+        let ehFavorito = viewModel.verificaFavorito(filme: filme)
+        let foiAssistido = viewModel.verificaAssistido(filme: filme)
+        
+        let viewModel = DetalhesFilmeViewModel(filme: filme, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
+        detalhesFilme.viewModel = viewModel
+        navigationController?.pushViewController(detalhesFilme, animated: true)
+    }
+}
+//MARK: - TableView DataSource & Delegate
+extension LancamentosViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -45,9 +59,7 @@ extension LancamentosViewController: UITableViewDataSource {
         
         return cell
     }
-}
-
-extension LancamentosViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let tableHeader = view as! UITableViewHeaderFooterView
         tableHeader.tintColor = UIColor.black
@@ -55,15 +67,4 @@ extension LancamentosViewController: UITableViewDelegate {
     }
 }
 
-extension LancamentosViewController: LancamentosDelegate {
-    func didSelectItem(row: Int, section: Int) {
-        let filme = viewModel.retornaFilmes(row: row, section: section )
-        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
-        let ehFavorito = viewModel.verificaFavorito(filme: filme)
-        let foiAssistido = viewModel.verificaAssistido(filme: filme)
-        
-        let viewModel = DetalhesFilmeViewModel(filme: filme, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
-        detalhesFilme.viewModel = viewModel
-        navigationController?.pushViewController(detalhesFilme, animated: true)
-    }
-}
+

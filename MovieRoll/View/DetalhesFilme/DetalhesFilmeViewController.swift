@@ -9,21 +9,20 @@ import UIKit
 
 class DetalhesFilmeViewController: UIViewController {
     
-    var viewModel:DetalhesFilmeViewModel?
-    
+    //MARK: - IBOULETS & variáveis
     @IBOutlet weak var posterFilme: UIImageView!
-    
     @IBOutlet weak var nomeDoFilmeLabel: UILabel!
     @IBOutlet weak var anoLabel: UILabel!
     @IBOutlet weak var generoLabel: UILabel!
     @IBOutlet weak var notaDoFilme: UILabel!
     @IBOutlet weak var classificacaoIndicativaLabel: UILabel!
     @IBOutlet weak var sinopseTextView: UITextView!
-    
     @IBOutlet weak var classificacaoIndicativaImage: UIImageView!
-    
     @IBOutlet weak var plataformaImageView: UIImageView!
     
+    var viewModel:DetalhesFilmeViewModel?
+    //MARK: - Funcoes Override
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.delegate = self
@@ -33,16 +32,15 @@ class DetalhesFilmeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        // Make the navigation bar background clear
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.tintColor = .white
+        customNavigationBar()
         
-        let backButton = UIBarButtonItem(image: UIImage(named: "back"), style: .done, target: self, action: #selector(didTouchBackButton))
+        let backButton = UIBarButtonItem(
+            image: UIImage(named: "back"),
+            style: .done,
+            target: self,
+            action: #selector(didTouchBackButton)
+        )
         navigationItem.setLeftBarButton(backButton, animated: true)
-        navigationItem.setHidesBackButton(true, animated: true)
         
         let favoritosButton = UIBarButtonItem(
             image: UIImage(named: viewModel?.getFavoritarButtonImage() ?? "heart"),
@@ -60,6 +58,12 @@ class DetalhesFilmeViewController: UIViewController {
     }
     
     //MARK: - Funcoes Privadas
+    private func customNavigationBar(){
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.tintColor = .white
+    }
     @objc private func didTouchBackButton(){
         navigationController?.popViewController(animated: true)
     }
@@ -72,7 +76,6 @@ class DetalhesFilmeViewController: UIViewController {
         viewModel?.buttonAssistidoPressed()
     }
     
-
     private func configureUI() {
         guard let viewModel = viewModel else { return }
 
@@ -90,7 +93,7 @@ class DetalhesFilmeViewController: UIViewController {
         plataformaImageView.layer.cornerRadius = 10
     }
 }
-
+//MARK: - DetalhesFilmeViewModel Delegate
 extension DetalhesFilmeViewController: DetalhesFilmeViewModelDelegate {
     func alteraFavoritoButton() {
         guard let viewModel = viewModel else { return }

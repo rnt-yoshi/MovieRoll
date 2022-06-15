@@ -7,17 +7,17 @@
 
 import UIKit
 
-protocol LancamentosDelegate: AnyObject {
+protocol LancamentosTableViewCellDelegate: AnyObject {
     
     func didSelectItem (row: Int, section: Int )
 }
 
 class LancamentosTableViewCell: UITableViewCell {
-    
+    //MARK: - IBOULETS & variáveis
     @IBOutlet weak var lancamentosCollectionView: UICollectionView!
     
     var filmes: [Filme]?
-    weak var delegate: LancamentosDelegate?
+    weak var delegate: LancamentosTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,14 +25,14 @@ class LancamentosTableViewCell: UITableViewCell {
         lancamentosCollectionView.dataSource = self
         lancamentosCollectionView.delegate = self
     }
-    
-    func config(delegate: LancamentosDelegate, filmes: [Filme] ){
+    //MARK: - Funções Públicas
+    func config(delegate: LancamentosTableViewCellDelegate, filmes: [Filme] ){
         self.delegate = delegate
         self.filmes = filmes
     }
 }
-//MARK: - CollectionView DataSoure
-extension LancamentosTableViewCell: UICollectionViewDataSource {
+//MARK: - CollectionView DataSource & Delegate
+extension LancamentosTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filmes?.count ?? 0
     }
@@ -46,12 +46,11 @@ extension LancamentosTableViewCell: UICollectionViewDataSource {
         
         return cell
     }
-}
-//MARK: - CollectionView Delegate
-extension LancamentosTableViewCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.didSelectItem(row: indexPath.row, section: collectionView.tag)
     }
 
 }
+
+

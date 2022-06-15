@@ -73,7 +73,7 @@ class RoletaViewModel {
     var numberComponents: Int {
         return anos.count
     }
-    //MARK: - Funções públicas
+    //MARK: - Funções Públicas
     func getImagePlataformas(index: Int) -> String {
         return service.plataformas[index]
     }
@@ -189,8 +189,9 @@ class RoletaViewModel {
         
     }
 }
-//MARK: - Funções privadas: Filtros da roleta
+//MARK: - Filtros da roleta: Funções privadas
 extension RoletaViewModel {
+    
     private func filtraPorGenero(generos: [String], filmes: [Filme]) -> [Filme] {
         var filme: [Filme] = []
         

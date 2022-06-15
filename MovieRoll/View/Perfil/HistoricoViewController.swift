@@ -9,12 +9,13 @@ import UIKit
 
 class HistoricoViewController: UIViewController {
     
+    //MARK: - IBOULETS & variáveis
     @IBOutlet weak var segmentedControlRoletadosFavoritosAssistidos: UISegmentedControl!
     @IBOutlet weak var historicoCollectionView: UICollectionView!
     
     var viewModel: HistoricoViewModel?
     var segmentedControlIndex = 0
-    
+    //MARK: - Funções Override
     override func viewDidLoad() {
         super.viewDidLoad()
         historicoCollectionView.delegate = self
@@ -26,36 +27,22 @@ class HistoricoViewController: UIViewController {
         historicoCollectionView.reloadData()
     }
     
-    
+    //MARK: - Funções Privadas
     private func setupSegmentedControl() {
         segmentedControlRoletadosFavoritosAssistidos.setTitleTextAttributes(
             [.foregroundColor: UIColor.white],
             for: .normal
         )
     }
-    
-    
+    //MARK: - IBACTIONS
     @IBAction func actionSegmentedControl(_ sender: Any) {
         segmentedControlIndex = segmentedControlRoletadosFavoritosAssistidos.selectedSegmentIndex
         historicoCollectionView.reloadData()
     }
 }
-
-extension HistoricoViewController: UICollectionViewDelegate{
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let viewModel = viewModel else { return }
-        let filme = viewModel.retornaFilme(indexFilme: indexPath.item, indexSegmenterController: segmentedControlIndex)
-        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
-        let ehFavorito = viewModel.verificaFavorito(filme: filme)
-        let foiAssistido = viewModel.verificaAssistido(filme: filme)
-        
-        let detalhesFilmeViewModel = DetalhesFilmeViewModel(filme: filme, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
-        detalhesFilme.viewModel = detalhesFilmeViewModel
-        navigationController?.pushViewController(detalhesFilme, animated: true)
-    }
-}
-
-extension HistoricoViewController: UICollectionViewDataSource {
+//MARK: - UICollectionView dataSource & Delegate
+extension HistoricoViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel?.numberOfItems(segmentedControlIndex: segmentedControlIndex) ?? 0
     }
@@ -67,4 +54,17 @@ extension HistoricoViewController: UICollectionViewDataSource {
         cell.setupCell(viewModel: cellViewModel)
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let viewModel = viewModel else { return }
+        let filme = viewModel.retornaFilme(indexFilme: indexPath.item, indexSegmenterController: segmentedControlIndex)
+        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
+        let ehFavorito = viewModel.verificaFavorito(filme: filme)
+        let foiAssistido = viewModel.verificaAssistido(filme: filme)
+        
+        let detalhesFilmeViewModel = DetalhesFilmeViewModel(filme: filme, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
+        detalhesFilme.viewModel = detalhesFilmeViewModel
+        navigationController?.pushViewController(detalhesFilme, animated: true)
+    }
+    
 }

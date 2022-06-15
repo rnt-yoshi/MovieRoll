@@ -13,7 +13,7 @@ protocol DetalhesFilmeViewModelDelegate {
 }
 
 class DetalhesFilmeViewModel {
-    
+    //MARK: - Variáveis
     private let service = Service.shared
     
     private let filme: Filme
@@ -27,7 +27,7 @@ class DetalhesFilmeViewModel {
         self.ehFavorito = ehFavorito
         self.foiAssistido = foiAssistido
     }
-    
+    //MARK: - Variáveis Computadas
     var getPoster:String {
         return filme.image
     }
@@ -63,7 +63,7 @@ class DetalhesFilmeViewModel {
     var getPlataforma:String {
         return filme.plataforma
     }
-    
+    //MARK: - Funções Públicas
     func getFavoritarButtonImage() -> String {
         if ehFavorito {
             return "heart"

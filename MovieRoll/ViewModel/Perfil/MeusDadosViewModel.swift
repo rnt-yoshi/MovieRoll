@@ -8,13 +8,13 @@
 import Foundation
 
 class MeusDadosViewModel {
-    
+    //MARK: - Variaveis
     private var user: User
     
     init(user: User) {
         self.user = user
     }
-    
+    //MARK: - Variaveis Computadas
     var getUserName: String {
         return user.name
     }
@@ -22,7 +22,7 @@ class MeusDadosViewModel {
     var getUserImage: String {
         return user.image
     }
-    
+    //MARK: - Funções Públicas
     func setUserName(nome: String?) {
         guard let nome = nome else { return }
         user.name = nome
