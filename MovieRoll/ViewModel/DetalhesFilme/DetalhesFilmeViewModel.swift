@@ -16,53 +16,79 @@ class DetalhesFilmeViewModel {
     //MARK: - Variáveis
     private let service = Service.shared
     
-    private let filme: Filme
+    private let movie: Movie
     var ehFavorito: Bool
     var foiAssistido: Bool
     
     var delegate: DetalhesFilmeViewModelDelegate?
     
-    init(filme: Filme, ehFavorito: Bool, foiAssistido: Bool) {
-        self.filme = filme
+    init(movie: Movie, ehFavorito: Bool, foiAssistido: Bool) {
+        self.movie = movie
         self.ehFavorito = ehFavorito
         self.foiAssistido = foiAssistido
     }
     //MARK: - Variáveis Computadas
-    var getPoster:String {
-        return filme.image
+    
+    func getPoster() -> Data {
+        
+        let url = "https://image.tmdb.org/t/p/w500\(movie.posterPath)"
+        
+        guard let urlImage =  URL(string: url) else { return Data() }
+        
+        guard let imageData = try? Data(contentsOf: urlImage) else { return Data() }
+        
+        return imageData
     }
     
-    var getNome:String {
-        return filme.nome
+    var getNome: String {
+        return movie.title
     }
     
-    var getAno:String {
-        return String(filme.ano)
+    var getAno: String {
+        return movie.releaseDate
     }
     
-    var getGenero:String {
-        return filme.genero
+    var getGenero: String {
+        if movie.genreIds.count > 0 {
+            return String(movie.genreIds[0])
+        }
+        
+        return ""
     }
     
-    var getNotaFilme:String {
-        return String(filme.nota)
+    var getNotaFilme: String {
+        return String(movie.voteAverage)
     }
     
-    var getSinopse:String {
-        return filme.sinopse
+    var getSinopse: String {
+        return movie.overview
     }
     
-    var getClassificacaoIndicativaImage:String {
-        return filme.classificaIndicativaImage
+    var getClassificacaoIndicativaImage: String {
+        if movie.ageId.count > 0 {
+            return String(movie.ageId[0])
+        }
+        
+        return ""
+        
     }
     
-    var getClassificacaoIndicativa:String {
-        return filme.classificacaoIndicativa
+    var getClassificacaoIndicativa: String {
+        if movie.ageId.count > 0 {
+            return String(movie.ageId[0])
+        }
+        
+        return ""
     }
     
-    var getPlataforma:String {
-        return filme.plataforma
+    var getPlataforma: String {
+        if movie.providersId.count > 0 {
+            return String(movie.providersId[0])
+        }
+        
+        return ""
     }
+    
     //MARK: - Funções Públicas
     func getFavoritarButtonImage() -> String {
         if ehFavorito {
@@ -79,24 +105,24 @@ class DetalhesFilmeViewModel {
             return "check"
         }
     }
-
-    func buttonAssistidoPressed() {
-        if foiAssistido {
-            service.removeDaListaAssistidos(filme: filme)
-        } else {
-            service.adicionaNaListaAssistidos(filme: filme)
-        }
-        foiAssistido = !foiAssistido
-        delegate?.alteraAssistidoButton()
-    }
     
-    func buttonFavoritoPressed() {
-        if ehFavorito {
-            service.removeDaListaFavoritos(filme: filme)
-        } else {
-            service.adicionaNaListaFavoritos(filme: filme)
-        }
-        ehFavorito = !ehFavorito
-        delegate?.alteraFavoritoButton()
-    }
+    //    func buttonAssistidoPressed() {
+    //        if foiAssistido {
+    //            service.removeDaListaAssistidos(filme: filme)
+    //        } else {
+    //            service.adicionaNaListaAssistidos(filme: filme)
+    //        }
+    //        foiAssistido = !foiAssistido
+    //        delegate?.alteraAssistidoButton()
+    //    }
+    //
+    //    func buttonFavoritoPressed() {
+    //        if ehFavorito {
+    //            service.removeDaListaFavoritos(filme: filme)
+    //        } else {
+    //            service.adicionaNaListaFavoritos(filme: filme)
+    //        }
+    //        ehFavorito = !ehFavorito
+    //        delegate?.alteraFavoritoButton()
+    //    }
 }

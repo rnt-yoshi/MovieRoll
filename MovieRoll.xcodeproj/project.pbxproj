@@ -177,10 +177,10 @@
 		421693F02849796A001F431E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4205B16828537BE90041ED5C /* Movie.swift */,
 				8A3BA170284A607100C74C77 /* OptionsDoPerfil.swift */,
 				8A3BA16E284A5F6800C74C77 /* User.swift */,
 				4247B011284B8632004A12EE /* Filme.swift */,
-				4205B16828537BE90041ED5C /* Movie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -255,8 +255,8 @@
 		4256CE43283E4CAA0017DD5F /* MovieRoll */ = {
 			isa = PBXGroup;
 			children = (
-				4205B166285379F40041ED5C /* Network.swift */,
 				4247B00F284B85E9004A12EE /* Service.swift */,
+				4205B166285379F40041ED5C /* Network.swift */,
 				421693F02849796A001F431E /* Model */,
 				421693F128497972001F431E /* View */,
 				421693F228497979001F431E /* ViewModel */,

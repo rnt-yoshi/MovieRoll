@@ -95,6 +95,17 @@ class RoletaViewModel {
         return "De \(dataInicial) Até \(dataFinal)"
     }
     
+    
+    func botaoRoletarMovie() -> Movie {
+        service.fetchDiscover(genre: "28", average: "5", yearLte: "2022-12-01", yearGte: "2000-12-01", provider: "8")
+        guard let movie = service.movies?.randomElement() else { return service.movieNil }
+        
+        print(movie)
+        
+        return movie
+    }
+    
+    
     func roletaFilmeFiltrado() -> Filme {
         var filme: Filme?
         var filmesFiltrados: [Filme] = filmesQueSeraoRoletados()

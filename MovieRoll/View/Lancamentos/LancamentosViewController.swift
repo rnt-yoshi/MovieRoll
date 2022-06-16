@@ -25,14 +25,14 @@ class LancamentosViewController: UIViewController {
 extension LancamentosViewController: LancamentosTableViewCellDelegate {
     
     func didSelectItem(row: Int, section: Int) {
-        let filme = viewModel.retornaFilmes(row: row, section: section )
-        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
-        let ehFavorito = viewModel.verificaFavorito(filme: filme)
-        let foiAssistido = viewModel.verificaAssistido(filme: filme)
-        
-        let viewModel = DetalhesFilmeViewModel(filme: filme, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
-        detalhesFilme.viewModel = viewModel
-        navigationController?.pushViewController(detalhesFilme, animated: true)
+//        let filme = viewModel.retornaFilmes(row: row, section: section )
+//        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
+//        let ehFavorito = viewModel.verificaFavorito(filme: filme)
+//        let foiAssistido = viewModel.verificaAssistido(filme: filme)
+//
+//        let viewModel = DetalhesFilmeViewModel(filme: filme, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
+//        detalhesFilme.viewModel = viewModel
+//        navigationController?.pushViewController(detalhesFilme, animated: true)
     }
 }
 //MARK: - TableView DataSource & Delegate

@@ -85,20 +85,32 @@ class RoletaViewController: UIViewController {
     }
     
     @IBAction func roletarButtonPressed(_ sender: Any) {
-        let filmeFiltrado = viewModel.roletaFilmeFiltrado()
-        
-        viewModel.adicionarListaFilmesRoletados(filme: filmeFiltrado)
+        let filmeFiltrado = viewModel.botaoRoletarMovie()
         
         guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
+                
+                let viewModel = DetalhesFilmeViewModel(movie: filmeFiltrado, ehFavorito: true, foiAssistido: true)
         
-        let ehFavorito = viewModel.verificaFavorito(filme: filmeFiltrado)
-        let foiAssistido = viewModel.verificaAssistido(filme: filmeFiltrado)
+                detalhesFilme.viewModel = viewModel
         
-        let viewModel = DetalhesFilmeViewModel(filme: filmeFiltrado, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
+                navigationController?.pushViewController(detalhesFilme, animated: true)
         
-        detalhesFilme.viewModel = viewModel
-  
-        navigationController?.pushViewController(detalhesFilme, animated: true)
+        
+        
+//        let filmeFiltrado = viewModel.roletaFilmeFiltrado()
+//
+//        viewModel.adicionarListaFilmesRoletados(filme: filmeFiltrado)
+//
+//        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
+//
+//        let ehFavorito = viewModel.verificaFavorito(filme: filmeFiltrado)
+//        let foiAssistido = viewModel.verificaAssistido(filme: filmeFiltrado)
+//
+//        let viewModel = DetalhesFilmeViewModel(filme: filmeFiltrado, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
+//
+//        detalhesFilme.viewModel = viewModel
+//
+//        navigationController?.pushViewController(detalhesFilme, animated: true)
     }
 }
 //MARK: - RoletaViewModel Delegate

@@ -69,17 +69,17 @@ class DetalhesFilmeViewController: UIViewController {
     }
     
     @objc private func didTouchFavoritosButton() {
-        viewModel?.buttonFavoritoPressed()
+//        viewModel?.buttonFavoritoPressed()
     }
     
     @objc private func didTouchCheckButton() {
-        viewModel?.buttonAssistidoPressed()
+//        viewModel?.buttonAssistidoPressed()
     }
     
     private func configureUI() {
         guard let viewModel = viewModel else { return }
 
-        posterFilme.image = UIImage(named: viewModel.getPoster)
+        posterFilme.image = UIImage(data: viewModel.getPoster())
         nomeDoFilmeLabel.text = viewModel.getNome
         anoLabel.text = viewModel.getAno
         generoLabel.text = viewModel.getGenero

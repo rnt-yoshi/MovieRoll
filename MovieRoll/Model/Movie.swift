@@ -8,22 +8,32 @@
 import Foundation
 
 
-struct MovieResult: Decodable {
+struct MoviesResult: Codable {
     
-    let results: [Result]
+    let results: [Movie]
 }
 
-struct Result: Decodable {
+struct Movie: Codable {
     
     let id: Int
-    let original_language: String
-    let original_title: String
     let title: String
     let overview: String
-    let popularity: Double
-    let poster_path: String
-    let vote_average: Float
-    let vote_count:Int
-    let release_date:String
-    let video: Bool
+    let posterPath: String
+    let voteAverage: Float
+    let releaseDate: String
+    let genreIds: [Int]
+    let providersId: [Int] = []
+    let ageId: [Int] = []
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case overview
+        case posterPath = "poster_path"
+        case voteAverage = "vote_average"
+        case releaseDate = "release_date"
+        case genreIds = "genre_ids"
+        
+    }
+    
 }
