@@ -18,6 +18,7 @@ class Service {
     var filmesAssistidos: [Filme] = []
     
     var movies: [Movie]?
+
     
     let plataformas: [String] = [
         "appletv",
@@ -111,8 +112,30 @@ class Service {
             task.resume()
         }
     
-    
-    
+    func fetchProvidersBy(id: Int, completion: @escaping (Int) -> Void ) {
+            guard let url = URL(string: "https://api.themoviedb.org/3/movie/\(id)/watch/providers?api_key=7f90c16b1428bbd2961cbdfd637dba99") else { return }
+            
+            let session = URLSession.shared
+
+            let task = session.dataTask(with: url) { data, _, error in
+                guard let data = data else { return }
+                
+                let decoder = JSONDecoder()
+                
+                do {
+                    let providers = try decoder.decode(Provider.self, from: data)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        completion(providers.id)
+                    }
+                } catch {
+                    print(error)
+                }
+            }
+            task.resume()
+        
+
+
+    }
     //MARK: - Lista de filmes mocados
     let filmes: [Filme] = [
         //Ação

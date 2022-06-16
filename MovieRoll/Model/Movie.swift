@@ -22,7 +22,7 @@ struct Movie: Codable {
     let voteAverage: Float
     let releaseDate: String
     let genreIds: [Int]
-    let providersId: [Int] = []
+    var providersId: [Int] = []
     let ageId: [Int] = []
     
     enum CodingKeys: String, CodingKey {

@@ -98,10 +98,13 @@ class RoletaViewModel {
     
     func botaoRoletarMovie() -> Movie {
         service.fetchDiscover(genre: "28", average: "5", yearLte: "2022-12-01", yearGte: "2000-12-01", provider: "8")
-        guard let movie = service.movies?.randomElement() else { return service.movieNil }
+        guard var movie = service.movies?.randomElement() else { return service.movieNil }
         
-        print(movie)
-        
+    service.fetchProvidersBy(id: movie.id) { provider in
+        print("*****\(movie.id)")
+        print("*****\(provider)")
+            movie.providersId.append(provider)
+        }
         return movie
     }
     
