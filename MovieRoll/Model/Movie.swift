@@ -7,14 +7,11 @@
 
 import Foundation
 
-
 class MoviesResult: Codable {
-    
     let results: [Movie]
 }
 
 class Movie: Codable {
-    
     var id: Int = 0
     var title: String = ""
     var overview: String = ""

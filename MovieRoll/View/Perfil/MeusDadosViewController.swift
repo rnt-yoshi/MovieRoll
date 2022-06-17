@@ -42,11 +42,9 @@ class MeusDadosViewController: UIViewController {
         viewModel?.setUserName(nome: meusDadosNomeTextField.text)
         navigationController?.popViewController(animated: true)
     }
-    
 }
 //MARK: - UIImagePickerController Delegate
 extension MeusDadosViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as?  UIImage {
             meusDadosImage.image = image
@@ -57,6 +55,5 @@ extension MeusDadosViewController: UIImagePickerControllerDelegate, UINavigation
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true)
     }
-    
 }
 

@@ -25,20 +25,20 @@ class LancamentosViewController: UIViewController {
 extension LancamentosViewController: LancamentosTableViewCellDelegate {
     
     func didSelectItem(row: Int, section: Int) {
-//        let filme = viewModel.retornaFilmes(row: row, section: section )
-//        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
-//        let ehFavorito = viewModel.verificaFavorito(filme: filme)
-//        let foiAssistido = viewModel.verificaAssistido(filme: filme)
-//
-//        let viewModel = DetalhesFilmeViewModel(filme: filme, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
-//        detalhesFilme.viewModel = viewModel
-//        navigationController?.pushViewController(detalhesFilme, animated: true)
+        let movie = viewModel.retornaFilmes(row: row, section: section )
+        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
+        let ehFavorito = viewModel.verificaFavorito(movie: movie)
+        let foiAssistido = viewModel.verificaAssistido(movie: movie)
+
+        let viewModel = DetalhesFilmeViewModel(movie: movie, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
+        detalhesFilme.viewModel = viewModel
+        navigationController?.pushViewController(detalhesFilme, animated: true)
     }
 }
 //MARK: - TableView DataSource & Delegate
 extension LancamentosViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -52,8 +52,8 @@ extension LancamentosViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = lancamentosTableView.dequeueReusableCell(withIdentifier: "idCellTable", for: indexPath) as? LancamentosTableViewCell else { return UITableViewCell() }
 
-        let filmes = viewModel.getFilmesLancamentos[indexPath.section]
-        cell.config(delegate: self, filmes: filmes)
+        let movies = viewModel.getFilmesLancamentos[indexPath.section]
+        cell.config(delegate: self, movies: movies)
         cell.lancamentosCollectionView.tag = indexPath.section
         cell.lancamentosCollectionView.reloadData()
         

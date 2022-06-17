@@ -10,7 +10,6 @@ import UIKit
 class RoletaViewController: UIViewController {
     
     //MARK: - IBOULETS & variáveis
-
     var viewModel = RoletaViewModel()
     
     @IBOutlet var generosBotoes: [UIButton]!
@@ -93,7 +92,10 @@ extension RoletaViewController: RoletaViewModelDelegate {
     func carregaFilme(movie: Movie) {
         guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
         
-        let viewModel = DetalhesFilmeViewModel(movie: movie, ehFavorito: true, foiAssistido: true)
+        let ehFavorito = viewModel.verificaFavorito(movie: movie)
+        let foiAssistido = viewModel.verificaAssistido(movie: movie)
+        
+        let viewModel = DetalhesFilmeViewModel(movie: movie, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
         
         detalhesFilme.viewModel = viewModel
         
@@ -149,10 +151,10 @@ extension RoletaViewController: RoletaViewModelDelegate {
             usingSpringWithDamping: CGFloat(0.20),
             initialSpringVelocity: CGFloat(6.0),
             options: UIView.AnimationOptions.allowUserInteraction,
-                       animations: {
-            self.estrelasNotaBotao[tag].transform = CGAffineTransform.identity
-        },
-                       completion: { Void in()  }
+            animations: {
+                self.estrelasNotaBotao[tag].transform = CGAffineTransform.identity
+            },
+            completion: { Void in()  }
         )
     }
 }

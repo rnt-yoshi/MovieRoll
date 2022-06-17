@@ -69,11 +69,11 @@ class DetalhesFilmeViewController: UIViewController {
     }
     
     @objc private func didTouchFavoritosButton() {
-//        viewModel?.buttonFavoritoPressed()
+        viewModel?.buttonFavoritoPressed()
     }
     
     @objc private func didTouchCheckButton() {
-//        viewModel?.buttonAssistidoPressed()
+        viewModel?.buttonAssistidoPressed()
     }
     
     private func configureUI() {

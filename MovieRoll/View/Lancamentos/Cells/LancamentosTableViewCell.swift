@@ -16,7 +16,7 @@ class LancamentosTableViewCell: UITableViewCell {
     //MARK: - IBOULETS & variáveis
     @IBOutlet weak var lancamentosCollectionView: UICollectionView!
     
-    var filmes: [Filme]?
+    var movies: [Movie]?
     weak var delegate: LancamentosTableViewCellDelegate?
     
     override func awakeFromNib() {
@@ -26,23 +26,23 @@ class LancamentosTableViewCell: UITableViewCell {
         lancamentosCollectionView.delegate = self
     }
     //MARK: - Funções Públicas
-    func config(delegate: LancamentosTableViewCellDelegate, filmes: [Filme] ){
+    func config(delegate: LancamentosTableViewCellDelegate, movies: [Movie] ){
         self.delegate = delegate
-        self.filmes = filmes
+        self.movies = movies
     }
 }
 //MARK: - CollectionView DataSource & Delegate
 extension LancamentosTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filmes?.count ?? 0
+        return movies?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = lancamentosCollectionView.dequeueReusableCell(withReuseIdentifier: "idCellCollection", for: indexPath) as? LancamentosCollectionViewCell else { return UICollectionViewCell()}
         
-        guard let filme = filmes?[indexPath.row] else { return UICollectionViewCell()}
+        guard let movie = movies?[indexPath.row] else { return UICollectionViewCell()}
 
-        cell.filme = filme
+        cell.movie = movie
         
         return cell
     }
@@ -50,7 +50,6 @@ extension LancamentosTableViewCell: UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.didSelectItem(row: indexPath.row, section: collectionView.tag)
     }
-
 }
 
 

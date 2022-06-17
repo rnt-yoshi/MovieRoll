@@ -104,43 +104,42 @@ class RoletaViewModel {
         }
     }
     
+//    func roletaFilmeFiltrado() -> Filme {
+//        var filme: Filme?
+//        var filmesFiltrados: [Filme] = filmesQueSeraoRoletados()
+//
+//        if generosFiltro.count > 0 {
+//            let filmeFiltradoGenero = filtraPorGenero(generos: generosFiltro, filmes: filmesFiltrados)
+//            filmesFiltrados = filmeFiltradoGenero
+//        }
+//
+//        if notasFiltrosEstrela > 0 {
+//            let filmeFiltradoNota = filtrarPorNota(nota: notasFiltrosEstrela, filmes: filmesFiltrados)
+//            filmesFiltrados = filmeFiltradoNota
+//        }
+//        if dataInicial > anos[1].last ?? "" || dataFinal < anos[3].first ?? ""{
+//            let filmeFiltradoData = filtrarPorData(dataInicial: dataInicial, dataFinal: dataFinal, filmes: filmesFiltrados)
+//            filmesFiltrados = filmeFiltradoData
+//        }
+//        if plataformaFiltro.count > 0 {
+//            let filmeFiltradoPlataforma = filtraPorPlataforma(plataformas: plataformaFiltro, filmes: filmesFiltrados)
+//            filmesFiltrados = filmeFiltradoPlataforma
+//        }
+//
+//        filme = filmesFiltrados.randomElement()
+//
+//        if filme == nil {
+//            delegate?.exibirAlerta()
+//        }
+//
+//        return filme ?? service.filmeNil
+//    }
     
-    func roletaFilmeFiltrado() -> Filme {
-        var filme: Filme?
-        var filmesFiltrados: [Filme] = filmesQueSeraoRoletados()
+    func adicionarListaFilmesRoletados(movie: Movie?) {
+        guard let movie = movie else { return }
         
-        if generosFiltro.count > 0 {
-            let filmeFiltradoGenero = filtraPorGenero(generos: generosFiltro, filmes: filmesFiltrados)
-            filmesFiltrados = filmeFiltradoGenero
-        }
-        
-        if notasFiltrosEstrela > 0 {
-            let filmeFiltradoNota = filtrarPorNota(nota: notasFiltrosEstrela, filmes: filmesFiltrados)
-            filmesFiltrados = filmeFiltradoNota
-        }
-        if dataInicial > anos[1].last ?? "" || dataFinal < anos[3].first ?? ""{
-            let filmeFiltradoData = filtrarPorData(dataInicial: dataInicial, dataFinal: dataFinal, filmes: filmesFiltrados)
-            filmesFiltrados = filmeFiltradoData
-        }
-        if plataformaFiltro.count > 0 {
-            let filmeFiltradoPlataforma = filtraPorPlataforma(plataformas: plataformaFiltro, filmes: filmesFiltrados)
-            filmesFiltrados = filmeFiltradoPlataforma
-        }
-        
-        filme = filmesFiltrados.randomElement()
-        
-        if filme == nil {
-            delegate?.exibirAlerta()
-        }
-        
-        return filme ?? service.filmeNil
-    }
-    
-    func adicionarListaFilmesRoletados(filme: Filme?) {
-        guard let filme = filme else { return }
-        
-        if filme.nome != "" {
-            service.filmesRoletados.append(filme)
+        if movie.title != "" {
+            service.filmesRoletados.append(movie)
         }
     }
     
@@ -186,68 +185,67 @@ class RoletaViewModel {
         }
     }
     
-    func verificaFavorito(filme: Filme) -> Bool {
+    func verificaFavorito(movie: Movie) -> Bool {
         return service.filmesFavoritos.contains { filmeFavorito in
-            filme.nome == filmeFavorito.nome
+            movie.title == filmeFavorito.title
         }
     }
     
-    func verificaAssistido(filme: Filme) -> Bool {
+    func verificaAssistido(movie: Movie) -> Bool {
         return service.filmesAssistidos.contains { filmeFavorito in
-            filme.nome == filmeFavorito.nome
+            movie.title == filmeFavorito.title
         }
-        
     }
 }
 //MARK: - Filtros da roleta: Funções privadas
-extension RoletaViewModel {
-    
-    private func filtraPorGenero(generos: [String], filmes: [Filme]) -> [Filme] {
-        var filme: [Filme] = []
-        
-        for genero in generos {
-            let filmesFiltrados = filmes.filter { filme in
-                filme.genero == genero
-            }
-            filme.append(contentsOf: filmesFiltrados)
-        }
-        return filme
-    }
-    
-    private func filtrarPorNota(nota: Int, filmes: [Filme]) -> [Filme] {
-        let filmesNota = filmes.filter { filmesNota in
-            filmesNota.nota >= notasFiltrosEstrela
-        }
-        return filmesNota
-    }
-    
-    private func filtrarPorData(dataInicial: String, dataFinal: String, filmes: [Filme]) -> [Filme] {
-        let filmesData = filmes.filter { filmesData in
-            filmesData.ano >= dataInicial && filmesData.ano <= dataFinal
-        }
-        return filmesData
-    }
-    
-    private func filtraPorPlataforma(plataformas: [String], filmes: [Filme]) -> [Filme]{
-        var filme: [Filme] = []
-        
-        for plataforma in plataformas {
-            let filmesFiltradosPlataforma = filmes.filter { filme in
-                filme.plataforma == plataforma
-            }
-            filme.append(contentsOf: filmesFiltradosPlataforma)
-        }
-        return filme
-    }
-    
-    private func filmesQueSeraoRoletados() -> [Filme] {
-        var filmesARoletar = service.filmes
-        
-        for roletado in service.filmesRoletados {
-            filmesARoletar.removeAll { filme in
-                roletado.nome == filme.nome
-            }
-        }
-        return filmesARoletar
-    }
-}
+//extension RoletaViewModel {
+//
+//    private func filtraPorGenero(generos: [String], filmes: [Filme]) -> [Filme] {
+//        var filme: [Filme] = []
+//
+//        for genero in generos {
+//            let filmesFiltrados = filmes.filter { filme in
+//                filme.genero == genero
+//            }
+//            filme.append(contentsOf: filmesFiltrados)
+//        }
+//        return filme
+//    }
+//
+//    private func filtrarPorNota(nota: Int, filmes: [Filme]) -> [Filme] {
+//        let filmesNota = filmes.filter { filmesNota in
+//            filmesNota.nota >= notasFiltrosEstrela
+//        }
+//        return filmesNota
+//    }
+//
+//    private func filtrarPorData(dataInicial: String, dataFinal: String, filmes: [Filme]) -> [Filme] {
+//        let filmesData = filmes.filter { filmesData in
+//            filmesData.ano >= dataInicial && filmesData.ano <= dataFinal
+//        }
+//        return filmesData
+//    }
+//
+//    private func filtraPorPlataforma(plataformas: [String], filmes: [Filme]) -> [Filme]{
+//        var filme: [Filme] = []
+//
+//        for plataforma in plataformas {
+//            let filmesFiltradosPlataforma = filmes.filter { filme in
+//                filme.plataforma == plataforma
+//            }
+//            filme.append(contentsOf: filmesFiltradosPlataforma)
+//        }
+//        return filme
+//    }
+//
+//    private func filmesQueSeraoRoletados() -> [Filme] {
+//        var filmesARoletar = service.filmes
+//
+//        for roletado in service.filmesRoletados {
+//            filmesARoletar.removeAll { filme in
+//                roletado.nome == filme.nome
+//            }
+//        }
+//        return filmesARoletar
+//    }
+//}

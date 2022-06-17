@@ -25,7 +25,7 @@ class HistoricoViewModel {
         return 0
     }
     
-    func retornaFilme(indexFilme: Int, indexSegmenterController: Int) -> Filme {
+    func retornaFilme(indexFilme: Int, indexSegmenterController: Int) -> Movie {
         if indexSegmenterController == 0 {
             return service.filmesRoletados[indexFilme]
         }
@@ -35,33 +35,33 @@ class HistoricoViewModel {
         if indexSegmenterController == 2 {
             return service.filmesAssistidos[indexFilme]
         }
-        return Service.shared.filmeNil
+        return Movie()
     }
     
     func getCellViewModel(indexPath: IndexPath, segmentedControlIndex: Int) -> HistoricoCellViewModel? {
-        var filme : Filme?
+        var movie : Movie?
         
         if segmentedControlIndex == 0 {
-            filme = service.filmesRoletados[indexPath.row]
+            movie = service.filmesRoletados[indexPath.row]
         }
         if segmentedControlIndex == 1 {
-            filme = service.filmesFavoritos[indexPath.row]
+            movie = service.filmesFavoritos[indexPath.row]
         }
         if segmentedControlIndex == 2 {
-            filme = service.filmesAssistidos[indexPath.row]
+            movie = service.filmesAssistidos[indexPath.row]
         }
-        return HistoricoCellViewModel(filme: filme)
+        return HistoricoCellViewModel(movie: movie)
     }
     
-    func verificaFavorito(filme: Filme) -> Bool {
+    func verificaFavorito(movie: Movie) -> Bool {
         return Service.shared.filmesFavoritos.contains { filmeFavorito in
-            filme.nome == filmeFavorito.nome
+            movie.title == filmeFavorito.title
         }
     }
     
-    func verificaAssistido(filme: Filme) -> Bool {
+    func verificaAssistido(movie: Movie) -> Bool {
         return Service.shared.filmesAssistidos.contains { filmeFavorito in
-            filme.nome == filmeFavorito.nome
+            movie.title == filmeFavorito.title
         }
     }
 }

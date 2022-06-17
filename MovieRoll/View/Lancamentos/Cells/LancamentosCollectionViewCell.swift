@@ -11,17 +11,16 @@ class LancamentosCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imagemFilmeUIImageView: UIImageView!
 
-    var filme: Filme? {
+    var movie: Movie? {
         didSet {
-            if let filme = filme {
-                configure(filme: filme)
+            if let movie = movie {
+                configure(movie: movie)
             }
         }
     }
    
-    func configure(filme: Filme) {
-        imagemFilmeUIImageView.image = UIImage(named: filme.image)
+    func configure(movie: Movie) {
+        imagemFilmeUIImageView.image = UIImage(named: movie.posterPath)
         imagemFilmeUIImageView.layer.cornerRadius = 10
     }
 }
-

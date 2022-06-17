@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2B84BA9B285BC1B000C996D2 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B84BA9A285BC1B000C996D2 /* Provider.swift */; };
-		4205B167285379F40041ED5C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4205B166285379F40041ED5C /* Network.swift */; };
 		4205B16928537BE90041ED5C /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4205B16828537BE90041ED5C /* Movie.swift */; };
 		4247B010284B85E9004A12EE /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4247B00F284B85E9004A12EE /* Service.swift */; };
 		4247B012284B8632004A12EE /* Filme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4247B011284B8632004A12EE /* Filme.swift */; };
@@ -45,7 +44,6 @@
 
 /* Begin PBXFileReference section */
 		2B84BA9A285BC1B000C996D2 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
-		4205B166285379F40041ED5C /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		4205B16828537BE90041ED5C /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		4247B00F284B85E9004A12EE /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		4247B011284B8632004A12EE /* Filme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filme.swift; sourceTree = "<group>"; };
@@ -259,7 +257,6 @@
 			isa = PBXGroup;
 			children = (
 				4247B00F284B85E9004A12EE /* Service.swift */,
-				4205B166285379F40041ED5C /* Network.swift */,
 				421693F02849796A001F431E /* Model */,
 				421693F128497972001F431E /* View */,
 				421693F228497979001F431E /* ViewModel */,
@@ -354,7 +351,6 @@
 				8A3BA171284A607100C74C77 /* OptionsDoPerfil.swift in Sources */,
 				2B84BA9B285BC1B000C996D2 /* Provider.swift in Sources */,
 				4247B012284B8632004A12EE /* Filme.swift in Sources */,
-				4205B167285379F40041ED5C /* Network.swift in Sources */,
 				429FFF2E284BD5200079C159 /* DetalhesFilmeViewController.swift in Sources */,
 				8A1B0173284E67E10097D4D6 /* ConfiguracoesViewModel.swift in Sources */,
 				8AF64929284E2B6F00308711 /* HistoricoViewModel.swift in Sources */,

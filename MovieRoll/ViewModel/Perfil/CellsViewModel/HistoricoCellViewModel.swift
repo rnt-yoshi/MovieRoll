@@ -9,14 +9,24 @@ import Foundation
 
 class HistoricoCellViewModel {
     
-    private let filme: Filme?
+    private let movie: Movie?
     
-    init(filme: Filme?) {
-        self.filme = filme
+    init(movie: Movie?) {
+        self.movie = movie
     }
     
-    var getImage: String {
-        return filme?.image ?? ""
+    func getImage() -> Data {
+        guard let movie = movie else {
+            return Data()
+        }
+
+        let url = "https://image.tmdb.org/t/p/w500\(movie.posterPath)"
+        
+        guard let urlImage =  URL(string: url) else { return Data() }
+        
+        guard let imageData = try? Data(contentsOf: urlImage) else { return Data() }
+        
+        return imageData
     }
 }
 

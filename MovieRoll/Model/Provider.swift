@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct Provider: Decodable {
+class Provider: Decodable {
     let providerId: Int
     
-    init(from decoder: Decoder) throws {
+    required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let results = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .results)
         let br = try results.nestedContainer(keyedBy: CodingKeys.self, forKey: .br)
@@ -26,7 +26,7 @@ struct Provider: Decodable {
     }
 }
 
-struct Flatrate: Decodable {
+class Flatrate: Decodable {
     let providerId: Int
     
     enum CodingKeys: String, CodingKey {

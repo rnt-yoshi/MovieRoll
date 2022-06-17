@@ -16,7 +16,6 @@ protocol ConfiguracoesViewModelDelegate {
 
 class ConfiguracoesViewModel {
     //MARK: - Variáveis
-
     var delegate: ConfiguracoesViewModelDelegate?
     private let service = Service.shared
     //MARK: - Funções Públicas

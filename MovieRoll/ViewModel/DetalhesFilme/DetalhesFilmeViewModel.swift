@@ -28,9 +28,7 @@ class DetalhesFilmeViewModel {
         self.foiAssistido = foiAssistido
     }
     //MARK: - Variáveis Computadas
-    
     func getPoster() -> Data {
-        
         let url = "https://image.tmdb.org/t/p/w500\(movie.posterPath)"
         
         guard let urlImage =  URL(string: url) else { return Data() }
@@ -68,16 +66,13 @@ class DetalhesFilmeViewModel {
         if movie.ageId.count > 0 {
             return String(movie.ageId[0])
         }
-        
         return ""
-        
     }
     
     var getClassificacaoIndicativa: String {
         if movie.ageId.count > 0 {
             return String(movie.ageId[0])
         }
-        
         return ""
     }
     
@@ -105,23 +100,23 @@ class DetalhesFilmeViewModel {
         }
     }
     
-    //    func buttonAssistidoPressed() {
-    //        if foiAssistido {
-    //            service.removeDaListaAssistidos(filme: filme)
-    //        } else {
-    //            service.adicionaNaListaAssistidos(filme: filme)
-    //        }
-    //        foiAssistido = !foiAssistido
-    //        delegate?.alteraAssistidoButton()
-    //    }
-    //
-    //    func buttonFavoritoPressed() {
-    //        if ehFavorito {
-    //            service.removeDaListaFavoritos(filme: filme)
-    //        } else {
-    //            service.adicionaNaListaFavoritos(filme: filme)
-    //        }
-    //        ehFavorito = !ehFavorito
-    //        delegate?.alteraFavoritoButton()
-    //    }
+    func buttonAssistidoPressed() {
+        if foiAssistido {
+            service.removeDaListaAssistidos(movie: movie)
+        } else {
+            service.adicionaNaListaAssistidos(movie: movie)
+        }
+        foiAssistido = !foiAssistido
+        delegate?.alteraAssistidoButton()
+    }
+    
+    func buttonFavoritoPressed() {
+        if ehFavorito {
+            service.removeDaListaFavoritos(movie: movie)
+        } else {
+            service.adicionaNaListaFavoritos(movie: movie)
+        }
+        ehFavorito = !ehFavorito
+        delegate?.alteraFavoritoButton()
+    }
 }

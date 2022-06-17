@@ -12,7 +12,7 @@ class HistoricoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var historicoImage: UIImageView!
     
     func setupCell(viewModel: HistoricoCellViewModel) {
-        historicoImage.image = UIImage(named: viewModel.getImage)
+        historicoImage.image = UIImage(data: viewModel.getImage())
         historicoImage.layer.cornerRadius = 10
     }
 }

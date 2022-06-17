@@ -15,7 +15,6 @@ class ConfiguracoesViewController: UIViewController {
     //MARK: - Funções Override
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         viewModel?.delegate = self
     }
     //MARK: - IBACTIONS
@@ -47,7 +46,6 @@ extension ConfiguracoesViewController: ConfiguracoesViewModelDelegate {
         })
         let naoAction = UIAlertAction(title: "Nao", style: .destructive, handler: nil)
         
-        
         alerta.addAction(naoAction)
         alerta.addAction(simAction)
         
@@ -55,7 +53,6 @@ extension ConfiguracoesViewController: ConfiguracoesViewModelDelegate {
     }
     
     func exibeAlertaFavorito() {
-        
         let alerta = UIAlertController(title: "Você está removendo toda lista de filmes favoritos.", message: "Tem certeza que deseja remover toda a lista de filmes favoritos?", preferredStyle: .alert)
         
         let simAction = UIAlertAction(title: "Sim", style: .default, handler: {
@@ -71,7 +68,6 @@ extension ConfiguracoesViewController: ConfiguracoesViewModelDelegate {
     }
     
     func exibeAlertaAssistido() {
-        
         let alerta = UIAlertController(title: "Você está removendo toda lista de filmes assistidos.", message: "Tem certeza que deseja remover toda a lista de filmes assistidos?", preferredStyle: .alert)
         
         let simAction = UIAlertAction(title: "Sim", style: .default, handler: {
@@ -100,5 +96,4 @@ extension ConfiguracoesViewController: ConfiguracoesViewModelDelegate {
         
         present(alerta, animated: true)
     }
-    
 }
