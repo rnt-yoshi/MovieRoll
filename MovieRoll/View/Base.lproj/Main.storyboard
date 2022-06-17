@@ -417,7 +417,7 @@
                                                 <state key="normal" title="Documentario" backgroundImage="documentario">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
-                                                <buttonConfiguration key="configuration" style="filled" title="Documentário">
+                                                <buttonConfiguration key="configuration" style="filled" title="Suspense">
                                                     <backgroundConfiguration key="background" cornerRadius="10" image="documentario"/>
                                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="14"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -476,7 +476,7 @@
                                                 <state key="normal" title="Infantil" backgroundImage="infantil">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
-                                                <buttonConfiguration key="configuration" style="filled" title="Infantil">
+                                                <buttonConfiguration key="configuration" style="filled" title="Animação">
                                                     <backgroundConfiguration key="background" cornerRadius="10" image="infantil"/>
                                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1034,7 +1034,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" largeTitles="YES" id="jK2-PM-Uyh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">

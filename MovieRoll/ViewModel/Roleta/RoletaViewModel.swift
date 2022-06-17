@@ -18,6 +18,7 @@ protocol RoletaViewModelDelegate {
 
 class RoletaViewModel {
     //MARK: - Variaveis
+    
     var delegate: RoletaViewModelDelegate?
     private let service = Service.shared
     
@@ -57,7 +58,7 @@ class RoletaViewModel {
             "1930"
         ]
     ]
-    private var notasFiltrosEstrela = 0
+    private var notasFiltrosEstrela = 0.0
     private var generosFiltro: [String] = []
     private var plataformaFiltro: [String] = []
     private var dataInicial = "1930"
@@ -73,6 +74,20 @@ class RoletaViewModel {
     
     var numberComponents: Int {
         return anos.count
+    }
+    
+    //MARK: -  Variaveis Computadas Privadas
+    
+   private var yearLte: String {
+        return "\(dataFinal)-12-31"
+    }
+    
+    private var yearGte: String {
+         return "\(dataInicial)-01-01"
+     }
+    
+    private var average: String {
+        return String(notasFiltrosEstrela)
     }
     //MARK: - Funções Públicas
     func getImagePlataformas(index: Int) -> String {
@@ -96,44 +111,55 @@ class RoletaViewModel {
         return "De \(dataInicial) Até \(dataFinal)"
     }
     
-    func botaoRoletarMovie(){
-        service.fetchDiscover(genre: "28", average: "5", yearLte: "2022-12-01", yearGte: "2000-12-01", provider: "8%7C119") { movie in
+    func botaoRoletarMovie() {
+        service.fetchDiscover(genre: genres(), average,  yearLte, yearGte, provider: providers()) { movies in
             DispatchQueue.main.async {
-                self.delegate?.carregaFilme(movie: movie)
+                if movies.count == 0 {
+                    self.delegate?.exibirAlerta()
+                    return
+                }
+                guard let movie = movies.randomElement() else { return }
+                self.service.fetchProvidersBy(id: movie.id) { providerId in
+                    DispatchQueue.main.async {
+                        movie.providersId.append(providerId)
+                        print("********\(providerId)")
+                        self.delegate?.carregaFilme(movie: movie)
+                    }
+                }
             }
         }
     }
     
-//    func roletaFilmeFiltrado() -> Filme {
-//        var filme: Filme?
-//        var filmesFiltrados: [Filme] = filmesQueSeraoRoletados()
-//
-//        if generosFiltro.count > 0 {
-//            let filmeFiltradoGenero = filtraPorGenero(generos: generosFiltro, filmes: filmesFiltrados)
-//            filmesFiltrados = filmeFiltradoGenero
-//        }
-//
-//        if notasFiltrosEstrela > 0 {
-//            let filmeFiltradoNota = filtrarPorNota(nota: notasFiltrosEstrela, filmes: filmesFiltrados)
-//            filmesFiltrados = filmeFiltradoNota
-//        }
-//        if dataInicial > anos[1].last ?? "" || dataFinal < anos[3].first ?? ""{
-//            let filmeFiltradoData = filtrarPorData(dataInicial: dataInicial, dataFinal: dataFinal, filmes: filmesFiltrados)
-//            filmesFiltrados = filmeFiltradoData
-//        }
-//        if plataformaFiltro.count > 0 {
-//            let filmeFiltradoPlataforma = filtraPorPlataforma(plataformas: plataformaFiltro, filmes: filmesFiltrados)
-//            filmesFiltrados = filmeFiltradoPlataforma
-//        }
-//
-//        filme = filmesFiltrados.randomElement()
-//
-//        if filme == nil {
-//            delegate?.exibirAlerta()
-//        }
-//
-//        return filme ?? service.filmeNil
-//    }
+    //    func roletaFilmeFiltrado() -> Filme {
+    //        var filme: Filme?
+    //        var filmesFiltrados: [Filme] = filmesQueSeraoRoletados()
+    //
+    //        if generosFiltro.count > 0 {
+    //            let filmeFiltradoGenero = filtraPorGenero(generos: generosFiltro, filmes: filmesFiltrados)
+    //            filmesFiltrados = filmeFiltradoGenero
+    //        }
+    //
+    //        if notasFiltrosEstrela > 0 {
+    //            let filmeFiltradoNota = filtrarPorNota(nota: notasFiltrosEstrela, filmes: filmesFiltrados)
+    //            filmesFiltrados = filmeFiltradoNota
+    //        }
+    //        if dataInicial > anos[1].last ?? "" || dataFinal < anos[3].first ?? ""{
+    //            let filmeFiltradoData = filtrarPorData(dataInicial: dataInicial, dataFinal: dataFinal, filmes: filmesFiltrados)
+    //            filmesFiltrados = filmeFiltradoData
+    //        }
+    //        if plataformaFiltro.count > 0 {
+    //            let filmeFiltradoPlataforma = filtraPorPlataforma(plataformas: plataformaFiltro, filmes: filmesFiltrados)
+    //            filmesFiltrados = filmeFiltradoPlataforma
+    //        }
+    //
+    //        filme = filmesFiltrados.randomElement()
+    //
+    //        if filme == nil {
+    //            delegate?.exibirAlerta()
+    //        }
+    //
+    //        return filme ?? service.filmeNil
+    //    }
     
     func adicionarListaFilmesRoletados(movie: Movie?) {
         guard let movie = movie else { return }
@@ -170,7 +196,7 @@ class RoletaViewModel {
                 delegate?.estrelaCheia(tag: index)
             }
         }
-        notasFiltrosEstrela = tag * 2
+        notasFiltrosEstrela = Double(tag) * 1.875
     }
     
     func adicionaPlataformaFiltro(indexPath: IndexPath) {
@@ -196,6 +222,57 @@ class RoletaViewModel {
             movie.title == filmeFavorito.title
         }
     }
+    //MARK: -  Funções Privadas
+    
+    private func genres() -> String {
+        var idGenre = ""
+        
+        for genero in generosFiltro {
+            switch genero {
+            case "Ação": idGenre += "%7C28"
+            case "Aventura": idGenre += "%7C12"
+            case "Comédia":idGenre += "%7C35"
+            case "Drama": idGenre += "%7C18"
+            case "Suspense": idGenre += "%7C53"
+            case "Ficção": idGenre += "%7C878"
+            case "Animação":idGenre += "%7C16"
+            case "Romance": idGenre += "%7C10749"
+            case "Terror": idGenre += "%7C27"
+            default: idGenre = ""
+            }
+        }
+        if idGenre.count > 0 {
+           idGenre =  String(idGenre.dropFirst(3))
+        }
+        return idGenre
+    }
+    
+    private func providers() -> String {
+        var idProvider = ""
+        
+        for provider in plataformaFiltro {
+            switch provider {
+            case "appletv": idProvider += "%7C350"
+            case "disneyplus": idProvider += "%7C337"
+            case "globoplay": idProvider += "%7C307"
+            case "hbomax": idProvider += "%7C384"
+            case  "netflix": idProvider += "%7C8"
+            case "paramont": idProvider += "%7C531"
+            case "primevideo": idProvider += "%7C119"
+            case "starplus": idProvider += "%7C339"
+            case "telecine": idProvider += "%7C227"
+            default: idProvider = ""
+            }
+        }
+        if idProvider.count > 0 {
+            idProvider =  String(idProvider.dropFirst(3))
+        }
+        print("***ID\(idProvider)")
+        return idProvider
+    }
+
+
+    
 }
 //MARK: - Filtros da roleta: Funções privadas
 //extension RoletaViewModel {

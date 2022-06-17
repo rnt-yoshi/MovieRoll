@@ -18,7 +18,7 @@ class Service {
     var filmesAssistidos: [Movie] = []
     
     var movies: [Movie] = []
-
+    
     let plataformas: [String] = [
         "appletv",
         "disneyplus",
@@ -44,17 +44,17 @@ class Service {
     ]
     
     init() {
-//        for genero in generos{
-//            filmesLancamentos.append(filtraPorGenero(genero: genero))
-//        }
+        //        for genero in generos{
+        //            filmesLancamentos.append(filtraPorGenero(genero: genero))
+        //        }
     }
     //MARK: - Funções privadas
-//    private func filtraPorGenero(genero: String) -> [Filme] {
-//        let filmesFiltradosGenero = filmes.filter { filme in
-//            return filme.genero == genero
-//        }
-//        return filmesFiltradosGenero
-//    }
+    //    private func filtraPorGenero(genero: String) -> [Filme] {
+    //        let filmesFiltradosGenero = filmes.filter { filme in
+    //            return filme.genero == genero
+    //        }
+    //        return filmesFiltradosGenero
+    //    }
     
     //MARK: - Funções públicas
     func adicionaNaListaFavoritos(movie: Movie) {
@@ -78,7 +78,7 @@ class Service {
         }
     }
     
-    func fetchDiscover(genre: String, average: String, yearLte: String, yearGte: String, provider: String, completion: @escaping (Movie) -> Void) {
+    func fetchDiscover(genre: String, _ average: String, _ yearLte: String, _ yearGte: String, provider: String, completion: @escaping ([Movie]) -> Void) {
         guard let url = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=7f90c16b1428bbd2961cbdfd637dba99&language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=\(yearGte)&primary_release_date.lte=\(yearLte)&vote_average.gte=\(average)&with_genres=\(genre)&with_watch_providers=\(provider)&watch_region=BR&with_watch_monetization_types=flatrate") else { return }
         
         let session = URLSession.shared
@@ -91,11 +91,7 @@ class Service {
             do {
                 let movies = try decoder.decode(MoviesResult.self, from: data)
                 self.movies = movies.results
-                guard let movie = self.movies.randomElement() else { return }
-                self.fetchProvidersBy(id: movie.id) { providerId in
-                    movie.providersId.append(providerId)
-                }
-                completion(movie)
+                completion(self.movies)
             } catch {
                 print(error)
             }
