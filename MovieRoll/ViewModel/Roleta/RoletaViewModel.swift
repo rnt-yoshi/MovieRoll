@@ -8,6 +8,7 @@
 import Foundation
 
 protocol RoletaViewModelDelegate {
+    func carregaFilme(movie: Movie)
     func estrelaVazia(tag: Int)
     func estrelaCheia(tag: Int)
     func botaoGeneroSelecionado(tag: Int)
@@ -95,17 +96,12 @@ class RoletaViewModel {
         return "De \(dataInicial) Até \(dataFinal)"
     }
     
-    
-    func botaoRoletarMovie() -> Movie {
-        service.fetchDiscover(genre: "28", average: "5", yearLte: "2022-12-01", yearGte: "2000-12-01", provider: "8")
-        guard var movie = service.movies?.randomElement() else { return service.movieNil }
-        
-    service.fetchProvidersBy(id: movie.id) { provider in
-        print("*****\(movie.id)")
-        print("*****\(provider)")
-            movie.providersId.append(provider)
+    func botaoRoletarMovie(){
+        service.fetchDiscover(genre: "28", average: "5", yearLte: "2022-12-01", yearGte: "2000-12-01", provider: "8%7C119") { movie in
+            DispatchQueue.main.async {
+                self.delegate?.carregaFilme(movie: movie)
+            }
         }
-        return movie
     }
     
     
@@ -254,5 +250,4 @@ extension RoletaViewModel {
         }
         return filmesARoletar
     }
-    
 }

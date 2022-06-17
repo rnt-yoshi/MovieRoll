@@ -82,13 +82,9 @@ class DetalhesFilmeViewModel {
     }
     
     var getPlataforma: String {
-        print("ASJLDFKLJDSJFKLDJSLKFJLKDLKFDKLFJ")
         if movie.providersId.count > 0 {
-            print("****************\(movie.providersId[0])")
-
             return String(movie.providersId[0])
         }
-        
         return ""
     }
     

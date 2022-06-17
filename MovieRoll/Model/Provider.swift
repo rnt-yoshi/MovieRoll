@@ -7,27 +7,29 @@
 
 import Foundation
 
-
-
-struct Provider: Codable {
-    var id: Int
-    var results: ProvidersResults
-}
-struct BR: Codable {
-    var flatrate: [Flatrate]
-}
-
-struct ProvidersResults: Codable {
-    var BR: BR
-}
-
-struct Flatrate: Codable {
-    var displayPriority: Int
-    var providerId: Int
+struct Provider: Decodable {
+    let providerId: Int
     
-    enum CodingKeys: String, CodingKey {
-        case displayPriority = "display_priority"
-        case providerId = "provider_id"
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let results = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .results)
+        let br = try results.nestedContainer(keyedBy: CodingKeys.self, forKey: .br)
+        let flatrate = try br.decode([Flatrate].self, forKey: .flatrate)
+        providerId = flatrate.first?.providerId ?? 0
     }
     
+    enum CodingKeys: String, CodingKey {
+        case results
+        case br = "BR"
+        case flatrate
+        case providerId = "provider_id"
+    }
+}
+
+struct Flatrate: Decodable {
+    let providerId: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case providerId = "provider_id"
+    }
 }

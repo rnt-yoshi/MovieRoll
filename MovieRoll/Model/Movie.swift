@@ -8,22 +8,24 @@
 import Foundation
 
 
-struct MoviesResult: Codable {
+class MoviesResult: Codable {
     
     let results: [Movie]
 }
 
-struct Movie: Codable {
+class Movie: Codable {
     
-    let id: Int
-    let title: String
-    let overview: String
-    let posterPath: String
-    let voteAverage: Float
-    let releaseDate: String
-    let genreIds: [Int]
+    var id: Int = 0
+    var title: String = ""
+    var overview: String = ""
+    var posterPath: String = ""
+    var voteAverage: Float = 0.0
+    var releaseDate: String = ""
+    var genreIds: [Int] = []
     var providersId: [Int] = []
-    let ageId: [Int] = []
+    var ageId: [Int] = []
+    
+    init(){}
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -33,7 +35,5 @@ struct Movie: Codable {
         case voteAverage = "vote_average"
         case releaseDate = "release_date"
         case genreIds = "genre_ids"
-        
     }
-    
 }

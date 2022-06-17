@@ -85,36 +85,21 @@ class RoletaViewController: UIViewController {
     }
     
     @IBAction func roletarButtonPressed(_ sender: Any) {
-        let filmeFiltrado = viewModel.botaoRoletarMovie()
-        
-        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
-                
-                let viewModel = DetalhesFilmeViewModel(movie: filmeFiltrado, ehFavorito: true, foiAssistido: true)
-        
-                detalhesFilme.viewModel = viewModel
-        
-                navigationController?.pushViewController(detalhesFilme, animated: true)
-        
-        
-        
-//        let filmeFiltrado = viewModel.roletaFilmeFiltrado()
-//
-//        viewModel.adicionarListaFilmesRoletados(filme: filmeFiltrado)
-//
-//        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
-//
-//        let ehFavorito = viewModel.verificaFavorito(filme: filmeFiltrado)
-//        let foiAssistido = viewModel.verificaAssistido(filme: filmeFiltrado)
-//
-//        let viewModel = DetalhesFilmeViewModel(filme: filmeFiltrado, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
-//
-//        detalhesFilme.viewModel = viewModel
-//
-//        navigationController?.pushViewController(detalhesFilme, animated: true)
+        viewModel.botaoRoletarMovie()
     }
 }
 //MARK: - RoletaViewModel Delegate
 extension RoletaViewController: RoletaViewModelDelegate {
+    func carregaFilme(movie: Movie) {
+        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
+        
+        let viewModel = DetalhesFilmeViewModel(movie: movie, ehFavorito: true, foiAssistido: true)
+        
+        detalhesFilme.viewModel = viewModel
+        
+        navigationController?.pushViewController(detalhesFilme, animated: true)
+    }
+    
     func exibirAlerta() {
         let alerta = UIAlertController(title: "Nenhum filme encontrado com os filtros escolhidos!", message: "Altere os filtros e tente novamente", preferredStyle: .alert)
         
