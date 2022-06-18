@@ -78,13 +78,13 @@ class RoletaViewModel {
     
     //MARK: -  Variaveis Computadas Privadas
     
-   private var yearLte: String {
+    private var yearLte: String {
         return "\(dataFinal)-12-31"
     }
     
     private var yearGte: String {
-         return "\(dataInicial)-01-01"
-     }
+        return "\(dataInicial)-01-01"
+    }
     
     private var average: String {
         return String(notasFiltrosEstrela)
@@ -118,6 +118,9 @@ class RoletaViewModel {
                     self.delegate?.exibirAlerta()
                     return
                 }
+                
+                
+                
                 guard let movie = movies.randomElement() else { return }
                 self.service.fetchProvidersBy(id: movie.id) { providerId in
                     DispatchQueue.main.async {
@@ -229,20 +232,20 @@ class RoletaViewModel {
         
         for genero in generosFiltro {
             switch genero {
-            case "Ação": idGenre += "%7C28"
+            case "Ação": idGenre += "%7C28%7C80%7C36%7C10752%7C37"
             case "Aventura": idGenre += "%7C12"
-            case "Comédia":idGenre += "%7C35"
+            case "Comédia": idGenre += "%7C35"
             case "Drama": idGenre += "%7C18"
-            case "Suspense": idGenre += "%7C53"
-            case "Ficção": idGenre += "%7C878"
-            case "Animação":idGenre += "%7C16"
+            case "Suspense": idGenre += "%7C53%7C9648"
+            case "Ficção": idGenre += "%7C878%7C14"
+            case "Família": idGenre += "%7C16%7C10751%7C10402%7C10770"
             case "Romance": idGenre += "%7C10749"
             case "Terror": idGenre += "%7C27"
             default: idGenre = ""
             }
         }
         if idGenre.count > 0 {
-           idGenre =  String(idGenre.dropFirst(3))
+            idGenre =  String(idGenre.dropFirst(3))
         }
         return idGenre
     }
@@ -256,10 +259,10 @@ class RoletaViewModel {
             case "disneyplus": idProvider += "%7C337"
             case "globoplay": idProvider += "%7C307"
             case "hbomax": idProvider += "%7C384"
-            case  "netflix": idProvider += "%7C8"
+            case "netflix": idProvider += "%7C8"
             case "paramont": idProvider += "%7C531"
             case "primevideo": idProvider += "%7C119"
-            case "starplus": idProvider += "%7C339"
+            case "starplus": idProvider += "%7C619"
             case "telecine": idProvider += "%7C227"
             default: idProvider = ""
             }
@@ -270,8 +273,6 @@ class RoletaViewModel {
         print("***ID\(idProvider)")
         return idProvider
     }
-
-
     
 }
 //MARK: - Filtros da roleta: Funções privadas

@@ -82,7 +82,7 @@ class DetalhesFilmeViewController: UIViewController {
         posterFilme.image = UIImage(data: viewModel.getPoster())
         nomeDoFilmeLabel.text = viewModel.getNome
         anoLabel.text = viewModel.getAno
-        generoLabel.text = viewModel.getGenero
+        generoLabel.text = viewModel.getGenero()
         notaDoFilme.text = ("\(viewModel.getNotaFilme)/10")
         classificacaoIndicativaImage.image = UIImage(named: viewModel.getClassificacaoIndicativaImage)
         classificacaoIndicativaLabel.text = viewModel.getClassificacaoIndicativa

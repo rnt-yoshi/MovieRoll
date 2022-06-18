@@ -476,7 +476,7 @@
                                                 <state key="normal" title="Infantil" backgroundImage="infantil">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
-                                                <buttonConfiguration key="configuration" style="filled" title="Animação">
+                                                <buttonConfiguration key="configuration" style="filled" title="Família">
                                                     <backgroundConfiguration key="background" cornerRadius="10" image="infantil"/>
                                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -903,7 +903,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="HARRY POTTER E O PRISIONEIRO DE ASKABAN" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1X-VV-yar">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="HARRY POTTER E O PRISIONEIRO DE ASKABAN" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="m1X-VV-yar">
                                         <rect key="frame" x="10" y="59.5" width="314" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -948,6 +948,7 @@
                                     <constraint firstItem="EEV-0m-nBb" firstAttribute="leading" secondItem="x3a-Qg-LJe" secondAttribute="leading" constant="10" id="0G3-SV-zTV"/>
                                     <constraint firstAttribute="trailing" secondItem="5xK-TU-drL" secondAttribute="trailing" constant="17.5" id="45d-cv-LIC"/>
                                     <constraint firstItem="be2-0v-4LG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="n21-h2-gVO" secondAttribute="trailing" constant="8" symbolic="YES" id="6rW-1u-IQy"/>
+                                    <constraint firstItem="m1X-VV-yar" firstAttribute="top" secondItem="n21-h2-gVO" secondAttribute="bottom" constant="15.5" id="7ql-1Z-yY5"/>
                                     <constraint firstItem="5xK-TU-drL" firstAttribute="top" secondItem="x3a-Qg-LJe" secondAttribute="top" constant="13.5" id="8xK-Ti-Ohq"/>
                                     <constraint firstItem="be2-0v-4LG" firstAttribute="top" secondItem="ofr-SR-YY8" secondAttribute="bottom" constant="1" id="AlU-nZ-f6g"/>
                                     <constraint firstItem="EEV-0m-nBb" firstAttribute="top" secondItem="x3a-Qg-LJe" secondAttribute="top" constant="5" id="M8M-42-Oi0"/>
