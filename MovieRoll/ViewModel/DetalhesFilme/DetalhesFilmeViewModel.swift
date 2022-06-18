@@ -47,34 +47,50 @@ class DetalhesFilmeViewModel {
     }
     
     func getGenero() -> String {
-        if movie.genreIds.count > 0 {
-            
-            switch movie.genreIds[0] {
-            case 28,80,36,10752,37:
-                return "Ação"
+        var generoExibido = ""
+        for generoId in movie.genreIds {
+            switch generoId{
+            case 28:
+                generoExibido += ", Ação"
             case 12:
-                return "Aventura"
+                generoExibido += ", Aventura"
+            case 16:
+                generoExibido += ", Animação"
             case 35:
-                return "Comédia"
+                generoExibido += ", Comédia"
+            case 80:
+                generoExibido += ", Crime"
             case 18:
-                return "Drama"
-            case 53,9648:
-                return "Suspense"
-            case 878,14:
-                return "Ficção"
-            case 16,10751,10402,10770:
-                return "Família"
-            case 10749:
-                return "Romance"
+                generoExibido += ", Drama"
+            case 10751:
+                generoExibido += ", Família"
+            case 14:
+                generoExibido += ", Fantasia"
+            case 36:
+                generoExibido += ", História"
             case 27:
-                return "Terror"
+                generoExibido += ", Terror"
+            case 10402:
+                generoExibido += ", Música"
+            case 9648:
+                generoExibido += ", Mistério"
+            case 10749:
+                generoExibido += ", Romance"
+            case 878:
+                generoExibido += ", Ficção"
+            case 10770:
+                generoExibido += ", Cinema TV"
+            case 53:
+                generoExibido += ", Suspense"
+            case 10752:
+                generoExibido += ", Guerra"
+            case 37:
+                generoExibido += ", Faroeste"
             default:
-                return "Múltiplos Gêneros"
+                return ""
             }
-            
         }
-        
-        return ""
+        return String(generoExibido.dropFirst(2))
     }
     
     var getNotaFilme: String {
@@ -99,7 +115,12 @@ class DetalhesFilmeViewModel {
         return ""
     }
     
-    var getPlataforma: String {
+    func getPlataforma() -> String {
+        for provider in service.plataformaFiltro {
+            if movie.providersId.contains(provider) {
+                return String(provider)
+            }
+        }
         if movie.providersId.count > 0 {
             return String(movie.providersId[0])
         }

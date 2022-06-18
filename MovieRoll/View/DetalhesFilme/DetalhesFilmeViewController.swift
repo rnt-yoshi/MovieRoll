@@ -15,14 +15,12 @@ class DetalhesFilmeViewController: UIViewController {
     @IBOutlet weak var anoLabel: UILabel!
     @IBOutlet weak var generoLabel: UILabel!
     @IBOutlet weak var notaDoFilme: UILabel!
-    @IBOutlet weak var classificacaoIndicativaLabel: UILabel!
     @IBOutlet weak var sinopseTextView: UITextView!
-    @IBOutlet weak var classificacaoIndicativaImage: UIImageView!
     @IBOutlet weak var plataformaImageView: UIImageView!
     
-    var viewModel:DetalhesFilmeViewModel?
+    var viewModel: DetalhesFilmeViewModel?
     //MARK: - Funcoes Override
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.delegate = self
@@ -84,12 +82,9 @@ class DetalhesFilmeViewController: UIViewController {
         anoLabel.text = viewModel.getAno
         generoLabel.text = viewModel.getGenero()
         notaDoFilme.text = ("\(viewModel.getNotaFilme)/10")
-        classificacaoIndicativaImage.image = UIImage(named: viewModel.getClassificacaoIndicativaImage)
-        classificacaoIndicativaLabel.text = viewModel.getClassificacaoIndicativa
         sinopseTextView.text = viewModel.getSinopse
-        plataformaImageView.image = UIImage(named: viewModel.getPlataforma)
+        plataformaImageView.image = UIImage(named: viewModel.getPlataforma())
         
-        classificacaoIndicativaImage.layer.cornerRadius = 10
         plataformaImageView.layer.cornerRadius = 10
     }
 }

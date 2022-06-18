@@ -59,12 +59,12 @@ class RoletaViewModel {
         ]
     ]
     private var notasFiltrosEstrela = 0.0
-    private var generosFiltro: [String] = []
-    private var plataformaFiltro: [String] = []
     private var dataInicial = "1930"
     private var dataFinal = "2022"
+    private var generosFiltro: [String] = []
+    
     //MARK: - Variaveis computadas
-    var getPlataformas: [String] {
+    var getPlataformas: [Int] {
         return service.plataformas
     }
     
@@ -91,7 +91,7 @@ class RoletaViewModel {
     }
     //MARK: - Funções Públicas
     func getImagePlataformas(index: Int) -> String {
-        return service.plataformas[index]
+        return String(service.plataformas[index])
     }
     
     func numberOfRows(component: Int) -> Int {
@@ -113,21 +113,18 @@ class RoletaViewModel {
     
     func botaoRoletarMovie() {
         service.fetchDiscover(genre: genres(), average,  yearLte, yearGte, provider: providers()) { movies in
-            DispatchQueue.main.async {
-                if movies.count == 0 {
+            if movies.count == 0 {
+                DispatchQueue.main.async {
                     self.delegate?.exibirAlerta()
                     return
                 }
-                
-                
-                
-                guard let movie = movies.randomElement() else { return }
-                self.service.fetchProvidersBy(id: movie.id) { providerId in
-                    DispatchQueue.main.async {
-                        movie.providersId.append(providerId)
-                        print("********\(providerId)")
-                        self.delegate?.carregaFilme(movie: movie)
-                    }
+            }
+            guard let movie = movies.randomElement() else { return }
+            self.service.adicionaNaListaRoletados(movie: movie)
+            self.service.fetchProvidersBy(id: movie.id) { providerId in
+                DispatchQueue.main.async {
+                    movie.providersId.append(providerId)
+                    self.delegate?.carregaFilme(movie: movie)
                 }
             }
         }
@@ -204,12 +201,12 @@ class RoletaViewModel {
     
     func adicionaPlataformaFiltro(indexPath: IndexPath) {
         let plataforma = service.plataformas[indexPath.item]
-        plataformaFiltro.append(plataforma)
+        service.plataformaFiltro.append(plataforma)
     }
     
     func removePlataformaFiltro(indexPath: IndexPath) {
         let plataforma = service.plataformas[indexPath.item]
-        plataformaFiltro.removeAll { plataformaFiltro in
+        service.plataformaFiltro.removeAll { plataformaFiltro in
             return  plataforma == plataformaFiltro
         }
     }
@@ -232,13 +229,13 @@ class RoletaViewModel {
         
         for genero in generosFiltro {
             switch genero {
-            case "Ação": idGenre += "%7C28%7C80%7C36%7C10752%7C37"
+            case "Ação": idGenre += "%7C28"
             case "Aventura": idGenre += "%7C12"
             case "Comédia": idGenre += "%7C35"
             case "Drama": idGenre += "%7C18"
-            case "Suspense": idGenre += "%7C53%7C9648"
-            case "Ficção": idGenre += "%7C878%7C14"
-            case "Família": idGenre += "%7C16%7C10751%7C10402%7C10770"
+            case "Suspense": idGenre += "%7C53"
+            case "Ficção": idGenre += "%7C878"
+            case "Família": idGenre += "%7C10751"
             case "Romance": idGenre += "%7C10749"
             case "Terror": idGenre += "%7C27"
             default: idGenre = ""
@@ -251,29 +248,17 @@ class RoletaViewModel {
     }
     
     private func providers() -> String {
-        var idProvider = ""
+        var idProvider = "350%7C337%7C307%7C384%7C8%7C531%7C119%7C619%7C227"
         
-        for provider in plataformaFiltro {
-            switch provider {
-            case "appletv": idProvider += "%7C350"
-            case "disneyplus": idProvider += "%7C337"
-            case "globoplay": idProvider += "%7C307"
-            case "hbomax": idProvider += "%7C384"
-            case "netflix": idProvider += "%7C8"
-            case "paramont": idProvider += "%7C531"
-            case "primevideo": idProvider += "%7C119"
-            case "starplus": idProvider += "%7C619"
-            case "telecine": idProvider += "%7C227"
-            default: idProvider = ""
+        if service.plataformaFiltro.count > 0 {
+            idProvider = ""
+            for provider in service.plataformaFiltro {
+                idProvider += "%7C\(provider)"
             }
-        }
-        if idProvider.count > 0 {
             idProvider =  String(idProvider.dropFirst(3))
         }
-        print("***ID\(idProvider)")
         return idProvider
     }
-    
 }
 //MARK: - Filtros da roleta: Funções privadas
 //extension RoletaViewModel {

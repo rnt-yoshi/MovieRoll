@@ -16,19 +16,20 @@ class Service {
     var filmesFavoritos: [Movie] = []
     var filmesRoletados: [Movie] = []
     var filmesAssistidos: [Movie] = []
+    var plataformaFiltro: [Int] = []
     
     var movies: [Movie] = []
     
-    let plataformas: [String] = [
-        "appletv",
-        "disneyplus",
-        "globoplay",
-        "hbomax",
-        "netflix",
-        "paramont",
-        "primevideo",
-        "starplus",
-        "telecine"
+    let plataformas: [Int] = [
+        350,
+        337,
+        307,
+        384,
+        8,
+        531,
+        119,
+        619,
+        227
     ]
     
     let generos: [String] = [
@@ -44,18 +45,7 @@ class Service {
     ]
     
     init() {
-        //        for genero in generos{
-        //            filmesLancamentos.append(filtraPorGenero(genero: genero))
-        //        }
     }
-    //MARK: - Funções privadas
-    //    private func filtraPorGenero(genero: String) -> [Filme] {
-    //        let filmesFiltradosGenero = filmes.filter { filme in
-    //            return filme.genero == genero
-    //        }
-    //        return filmesFiltradosGenero
-    //    }
-    
     //MARK: - Funções públicas
     func adicionaNaListaFavoritos(movie: Movie) {
         filmesFavoritos.append(movie)
@@ -65,8 +55,19 @@ class Service {
         filmesAssistidos.append(movie)
     }
     
+    func adicionaNaListaRoletados(movie: Movie) {
+        filmesRoletados.append(movie)
+    }
+    
+    func removeRoletadosDaLista() {
+        for roletado in filmesRoletados {
+            movies.removeAll { movie in
+                return roletado.id == movie.id
+            }
+        }
+    }
+    
     func removeDaListaFavoritos(movie: Movie) {
-        
         filmesFavoritos.removeAll { filmeFavorito in
             return movie.title == filmeFavorito.title
         }
@@ -77,14 +78,6 @@ class Service {
             return movie.title == filmeAssistido.title
         }
     }
-        
-//    private func filtrarPorGenero(genero: Int) {
-//        for movie in movies {
-//            movie.genreIds[0] != genero
-//            
-//        }
-//        
-//    }
     
     func fetchDiscover(genre: String, _ average: String, _ yearLte: String, _ yearGte: String, provider: String, completion: @escaping ([Movie]) -> Void) {
         guard let url = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=7f90c16b1428bbd2961cbdfd637dba99&language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&without_genres=99&page=1&primary_release_date.gte=\(yearGte)&primary_release_date.lte=\(yearLte)&vote_average.gte=\(average)&vote_average.lte=9.5&with_genres=\(genre)&with_watch_providers=\(provider)&watch_region=BR&with_watch_monetization_types=flatrate") else { return }
@@ -99,6 +92,7 @@ class Service {
             do {
                 let movies = try decoder.decode(MoviesResult.self, from: data)
                 self.movies = movies.results
+                self.removeRoletadosDaLista()
                 completion(self.movies)
             } catch {
                 print(error)
