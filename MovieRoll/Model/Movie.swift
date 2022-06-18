@@ -7,11 +7,11 @@
 
 import Foundation
 
-class MoviesResult: Codable {
+class MoviesResult: Decodable {
     let results: [Movie]
 }
 
-class Movie: Codable {
+class Movie: Decodable {
     var id: Int = 0
     var title: String = ""
     var overview: String = ""

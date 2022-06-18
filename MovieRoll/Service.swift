@@ -20,6 +20,23 @@ class Service {
     
     var movies: [Movie] = []
     
+    let sortBy = [
+        "popularity.desc",
+        "release_date.desc",
+        "release_date.asc",
+        "primary_release_date.asc",
+        "primary_release_date.desc",
+        "original_title.asc",
+        "original_title.desc",
+        "vote_average.desc",
+        "vote_count.desc"
+    ]
+    
+    var sortByRandom: String {
+        guard let sort = sortBy.randomElement() else { return ""}
+        return sort
+    }
+    
     let plataformas: [Int] = [
         350,
         337,
@@ -59,7 +76,23 @@ class Service {
         filmesRoletados.append(movie)
     }
     
-    func removeRoletadosDaLista() {
+    private func removeAssistidosDaListaMovies() {
+        for assistido in filmesAssistidos {
+            movies.removeAll { movie in
+                return assistido.id == movie.id
+            }
+        }
+    }
+    
+    private func removeFavoritosDaListaMovies() {
+        for favorito in filmesRoletados {
+            movies.removeAll { movie in
+                return favorito.id == movie.id
+            }
+        }
+    }
+    
+    private func removeRoletadosDaListaMovies() {
         for roletado in filmesRoletados {
             movies.removeAll { movie in
                 return roletado.id == movie.id
@@ -79,8 +112,16 @@ class Service {
         }
     }
     
+    private func setProviderIds(flatrate: [Flatrate]) -> [Int] {
+            var providersId: [Int] = []
+            for item in flatrate {
+                providersId.append(item.providerId)
+            }
+            return providersId
+        }
+    
     func fetchDiscover(genre: String, _ average: String, _ yearLte: String, _ yearGte: String, provider: String, completion: @escaping ([Movie]) -> Void) {
-        guard let url = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=7f90c16b1428bbd2961cbdfd637dba99&language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&without_genres=99&page=1&primary_release_date.gte=\(yearGte)&primary_release_date.lte=\(yearLte)&vote_average.gte=\(average)&vote_average.lte=9.5&with_genres=\(genre)&with_watch_providers=\(provider)&watch_region=BR&with_watch_monetization_types=flatrate") else { return }
+        guard let url = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=7f90c16b1428bbd2961cbdfd637dba99&language=pt-BR&sort_by=\(sortByRandom)&include_adult=false&include_video=false&without_genres=99&page=1&primary_release_date.gte=\(yearGte)&primary_release_date.lte=\(yearLte)&vote_average.gte=\(average)&vote_average.lte=9.5&with_genres=\(genre)&with_watch_providers=\(provider)&watch_region=BR&with_watch_monetization_types=flatrate") else { return }
         
         let session = URLSession.shared
         
@@ -92,7 +133,9 @@ class Service {
             do {
                 let movies = try decoder.decode(MoviesResult.self, from: data)
                 self.movies = movies.results
-                self.removeRoletadosDaLista()
+                self.removeRoletadosDaListaMovies()
+                self.removeFavoritosDaListaMovies()
+                self.removeAssistidosDaListaMovies()
                 completion(self.movies)
             } catch {
                 print(error)
@@ -101,7 +144,7 @@ class Service {
         task.resume()
     }
     
-    func fetchProvidersBy(id: Int, completion: @escaping (Int) -> Void ) {
+    func fetchProvidersBy(id: Int, completion: @escaping ([Int]) -> Void ) {
         guard let url = URL(string: "https://api.themoviedb.org/3/movie/\(id)/watch/providers?api_key=7f90c16b1428bbd2961cbdfd637dba99") else { return }
         
         let session = URLSession.shared
@@ -113,7 +156,8 @@ class Service {
             
             do {
                 let providers = try decoder.decode(Provider.self, from: data)
-                completion(providers.providerId)
+                let providersId = self.setProviderIds(flatrate: providers.results.br.flatrate)
+                completion(providersId)
             } catch {
                 print(error)
             }
