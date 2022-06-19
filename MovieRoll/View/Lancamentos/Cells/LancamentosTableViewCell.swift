@@ -44,12 +44,12 @@ extension LancamentosTableViewCell: UICollectionViewDataSource, UICollectionView
         guard let movie = movies?[indexPath.row] else { return UICollectionViewCell()}
         
         cell.configure(movie: movie, viewModel: LancamentosViewModel())
-   //     cell.movie = movie
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel?.setProvidersMovies(row: indexPath.row, section: collectionView.tag)
         delegate?.didSelectItem(row: indexPath.row, section: collectionView.tag)
     }
 }

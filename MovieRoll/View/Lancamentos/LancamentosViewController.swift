@@ -26,7 +26,7 @@ class LancamentosViewController: UIViewController {
 extension LancamentosViewController: LancamentosTableViewCellDelegate {
     
     func didSelectItem(row: Int, section: Int) {
-        let movie = viewModel.retornaFilmes(row: row, section: section )
+        let movie = viewModel.retornaFilmes(row: row, section: section)        
         guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
         let ehFavorito = viewModel.verificaFavorito(movie: movie)
         let foiAssistido = viewModel.verificaAssistido(movie: movie)

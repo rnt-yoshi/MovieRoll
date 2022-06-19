@@ -45,26 +45,26 @@ class Service {
     
     let generosId: [String] = [
         "28",
-        "12",
-        "35",
-        "18",
-        "53",
         "878",
+        "53",
+        "27",
+        "12",
+        "18",
         "10751",
         "10749",
-        "27"
+        "35"
     ]
     
     let generos: [String] = [
         "Ação",
-        "Aventura",
-        "Comédia",
-        "Drama",
-        "Suspense",
         "Ficção",
+        "Suspense",
+        "Terror",
+        "Aventura",
+        "Drama",
         "Família",
         "Romance",
-        "Terror",
+        "Comédia"
     ]
     
     init() {

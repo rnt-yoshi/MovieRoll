@@ -42,8 +42,17 @@ class LancamentosViewModel {
     
     func retornaFilmes(row: Int, section: Int) -> Movie {
         return service.filmesLancamentos[section][row]
+        
     }
     
+    func setProvidersMovies(row: Int, section: Int) {
+        let filme = service.filmesLancamentos[section][row]
+        service.fetchProvidersBy(id: filme.id) { providers in
+            filme.providersId = providers
+        }
+        
+    }
+
     func verificaFavorito(movie: Movie) -> Bool {
         return service.filmesFavoritos.contains { filmeFavorito in
             movie.title == filmeFavorito.title

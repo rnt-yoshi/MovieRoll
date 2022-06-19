@@ -220,8 +220,8 @@
 		4247B017284B8D1F004A12EE /* Lancamentos */ = {
 			isa = PBXGroup;
 			children = (
-				2B179EAF285291440050487A /* Cells */,
 				8A72D0B5283FA14600977B34 /* LancamentosViewController.swift */,
+				2B179EAF285291440050487A /* Cells */,
 			);
 			path = Lancamentos;
 			sourceTree = "<group>";
