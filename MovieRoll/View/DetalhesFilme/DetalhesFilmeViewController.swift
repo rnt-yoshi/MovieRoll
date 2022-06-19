@@ -20,7 +20,6 @@ class DetalhesFilmeViewController: UIViewController {
     
     var viewModel: DetalhesFilmeViewModel?
     //MARK: - Funcoes Override
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.delegate = self

@@ -15,14 +15,12 @@ class LancamentosViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        lancamentosTableView.delegate = self
         lancamentosTableView.dataSource = self
-        viewModel.pegarFilmesEGeneros()
-//        viewModel.carregar()
-//        lancamentosTableView.reloadData()
-              
+        viewModel.delegate = self
+        
+        viewModel.carregarFilmes()
     }
-    
 }
 //MARK: - LancamentosTableViewCell Delegate
 extension LancamentosViewController: LancamentosTableViewCellDelegate {
@@ -38,11 +36,10 @@ extension LancamentosViewController: LancamentosTableViewCellDelegate {
         navigationController?.pushViewController(detalhesFilme, animated: true)
     }
 }
-//MARK: - TableView DataSource
-extension LancamentosViewController: UITableViewDataSource {
+//MARK: - TableView DataSource & Delegate
+extension LancamentosViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-//        viewModel.numberForRow()
+        return viewModel.numberOfRows
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -57,7 +54,7 @@ extension LancamentosViewController: UITableViewDataSource {
         guard let cell = lancamentosTableView.dequeueReusableCell(withIdentifier: "idCellTable", for: indexPath) as? LancamentosTableViewCell else { return UITableViewCell() }
 
         let movies = viewModel.getFilmesLancamentos[indexPath.section]
-        cell.config(delegate: self, movies: movies)
+        cell.config(delegate: self, viewModel: viewModel, movies: movies)
         cell.lancamentosCollectionView.tag = indexPath.section
         cell.lancamentosCollectionView.reloadData()
         
@@ -68,6 +65,12 @@ extension LancamentosViewController: UITableViewDataSource {
         let tableHeader = view as! UITableViewHeaderFooterView
         tableHeader.tintColor = UIColor.black
         tableHeader.textLabel?.textColor = .white
+    }
+}
+
+extension LancamentosViewController: LancamentosViewModelDelegate {
+    func reloadTableView() {
+        lancamentosTableView.reloadData()
     }
 }
 
