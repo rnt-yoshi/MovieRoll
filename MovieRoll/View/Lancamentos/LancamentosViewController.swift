@@ -17,9 +17,12 @@ class LancamentosViewController: UIViewController {
         super.viewDidLoad()
         
         lancamentosTableView.dataSource = self
-        lancamentosTableView.delegate = self
         viewModel.pegarFilmesEGeneros()
+//        viewModel.carregar()
+//        lancamentosTableView.reloadData()
+              
     }
+    
 }
 //MARK: - LancamentosTableViewCell Delegate
 extension LancamentosViewController: LancamentosTableViewCellDelegate {
@@ -35,10 +38,11 @@ extension LancamentosViewController: LancamentosTableViewCellDelegate {
         navigationController?.pushViewController(detalhesFilme, animated: true)
     }
 }
-//MARK: - TableView DataSource & Delegate
-extension LancamentosViewController: UITableViewDataSource, UITableViewDelegate {
+//MARK: - TableView DataSource
+extension LancamentosViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
+//        viewModel.numberForRow()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -66,5 +70,4 @@ extension LancamentosViewController: UITableViewDataSource, UITableViewDelegate 
         tableHeader.textLabel?.textColor = .white
     }
 }
-
 

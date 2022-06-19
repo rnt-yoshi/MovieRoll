@@ -54,4 +54,20 @@ class LancamentosViewModel {
             movie.title == filmeFavorito.title
         }
     }
+    
+//    func carregar() {
+//        for genero in service.generosId {
+//            service.fetchDiscoverLancamentos(genre: genero) { filmes in
+//                self.service.filmesLancamentos.append(filmes)
+//            }
+//        }
+//    }
+//
+//    func numberForRow() -> Int {
+//        if service.filmesLancamentos.count == 0 {
+//            return 0
+//        }
+//        return 1
+//    }
+    
 }
