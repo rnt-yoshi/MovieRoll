@@ -172,7 +172,7 @@ class Service {
     }
     
     func fetchDiscoverLancamentos(genre: String, completion: @escaping ([Movie]) -> Void) {
-        guard let url = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=7f90c16b1428bbd2961cbdfd637dba99&language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=\(genre)&watch_region=BR&with_watch_monetization_types=flatrate") else { return }
+        guard let url = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=7f90c16b1428bbd2961cbdfd637dba99&language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=\(genre)&with_watch_providers=350%7C337%7C307%7C384%7C8%7C531%7C119%7C619%7C227&watch_region=BR&with_watch_monetization_types=flatrate") else { return }
         
         let session = URLSession.shared
         

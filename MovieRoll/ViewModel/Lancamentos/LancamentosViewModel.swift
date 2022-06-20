@@ -9,6 +9,7 @@ import Foundation
 
 protocol LancamentosViewModelDelegate {
     func reloadTableView()
+    func stopLoading()
 }
 
 class LancamentosViewModel {
@@ -71,7 +72,10 @@ class LancamentosViewModel {
             service.fetchDiscoverLancamentos(genre: genero) { filmes in
                 self.service.filmesLancamentos.append(filmes)
                 DispatchQueue.main.async {
-                    self.delegate?.reloadTableView()
+                    if genero == self.service.generosId.last {
+                        self.delegate?.reloadTableView()
+                        self.delegate?.stopLoading()
+                    }
                 }
             }
         }

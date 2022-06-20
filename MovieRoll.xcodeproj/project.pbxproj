@@ -133,10 +133,10 @@
 		2BA7C7BE284BD2A100013C13 /* Perfil */ = {
 			isa = PBXGroup;
 			children = (
-				2B179EAD2852911D0050487A /* Cells */,
 				4256CE48283E4CAA0017DD5F /* PerfilViewController.swift */,
 				8ADFC41C284B7A6000CBDBA2 /* MeusDadosViewController.swift */,
 				8ADFC41E284B7A8C00CBDBA2 /* HistoricoViewController.swift */,
+				2B179EAD2852911D0050487A /* Cells */,
 				8ADFC420284B7AAC00CBDBA2 /* ConfiguracoesViewController.swift */,
 				8ADFC422284B7ABE00CBDBA2 /* AjudaViewController.swift */,
 			);
@@ -158,8 +158,8 @@
 		2BA7C7C1284BD30800013C13 /* Roleta */ = {
 			isa = PBXGroup;
 			children = (
-				2B179EAE285291380050487A /* Cells */,
 				8A72D0B3283FA12800977B34 /* RoletaViewController.swift */,
+				2B179EAE285291380050487A /* Cells */,
 			);
 			path = Roleta;
 			sourceTree = "<group>";

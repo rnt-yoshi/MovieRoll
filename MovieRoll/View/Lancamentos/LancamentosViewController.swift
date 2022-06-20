@@ -10,11 +10,16 @@ import UIKit
 class LancamentosViewController: UIViewController {
     
     @IBOutlet weak var lancamentosTableView: UITableView!
-    
+    @IBOutlet weak var activityIndicatorLancamento: UIActivityIndicatorView!
+   
     var viewModel = LancamentosViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activityIndicatorLancamento.hidesWhenStopped = true
+        activityIndicatorLancamento.startAnimating()
+        
         lancamentosTableView.delegate = self
         lancamentosTableView.dataSource = self
         viewModel.delegate = self
@@ -26,7 +31,9 @@ class LancamentosViewController: UIViewController {
 extension LancamentosViewController: LancamentosTableViewCellDelegate {
     
     func didSelectItem(row: Int, section: Int) {
-        let movie = viewModel.retornaFilmes(row: row, section: section)        
+        viewModel.setProvidersMovies(row: row, section: section)
+       
+        let movie = viewModel.retornaFilmes(row: row, section: section)
         guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
         let ehFavorito = viewModel.verificaFavorito(movie: movie)
         let foiAssistido = viewModel.verificaAssistido(movie: movie)
@@ -69,6 +76,10 @@ extension LancamentosViewController: UITableViewDataSource, UITableViewDelegate 
 }
 
 extension LancamentosViewController: LancamentosViewModelDelegate {
+    func stopLoading() {
+        activityIndicatorLancamento.stopAnimating()
+    }
+    
     func reloadTableView() {
         lancamentosTableView.reloadData()
     }
