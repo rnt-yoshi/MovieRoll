@@ -84,6 +84,8 @@ class DetalhesFilmeViewModel {
                 generoExibido += ", Guerra"
             case 37:
                 generoExibido += ", Faroeste"
+            case 99:
+                generoExibido += ", Documentário"
             default:
                 return ""
             }
