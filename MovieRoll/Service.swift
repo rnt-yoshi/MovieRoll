@@ -11,7 +11,17 @@ class Service {
     //MARK: - Variaveis
     static var shared = Service()
     
-    var filmesLancamentos: [[Movie]] = []
+    var filmesLancamentos: [[Movie]] = [
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ]
     var filmesFavoritos: [Movie] = []
     var filmesRoletados: [Movie] = []
     var filmesAssistidos: [Movie] = []

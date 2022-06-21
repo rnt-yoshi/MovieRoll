@@ -8,6 +8,7 @@
 import Foundation
 
 protocol LancamentosViewModelDelegate {
+    func didSelectItem (movie: Movie)
     func reloadTableView()
     func stopLoading()
 }
@@ -19,14 +20,14 @@ class LancamentosViewModel {
     var delegate: LancamentosViewModelDelegate?
     //MARK: - Variáveis Computadas
     var numberOfRows: Int {
-        if service.filmesLancamentos.count > 0 {
             return 1
-        }
-        return 0
     }
     
     var numberOfSection: Int {
-        return service.filmesLancamentos.count
+        if service.filmesLancamentos[0].count > 0 {
+            return service.filmesLancamentos.count
+        }
+        return 0
     }
     
     var getFilmesLancamentos: [[Movie]] {
@@ -49,9 +50,11 @@ class LancamentosViewModel {
     func setProvidersMovies(row: Int, section: Int) {
         let filme = service.filmesLancamentos[section][row]
         service.fetchProvidersBy(id: filme.id) { providers in
-            filme.providersId = providers
+            DispatchQueue.main.async {
+                filme.providersId = providers
+                self.delegate?.didSelectItem(movie: filme)
+            }
         }
-        
     }
 
     func verificaFavorito(movie: Movie) -> Bool {
@@ -67,14 +70,32 @@ class LancamentosViewModel {
     }
     
     func carregarFilmes() {
-        service.filmesLancamentos = []
         for genero in service.generosId {
             service.fetchDiscoverLancamentos(genre: genero) { filmes in
-                self.service.filmesLancamentos.append(filmes)
                 DispatchQueue.main.async {
-                    if genero == self.service.generosId.last {
+                    switch genero {
+                    case "28":
+                        self.service.filmesLancamentos[0] = filmes
+                    case  "878":
+                        self.service.filmesLancamentos[1] = filmes
+                    case  "53":
+                        self.service.filmesLancamentos[2] = filmes
+                    case  "27":
+                        self.service.filmesLancamentos[3] = filmes
+                    case  "12":
+                        self.service.filmesLancamentos[4] = filmes
+                    case   "18":
+                        self.service.filmesLancamentos[5] = filmes
+                    case   "10751":
+                        self.service.filmesLancamentos[6] = filmes
+                    case    "10749":
+                        self.service.filmesLancamentos[7] = filmes
+                    case   "35":
+                        self.service.filmesLancamentos[8] = filmes
                         self.delegate?.reloadTableView()
                         self.delegate?.stopLoading()
+                    default:
+                        break
                     }
                 }
             }

@@ -7,17 +7,12 @@
 
 import UIKit
 
-protocol LancamentosTableViewCellDelegate: AnyObject {
-    func didSelectItem (row: Int, section: Int )
-}
-
 class LancamentosTableViewCell: UITableViewCell {
     //MARK: - IBOULETS & variáveis
     @IBOutlet weak var lancamentosCollectionView: UICollectionView!
     
     var movies: [Movie]?
     var viewModel: LancamentosViewModel?
-    weak var delegate: LancamentosTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,8 +21,7 @@ class LancamentosTableViewCell: UITableViewCell {
         lancamentosCollectionView.delegate = self
     }
     //MARK: - Funções Públicas
-    func config(delegate: LancamentosTableViewCellDelegate, viewModel: LancamentosViewModel, movies: [Movie] ){
-        self.delegate = delegate
+    func config(viewModel: LancamentosViewModel, movies: [Movie] ){
         self.viewModel = viewModel
         self.movies = movies
     }
@@ -49,7 +43,7 @@ extension LancamentosTableViewCell: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.didSelectItem(row: indexPath.row, section: collectionView.tag)
+        viewModel?.setProvidersMovies(row: indexPath.row, section: collectionView.tag)
     }
 }
 
