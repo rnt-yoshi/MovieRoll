@@ -24,7 +24,12 @@ class LancamentosViewController: UIViewController {
         lancamentosTableView.dataSource = self
         viewModel.delegate = self
         
-        viewModel.carregarFilmes()
+        viewModel.carregarFilmes {
+            DispatchQueue.main.async {
+                self.activityIndicatorLancamento.stopAnimating()
+                self.lancamentosTableView.reloadData()
+            }
+        }
     }
 }
 //MARK: - TableView DataSource & Delegate
@@ -69,13 +74,6 @@ extension LancamentosViewController: LancamentosViewModelDelegate {
         detalhesFilme.viewModel = viewModel
         navigationController?.pushViewController(detalhesFilme, animated: true)
     }
-    
-    func stopLoading() {
-        activityIndicatorLancamento.stopAnimating()
-    }
-    
-    func reloadTableView() {
-        lancamentosTableView.reloadData()
-    }
+
 }
 

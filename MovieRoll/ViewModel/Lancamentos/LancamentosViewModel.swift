@@ -9,8 +9,6 @@ import Foundation
 
 protocol LancamentosViewModelDelegate {
     func didSelectItem (movie: Movie)
-    func reloadTableView()
-    func stopLoading()
 }
 
 class LancamentosViewModel {
@@ -69,46 +67,77 @@ class LancamentosViewModel {
         }
     }
     
-    func carregarFilmes() {
+    
+    private func verificaFilmesLancamentos() -> Bool {
+        for lancamento in service.filmesLancamentos {
+            if lancamento.count == 0 {
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    func carregarFilmes(completion: @escaping () -> Void) {
+  
         for genero in service.generosId {
             service.fetchDiscoverLancamentos(genre: genero) { filmes in
-                DispatchQueue.main.async {
-                    switch genero {
-                    case "28":
-                        self.service.filmesLancamentos[0] = filmes
-                    case  "878":
-                        self.service.filmesLancamentos[1] = filmes
-                    case  "53":
-                        self.service.filmesLancamentos[2] = filmes
-                    case  "27":
-                        self.service.filmesLancamentos[3] = filmes
-                    case  "12":
-                        self.service.filmesLancamentos[4] = filmes
-                    case   "18":
-                        self.service.filmesLancamentos[5] = filmes
-                    case   "10751":
-                        self.service.filmesLancamentos[6] = filmes
-                    case    "10749":
-                        self.service.filmesLancamentos[7] = filmes
-                    case   "35":
-                        self.service.filmesLancamentos[8] = filmes
-                        self.delegate?.reloadTableView()
-                        self.delegate?.stopLoading()
-                    default:
-                        break
+                switch genero {
+                case "28":
+                    self.service.filmesLancamentos[0] = filmes
+                    if self.verificaFilmesLancamentos() {
+                        completion()
                     }
+                case  "878":
+                    self.service.filmesLancamentos[1] = filmes
+                    if self.verificaFilmesLancamentos() {
+                        completion()
+                    }
+                case  "53":
+                    self.service.filmesLancamentos[2] = filmes
+                    if self.verificaFilmesLancamentos() {
+                        completion()
+                    }
+                case  "27":
+                    self.service.filmesLancamentos[3] = filmes
+                    if self.verificaFilmesLancamentos() {
+                        completion()
+                    }
+                case  "12":
+                    self.service.filmesLancamentos[4] = filmes
+                    if self.verificaFilmesLancamentos() {
+                        completion()
+                    }
+                case   "18":
+                    self.service.filmesLancamentos[5] = filmes
+                    if self.verificaFilmesLancamentos() {
+                        completion()
+                    }
+                case   "10751":
+                    self.service.filmesLancamentos[6] = filmes
+                    if self.verificaFilmesLancamentos() {
+                        completion()
+                    }
+                case    "10749":
+                    self.service.filmesLancamentos[7] = filmes
+                    if self.verificaFilmesLancamentos() {
+                        completion()
+                    }
+                case   "35":
+                    self.service.filmesLancamentos[8] = filmes
+                    if self.verificaFilmesLancamentos() {
+                        completion()
+                    }
+                default:
+                    break
+                    
                 }
             }
         }
+        
     }
     
     func getImage(movie: Movie) -> Data {
-        let url = "https://image.tmdb.org/t/p/w500\(movie.posterPath)"
-        
-        guard let urlImage =  URL(string: url) else { return Data() }
-        
-        guard let imageData = try? Data(contentsOf: urlImage) else { return Data() }
-        
-        return imageData
+        return movie.posterImage
     }
 }
