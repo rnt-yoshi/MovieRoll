@@ -49,8 +49,7 @@ extension LancamentosViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = lancamentosTableView.dequeueReusableCell(withIdentifier: "idCellTable", for: indexPath) as? LancamentosTableViewCell else { return UITableViewCell() }
 
-        let movies = viewModel.getFilmesLancamentos[indexPath.section]
-        cell.config(viewModel: viewModel, movies: movies)
+        cell.config(viewModel: viewModel, section: indexPath.section)
         cell.lancamentosCollectionView.tag = indexPath.section
         cell.lancamentosCollectionView.reloadData()
         

@@ -75,8 +75,11 @@ class DetalhesFilmeViewController: UIViewController {
     
     private func configureUI() {
         guard let viewModel = viewModel else { return }
-
-        posterFilme.image = UIImage(data: viewModel.getPoster())
+        
+        viewModel.getPoster { data in
+            self.posterFilme.image = UIImage(data: data)
+        }
+        
         nomeDoFilmeLabel.text = viewModel.getNome
         anoLabel.text = viewModel.getAno
         generoLabel.text = viewModel.getGenero()

@@ -11,7 +11,7 @@ class LancamentosTableViewCell: UITableViewCell {
     //MARK: - IBOULETS & variáveis
     @IBOutlet weak var lancamentosCollectionView: UICollectionView!
     
-    var movies: [Movie]?
+    var section: Int?
     var viewModel: LancamentosViewModel?
     
     override func awakeFromNib() {
@@ -21,9 +21,9 @@ class LancamentosTableViewCell: UITableViewCell {
         lancamentosCollectionView.delegate = self
     }
     //MARK: - Funções Públicas
-    func config(viewModel: LancamentosViewModel, movies: [Movie] ){
+    func config(viewModel: LancamentosViewModel, section: Int) {
         self.viewModel = viewModel
-        self.movies = movies
+        self.section = section
     }
 }
 //MARK: - CollectionView DataSource & Delegate
@@ -34,10 +34,10 @@ extension LancamentosTableViewCell: UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = lancamentosCollectionView.dequeueReusableCell(withReuseIdentifier: "idCellCollection", for: indexPath) as? LancamentosCollectionViewCell else { return UICollectionViewCell()}
-        
-        guard let movie = movies?[indexPath.row] else { return UICollectionViewCell()}
-        
-        cell.configure(movie: movie, viewModel: LancamentosViewModel())
+          
+        guard let viewModel = viewModel, let section = section else { return UICollectionViewCell()}
+      
+        cell.configure(section: section, row: indexPath.row, viewModel: viewModel)
         
         return cell
     }

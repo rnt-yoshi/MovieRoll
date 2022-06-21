@@ -137,7 +137,8 @@ class LancamentosViewModel {
         
     }
     
-    func getImage(movie: Movie) -> Data {
+    func getImage(section: Int, row: Int) -> Data {
+        let movie = service.filmesLancamentos[section][row]
         return movie.posterImage
     }
 }

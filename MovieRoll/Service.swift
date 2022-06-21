@@ -138,6 +138,16 @@ class Service {
         return providersId
     }
     
+    func getImageFromUrl(movie: Movie, completion: @escaping (Data) -> Void )  {
+        let url = "https://image.tmdb.org/t/p/w500\(movie.posterPath)"
+        
+        guard let urlImage =  URL(string: url) else { return }
+        
+        guard let imageData = try? Data(contentsOf: urlImage) else { return }
+        
+        completion(imageData)
+    }
+    
     private func setImages() {
         
         movies.removeSubrange(0..<movies.count/4*3)

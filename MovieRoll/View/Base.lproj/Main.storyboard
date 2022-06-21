@@ -14,11 +14,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PerfilViewController" customModule="MovieRoll" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2Zk-7j-FYU">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -237,17 +237,24 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoApi" translatesAutoresizingMaskIntoConstraints="NO" id="KpQ-li-1AH">
+                                <rect key="frame" x="82" y="679" width="251" height="123"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KYR-z6-b9a"/>
                         <color key="backgroundColor" red="0.8862745098" green="0.41176470590000003" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="KYR-z6-b9a" firstAttribute="trailing" secondItem="KpQ-li-1AH" secondAttribute="trailing" constant="81" id="8R2-ns-Cd3"/>
                             <constraint firstItem="Y5S-gk-HtP" firstAttribute="top" secondItem="KYR-z6-b9a" secondAttribute="top" constant="42" id="NaY-WY-yFh"/>
                             <constraint firstItem="KYR-z6-b9a" firstAttribute="trailing" secondItem="k0Q-RO-1Z3" secondAttribute="trailing" id="OLU-S2-VuZ"/>
                             <constraint firstItem="5JW-vm-hNA" firstAttribute="top" secondItem="Y5S-gk-HtP" secondAttribute="bottom" constant="36" id="U9n-Cu-zk5"/>
                             <constraint firstItem="Y5S-gk-HtP" firstAttribute="centerX" secondItem="lWU-9p-5rf" secondAttribute="centerX" id="Zqj-g3-DZN"/>
                             <constraint firstItem="k0Q-RO-1Z3" firstAttribute="centerY" secondItem="lWU-9p-5rf" secondAttribute="centerY" id="cPW-es-kCH"/>
                             <constraint firstItem="k0Q-RO-1Z3" firstAttribute="leading" secondItem="KYR-z6-b9a" secondAttribute="leading" id="dpU-CV-Kz9"/>
+                            <constraint firstItem="KpQ-li-1AH" firstAttribute="top" secondItem="k0Q-RO-1Z3" secondAttribute="bottom" constant="21" id="lOS-Vn-yLx"/>
+                            <constraint firstItem="KpQ-li-1AH" firstAttribute="leading" secondItem="KYR-z6-b9a" secondAttribute="leading" constant="82" id="sxv-ef-N7e"/>
                             <constraint firstItem="5JW-vm-hNA" firstAttribute="centerX" secondItem="lWU-9p-5rf" secondAttribute="centerX" id="wXt-fb-cxW"/>
+                            <constraint firstItem="KYR-z6-b9a" firstAttribute="bottom" secondItem="KpQ-li-1AH" secondAttribute="bottom" constant="60" id="xpr-2V-IgP"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -418,7 +425,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <buttonConfiguration key="configuration" style="filled" title="Suspense">
-                                                    <backgroundConfiguration key="background" cornerRadius="10" image="documentario"/>
+                                                    <backgroundConfiguration key="background" cornerRadius="10" image="suspense"/>
                                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="14"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
@@ -477,7 +484,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <buttonConfiguration key="configuration" style="filled" title="Família">
-                                                    <backgroundConfiguration key="background" cornerRadius="10" image="infantil"/>
+                                                    <backgroundConfiguration key="background" cornerRadius="10" image="familia"/>
                                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
@@ -1026,7 +1033,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" largeTitles="YES" id="jK2-PM-Uyh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
@@ -1053,9 +1060,10 @@
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="fJn-bq-8uO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" largeTitles="YES" id="fJn-bq-8uO">
                         <rect key="frame" x="0.0" y="44" width="414" height="104"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -1222,17 +1230,20 @@
         <image name="documentario" width="748" height="421"/>
         <image name="drama" width="499" height="479"/>
         <image name="facebook" width="512" height="512"/>
+        <image name="familia" width="730" height="548"/>
         <image name="ficcaoCientifica" width="748" height="421"/>
         <image name="google" width="1080" height="1080"/>
         <image name="grupo" width="1958" height="1646"/>
-        <image name="infantil" width="700" height="447"/>
+        <image name="infantil" width="730" height="548"/>
         <image name="logo" width="35" height="33"/>
+        <image name="logoApi" width="423.04000854492188" height="35.400001525878906"/>
         <image name="logogrey" width="35" height="33"/>
         <image name="logotipo" width="954" height="1028"/>
         <image name="perfil" width="30" height="30"/>
         <image name="rocket" width="30" height="30"/>
         <image name="romance" width="665" height="466"/>
         <image name="star" catalog="system" width="128" height="116"/>
+        <image name="suspense" width="750" height="702"/>
         <image name="terror" width="750" height="399"/>
         <image name="trash" catalog="system" width="121" height="128"/>
     </resources>

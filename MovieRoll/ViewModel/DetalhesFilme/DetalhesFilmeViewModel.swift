@@ -28,14 +28,12 @@ class DetalhesFilmeViewModel {
         self.foiAssistido = foiAssistido
     }
     //MARK: - Variáveis Computadas
-    func getPoster() -> Data {
-        let url = "https://image.tmdb.org/t/p/w500\(movie.posterPath)"
+    func getPoster(completion: @escaping (Data) -> Void ) {
+      
+        service.getImageFromUrl(movie: movie) { data in
+            completion(data)
+        }
         
-        guard let urlImage =  URL(string: url) else { return Data() }
-        
-        guard let imageData = try? Data(contentsOf: urlImage) else { return Data() }
-        
-        return imageData
     }
     
     var getNome: String {
