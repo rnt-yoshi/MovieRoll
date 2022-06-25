@@ -16,6 +16,10 @@ class DetalhesFilmeViewModel {
     //MARK: - Variáveis
     private let service = Service.shared
     
+    private let coreDataService = CoreDataService()
+    
+    var coreDateMovies: [CoreDataMovie] = []
+    
     private let movie: Movie
     var ehFavorito: Bool
     var foiAssistido: Bool
@@ -101,20 +105,6 @@ class DetalhesFilmeViewModel {
         return movie.overview
     }
     
-    var getClassificacaoIndicativaImage: String {
-        if movie.ageId.count > 0 {
-            return String(movie.ageId[0])
-        }
-        return ""
-    }
-    
-    var getClassificacaoIndicativa: String {
-        if movie.ageId.count > 0 {
-            return String(movie.ageId[0])
-        }
-        return ""
-    }
-    
     func getPlataforma() -> String {
         for provider in service.plataformaFiltro {
             if movie.providersId.contains(provider) {
@@ -149,6 +139,9 @@ class DetalhesFilmeViewModel {
             service.removeDaListaAssistidos(movie: movie)
         } else {
             service.adicionaNaListaAssistidos(movie: movie)
+            
+            
+            
         }
         foiAssistido = !foiAssistido
         delegate?.alteraAssistidoButton()
@@ -156,11 +149,24 @@ class DetalhesFilmeViewModel {
     
     func buttonFavoritoPressed() {
         if ehFavorito {
-            service.removeDaListaFavoritos(movie: movie)
+//            service.removeDaListaFavoritos(movie: movie)
+            coreDataService.removerMovieCoreData(coreDataMovie: getFilmeParaRemover(movie: movie))
         } else {
-            service.adicionaNaListaFavoritos(movie: movie)
+//            service.adicionaNaListaFavoritos(movie: movie)
+            coreDataService.adicionarMovieCoreData(movie: movie)
         }
         ehFavorito = !ehFavorito
         delegate?.alteraFavoritoButton()
     }
+    
+    func getFilmeParaRemover(movie: Movie) -> CoreDataMovie {
+        coreDateMovies = coreDataService.pegarListaDeMoviesNoCoreData()
+        
+       return coreDateMovies.first { movieCoredata in
+           movieCoredata.id == movie.id
+            
+       } ?? CoreDataMovie()
+        
+    }
+    
 }

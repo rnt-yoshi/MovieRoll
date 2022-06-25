@@ -16,17 +16,7 @@ class HistoricoCellViewModel {
     }
     
     func getImage() -> Data {
-        guard let movie = movie else {
-            return Data()
-        }
-
-        let url = "https://image.tmdb.org/t/p/w500\(movie.posterPath)"
-        
-        guard let urlImage =  URL(string: url) else { return Data() }
-        
-        guard let imageData = try? Data(contentsOf: urlImage) else { return Data() }
-        
-        return imageData
+        return movie?.posterImage ?? Data()
     }
 }
 

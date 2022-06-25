@@ -20,7 +20,6 @@ class Movie: Decodable {
     var releaseDate: String = ""
     var genreIds: [Int] = []
     var providersId: [Int] = []
-    var ageId: [Int] = []
     var posterImage: Data = Data()
     
     init(){}
