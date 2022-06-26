@@ -11,7 +11,7 @@ import CoreData
 
 class CoreDataService {
     
-     private let contextFavorites = (UIApplication.shared.delegate as! AppDelegate).persistentContainerFavorite.viewContext
+    private let contextFavorites = (UIApplication.shared.delegate as! AppDelegate).persistentContainerFavorite.viewContext
     
     private let contextWatched = (UIApplication.shared.delegate as! AppDelegate).persistentContainerWatched.viewContext
     

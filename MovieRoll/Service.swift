@@ -127,7 +127,6 @@ class Service {
     }
     
     private func setImages() {
-        
         movies.removeSubrange(0..<movies.count/4*3)
         
         for movie in movies {
@@ -139,9 +138,7 @@ class Service {
             guard let imageData = try? Data(contentsOf: urlImage) else { return }
             
             movie.posterImage = imageData
-            
         }
-
     }
     
     func fetchDiscover(genre: String, _ average: String, _ yearLte: String, _ yearGte: String, provider: String, completion: @escaping ([Movie]) -> Void) {

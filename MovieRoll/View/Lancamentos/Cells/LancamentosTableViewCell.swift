@@ -16,7 +16,6 @@ class LancamentosTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         lancamentosCollectionView.dataSource = self
         lancamentosCollectionView.delegate = self
     }
@@ -29,7 +28,7 @@ class LancamentosTableViewCell: UITableViewCell {
 //MARK: - CollectionView DataSource & Delegate
 extension LancamentosTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.numberOfItems(section: section) ?? 0
+        return viewModel?.numberOfItems(section: self.section ?? 0) ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

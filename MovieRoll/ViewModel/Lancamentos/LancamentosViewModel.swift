@@ -43,7 +43,6 @@ class LancamentosViewModel {
     
     func retornaFilmes(row: Int, section: Int) -> Movie {
         return service.filmesLancamentos[section][row]
-        
     }
     
     func setProvidersMovies(row: Int, section: Int) {
@@ -140,6 +139,11 @@ class LancamentosViewModel {
     
     func getImage(section: Int, row: Int) -> Data {
         let movie = service.filmesLancamentos[section][row]
+        if movie.posterImage == Data() {
+            service.getImageFromUrl(movie: movie) { image in
+                movie.posterImage = image
+            }
+        }
         return movie.posterImage
     }
 }
