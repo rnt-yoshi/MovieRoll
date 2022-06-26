@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="CoreDataMovie" representedClassName="CoreDataMovie" syncable="YES">
+    <entity name="MovieWatched" representedClassName="MovieWatched" syncable="YES">
         <attribute name="genreIds" optional="YES" attributeType="Transformable" valueTransformerName="genreIds" customClassName="[Int]"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="overview" optional="YES" attributeType="String"/>
@@ -11,6 +11,6 @@
         <attribute name="voteAverage" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="CoreDataMovie" positionX="-63" positionY="-18" width="128" height="149"/>
+        <element name="MovieWatched" positionX="-45" positionY="0" width="128" height="149"/>
     </elements>
 </model>

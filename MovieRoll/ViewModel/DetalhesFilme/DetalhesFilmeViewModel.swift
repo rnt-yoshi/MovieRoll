@@ -18,7 +18,9 @@ class DetalhesFilmeViewModel {
     
     private let coreDataService = CoreDataService()
     
-    var coreDateMovies: [CoreDataMovie] = []
+    var moviesFavorite: [MovieFavorite] = []
+    var moviesWatched: [MovieWatched] = []
+
     
     private let movie: Movie
     var ehFavorito: Bool
@@ -136,11 +138,10 @@ class DetalhesFilmeViewModel {
     
     func buttonAssistidoPressed() {
         if foiAssistido {
-            service.removeDaListaAssistidos(movie: movie)
+            let filmeParaRemover = getFilmeAssistidoParaRemover(movie: movie)
+            coreDataService.removerFilmeAssistidoCoreData(coreDataMovie: filmeParaRemover)
         } else {
-            service.adicionaNaListaAssistidos(movie: movie)
-            
-            
+            coreDataService.adicionarFilmeAssistidoCoreData(movie: movie)
             
         }
         foiAssistido = !foiAssistido
@@ -149,24 +150,32 @@ class DetalhesFilmeViewModel {
     
     func buttonFavoritoPressed() {
         if ehFavorito {
-//            service.removeDaListaFavoritos(movie: movie)
-            coreDataService.removerMovieCoreData(coreDataMovie: getFilmeParaRemover(movie: movie))
+            
+            let filmeParaRemover = getFilmeFavoritoParaRemover(movie: movie)
+            coreDataService.removerFilmeFavoritoCoreData(coreDataMovie: filmeParaRemover)
         } else {
-//            service.adicionaNaListaFavoritos(movie: movie)
-            coreDataService.adicionarMovieCoreData(movie: movie)
+            coreDataService.adicionarFilmeFavoritoCoreData(movie: movie)
         }
         ehFavorito = !ehFavorito
         delegate?.alteraFavoritoButton()
     }
     
-    func getFilmeParaRemover(movie: Movie) -> CoreDataMovie {
-        coreDateMovies = coreDataService.pegarListaDeMoviesNoCoreData()
+    private func getFilmeFavoritoParaRemover(movie: Movie) -> MovieFavorite {
+        moviesFavorite = coreDataService.pegarListaDeFavoritosNoCoreData()
         
-       return coreDateMovies.first { movieCoredata in
+       return moviesFavorite.first { movieCoredata in
            movieCoredata.id == movie.id
             
-       } ?? CoreDataMovie()
+       } ?? MovieFavorite()
+    }
+    
+   private func getFilmeAssistidoParaRemover(movie: Movie) -> MovieWatched {
+        moviesWatched = coreDataService.pegarListaDeAssistidosNoCoreData()
         
+       return moviesWatched.first { movieCoredata in
+           movieCoredata.id == movie.id
+            
+       } ?? MovieWatched()
     }
     
 }
