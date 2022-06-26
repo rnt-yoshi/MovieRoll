@@ -18,6 +18,7 @@ class ConfiguracoesViewModel {
     //MARK: - Variáveis
     var delegate: ConfiguracoesViewModelDelegate?
     private let service = Service.shared
+    private let coreDataService: CoreDataService = .init()
     //MARK: - Funções Públicas
     func resetarRoletadosButton() {
         delegate?.exibeAlertaRoletado()
@@ -35,15 +36,24 @@ class ConfiguracoesViewModel {
     }
     
     func resetarFilmesRoletados() {
-        service.filmesRoletados.removeAll()
+        let roletados = coreDataService.pegarListaDeRoletadosNoCoreData()
+        for roletado in roletados {
+            coreDataService.removerFilmeRoletadoCoreData(coreDataMovie: roletado)
+        }
     }
     
     func resetarFilmesFavoritos() {
-        service.filmesFavoritos.removeAll()
+        let favoritos = coreDataService.pegarListaDeFavoritosNoCoreData()
+        for favorito in favoritos {
+            coreDataService.removerFilmeFavoritoCoreData(coreDataMovie: favorito)
+        }
     }
     
     func resetarFilmesAssistidos() {
-        service.filmesAssistidos.removeAll()
+        let assistidos = coreDataService.pegarListaDeAssistidosNoCoreData()
+        for assistido in assistidos {
+            coreDataService.removerFilmeAssistidoCoreData(coreDataMovie: assistido)
+        }
     }
     
     func desconectarConta() {

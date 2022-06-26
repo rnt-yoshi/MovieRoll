@@ -10,6 +10,7 @@ class Service {
     
     //MARK: - Variaveis
     static var shared = Service()
+    private let coreDataService: CoreDataService = .init()
     
     var filmesLancamentos: [[Movie]] = [
         [],
@@ -24,9 +25,6 @@ class Service {
         
     ]
     
-    var filmesFavoritos: [Movie] = []
-    var filmesRoletados: [Movie] = []
-    var filmesAssistidos: [Movie] = []
     var plataformaFiltro: [Int] = []
     
     var movies: [Movie] = []
@@ -82,28 +80,19 @@ class Service {
     init() {
     }
     //MARK: - Funções públicas
-    func adicionaNaListaFavoritos(movie: Movie) {
-        filmesFavoritos.append(movie)
-    }
-    
-    func adicionaNaListaAssistidos(movie: Movie) {
-        filmesAssistidos.append(movie)
-    }
-    
-    func adicionaNaListaRoletados(movie: Movie) {
-        filmesRoletados.append(movie)
-    }
     
     private func removeAssistidosDaListaMovies() {
-        for assistido in filmesAssistidos {
+        let assistidos = coreDataService.pegarListaDeAssistidosNoCoreData()
+        for assistido in assistidos {
             movies.removeAll { movie in
-                return assistido.id == movie.id
+                assistido.id == movie.id
             }
         }
     }
     
     private func removeFavoritosDaListaMovies() {
-        for favorito in filmesRoletados {
+        let favoritos = coreDataService.pegarListaDeFavoritosNoCoreData()
+        for favorito in favoritos {
             movies.removeAll { movie in
                 return favorito.id == movie.id
             }
@@ -111,22 +100,11 @@ class Service {
     }
     
     private func removeRoletadosDaListaMovies() {
-        for roletado in filmesRoletados {
+        let roletados = coreDataService.pegarListaDeRoletadosNoCoreData()
+        for roletado in roletados {
             movies.removeAll { movie in
                 return roletado.id == movie.id
             }
-        }
-    }
-    
-    func removeDaListaFavoritos(movie: Movie) {
-        filmesFavoritos.removeAll { filmeFavorito in
-            return movie.title == filmeFavorito.title
-        }
-    }
-    
-    func removeDaListaAssistidos(movie: Movie) {
-        filmesAssistidos.removeAll { filmeAssistido in
-            return movie.title == filmeAssistido.title
         }
     }
     

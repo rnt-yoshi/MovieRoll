@@ -14,6 +14,7 @@ protocol LancamentosViewModelDelegate {
 class LancamentosViewModel {
     //MARK: - Variáveis
     let service: Service = .init()
+    let coreDataService: CoreDataService = .init()
 
     var delegate: LancamentosViewModelDelegate?
     //MARK: - Variáveis Computadas
@@ -56,14 +57,14 @@ class LancamentosViewModel {
     }
 
     func verificaFavorito(movie: Movie) -> Bool {
-        return service.filmesFavoritos.contains { filmeFavorito in
-            movie.title == filmeFavorito.title
+        return coreDataService.pegarListaDeFavoritosNoCoreData().contains { favorito in
+            movie.title == favorito.title
         }
     }
     
     func verificaAssistido(movie: Movie) -> Bool {
-        return service.filmesAssistidos.contains { filmeFavorito in
-            movie.title == filmeFavorito.title
+        return coreDataService.pegarListaDeAssistidosNoCoreData().contains { assistido in
+            movie.title == assistido.title
         }
     }
     

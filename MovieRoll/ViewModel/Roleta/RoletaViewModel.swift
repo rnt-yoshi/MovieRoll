@@ -21,6 +21,7 @@ class RoletaViewModel {
     
     var delegate: RoletaViewModelDelegate?
     private let service = Service.shared
+    private let coreDataService: CoreDataService = .init()
     
     private var anos: [[String]] = [
         [
@@ -127,21 +128,16 @@ class RoletaViewModel {
                 }
             }
             guard let movie = movies.randomElement() else { return }
-            self.service.adicionaNaListaRoletados(movie: movie)
-            self.service.fetchProvidersBy(id: movie.id) { providerId in
-                DispatchQueue.main.async {
-                    movie.providersId.append(contentsOf: providerId)
-                    self.delegate?.carregaFilme(movie: movie)
+            self.service.getImageFromUrl(movie: movie) { image in
+                movie.posterImage = image
+                self.service.fetchProvidersBy(id: movie.id) { providerId in
+                    DispatchQueue.main.async {
+                        movie.providersId.append(contentsOf: providerId)
+                        self.coreDataService.adicionarFilmeRoletadoCoreData(movie: movie)
+                        self.delegate?.carregaFilme(movie: movie)
+                    }
                 }
             }
-        }
-    }
-    
-    func adicionarListaFilmesRoletados(movie: Movie?) {
-        guard let movie = movie else { return }
-        
-        if movie.title != "" {
-            service.filmesRoletados.append(movie)
         }
     }
     
@@ -188,14 +184,14 @@ class RoletaViewModel {
     }
     
     func verificaFavorito(movie: Movie) -> Bool {
-        return service.filmesFavoritos.contains { filmeFavorito in
-            movie.title == filmeFavorito.title
+        return coreDataService.pegarListaDeFavoritosNoCoreData().contains { favorito in
+            movie.id == favorito.id
         }
     }
     
     func verificaAssistido(movie: Movie) -> Bool {
-        return service.filmesAssistidos.contains { filmeFavorito in
-            movie.title == filmeFavorito.title
+        return coreDataService.pegarListaDeAssistidosNoCoreData().contains { assistido in
+            movie.id == assistido.id
         }
     }
     //MARK: -  Funções Privadas

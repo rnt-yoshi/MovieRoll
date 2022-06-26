@@ -9,17 +9,13 @@ import Foundation
 
 class HistoricoViewModel {
     //MARK: - Variáveis
-    private let service = Service.shared
-    
     private let coreDataService = CoreDataService()
-    
-    
     
     //MARK: - Funções Públicas
     func numberOfItems(segmentedControlIndex: Int) -> Int {
         if segmentedControlIndex == 0 {
-//            let roletados = coreDataService.pegarListaDeRoletadosNoCoreData()
-//            return roletados.count
+            let roletados = coreDataService.pegarListaDeRoletadosNoCoreData()
+            return roletados.count
         }
         if segmentedControlIndex == 1 {
             let favoritos = coreDataService.pegarListaDeFavoritosNoCoreData()
@@ -42,16 +38,13 @@ class HistoricoViewModel {
             return coreDataMovieToMovie(coreDataMovie: filmeFavorito[indexFilme])
         }
         if indexSegmenterController == 2 {
-            let filmeAssistido = coreDataService.pegarListaDeFavoritosNoCoreData()
+            let filmeAssistido = coreDataService.pegarListaDeAssistidosNoCoreData()
             return coreDataMovieToMovie(coreDataMovie: filmeAssistido[indexFilme])
         }
         return Movie()
     }
     
-    
-    
    private func coreDataMovieToMovie(coreDataMovie: MovieFavorite) -> Movie {
-        
         let movie = Movie()
         
         movie.id = Int(coreDataMovie.id)
@@ -67,7 +60,6 @@ class HistoricoViewModel {
     }
     
    private func coreDataMovieToMovie(coreDataMovie: MovieWatched) -> Movie {
-        
         let movie = Movie()
         
         movie.id = Int(coreDataMovie.id)
@@ -83,7 +75,6 @@ class HistoricoViewModel {
     }
     
     private func coreDataMovieToMovie(coreDataMovie: MovieRolls) -> Movie {
-        
         let movie = Movie()
         
         movie.id = Int(coreDataMovie.id)

@@ -34,12 +34,9 @@ class DetalhesFilmeViewModel {
         self.foiAssistido = foiAssistido
     }
     //MARK: - Variáveis Computadas
-    func getPoster(completion: @escaping (Data) -> Void ) {
-      
-        service.getImageFromUrl(movie: movie) { data in
-            completion(data)
-        }
-        
+    
+    var getPosterImage: Data {
+        return movie.posterImage
     }
     
     var getNome: String {
