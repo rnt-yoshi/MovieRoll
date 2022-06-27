@@ -8,9 +8,12 @@
 import UIKit
 
 class PlataformasCollectionViewCell: UICollectionViewCell {
+    //MARK: - Private Properties
+
+    @IBOutlet private weak var plataformaImageView: UIImageView!
     
-    @IBOutlet weak var plataformaImageView: UIImageView!
-    
+    //MARK: - Public Methods
+
     func configuraCell(viewModel: RoletaViewModel, index: Int) {
         plataformaImageView.image = UIImage(named: viewModel.getImagePlataformas(index: index))
         plataformaImageView.layer.cornerRadius = 10

@@ -9,11 +9,15 @@ import UIKit
 
 class LancamentosViewController: UIViewController {
     
-    @IBOutlet weak var lancamentosTableView: UITableView!
-    @IBOutlet weak var activityIndicatorLancamento: UIActivityIndicatorView!
-   
-    var viewModel = LancamentosViewModel()
+    //MARK: - Private Properties
+
+    @IBOutlet private weak var lancamentosTableView: UITableView!
+    @IBOutlet private weak var activityIndicatorLancamento: UIActivityIndicatorView!
     
+    private var viewModel = LancamentosViewModel()
+
+       //MARK: - Public Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +36,24 @@ class LancamentosViewController: UIViewController {
         }
     }
 }
+
+//MARK: - LançamentosViewModel Delegate
+
+extension LancamentosViewController: LancamentosViewModelDelegate {
+    func didSelectItem(movie: Movie) {
+        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
+        let ehFavorito = viewModel.verificaFavorito(movie: movie)
+        let foiAssistido = viewModel.verificaAssistido(movie: movie)
+
+        let viewModel = DetalhesFilmeViewModel(movie: movie, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
+        detalhesFilme.viewModel = viewModel
+        navigationController?.pushViewController(detalhesFilme, animated: true)
+    }
+
+}
+
 //MARK: - TableView DataSource & Delegate
+
 extension LancamentosViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows
@@ -63,16 +84,4 @@ extension LancamentosViewController: UITableViewDataSource, UITableViewDelegate 
     }
 }
 
-extension LancamentosViewController: LancamentosViewModelDelegate {
-    func didSelectItem(movie: Movie) {
-        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
-        let ehFavorito = viewModel.verificaFavorito(movie: movie)
-        let foiAssistido = viewModel.verificaAssistido(movie: movie)
-
-        let viewModel = DetalhesFilmeViewModel(movie: movie, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
-        detalhesFilme.viewModel = viewModel
-        navigationController?.pushViewController(detalhesFilme, animated: true)
-    }
-
-}
 

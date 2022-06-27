@@ -109,6 +109,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B13DBA8286A1D2B00349F32 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4256CE4A283E4CAA0017DD5F /* Main.storyboard */,
+				4256CE4F283E4CAB0017DD5F /* LaunchScreen.storyboard */,
+				4256CE4D283E4CAB0017DD5F /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2B13DBA9286A1D3200349F32 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4256CE44283E4CAA0017DD5F /* AppDelegate.swift */,
+				4256CE46283E4CAA0017DD5F /* SceneDelegate.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		2B13DBAA286A1D9600349F32 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				42863EFE28678BAB0051A6BD /* CoreDataService.swift */,
+				4247B00F284B85E9004A12EE /* Service.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		2B13DBAB286A1DC700349F32 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				2B4B04152867EC7F0033C076 /* MovieFavorite.xcdatamodeld */,
+				2B4B041C2867EFFC0033C076 /* MovieWatched.xcdatamodeld */,
+				2B4B041F2867F0130033C076 /* MovieRolls.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		2B13DBAC286A26CB00349F32 /* Perfil */ = {
+			isa = PBXGroup;
+			children = (
+				4256CE48283E4CAA0017DD5F /* PerfilViewController.swift */,
+			);
+			path = Perfil;
+			sourceTree = "<group>";
+		};
+		2B13DBAD286A26DA00349F32 /* MeusDados */ = {
+			isa = PBXGroup;
+			children = (
+				8ADFC41C284B7A6000CBDBA2 /* MeusDadosViewController.swift */,
+			);
+			path = MeusDados;
+			sourceTree = "<group>";
+		};
+		2B13DBAE286A26E900349F32 /* Historico */ = {
+			isa = PBXGroup;
+			children = (
+				2B179EAD2852911D0050487A /* Cells */,
+				8ADFC41E284B7A8C00CBDBA2 /* HistoricoViewController.swift */,
+			);
+			path = Historico;
+			sourceTree = "<group>";
+		};
 		2B179EAD2852911D0050487A /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,7 +213,7 @@
 			path = CellsViewModel;
 			sourceTree = "<group>";
 		};
-		2B4B03F82867E6480033C076 /* CoreData */ = {
+		2B4B03F82867E6480033C076 /* CoreDataModel */ = {
 			isa = PBXGroup;
 			children = (
 				2B4B043A2867F2160033C076 /* MovieRolls+CoreDataClass.swift */,
@@ -160,16 +223,15 @@
 				2B4B042E2867F1250033C076 /* MovieFavorite+CoreDataClass.swift */,
 				2B4B042F2867F1250033C076 /* MovieFavorite+CoreDataProperties.swift */,
 			);
-			path = CoreData;
+			path = CoreDataModel;
 			sourceTree = "<group>";
 		};
 		2BA7C7BE284BD2A100013C13 /* Perfil */ = {
 			isa = PBXGroup;
 			children = (
-				4256CE48283E4CAA0017DD5F /* PerfilViewController.swift */,
-				8ADFC41C284B7A6000CBDBA2 /* MeusDadosViewController.swift */,
-				8ADFC41E284B7A8C00CBDBA2 /* HistoricoViewController.swift */,
-				2B179EAD2852911D0050487A /* Cells */,
+				2B13DBAC286A26CB00349F32 /* Perfil */,
+				2B13DBAD286A26DA00349F32 /* MeusDados */,
+				2B13DBAE286A26E900349F32 /* Historico */,
 				8ADFC420284B7AAC00CBDBA2 /* ConfiguracoesViewController.swift */,
 				8ADFC422284B7ABE00CBDBA2 /* AjudaViewController.swift */,
 			);
@@ -208,7 +270,7 @@
 		421693F02849796A001F431E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2B4B03F82867E6480033C076 /* CoreData */,
+				2B4B03F82867E6480033C076 /* CoreDataModel */,
 				4205B16828537BE90041ED5C /* Movie.swift */,
 				2B84BA9A285BC1B000C996D2 /* Provider.swift */,
 				8A3BA170284A607100C74C77 /* OptionsDoPerfil.swift */,
@@ -220,8 +282,6 @@
 		421693F128497972001F431E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4256CE4F283E4CAB0017DD5F /* LaunchScreen.storyboard */,
-				4256CE4A283E4CAA0017DD5F /* Main.storyboard */,
 				426A912328504B0D009D1AE2 /* TabBarController.swift */,
 				422B4B202850848A00E67014 /* Login */,
 				2BD40F86284FD24600AD1859 /* DetalhesFilme */,
@@ -287,18 +347,14 @@
 		4256CE43283E4CAA0017DD5F /* MovieRoll */ = {
 			isa = PBXGroup;
 			children = (
-				42863EFE28678BAB0051A6BD /* CoreDataService.swift */,
-				4247B00F284B85E9004A12EE /* Service.swift */,
-				2B4B04152867EC7F0033C076 /* MovieFavorite.xcdatamodeld */,
-				2B4B041C2867EFFC0033C076 /* MovieWatched.xcdatamodeld */,
-				2B4B041F2867F0130033C076 /* MovieRolls.xcdatamodeld */,
+				4256CE52283E4CAB0017DD5F /* Info.plist */,
+				2B13DBA9286A1D3200349F32 /* Utils */,
+				2B13DBAB286A1DC700349F32 /* CoreData */,
+				2B13DBAA286A1D9600349F32 /* Service */,
+				2B13DBA8286A1D2B00349F32 /* Resources */,
 				421693F02849796A001F431E /* Model */,
 				421693F128497972001F431E /* View */,
 				421693F228497979001F431E /* ViewModel */,
-				4256CE44283E4CAA0017DD5F /* AppDelegate.swift */,
-				4256CE46283E4CAA0017DD5F /* SceneDelegate.swift */,
-				4256CE4D283E4CAB0017DD5F /* Assets.xcassets */,
-				4256CE52283E4CAB0017DD5F /* Info.plist */,
 			);
 			path = MovieRoll;
 			sourceTree = "<group>";

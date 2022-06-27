@@ -9,15 +9,15 @@ import UIKit
 
 class ConfiguracoesViewController: UIViewController {
     
-    //MARK: - IBOULETS & variáveis
-    var viewModel: ConfiguracoesViewModel?
+    //MARK: - Public Properties
+     var viewModel: ConfiguracoesViewModel?
     
-    //MARK: - Funções Override
+    //MARK: - Public Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.delegate = self
     }
-    //MARK: - IBACTIONS
+    
     @IBAction func resetarRoletadosButtonPressed(_ sender: Any) {
         viewModel?.resetarRoletadosButton()
     }
@@ -34,7 +34,9 @@ class ConfiguracoesViewController: UIViewController {
         viewModel?.desconectarContaButton()
     }
 }
+
 //MARK: - ConfiguracoesViewModel Delegate
+
 extension ConfiguracoesViewController: ConfiguracoesViewModelDelegate {
     func exibeAlertaRoletado() {
         

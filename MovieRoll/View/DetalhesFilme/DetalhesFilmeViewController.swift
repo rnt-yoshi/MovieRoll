@@ -9,17 +9,22 @@ import UIKit
 
 class DetalhesFilmeViewController: UIViewController {
     
-    //MARK: - IBOULETS & variáveis
-    @IBOutlet weak var posterFilme: UIImageView!
-    @IBOutlet weak var nomeDoFilmeLabel: UILabel!
-    @IBOutlet weak var anoLabel: UILabel!
-    @IBOutlet weak var generoLabel: UILabel!
-    @IBOutlet weak var notaDoFilme: UILabel!
-    @IBOutlet weak var sinopseTextView: UITextView!
-    @IBOutlet weak var plataformaImageView: UIImageView!
+    //MARK: - Private Properties
     
+    @IBOutlet private weak var posterFilme: UIImageView!
+    @IBOutlet private weak var nomeDoFilmeLabel: UILabel!
+    @IBOutlet private weak var anoLabel: UILabel!
+    @IBOutlet private weak var generoLabel: UILabel!
+    @IBOutlet private weak var notaDoFilme: UILabel!
+    @IBOutlet private weak var sinopseTextView: UITextView!
+    @IBOutlet private weak var plataformaImageView: UIImageView!
+    
+    //MARK: - Public Properties
+
     var viewModel: DetalhesFilmeViewModel?
-    //MARK: - Funcoes Override
+    
+    //MARK: - Public Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.delegate = self
@@ -54,7 +59,8 @@ class DetalhesFilmeViewController: UIViewController {
         navigationItem.setRightBarButtonItems([checkButton, favoritosButton], animated: true)
     }
     
-    //MARK: - Funcoes Privadas
+    //MARK: - Private Methods
+    
     private func customNavigationBar(){
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -87,7 +93,9 @@ class DetalhesFilmeViewController: UIViewController {
         plataformaImageView.layer.cornerRadius = 10
     }
 }
+
 //MARK: - DetalhesFilmeViewModel Delegate
+
 extension DetalhesFilmeViewController: DetalhesFilmeViewModelDelegate {
     func alteraFavoritoButton() {
         guard let viewModel = viewModel else { return }

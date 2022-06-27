@@ -8,9 +8,12 @@
 import UIKit
 
 class LancamentosCollectionViewCell: UICollectionViewCell {
+    //MARK: - Private Properties
 
-    @IBOutlet weak var imagemFilmeUIImageView: UIImageView!
+    @IBOutlet private weak var imagemFilmeUIImageView: UIImageView!
   
+    //MARK: - Public Methods
+
     func configure(section: Int, row: Int, viewModel: LancamentosViewModel) {
         imagemFilmeUIImageView.image = UIImage(data: viewModel.getImage(section: section, row: row))
         imagemFilmeUIImageView.layer.cornerRadius = 10

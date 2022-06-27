@@ -9,22 +9,26 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    //MARK: - IBOULETS & variáveis
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var senhaTextField: UITextField!
+    //MARK: - Private Properties
+    
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var senhaTextField: UITextField!
    
+    //MARK: - Public Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTextField()
     }
-    //MARK: - Funções Privadas
-    func configureTextField() {
+    //MARK: - Private Methods
+    
+    private func configureTextField() {
         emailTextField.attributedPlaceholder = NSAttributedString(string:"Entre com seu e-mail", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
        
         senhaTextField.attributedPlaceholder = NSAttributedString(string:"Senha", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
-    //MARK: - IBACTIONS
-    @IBAction func enterAction(_ sender: Any) {
+    
+    @IBAction private func enterAction(_ sender: Any) {
         if let tabBar = storyboard?.instantiateViewController(withIdentifier: "idTabController") as? TabBarController {
             tabBar.modalPresentationStyle = .fullScreen
             tabBar.modalTransitionStyle = .flipHorizontal

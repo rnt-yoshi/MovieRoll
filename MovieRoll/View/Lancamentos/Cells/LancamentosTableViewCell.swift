@@ -8,24 +8,31 @@
 import UIKit
 
 class LancamentosTableViewCell: UITableViewCell {
-    //MARK: - IBOULETS & variáveis
-    @IBOutlet weak var lancamentosCollectionView: UICollectionView!
     
-    var section: Int?
-    var viewModel: LancamentosViewModel?
+    //MARK: - Public Properties
+
+    @IBOutlet  weak var lancamentosCollectionView: UICollectionView!
     
+    //MARK: - private Properties
+
+    private var section: Int?
+    private var viewModel: LancamentosViewModel?
+    
+    //MARK: - Public Methods
+
     override func awakeFromNib() {
         super.awakeFromNib()
         lancamentosCollectionView.dataSource = self
         lancamentosCollectionView.delegate = self
     }
-    //MARK: - Funções Públicas
     func config(viewModel: LancamentosViewModel, section: Int) {
         self.viewModel = viewModel
         self.section = section
     }
 }
+
 //MARK: - CollectionView DataSource & Delegate
+
 extension LancamentosTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel?.numberOfItems(section: self.section ?? 0) ?? 0

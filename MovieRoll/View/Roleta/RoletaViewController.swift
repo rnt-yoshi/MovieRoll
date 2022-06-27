@@ -9,19 +9,25 @@ import UIKit
 
 class RoletaViewController: UIViewController {
     
-    //MARK: - IBOULETS & variáveis
-    var viewModel = RoletaViewModel()
+    //MARK: - Private Properties
     
-    @IBOutlet var generosBotoes: [UIButton]!
+    @IBOutlet private var generosBotoes: [UIButton]!
     
-    @IBOutlet weak var dataDeLancamentoTextField: UITextField!
+    @IBOutlet private weak var dataDeLancamentoTextField: UITextField!
     
-    @IBOutlet weak var plataformasCollectionView: UICollectionView!
+    @IBOutlet private weak var plataformasCollectionView: UICollectionView!
     
-    @IBOutlet var estrelasNotaBotao: [UIButton]!
+    @IBOutlet private var estrelasNotaBotao: [UIButton]!
     
-    var dataLancamentoPickerView = UIPickerView()
-    //MARK: - Funções Override
+    private var viewModel = RoletaViewModel()
+    
+    private var dataLancamentoPickerView = UIPickerView()
+
+    
+    //MARK: - Public Properties
+    
+        //MARK: - Public Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
@@ -30,7 +36,27 @@ class RoletaViewController: UIViewController {
         inicializaTextField()
         inicializaPickerView()
     }
-    //MARK: - Funções Privadas
+    
+
+    //MARK: - Private Methods
+    
+    @IBAction private func generosBotoesAction(_ sender: UIButton) {
+        viewModel.generoPressionado(sender.configuration?.title, alpha: Float(sender.alpha), tag: sender.tag)
+    }
+    
+    @IBAction private func estrelaNotaButtonAction(_ sender: UIButton) {
+        viewModel.estrelaNotaPressionada(sender.tag)
+    }
+    
+    @IBAction private func limparAnosButtonAction(_ sender: Any) {
+        viewModel.limparFiltroDaData()
+        dataDeLancamentoTextField.text = ""
+    }
+    
+    @IBAction private func roletarButtonPressed(_ sender: Any) {
+        viewModel.botaoRoletarMovie()
+    }
+    
     private func inicializaCollectionView() {
         plataformasCollectionView.dataSource = self
         plataformasCollectionView.delegate = self
@@ -69,25 +95,10 @@ class RoletaViewController: UIViewController {
     @objc private func donePickerView() {
         dataDeLancamentoTextField.resignFirstResponder()
     }
-    //MARK: - IBACTIONS
-    @IBAction func generosBotoesAction(_ sender: UIButton) {
-        viewModel.generoPressionado(sender.configuration?.title, alpha: Float(sender.alpha), tag: sender.tag)
-    }
-    
-    @IBAction func estrelaNotaButtonAction(_ sender: UIButton) {
-        viewModel.estrelaNotaPressionada(sender.tag)
-    }
-    
-    @IBAction func limparAnosButtonAction(_ sender: Any) {
-        viewModel.limparFiltroDaData()
-        dataDeLancamentoTextField.text = ""
-    }
-    
-    @IBAction func roletarButtonPressed(_ sender: Any) {
-        viewModel.botaoRoletarMovie()
-    }
 }
+
 //MARK: - RoletaViewModel Delegate
+
 extension RoletaViewController: RoletaViewModelDelegate {
     func carregaFilme(movie: Movie) {
         guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
@@ -158,7 +169,9 @@ extension RoletaViewController: RoletaViewModelDelegate {
         )
     }
 }
-//MARK: - PLATAFORMAS: CollectionView DataSource & Delegate
+
+//MARK: - PROVIDERS: CollectionView DataSource & Delegate
+
 extension RoletaViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfItems
@@ -200,7 +213,9 @@ extension RoletaViewController: UICollectionViewDataSource, UICollectionViewDele
         }
     }
 }
-//MARK: - DATA DE LANCAMENTO: PickerView DataSource & Delegate
+
+//MARK: - RELEASE DATE: PickerView DataSource & Delegate
+
 extension RoletaViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         viewModel.numberComponents

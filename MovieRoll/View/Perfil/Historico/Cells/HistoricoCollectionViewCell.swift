@@ -9,8 +9,12 @@ import UIKit
 
 class HistoricoCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var historicoImage: UIImageView!
+    //MARK: - Private Properties
+
+    @IBOutlet private weak var historicoImage: UIImageView!
     
+    //MARK: - Public Methods
+
     func setupCell(viewModel: HistoricoCellViewModel) {
         historicoImage.image = UIImage(data: viewModel.getImage())
         historicoImage.layer.cornerRadius = 10
