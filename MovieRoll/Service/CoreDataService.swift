@@ -10,7 +10,8 @@ import UIKit
 import CoreData
 
 class CoreDataService {
-    
+    //MARK: - Private Properties
+
     private let contextFavorites = (UIApplication.shared.delegate as! AppDelegate).persistentContainerFavorite.viewContext
     
     private let contextWatched = (UIApplication.shared.delegate as! AppDelegate).persistentContainerWatched.viewContext
@@ -18,7 +19,9 @@ class CoreDataService {
     private let contextRolls = (UIApplication.shared.delegate as! AppDelegate).persistentContainerRolls.viewContext
     
     
-    //MARK: - FUNCS ADICIONAR FILME
+    //MARK: - Public Methods
+    
+    //mark: Funcs Adicionar Filme
     func adicionarFilmeFavoritoCoreData(movie: Movie) {
         let coreDataMovie: MovieFavorite = .init(context: contextFavorites)
         
@@ -64,8 +67,7 @@ class CoreDataService {
         salvarContextoRolls()
     }
     
-    
-//MARK: - FUNCS PEGAR LISTA
+    //mark: Funcs pegar lista Filmes
     func pegarListaDeFavoritosNoCoreData() -> [MovieFavorite] {
         do {
             return try contextFavorites.fetch(MovieFavorite.fetchRequest())
@@ -92,8 +94,8 @@ class CoreDataService {
         }
         return []
     }
-    //MARK: - REMOVER FILME
-
+    
+    //mark: Funcs remover filme
     func removerFilmeFavoritoCoreData(coreDataMovie: MovieFavorite) {
         contextFavorites.delete(coreDataMovie)
         salvarContextoFavorite()
@@ -109,7 +111,7 @@ class CoreDataService {
         salvarContextoRolls()
     }
     
-    //MARK: - PRIVATE FUNCS
+    //MARK: - Private Methods
 
     private func salvarContextoFavorite() {
         let appDelegate = (UIApplication.shared.delegate as! AppDelegate)

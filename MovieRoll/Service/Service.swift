@@ -8,10 +8,23 @@ import Foundation
 
 class Service {
     
-    //MARK: - Variaveis
-    static var shared = Service()
-    private let coreDataService: CoreDataService = .init()
+    //MARK: - Private Properties
     
+    private let coreDataService: CoreDataService = .init()
+    private let sortBy = [
+        "revenue.desc",
+        "popularity.desc",
+        "original_title.asc",
+        "vote_count.desc"
+    ]
+    private var sortByRandom: String {
+        guard let sort = sortBy.randomElement() else { return ""}
+        return sort
+    }
+    
+    //MARK: - Public Properties
+    
+    static var shared = Service()
     var filmesLancamentos: [[Movie]] = [
         [],
         [],
@@ -24,23 +37,8 @@ class Service {
         []
         
     ]
-    
     var plataformaFiltro: [Int] = []
-    
     var movies: [Movie] = []
-    
-    let sortBy = [
-        "revenue.desc",
-        "popularity.desc",
-        "original_title.asc",
-        "vote_count.desc"
-    ]
-    
-    var sortByRandom: String {
-        guard let sort = sortBy.randomElement() else { return ""}
-        return sort
-    }
-    
     let plataformas: [Int] = [
         350,
         337,
@@ -52,7 +50,6 @@ class Service {
         619,
         227
     ]
-    
     let generosId: [String] = [
         "28",
         "878",
@@ -64,7 +61,6 @@ class Service {
         "10749",
         "35"
     ]
-    
     let generos: [String] = [
         "Ação",
         "Ficção",
@@ -79,67 +75,8 @@ class Service {
     
     init() {
     }
-    //MARK: - Funções públicas
     
-    private func removeAssistidosDaListaMovies() {
-        let assistidos = coreDataService.pegarListaDeAssistidosNoCoreData()
-        for assistido in assistidos {
-            movies.removeAll { movie in
-                assistido.id == movie.id
-            }
-        }
-    }
-    
-    private func removeFavoritosDaListaMovies() {
-        let favoritos = coreDataService.pegarListaDeFavoritosNoCoreData()
-        for favorito in favoritos {
-            movies.removeAll { movie in
-                return favorito.id == movie.id
-            }
-        }
-    }
-    
-    private func removeRoletadosDaListaMovies() {
-        let roletados = coreDataService.pegarListaDeRoletadosNoCoreData()
-        for roletado in roletados {
-            movies.removeAll { movie in
-                return roletado.id == movie.id
-            }
-        }
-    }
-    
-    private func setProviderIds(flatrate: [Flatrate]) -> [Int] {
-        var providersId: [Int] = []
-        for item in flatrate {
-            providersId.append(item.providerId)
-        }
-        return providersId
-    }
-    
-    func getImageFromUrl(movie: Movie, completion: @escaping (Data) -> Void )  {
-        let url = "https://image.tmdb.org/t/p/w500\(movie.posterPath)"
-        
-        guard let urlImage =  URL(string: url) else { return }
-        
-        guard let imageData = try? Data(contentsOf: urlImage) else { return }
-        
-        completion(imageData)
-    }
-    
-    private func setImages() {
-        movies.removeSubrange(0..<movies.count/4*3)
-        
-        for movie in movies {
-            
-            let url = "https://image.tmdb.org/t/p/w500\(movie.posterPath)"
-            
-            guard let urlImage =  URL(string: url) else { return }
-            
-            guard let imageData = try? Data(contentsOf: urlImage) else { return }
-            
-            movie.posterImage = imageData
-        }
-    }
+    //MARK: - Public Methods
     
     func fetchDiscover(genre: String, _ average: String, _ yearLte: String, _ yearGte: String, provider: String, completion: @escaping ([Movie]) -> Void) {
         guard let url = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=7f90c16b1428bbd2961cbdfd637dba99&language=pt-BR&sort_by=\(sortByRandom)&include_adult=false&include_video=false&without_genres=99&page=1&primary_release_date.gte=\(yearGte)&primary_release_date.lte=\(yearLte)&vote_average.gte=\(average)&vote_average.lte=9.5&with_genres=\(genre)&with_watch_providers=\(provider)&watch_region=BR&with_watch_monetization_types=flatrate") else { return }
@@ -207,4 +144,67 @@ class Service {
         }
         task.resume()
     }
+    
+    func getImageFromUrl(movie: Movie, completion: @escaping (Data) -> Void )  {
+        let url = "https://image.tmdb.org/t/p/w500\(movie.posterPath)"
+        
+        guard let urlImage =  URL(string: url) else { return }
+        
+        guard let imageData = try? Data(contentsOf: urlImage) else { return }
+        
+        completion(imageData)
+    }
+    
+    //MARK: - Private Methods
+    
+    private func removeAssistidosDaListaMovies() {
+        let assistidos = coreDataService.pegarListaDeAssistidosNoCoreData()
+        for assistido in assistidos {
+            movies.removeAll { movie in
+                assistido.id == movie.id
+            }
+        }
+    }
+    
+    private func removeFavoritosDaListaMovies() {
+        let favoritos = coreDataService.pegarListaDeFavoritosNoCoreData()
+        for favorito in favoritos {
+            movies.removeAll { movie in
+                return favorito.id == movie.id
+            }
+        }
+    }
+    
+    private func removeRoletadosDaListaMovies() {
+        let roletados = coreDataService.pegarListaDeRoletadosNoCoreData()
+        for roletado in roletados {
+            movies.removeAll { movie in
+                return roletado.id == movie.id
+            }
+        }
+    }
+    
+    private func setProviderIds(flatrate: [Flatrate]) -> [Int] {
+        var providersId: [Int] = []
+        for item in flatrate {
+            providersId.append(item.providerId)
+        }
+        return providersId
+    }
+    
+    private func setImages() {
+        movies.removeSubrange(0..<movies.count/4*3)
+        
+        for movie in movies {
+            
+            let url = "https://image.tmdb.org/t/p/w500\(movie.posterPath)"
+            
+            guard let urlImage =  URL(string: url) else { return }
+            
+            guard let imageData = try? Data(contentsOf: urlImage) else { return }
+            
+            movie.posterImage = imageData
+        }
+    }
+    
 }

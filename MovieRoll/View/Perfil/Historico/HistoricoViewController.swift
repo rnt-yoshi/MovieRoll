@@ -8,14 +8,19 @@
 import UIKit
 
 class HistoricoViewController: UIViewController {
-    
-    //MARK: - IBOULETS & variáveis
-    @IBOutlet weak var segmentedControlRoletadosFavoritosAssistidos: UISegmentedControl!
-    @IBOutlet weak var historicoCollectionView: UICollectionView!
-    
+    //MARK: - Public Properties
+
     var viewModel: HistoricoViewModel?
-    var segmentedControlIndex = 0
-    //MARK: - Funções Override
+
+    //MARK: - Private Properties
+    
+    @IBOutlet  weak var segmentedControlRoletadosFavoritosAssistidos: UISegmentedControl!
+    @IBOutlet private weak var historicoCollectionView: UICollectionView!
+    
+     private var segmentedControlIndex = 0
+    
+    //MARK: - Public Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
         historicoCollectionView.delegate = self
@@ -27,20 +32,22 @@ class HistoricoViewController: UIViewController {
         historicoCollectionView.reloadData()
     }
     
-    //MARK: - Funções Privadas
+    @IBAction func actionSegmentedControl(_ sender: Any) {
+        segmentedControlIndex = segmentedControlRoletadosFavoritosAssistidos.selectedSegmentIndex
+        historicoCollectionView.reloadData()
+    }
+
+    //MARK: - Private Methods
+    
     private func setupSegmentedControl() {
         segmentedControlRoletadosFavoritosAssistidos.setTitleTextAttributes(
             [.foregroundColor: UIColor.white],
             for: .normal
         )
     }
-    //MARK: - IBACTIONS
-    @IBAction func actionSegmentedControl(_ sender: Any) {
-        segmentedControlIndex = segmentedControlRoletadosFavoritosAssistidos.selectedSegmentIndex
-        historicoCollectionView.reloadData()
-    }
 }
 //MARK: - UICollectionView dataSource & Delegate
+
 extension HistoricoViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

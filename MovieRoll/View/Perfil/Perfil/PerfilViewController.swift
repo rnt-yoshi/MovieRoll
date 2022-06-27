@@ -9,11 +9,14 @@ import UIKit
 
 class PerfilViewController: UIViewController {
     
-    //MARK: - IBOULETS & variáveis
-    @IBOutlet weak var perfilTableView: UITableView!
+    //MARK: - Private Properties
     
-    let viewModel = PerfilViewModel()
-    //MARK: - Funções Override
+    @IBOutlet private weak var perfilTableView: UITableView!
+    
+    private let viewModel = PerfilViewModel()
+    
+    //MARK: - Public Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,11 +25,13 @@ class PerfilViewController: UIViewController {
         
         viewModel.delegate = self
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         perfilTableView.reloadData()
     }
 }
 //MARK: - PerfilViewModel Delegate
+
 extension PerfilViewController: PerfilViewModelDelegate {
     func exibeMeusDados() {
         if let meusDadosVC = storyboard?.instantiateViewController(withIdentifier: "meusDadosVC") as? MeusDadosViewController {
@@ -62,7 +67,8 @@ extension PerfilViewController: PerfilViewModelDelegate {
     
 }
 
-//MARK: - UItableView DataSource & Delegate
+//MARK: - TableView DataSource & Delegate
+
 extension PerfilViewController: UITableViewDataSource, UITableViewDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSection
