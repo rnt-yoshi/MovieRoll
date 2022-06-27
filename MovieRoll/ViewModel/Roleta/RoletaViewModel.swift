@@ -196,22 +196,26 @@ class RoletaViewModel {
     }
     //MARK: -  Funções Privadas
     
+    private func getGenresId(genero: String) -> String {
+        
+        for (key, array) in service.generos
+        {
+            if (array.contains(genero))
+            {
+                return key
+            }
+        }
+        
+        return ""
+    }
+    
     private func genres() -> String {
         var idGenre = ""
         
         for genero in generosFiltro {
-            switch genero {
-            case "Ação": idGenre += "%7C28"
-            case "Aventura": idGenre += "%7C12"
-            case "Comédia": idGenre += "%7C35"
-            case "Drama": idGenre += "%7C18"
-            case "Suspense": idGenre += "%7C53"
-            case "Ficção": idGenre += "%7C878"
-            case "Família": idGenre += "%7C10751"
-            case "Romance": idGenre += "%7C10749"
-            case "Terror": idGenre += "%7C27"
-            default: idGenre = ""
-            }
+            
+            idGenre = "%7C\(getGenresId(genero: genero))"
+            
         }
         if idGenre.count > 0 {
             idGenre =  String(idGenre.dropFirst(3))

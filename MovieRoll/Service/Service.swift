@@ -25,20 +25,23 @@ class Service {
     //MARK: - Public Properties
     
     static var shared = Service()
-    var filmesLancamentos: [[Movie]] = [
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        []
-        
-    ]
-    var plataformaFiltro: [Int] = []
+    
     var movies: [Movie] = []
+    
+    var filmesLancamentos: [String: [Movie]] = [
+        "28": [],
+        "878": [],
+        "53": [],
+        "27": [],
+        "12": [],
+        "18": [],
+        "10751": [],
+        "10749": [],
+        "35": []
+    ]
+    
+    var plataformaFiltro: [Int] = []
+    
     let plataformas: [Int] = [
         350,
         337,
@@ -50,31 +53,18 @@ class Service {
         619,
         227
     ]
-    let generosId: [String] = [
-        "28",
-        "878",
-        "53",
-        "27",
-        "12",
-        "18",
-        "10751",
-        "10749",
-        "35"
-    ]
-    let generos: [String] = [
-        "Ação",
-        "Ficção",
-        "Suspense",
-        "Terror",
-        "Aventura",
-        "Drama",
-        "Família",
-        "Romance",
-        "Comédia"
-    ]
     
-    init() {
-    }
+    let generos: [String: String] = [
+        "28": "Ação",
+        "878": "Ficção",
+        "53": "Suspense",
+        "27": "Terror",
+        "12": "Aventura",
+        "18": "Drama",
+        "10751": "Família",
+        "10749": "Romance",
+        "35": "Comédia"
+    ]
     
     //MARK: - Public Methods
     
