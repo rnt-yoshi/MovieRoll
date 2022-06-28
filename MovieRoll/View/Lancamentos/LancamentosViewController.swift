@@ -81,6 +81,7 @@ extension LancamentosViewController: UITableViewDataSource, UITableViewDelegate 
         let tableHeader = view as! UITableViewHeaderFooterView
         tableHeader.tintColor = UIColor.black
         tableHeader.textLabel?.textColor = .white
+        tableHeader.textLabel?.font = UIFont(name: "AmsiPro-Bold", size: 18)
     }
 }
 
