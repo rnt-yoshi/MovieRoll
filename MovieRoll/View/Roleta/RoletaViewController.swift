@@ -22,12 +22,12 @@ class RoletaViewController: UIViewController {
     private var viewModel = RoletaViewModel()
     
     private var dataLancamentoPickerView = UIPickerView()
-
+    
     
     //MARK: - Public Properties
     
-        //MARK: - Public Methods
-
+    //MARK: - Public Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
@@ -35,9 +35,18 @@ class RoletaViewController: UIViewController {
         inicializaCollectionView()
         inicializaTextField()
         inicializaPickerView()
+        
+        for family: String in UIFont.familyNames
+        {
+            print(family)
+            for names: String in UIFont.fontNames(forFamilyName: family)
+            {
+                print("== \(names)")
+            }
+        }
     }
     
-
+    
     //MARK: - Private Methods
     
     @IBAction private func generosBotoesAction(_ sender: UIButton) {

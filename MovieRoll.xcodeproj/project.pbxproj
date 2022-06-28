@@ -16,6 +16,11 @@
 		2B4B04352867F1340033C076 /* MovieWatched+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4B04332867F1340033C076 /* MovieWatched+CoreDataProperties.swift */; };
 		2B4B043C2867F2160033C076 /* MovieRolls+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4B043A2867F2160033C076 /* MovieRolls+CoreDataClass.swift */; };
 		2B4B043D2867F2160033C076 /* MovieRolls+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4B043B2867F2160033C076 /* MovieRolls+CoreDataProperties.swift */; };
+		2B808F62286A95FE00E2C069 /* AmsiPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2B808F5B286A95FD00E2C069 /* AmsiPro-Regular.otf */; };
+		2B808F63286A95FE00E2C069 /* AmsiPro-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2B808F5C286A95FD00E2C069 /* AmsiPro-SemiBold.otf */; };
+		2B808F65286A95FE00E2C069 /* AmsiPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2B808F5E286A95FD00E2C069 /* AmsiPro-Bold.otf */; };
+		2B808F67286A95FE00E2C069 /* AmsiPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2B808F60286A95FD00E2C069 /* AmsiPro-Light.otf */; };
+		2B808F68286A95FE00E2C069 /* AmsiPro-XLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2B808F61286A95FE00E2C069 /* AmsiPro-XLight.otf */; };
 		2B84BA9B285BC1B000C996D2 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B84BA9A285BC1B000C996D2 /* Provider.swift */; };
 		4205B16928537BE90041ED5C /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4205B16828537BE90041ED5C /* Movie.swift */; };
 		4247B010284B85E9004A12EE /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4247B00F284B85E9004A12EE /* Service.swift */; };
@@ -61,6 +66,11 @@
 		2B4B04332867F1340033C076 /* MovieWatched+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieWatched+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2B4B043A2867F2160033C076 /* MovieRolls+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieRolls+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2B4B043B2867F2160033C076 /* MovieRolls+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieRolls+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2B808F5B286A95FD00E2C069 /* AmsiPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AmsiPro-Regular.otf"; path = "../../../../../../MovieRoll/fonte/AmsiPro-Regular.otf"; sourceTree = "<group>"; };
+		2B808F5C286A95FD00E2C069 /* AmsiPro-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AmsiPro-SemiBold.otf"; path = "../../../../../../MovieRoll/fonte/AmsiPro-SemiBold.otf"; sourceTree = "<group>"; };
+		2B808F5E286A95FD00E2C069 /* AmsiPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AmsiPro-Bold.otf"; path = "../../../../../../MovieRoll/fonte/AmsiPro-Bold.otf"; sourceTree = "<group>"; };
+		2B808F60286A95FD00E2C069 /* AmsiPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AmsiPro-Light.otf"; path = "../../../../../../MovieRoll/fonte/AmsiPro-Light.otf"; sourceTree = "<group>"; };
+		2B808F61286A95FE00E2C069 /* AmsiPro-XLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AmsiPro-XLight.otf"; path = "../../../../../../MovieRoll/fonte/AmsiPro-XLight.otf"; sourceTree = "<group>"; };
 		2B84BA9A285BC1B000C996D2 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		4205B16828537BE90041ED5C /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		4247B00F284B85E9004A12EE /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -112,6 +122,7 @@
 		2B13DBA8286A1D2B00349F32 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2B808F58286A95B000E2C069 /* font */,
 				4256CE4A283E4CAA0017DD5F /* Main.storyboard */,
 				4256CE4F283E4CAB0017DD5F /* LaunchScreen.storyboard */,
 				4256CE4D283E4CAB0017DD5F /* Assets.xcassets */,
@@ -224,6 +235,18 @@
 				2B4B042F2867F1250033C076 /* MovieFavorite+CoreDataProperties.swift */,
 			);
 			path = CoreDataModel;
+			sourceTree = "<group>";
+		};
+		2B808F58286A95B000E2C069 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				2B808F5E286A95FD00E2C069 /* AmsiPro-Bold.otf */,
+				2B808F60286A95FD00E2C069 /* AmsiPro-Light.otf */,
+				2B808F5B286A95FD00E2C069 /* AmsiPro-Regular.otf */,
+				2B808F5C286A95FD00E2C069 /* AmsiPro-SemiBold.otf */,
+				2B808F61286A95FE00E2C069 /* AmsiPro-XLight.otf */,
+			);
+			path = font;
 			sourceTree = "<group>";
 		};
 		2BA7C7BE284BD2A100013C13 /* Perfil */ = {
@@ -347,7 +370,6 @@
 		4256CE43283E4CAA0017DD5F /* MovieRoll */ = {
 			isa = PBXGroup;
 			children = (
-				4256CE52283E4CAB0017DD5F /* Info.plist */,
 				2B13DBA9286A1D3200349F32 /* Utils */,
 				2B13DBAB286A1DC700349F32 /* CoreData */,
 				2B13DBAA286A1D9600349F32 /* Service */,
@@ -355,6 +377,7 @@
 				421693F02849796A001F431E /* Model */,
 				421693F128497972001F431E /* View */,
 				421693F228497979001F431E /* ViewModel */,
+				4256CE52283E4CAB0017DD5F /* Info.plist */,
 			);
 			path = MovieRoll;
 			sourceTree = "<group>";
@@ -425,8 +448,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B808F65286A95FE00E2C069 /* AmsiPro-Bold.otf in Resources */,
 				4256CE51283E4CAB0017DD5F /* LaunchScreen.storyboard in Resources */,
+				2B808F63286A95FE00E2C069 /* AmsiPro-SemiBold.otf in Resources */,
 				4256CE4E283E4CAB0017DD5F /* Assets.xcassets in Resources */,
+				2B808F62286A95FE00E2C069 /* AmsiPro-Regular.otf in Resources */,
+				2B808F67286A95FE00E2C069 /* AmsiPro-Light.otf in Resources */,
+				2B808F68286A95FE00E2C069 /* AmsiPro-XLight.otf in Resources */,
 				4256CE4C283E4CAA0017DD5F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

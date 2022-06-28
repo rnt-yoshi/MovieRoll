@@ -8,6 +8,17 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AmsiPro-Bold.otf">
+            <string>AmsiPro-Bold</string>
+        </array>
+        <array key="AmsiPro-Regular.otf">
+            <string>AmsiPro-Regular</string>
+        </array>
+        <array key="AmsiPro-SemiBold.otf">
+            <string>AmsiPro-SemiBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Perfil-->
         <scene sceneID="tne-QT-ifu">
@@ -57,14 +68,14 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qol-GI-fdP">
-                                <rect key="frame" x="32" y="330" width="46" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="32" y="334" width="48" height="17"/>
+                                <fontDescription key="fontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8EG-a5-Nyx">
-                                <rect key="frame" x="32" y="404" width="48.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="32" y="408" width="51" height="17"/>
+                                <fontDescription key="fontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -271,13 +282,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZq-pO-N6B">
-                                <rect key="frame" x="89" y="104" width="236" height="32"/>
+                                <rect key="frame" x="89" y="104" width="236" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="236" id="7Xo-RW-DyZ"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="trash" catalog="system" title="     Filmes Roletados">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
+                                <buttonConfiguration key="configuration" style="filled" image="trash" catalog="system" title="    Filmes Roletados">
+                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
                                     <color key="baseBackgroundColor" red="0.8862745098" green="0.41176470590000003" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -285,13 +296,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="art-Ph-bUQ">
-                                <rect key="frame" x="89" y="152" width="236" height="32"/>
+                                <rect key="frame" x="89" y="151" width="236" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="236" id="JXt-AN-rYb"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="trash" catalog="system" title="      Filmes Favoritos">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
+                                <buttonConfiguration key="configuration" style="filled" image="trash" catalog="system" title="     Filmes Favoritos">
+                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
                                     <color key="baseBackgroundColor" red="0.8862745098" green="0.41176470590000003" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -299,13 +310,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJM-hN-9yv">
-                                <rect key="frame" x="89" y="200" width="236" height="32"/>
+                                <rect key="frame" x="89" y="198" width="236" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="236" id="XJh-TN-bk0"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="trash" catalog="system" title="    Filmes Assistidos">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
+                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
                                     <color key="baseBackgroundColor" red="0.88627450980392153" green="0.41176470588235292" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -313,10 +324,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyw-Sg-pxn">
-                                <rect key="frame" x="134" y="792" width="146" height="30"/>
+                                <rect key="frame" x="137.5" y="795" width="139.5" height="27"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Desconectar conta">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
+                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="13"/>
                                     <color key="baseBackgroundColor" red="0.8862745098" green="0.41176470590000003" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -351,7 +362,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tUT-5V-95R">
-                                <rect key="frame" x="10" y="136" width="394" height="260"/>
+                                <rect key="frame" x="10" y="132" width="394" height="260"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Xr-PI-4q7">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="80"/>
@@ -366,7 +377,7 @@
                                                 </state>
                                                 <buttonConfiguration key="configuration" style="filled" title="Ação">
                                                     <backgroundConfiguration key="background" cornerRadius="10" image="acao"/>
-                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
+                                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -383,7 +394,7 @@
                                                 </state>
                                                 <buttonConfiguration key="configuration" style="filled" title="Ficção">
                                                     <backgroundConfiguration key="background" cornerRadius="10" image="ficcaoCientifica"/>
-                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
+                                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -401,7 +412,7 @@
                                                 </state>
                                                 <buttonConfiguration key="configuration" style="filled" title="Comédia">
                                                     <backgroundConfiguration key="background" cornerRadius="10" image="comedia" imageContentMode="scaleAspectFill"/>
-                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
+                                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -426,7 +437,7 @@
                                                 </state>
                                                 <buttonConfiguration key="configuration" style="filled" title="Suspense">
                                                     <backgroundConfiguration key="background" cornerRadius="10" image="suspense"/>
-                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="14"/>
+                                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -443,7 +454,7 @@
                                                 </state>
                                                 <buttonConfiguration key="configuration" style="filled" title="Drama">
                                                     <backgroundConfiguration key="background" cornerRadius="10" image="drama"/>
-                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
+                                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -460,7 +471,7 @@
                                                 </state>
                                                 <buttonConfiguration key="configuration" style="filled" title="Aventura">
                                                     <backgroundConfiguration key="background" cornerRadius="10" image="aventura"/>
-                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
+                                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -485,7 +496,7 @@
                                                 </state>
                                                 <buttonConfiguration key="configuration" style="filled" title="Família">
                                                     <backgroundConfiguration key="background" cornerRadius="10" image="familia"/>
-                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
+                                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -502,7 +513,7 @@
                                                 </state>
                                                 <buttonConfiguration key="configuration" style="filled" title="Romance">
                                                     <backgroundConfiguration key="background" cornerRadius="10" image="romance"/>
-                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
+                                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -519,7 +530,7 @@
                                                 </state>
                                                 <buttonConfiguration key="configuration" style="filled" title="Terror">
                                                     <backgroundConfiguration key="background" cornerRadius="10" image="terror"/>
-                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
+                                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -534,25 +545,25 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Se preferir, filtre por gênero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Wk-IY-w0m">
-                                <rect key="frame" x="10" y="103" width="394" height="23"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <rect key="frame" x="10" y="103" width="394" height="19"/>
+                                <fontDescription key="fontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qual seu nível de exigência?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cW1-x0-e3q">
-                                <rect key="frame" x="10" y="416" width="394" height="23"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <rect key="frame" x="10" y="412" width="394" height="19"/>
+                                <fontDescription key="fontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data de lançamento" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAZ-Nq-iiQ">
-                                <rect key="frame" x="10" y="510" width="394" height="23"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <rect key="frame" x="10" y="502" width="394" height="19"/>
+                                <fontDescription key="fontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oPk-sf-Tz8">
-                                <rect key="frame" x="50" y="459" width="314" height="31"/>
+                                <rect key="frame" x="50" y="451" width="314" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brb-ys-phF">
                                         <rect key="frame" x="0.0" y="0.0" width="56.5" height="31"/>
@@ -632,13 +643,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione a plataforma" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UsA-Uh-BNR">
-                                <rect key="frame" x="12" y="607" width="392" height="23"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <rect key="frame" x="12" y="595" width="392" height="19"/>
+                                <fontDescription key="fontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gNs-tw-YDf">
-                                <rect key="frame" x="0.0" y="650" width="414" height="70"/>
+                                <rect key="frame" x="0.0" y="634" width="414" height="70"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="Nat-rz-Pju"/>
@@ -681,13 +692,13 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THp-sk-NYM">
-                                <rect key="frame" x="125" y="740" width="164" height="38"/>
+                                <rect key="frame" x="125" y="724" width="164" height="34"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Roletar"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Roletar">
                                     <backgroundConfiguration key="background" cornerRadius="10"/>
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="20"/>
                                     <color key="baseBackgroundColor" red="0.88627450980392153" green="0.41176470588235292" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -695,7 +706,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a4l-0J-AfY">
-                                <rect key="frame" x="122" y="553" width="170" height="34"/>
+                                <rect key="frame" x="122" y="541" width="170" height="34"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="170" id="fJg-fi-vm4"/>
@@ -705,7 +716,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01X-Op-942">
-                                <rect key="frame" x="307" y="556" width="44" height="31"/>
+                                <rect key="frame" x="307" y="544" width="44" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="lqX-RC-Dzd"/>
                                 </constraints>
@@ -893,58 +904,58 @@
             <objects>
                 <viewController storyboardIdentifier="detalhesFilme" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UKH-yS-01C" customClass="DetalhesFilmeViewController" customModule="MovieRoll" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wgr-gu-yo1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="665"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="666.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x3a-Qg-LJe">
-                                <rect key="frame" x="0.0" y="435" width="414" height="230"/>
+                                <rect key="frame" x="0.0" y="436.5" width="414" height="230"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEV-0m-nBb">
-                                        <rect key="frame" x="10" y="5" width="41" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="10" y="5" width="44.5" height="17"/>
+                                        <fontDescription key="fontDescription" name="AmsiPro-SemiBold" family="AmsiPro-SemiBold" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TMBD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofr-SR-YY8">
-                                        <rect key="frame" x="348.5" y="5" width="47.5" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="349" y="5" width="47" height="17"/>
+                                        <fontDescription key="fontDescription" name="AmsiPro-SemiBold" family="AmsiPro-SemiBold" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.82981449370000004" blue="0.4528495669" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Documentario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="n21-h2-gVO">
-                                        <rect key="frame" x="10" y="27" width="91" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <rect key="frame" x="10" y="23" width="92" height="14"/>
+                                        <fontDescription key="fontDescription" name="AmsiPro-Regular" family="AmsiPro-Regular" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="HARRY POTTER E O PRISIONEIRO DE ASKABAN" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="m1X-VV-yar">
-                                        <rect key="frame" x="10" y="59.5" width="316" height="60"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="HARRY POTTER E O PRISIONEIRO DE ASKABAN" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="m1X-VV-yar">
+                                        <rect key="frame" x="10" y="52.5" width="316" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="YQ0-Qc-4ex"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="AmsiPro-SemiBold" family="AmsiPro-SemiBold" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9.1/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="be2-0v-4LG">
-                                        <rect key="frame" x="353.5" y="27" width="38" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <rect key="frame" x="352.5" y="23" width="40" height="14"/>
+                                        <fontDescription key="fontDescription" name="AmsiPro-Regular" family="AmsiPro-Regular" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3sI-HM-Qfv">
-                                        <rect key="frame" x="336" y="59.5" width="60" height="60"/>
+                                        <rect key="frame" x="336" y="52.5" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="Pik-qa-kbb"/>
                                             <constraint firstAttribute="height" constant="60" id="vqs-yj-mfA"/>
                                         </constraints>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="3HY-uR-KSI">
-                                        <rect key="frame" x="5" y="129.5" width="399" height="90.5"/>
+                                        <rect key="frame" x="5" y="122.5" width="399" height="97.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="AmsiPro-Regular" family="AmsiPro-Regular" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
@@ -972,7 +983,7 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e6W-CU-RSO">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="435"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="436.5"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nqZ-Mc-qx4"/>
@@ -1037,9 +1048,11 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="19"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="33"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
@@ -1061,13 +1074,15 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" largeTitles="YES" id="fJn-bq-8uO">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="33"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
@@ -1091,6 +1106,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mug-az-PvS">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1110,20 +1128,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DRc-4a-DSn">
-                                <rect key="frame" x="80" y="339.5" width="254" height="34"/>
+                                <rect key="frame" x="80" y="341" width="254" height="34"/>
                                 <color key="backgroundColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="0.40175785292063326" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FV2-5M-xVT">
-                                <rect key="frame" x="80" y="381.5" width="254" height="34"/>
+                                <rect key="frame" x="80" y="383" width="254" height="34"/>
                                 <color key="backgroundColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.18039215689999999" alpha="0.40175785289999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTo-gd-gR4">
-                                <rect key="frame" x="157" y="431.5" width="100" height="33.5"/>
+                                <rect key="frame" x="157" y="433" width="100" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="wJH-8c-ZVF"/>
@@ -1132,7 +1150,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Entrar">
                                     <backgroundConfiguration key="background"/>
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="16"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -1140,14 +1158,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ou" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2N-cX-DUn">
-                                <rect key="frame" x="195" y="475" width="24" height="24"/>
+                                <rect key="frame" x="195" y="473" width="24.5" height="20"/>
                                 <color key="tintColor" red="0.0" green="0.65172868969999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="20"/>
                                 <color key="textColor" red="0.2901961207" green="0.63921570780000003" blue="0.97254908080000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="74" translatesAutoresizingMaskIntoConstraints="NO" id="3Gj-GI-lfD">
-                                <rect key="frame" x="125" y="509" width="164" height="50"/>
+                                <rect key="frame" x="125" y="503" width="164" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s7H-tm-75X">
                                         <rect key="frame" x="0.0" y="5" width="40" height="40"/>
@@ -1177,15 +1195,15 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqu-se-tu6">
-                                <rect key="frame" x="118.5" y="575" width="177" height="33.5"/>
+                                <rect key="frame" x="116.5" y="569" width="181.5" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Esqueci minha senha">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
-                                    <color key="baseForegroundColor" red="0.2901961207" green="0.63921570780000003" blue="0.97254908080000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <fontDescription key="titleFontDescription" name="AmsiPro-Regular" family="AmsiPro-Regular" pointSize="16"/>
+                                    <color key="baseForegroundColor" red="0.0" green="0.65172868969999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logotipo" translatesAutoresizingMaskIntoConstraints="NO" id="HQt-k5-cWe">
-                                <rect key="frame" x="117" y="139.5" width="180" height="180"/>
+                                <rect key="frame" x="117" y="141" width="180" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="BhA-7B-KEm"/>
                                     <constraint firstAttribute="height" constant="180" id="pNf-On-dly"/>

@@ -86,13 +86,11 @@ extension PerfilViewController: UITableViewDataSource, UITableViewDelegate{
         var content = cell.defaultContentConfiguration()
         
         content.image = UIImage(named: viewModel.getImage(indexPath: indexPath))
-
         content.imageProperties.maximumSize = CGSize(
             width: viewModel.getMaximumSize(indexPath: indexPath),
             height: viewModel.getMaximumSize(indexPath: indexPath)
         )
         content.imageProperties.cornerRadius = CGFloat(viewModel.getCornerRadius(indexPath: indexPath))
-        
         content.text = viewModel.getText(indexPath: indexPath)
         content.secondaryText = viewModel.getSecondaryText(indexPath: indexPath)
         content.textProperties.color = .white
