@@ -96,6 +96,8 @@ extension PerfilViewController: UITableViewDataSource, UITableViewDelegate{
         content.textProperties.color = .white
         content.secondaryTextProperties.color = .white
         
+        content.textProperties.font = UIFont(name: "AmsiPro-Regular", size: 17) ?? UIFont()
+        
         cell.contentConfiguration = content
         
         return cell
