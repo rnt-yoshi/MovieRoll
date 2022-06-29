@@ -358,430 +358,446 @@
             <objects>
                 <viewController id="CJU-TO-Pve" customClass="RoletaViewController" customModule="MovieRoll" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Uy-4f-4Vf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tUT-5V-95R">
-                                <rect key="frame" x="10" y="132" width="394" height="260"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="icg-DT-vA4">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Xr-PI-4q7">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="80"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJR-hV-OT2">
-                                                <rect key="frame" x="0.0" y="0.0" width="124.5" height="80"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Ação" backgroundImage="acao">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <buttonConfiguration key="configuration" style="filled" title="Ação">
-                                                    <backgroundConfiguration key="background" cornerRadius="10" image="acao"/>
-                                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
-                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="i4m-d5-UeV"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l94-TN-Vgk">
-                                                <rect key="frame" x="134.5" y="0.0" width="125" height="80"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Ficção" backgroundImage="ficcaoCientifica">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <buttonConfiguration key="configuration" style="filled" title="Ficção">
-                                                    <backgroundConfiguration key="background" cornerRadius="10" image="ficcaoCientifica"/>
-                                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
-                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="1ot-S4-xaf"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A67-lh-XIn">
-                                                <rect key="frame" x="269.5" y="0.0" width="124.5" height="80"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Comedia" backgroundImage="comedia">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <buttonConfiguration key="configuration" style="filled" title="Comédia">
-                                                    <backgroundConfiguration key="background" cornerRadius="10" image="comedia" imageContentMode="scaleAspectFill"/>
-                                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
-                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="nc4-h0-Far"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="FAR-cK-zhW"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Hx1-mg-98c">
-                                        <rect key="frame" x="0.0" y="90" width="394" height="80"/>
-                                        <subviews>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKs-TB-aEx">
-                                                <rect key="frame" x="0.0" y="0.0" width="124.5" height="80"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Documentario" backgroundImage="documentario">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <buttonConfiguration key="configuration" style="filled" title="Suspense">
-                                                    <backgroundConfiguration key="background" cornerRadius="10" image="suspense"/>
-                                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
-                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="rVc-cw-8wj"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxy-Qs-Z6p">
-                                                <rect key="frame" x="134.5" y="0.0" width="125" height="80"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Drama" backgroundImage="drama">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <buttonConfiguration key="configuration" style="filled" title="Drama">
-                                                    <backgroundConfiguration key="background" cornerRadius="10" image="drama"/>
-                                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
-                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="aFH-KW-HgS"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6BU-gl-d3T">
-                                                <rect key="frame" x="269.5" y="0.0" width="124.5" height="80"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Aventura" backgroundImage="aventura">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <buttonConfiguration key="configuration" style="filled" title="Aventura">
-                                                    <backgroundConfiguration key="background" cornerRadius="10" image="aventura"/>
-                                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
-                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="GMd-lg-iXY"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="6Bx-ni-wqs"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="exu-zA-F6C">
-                                        <rect key="frame" x="0.0" y="180" width="394" height="80"/>
-                                        <subviews>
-                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jgk-SW-oaH">
-                                                <rect key="frame" x="0.0" y="0.0" width="124.5" height="80"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Infantil" backgroundImage="infantil">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <buttonConfiguration key="configuration" style="filled" title="Família">
-                                                    <backgroundConfiguration key="background" cornerRadius="10" image="familia"/>
-                                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
-                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="8V5-d6-L0V"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2U-6a-SRf">
-                                                <rect key="frame" x="134.5" y="0.0" width="125" height="80"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Romance" backgroundImage="romance">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <buttonConfiguration key="configuration" style="filled" title="Romance">
-                                                    <backgroundConfiguration key="background" cornerRadius="10" image="romance"/>
-                                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
-                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="MMc-Ju-H3X"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jci-NV-lOu">
-                                                <rect key="frame" x="269.5" y="0.0" width="124.5" height="80"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Terror" backgroundImage="terror">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <buttonConfiguration key="configuration" style="filled" title="Terror">
-                                                    <backgroundConfiguration key="background" cornerRadius="10" image="terror"/>
-                                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
-                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="XmG-0S-KKS"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="2pf-J9-nQ8"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Se preferir, filtre por gênero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Wk-IY-w0m">
-                                <rect key="frame" x="10" y="103" width="394" height="19"/>
-                                <fontDescription key="fontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="19"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qual seu nível de exigência?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cW1-x0-e3q">
-                                <rect key="frame" x="10" y="412" width="394" height="19"/>
-                                <fontDescription key="fontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="19"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data de lançamento" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAZ-Nq-iiQ">
-                                <rect key="frame" x="10" y="502" width="394" height="19"/>
-                                <fontDescription key="fontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="19"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oPk-sf-Tz8">
-                                <rect key="frame" x="50" y="451" width="314" height="31"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brb-ys-phF">
-                                        <rect key="frame" x="0.0" y="0.0" width="56.5" height="31"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal">
-                                            <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
-                                        </state>
-                                        <buttonConfiguration key="configuration" style="plain">
-                                            <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="estrelaNotaButtonAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="pMo-l2-5ll"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIu-0H-yBf">
-                                        <rect key="frame" x="64.5" y="0.0" width="56.5" height="31"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal">
-                                            <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
-                                        </state>
-                                        <buttonConfiguration key="configuration" style="plain">
-                                            <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="estrelaNotaButtonAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="dzG-vF-QRy"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1EQ-Hg-4AH">
-                                        <rect key="frame" x="129" y="0.0" width="56" height="31"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal">
-                                            <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
-                                        </state>
-                                        <buttonConfiguration key="configuration" style="plain">
-                                            <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="estrelaNotaButtonAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="ZtX-nS-Noq"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69K-f6-i95">
-                                        <rect key="frame" x="193" y="0.0" width="56.5" height="31"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal">
-                                            <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
-                                        </state>
-                                        <buttonConfiguration key="configuration" style="plain">
-                                            <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="estrelaNotaButtonAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="s3S-Lx-CI4"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXB-sN-G91">
-                                        <rect key="frame" x="257.5" y="0.0" width="56.5" height="31"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal">
-                                            <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
-                                        </state>
-                                        <buttonConfiguration key="configuration" style="plain">
-                                            <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="estrelaNotaButtonAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="wYe-px-0Xi"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione a plataforma" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UsA-Uh-BNR">
-                                <rect key="frame" x="12" y="595" width="392" height="19"/>
-                                <fontDescription key="fontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="19"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gNs-tw-YDf">
-                                <rect key="frame" x="0.0" y="634" width="414" height="70"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="Nat-rz-Pju"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gtg-Jc-wK6">
-                                    <size key="itemSize" width="70" height="70"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="plataformasCollectionViewCell" id="n4B-vw-BRM" customClass="PlataformasCollectionViewCell" customModule="MovieRoll" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cnD-mg-tfM">
-                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dVd-ei-900">
-                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="70" id="NxJ-Ta-dJM"/>
-                                                        <constraint firstAttribute="width" constant="70" id="qpY-P7-rJY"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="dVd-ei-900" firstAttribute="leading" secondItem="cnD-mg-tfM" secondAttribute="leading" id="Pzm-6J-WYE"/>
-                                                <constraint firstItem="dVd-ei-900" firstAttribute="top" secondItem="cnD-mg-tfM" secondAttribute="top" id="cKu-Ox-jkx"/>
-                                                <constraint firstAttribute="bottom" secondItem="dVd-ei-900" secondAttribute="bottom" id="eD6-ii-Ied"/>
-                                                <constraint firstAttribute="trailing" secondItem="dVd-ei-900" secondAttribute="trailing" id="kew-au-1jG"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gNs-tw-YDf">
+                                        <rect key="frame" x="0.0" y="571" width="414" height="70"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <size key="customSize" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="Nat-rz-Pju"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gtg-Jc-wK6">
+                                            <size key="itemSize" width="70" height="70"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="plataformasCollectionViewCell" id="n4B-vw-BRM" customClass="PlataformasCollectionViewCell" customModule="MovieRoll" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cnD-mg-tfM">
+                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dVd-ei-900">
+                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="70" id="NxJ-Ta-dJM"/>
+                                                                <constraint firstAttribute="width" constant="70" id="qpY-P7-rJY"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="dVd-ei-900" firstAttribute="leading" secondItem="cnD-mg-tfM" secondAttribute="leading" id="Pzm-6J-WYE"/>
+                                                        <constraint firstItem="dVd-ei-900" firstAttribute="top" secondItem="cnD-mg-tfM" secondAttribute="top" id="cKu-Ox-jkx"/>
+                                                        <constraint firstAttribute="bottom" secondItem="dVd-ei-900" secondAttribute="bottom" id="eD6-ii-Ied"/>
+                                                        <constraint firstAttribute="trailing" secondItem="dVd-ei-900" secondAttribute="trailing" id="kew-au-1jG"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <size key="customSize" width="70" height="70"/>
+                                                <connections>
+                                                    <outlet property="plataformaImageView" destination="dVd-ei-900" id="bcA-Tn-WVe"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plataforma" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UsA-Uh-BNR">
+                                        <rect key="frame" x="10" y="536" width="394" height="19"/>
+                                        <fontDescription key="fontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01X-Op-942">
+                                        <rect key="frame" x="300" y="472" width="40" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="lqX-RC-Dzd"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system">
+                                            <color key="baseForegroundColor" red="0.88627450980392153" green="0.41176470588235292" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
                                         <connections>
-                                            <outlet property="plataformaImageView" destination="dVd-ei-900" id="bcA-Tn-WVe"/>
+                                            <action selector="limparAnosButtonAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="bdf-RV-Ie4"/>
                                         </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THp-sk-NYM">
-                                <rect key="frame" x="125" y="724" width="164" height="34"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Roletar"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Roletar">
-                                    <backgroundConfiguration key="background" cornerRadius="10"/>
-                                    <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="20"/>
-                                    <color key="baseBackgroundColor" red="0.88627450980392153" green="0.41176470588235292" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="roletarButtonPressed:" destination="CJU-TO-Pve" eventType="touchUpInside" id="1gP-M7-Emh"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a4l-0J-AfY">
-                                <rect key="frame" x="122" y="541" width="170" height="34"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a4l-0J-AfY">
+                                        <rect key="frame" x="122" y="470" width="170" height="34"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="170" id="fJg-fi-vm4"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="hBo-Ta-SKx"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data de lançamento" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAZ-Nq-iiQ">
+                                        <rect key="frame" x="10" y="435" width="394" height="19"/>
+                                        <fontDescription key="fontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oPk-sf-Tz8">
+                                        <rect key="frame" x="50" y="372" width="314" height="31"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIu-0H-yBf">
+                                                <rect key="frame" x="0.0" y="0.0" width="56.5" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
+                                                </state>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="estrelaNotaButtonAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="dzG-vF-QRy"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXB-sN-G91">
+                                                <rect key="frame" x="64.5" y="0.0" width="56.5" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
+                                                </state>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="estrelaNotaButtonAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="wYe-px-0Xi"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brb-ys-phF">
+                                                <rect key="frame" x="129" y="0.0" width="56" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
+                                                </state>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="estrelaNotaButtonAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="pMo-l2-5ll"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69K-f6-i95">
+                                                <rect key="frame" x="193" y="0.0" width="56.5" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
+                                                </state>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="estrelaNotaButtonAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="s3S-Lx-CI4"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1EQ-Hg-4AH">
+                                                <rect key="frame" x="257.5" y="0.0" width="56.5" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
+                                                </state>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="estrelaNotaButtonAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="ZtX-nS-Noq"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nível de exigência" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cW1-x0-e3q">
+                                        <rect key="frame" x="10" y="337" width="394" height="19"/>
+                                        <fontDescription key="fontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tUT-5V-95R">
+                                        <rect key="frame" x="10" y="45" width="394" height="260"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Xr-PI-4q7">
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="80"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJR-hV-OT2">
+                                                        <rect key="frame" x="0.0" y="0.0" width="124.5" height="80"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Ação" backgroundImage="acao">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Ação">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" image="acao"/>
+                                                            <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
+                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="i4m-d5-UeV"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l94-TN-Vgk">
+                                                        <rect key="frame" x="134.5" y="0.0" width="125" height="80"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Ficção" backgroundImage="ficcaoCientifica">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Ficção">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" image="ficcaoCientifica"/>
+                                                            <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
+                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="1ot-S4-xaf"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A67-lh-XIn">
+                                                        <rect key="frame" x="269.5" y="0.0" width="124.5" height="80"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Comedia" backgroundImage="comedia">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Comédia">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" image="comedia" imageContentMode="scaleAspectFill"/>
+                                                            <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
+                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="nc4-h0-Far"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="FAR-cK-zhW"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Hx1-mg-98c">
+                                                <rect key="frame" x="0.0" y="90" width="394" height="80"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKs-TB-aEx">
+                                                        <rect key="frame" x="0.0" y="0.0" width="124.5" height="80"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Documentario" backgroundImage="documentario">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Suspense">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" image="suspense"/>
+                                                            <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
+                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="rVc-cw-8wj"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxy-Qs-Z6p">
+                                                        <rect key="frame" x="134.5" y="0.0" width="125" height="80"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Drama" backgroundImage="drama">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Drama">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" image="drama"/>
+                                                            <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
+                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="aFH-KW-HgS"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6BU-gl-d3T">
+                                                        <rect key="frame" x="269.5" y="0.0" width="124.5" height="80"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Aventura" backgroundImage="aventura">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Aventura">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" image="aventura"/>
+                                                            <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
+                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="GMd-lg-iXY"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="6Bx-ni-wqs"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="exu-zA-F6C">
+                                                <rect key="frame" x="0.0" y="180" width="394" height="80"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jgk-SW-oaH">
+                                                        <rect key="frame" x="0.0" y="0.0" width="124.5" height="80"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Infantil" backgroundImage="infantil">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Família">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" image="familia"/>
+                                                            <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
+                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="8V5-d6-L0V"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2U-6a-SRf">
+                                                        <rect key="frame" x="134.5" y="0.0" width="125" height="80"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Romance" backgroundImage="romance">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Romance">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" image="romance"/>
+                                                            <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
+                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="MMc-Ju-H3X"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jci-NV-lOu">
+                                                        <rect key="frame" x="269.5" y="0.0" width="124.5" height="80"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Terror" backgroundImage="terror">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Terror">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" image="terror"/>
+                                                            <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="15"/>
+                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="generosBotoesAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="XmG-0S-KKS"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="2pf-J9-nQ8"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Se preferir, filtre por gênero" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Wk-IY-w0m">
+                                        <rect key="frame" x="10" y="10" width="394" height="19"/>
+                                        <fontDescription key="fontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THp-sk-NYM">
+                                        <rect key="frame" x="122" y="673" width="170" height="34"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="MZk-FD-daQ"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Roletar"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Roletar">
+                                            <backgroundConfiguration key="background" cornerRadius="10"/>
+                                            <fontDescription key="titleFontDescription" name="AmsiPro-Bold" family="AmsiPro-Bold" pointSize="20"/>
+                                            <color key="baseBackgroundColor" red="0.88627450980392153" green="0.41176470588235292" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="roletarButtonPressed:" destination="CJU-TO-Pve" eventType="touchUpInside" id="1gP-M7-Emh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="170" id="fJg-fi-vm4"/>
+                                    <constraint firstItem="AAZ-Nq-iiQ" firstAttribute="leading" secondItem="icg-DT-vA4" secondAttribute="leading" constant="10" id="0WU-Hb-bWr"/>
+                                    <constraint firstItem="gNs-tw-YDf" firstAttribute="leading" secondItem="icg-DT-vA4" secondAttribute="leading" id="1Jf-NR-Loe"/>
+                                    <constraint firstItem="UsA-Uh-BNR" firstAttribute="centerX" secondItem="icg-DT-vA4" secondAttribute="centerX" id="9AN-BS-A8m"/>
+                                    <constraint firstItem="01X-Op-942" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="a4l-0J-AfY" secondAttribute="trailing" symbolic="YES" id="9Ma-BY-3Ro"/>
+                                    <constraint firstItem="cW1-x0-e3q" firstAttribute="leading" secondItem="icg-DT-vA4" secondAttribute="leading" constant="10" id="Con-4n-aHe"/>
+                                    <constraint firstItem="8Wk-IY-w0m" firstAttribute="leading" secondItem="icg-DT-vA4" secondAttribute="leading" constant="10" id="ENL-tu-jRe"/>
+                                    <constraint firstItem="a4l-0J-AfY" firstAttribute="centerX" secondItem="icg-DT-vA4" secondAttribute="centerX" id="HED-hq-2fb"/>
+                                    <constraint firstItem="oPk-sf-Tz8" firstAttribute="leading" secondItem="icg-DT-vA4" secondAttribute="leading" constant="50" id="HgY-qb-VfW"/>
+                                    <constraint firstItem="8Wk-IY-w0m" firstAttribute="top" secondItem="icg-DT-vA4" secondAttribute="top" constant="10" id="Hlo-KI-CLW"/>
+                                    <constraint firstItem="AAZ-Nq-iiQ" firstAttribute="centerX" secondItem="icg-DT-vA4" secondAttribute="centerX" id="J6G-UX-HoB"/>
+                                    <constraint firstItem="tUT-5V-95R" firstAttribute="top" secondItem="8Wk-IY-w0m" secondAttribute="bottom" constant="16" id="NM7-dn-vBk"/>
+                                    <constraint firstItem="tUT-5V-95R" firstAttribute="centerX" secondItem="icg-DT-vA4" secondAttribute="centerX" id="NNm-Yf-Gnp"/>
+                                    <constraint firstItem="oPk-sf-Tz8" firstAttribute="top" secondItem="cW1-x0-e3q" secondAttribute="bottom" constant="16" id="PHq-2W-65N"/>
+                                    <constraint firstItem="01X-Op-942" firstAttribute="bottom" secondItem="a4l-0J-AfY" secondAttribute="bottom" id="UZI-BA-pbf"/>
+                                    <constraint firstAttribute="trailing" secondItem="gNs-tw-YDf" secondAttribute="trailing" id="UZQ-Fm-TRT"/>
+                                    <constraint firstItem="gNs-tw-YDf" firstAttribute="top" secondItem="UsA-Uh-BNR" secondAttribute="bottom" constant="16" id="f2e-jx-NLd"/>
+                                    <constraint firstItem="cW1-x0-e3q" firstAttribute="top" secondItem="tUT-5V-95R" secondAttribute="bottom" constant="32" id="fD0-6D-CqF"/>
+                                    <constraint firstItem="a4l-0J-AfY" firstAttribute="top" secondItem="AAZ-Nq-iiQ" secondAttribute="bottom" constant="16" id="hwh-XE-5L6"/>
+                                    <constraint firstAttribute="trailing" secondItem="tUT-5V-95R" secondAttribute="trailing" constant="10" id="i5a-wp-dAA"/>
+                                    <constraint firstAttribute="bottom" secondItem="THp-sk-NYM" secondAttribute="bottom" constant="18" id="iDP-GQ-sOg"/>
+                                    <constraint firstAttribute="trailing" secondItem="oPk-sf-Tz8" secondAttribute="trailing" constant="50" id="j8Q-bK-UKn"/>
+                                    <constraint firstItem="UsA-Uh-BNR" firstAttribute="leading" secondItem="icg-DT-vA4" secondAttribute="leading" constant="10" id="jdB-Db-ceL"/>
+                                    <constraint firstItem="THp-sk-NYM" firstAttribute="centerX" secondItem="icg-DT-vA4" secondAttribute="centerX" id="lTN-3K-hLf"/>
+                                    <constraint firstItem="oPk-sf-Tz8" firstAttribute="centerX" secondItem="icg-DT-vA4" secondAttribute="centerX" id="mPj-Lw-Vfj"/>
+                                    <constraint firstItem="8Wk-IY-w0m" firstAttribute="centerX" secondItem="icg-DT-vA4" secondAttribute="centerX" id="nX3-rH-uqx"/>
+                                    <constraint firstItem="cW1-x0-e3q" firstAttribute="centerX" secondItem="icg-DT-vA4" secondAttribute="centerX" id="quk-f6-GU5"/>
+                                    <constraint firstAttribute="trailing" secondItem="01X-Op-942" secondAttribute="trailing" constant="74" id="rqZ-nY-OE0"/>
+                                    <constraint firstItem="UsA-Uh-BNR" firstAttribute="top" secondItem="a4l-0J-AfY" secondAttribute="bottom" constant="32" id="v6j-1m-z1j"/>
+                                    <constraint firstItem="THp-sk-NYM" firstAttribute="top" secondItem="gNs-tw-YDf" secondAttribute="bottom" constant="32" id="yjl-Rn-PKI"/>
+                                    <constraint firstItem="tUT-5V-95R" firstAttribute="leading" secondItem="icg-DT-vA4" secondAttribute="leading" constant="10" id="yuS-bk-9PZ"/>
+                                    <constraint firstItem="AAZ-Nq-iiQ" firstAttribute="top" secondItem="oPk-sf-Tz8" secondAttribute="bottom" constant="32" id="zfu-EY-6bJ"/>
                                 </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01X-Op-942">
-                                <rect key="frame" x="307" y="544" width="44" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="lqX-RC-Dzd"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system">
-                                    <color key="baseForegroundColor" red="0.88627450980392153" green="0.41176470588235292" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="limparAnosButtonAction:" destination="CJU-TO-Pve" eventType="touchUpInside" id="bdf-RV-Ie4"/>
-                                </connections>
-                            </button>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gJF-0y-zVj"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gNs-tw-YDf" firstAttribute="leading" secondItem="gJF-0y-zVj" secondAttribute="leading" id="1wF-1F-6kO"/>
-                            <constraint firstItem="a4l-0J-AfY" firstAttribute="top" secondItem="AAZ-Nq-iiQ" secondAttribute="bottom" constant="20" id="4aF-Vw-wJn"/>
-                            <constraint firstItem="THp-sk-NYM" firstAttribute="top" secondItem="gNs-tw-YDf" secondAttribute="bottom" constant="20" id="8Mx-z1-8ng"/>
-                            <constraint firstItem="01X-Op-942" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="a4l-0J-AfY" secondAttribute="trailing" constant="8" symbolic="YES" id="CWK-SG-DLh"/>
-                            <constraint firstItem="cW1-x0-e3q" firstAttribute="leading" secondItem="gJF-0y-zVj" secondAttribute="leading" constant="10" id="CrP-iG-bAP"/>
-                            <constraint firstItem="oPk-sf-Tz8" firstAttribute="top" secondItem="cW1-x0-e3q" secondAttribute="bottom" constant="20" id="Czy-1p-NYg"/>
-                            <constraint firstItem="gJF-0y-zVj" firstAttribute="trailing" secondItem="UsA-Uh-BNR" secondAttribute="trailing" constant="10" id="HXF-sM-irf"/>
-                            <constraint firstItem="a4l-0J-AfY" firstAttribute="centerX" secondItem="2Uy-4f-4Vf" secondAttribute="centerX" id="IQ4-1j-uC0"/>
-                            <constraint firstItem="8Wk-IY-w0m" firstAttribute="top" secondItem="gJF-0y-zVj" secondAttribute="top" constant="15" id="Kbf-4z-XZk"/>
-                            <constraint firstItem="AAZ-Nq-iiQ" firstAttribute="top" secondItem="oPk-sf-Tz8" secondAttribute="bottom" constant="20" id="Mzz-Tn-hZm"/>
-                            <constraint firstItem="gJF-0y-zVj" firstAttribute="trailing" secondItem="8Wk-IY-w0m" secondAttribute="trailing" constant="10" id="RDh-WE-O3w"/>
-                            <constraint firstItem="UsA-Uh-BNR" firstAttribute="leading" secondItem="gJF-0y-zVj" secondAttribute="leading" constant="12" id="SUN-ZZ-KNd"/>
-                            <constraint firstItem="UsA-Uh-BNR" firstAttribute="top" secondItem="a4l-0J-AfY" secondAttribute="bottom" constant="20" id="SVd-ZK-MMd"/>
-                            <constraint firstItem="tUT-5V-95R" firstAttribute="top" secondItem="8Wk-IY-w0m" secondAttribute="bottom" constant="10" id="ScY-dY-DXP"/>
-                            <constraint firstItem="cW1-x0-e3q" firstAttribute="top" secondItem="tUT-5V-95R" secondAttribute="bottom" constant="20" id="SqF-aB-0Bw"/>
-                            <constraint firstItem="gJF-0y-zVj" firstAttribute="trailing" secondItem="oPk-sf-Tz8" secondAttribute="trailing" constant="50" id="VxI-64-sVX"/>
-                            <constraint firstItem="UsA-Uh-BNR" firstAttribute="top" secondItem="01X-Op-942" secondAttribute="bottom" constant="20" id="YTD-Ot-vg1"/>
-                            <constraint firstItem="8Wk-IY-w0m" firstAttribute="leading" secondItem="gJF-0y-zVj" secondAttribute="leading" constant="10" id="Ypi-sz-hoM"/>
-                            <constraint firstAttribute="trailing" secondItem="tUT-5V-95R" secondAttribute="trailing" constant="10" id="ZCA-l3-jyu"/>
-                            <constraint firstItem="gJF-0y-zVj" firstAttribute="trailing" secondItem="cW1-x0-e3q" secondAttribute="trailing" constant="10" id="b3v-vd-9qS"/>
-                            <constraint firstItem="tUT-5V-95R" firstAttribute="leading" secondItem="gJF-0y-zVj" secondAttribute="leading" constant="10" id="gZ2-wO-zAs"/>
-                            <constraint firstItem="gJF-0y-zVj" firstAttribute="trailing" secondItem="AAZ-Nq-iiQ" secondAttribute="trailing" constant="10" id="hsh-kj-ntg"/>
-                            <constraint firstItem="AAZ-Nq-iiQ" firstAttribute="leading" secondItem="gJF-0y-zVj" secondAttribute="leading" constant="10" id="irM-Ag-Fv1"/>
-                            <constraint firstItem="THp-sk-NYM" firstAttribute="leading" secondItem="gJF-0y-zVj" secondAttribute="leading" constant="125" id="jdH-6q-uv9"/>
-                            <constraint firstItem="gJF-0y-zVj" firstAttribute="trailing" secondItem="gNs-tw-YDf" secondAttribute="trailing" id="l8p-fS-bpd"/>
-                            <constraint firstItem="oPk-sf-Tz8" firstAttribute="leading" secondItem="gJF-0y-zVj" secondAttribute="leading" constant="50" id="q7w-bT-f0B"/>
-                            <constraint firstItem="gJF-0y-zVj" firstAttribute="trailing" secondItem="01X-Op-942" secondAttribute="trailing" constant="63" id="sDN-hu-SmG"/>
-                            <constraint firstItem="gNs-tw-YDf" firstAttribute="top" secondItem="UsA-Uh-BNR" secondAttribute="bottom" constant="20" id="uR3-pK-JLK"/>
-                            <constraint firstItem="01X-Op-942" firstAttribute="top" secondItem="AAZ-Nq-iiQ" secondAttribute="bottom" constant="23" id="wWj-ZZ-tgE"/>
-                            <constraint firstItem="gJF-0y-zVj" firstAttribute="trailing" secondItem="THp-sk-NYM" secondAttribute="trailing" constant="125" id="zbc-0Z-WT8"/>
+                            <constraint firstItem="gJF-0y-zVj" firstAttribute="trailing" secondItem="icg-DT-vA4" secondAttribute="trailing" id="LiA-mE-Y4F"/>
+                            <constraint firstItem="gJF-0y-zVj" firstAttribute="bottom" secondItem="icg-DT-vA4" secondAttribute="bottom" id="M50-f9-ebf"/>
+                            <constraint firstItem="icg-DT-vA4" firstAttribute="top" secondItem="gJF-0y-zVj" secondAttribute="top" id="bJL-fq-6Q5"/>
+                            <constraint firstItem="icg-DT-vA4" firstAttribute="leading" secondItem="gJF-0y-zVj" secondAttribute="leading" id="mq4-kC-8oc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZBh-4H-eV5"/>
                     <connections>
                         <outlet property="dataDeLancamentoTextField" destination="a4l-0J-AfY" id="hzP-tO-AeX"/>
                         <outlet property="plataformasCollectionView" destination="gNs-tw-YDf" id="a1I-R4-wwG"/>
-                        <outletCollection property="estrelasNotaBotao" destination="brb-ys-phF" collectionClass="NSMutableArray" id="80u-ZF-j8o"/>
-                        <outletCollection property="estrelasNotaBotao" destination="oIu-0H-yBf" collectionClass="NSMutableArray" id="92f-YU-JJ1"/>
-                        <outletCollection property="estrelasNotaBotao" destination="1EQ-Hg-4AH" collectionClass="NSMutableArray" id="Oe1-AL-utR"/>
-                        <outletCollection property="estrelasNotaBotao" destination="69K-f6-i95" collectionClass="NSMutableArray" id="MOv-Z2-42h"/>
-                        <outletCollection property="estrelasNotaBotao" destination="IXB-sN-G91" collectionClass="NSMutableArray" id="yIj-CJ-aOv"/>
-                        <outletCollection property="generosBotoes" destination="iJR-hV-OT2" collectionClass="NSMutableArray" id="3vO-QP-GAe"/>
-                        <outletCollection property="generosBotoes" destination="l94-TN-Vgk" collectionClass="NSMutableArray" id="zya-l5-D4i"/>
                         <outletCollection property="generosBotoes" destination="A67-lh-XIn" collectionClass="NSMutableArray" id="eCg-SH-fSr"/>
                         <outletCollection property="generosBotoes" destination="aKs-TB-aEx" collectionClass="NSMutableArray" id="lzX-Hr-Fnh"/>
-                        <outletCollection property="generosBotoes" destination="dxy-Qs-Z6p" collectionClass="NSMutableArray" id="bJA-r8-116"/>
                         <outletCollection property="generosBotoes" destination="6BU-gl-d3T" collectionClass="NSMutableArray" id="yow-qh-KgF"/>
+                        <outletCollection property="generosBotoes" destination="dxy-Qs-Z6p" collectionClass="NSMutableArray" id="bJA-r8-116"/>
+                        <outletCollection property="generosBotoes" destination="l94-TN-Vgk" collectionClass="NSMutableArray" id="zya-l5-D4i"/>
                         <outletCollection property="generosBotoes" destination="Jgk-SW-oaH" collectionClass="NSMutableArray" id="d7M-cD-FcX"/>
                         <outletCollection property="generosBotoes" destination="e2U-6a-SRf" collectionClass="NSMutableArray" id="Bv0-U4-CaP"/>
+                        <outletCollection property="generosBotoes" destination="iJR-hV-OT2" collectionClass="NSMutableArray" id="3vO-QP-GAe"/>
                         <outletCollection property="generosBotoes" destination="jci-NV-lOu" collectionClass="NSMutableArray" id="xPO-uH-fMF"/>
+                        <outletCollection property="estrelasNotaBotao" destination="oIu-0H-yBf" collectionClass="NSMutableArray" id="92f-YU-JJ1"/>
+                        <outletCollection property="estrelasNotaBotao" destination="IXB-sN-G91" collectionClass="NSMutableArray" id="yIj-CJ-aOv"/>
+                        <outletCollection property="estrelasNotaBotao" destination="brb-ys-phF" collectionClass="NSMutableArray" id="80u-ZF-j8o"/>
+                        <outletCollection property="estrelasNotaBotao" destination="69K-f6-i95" collectionClass="NSMutableArray" id="MOv-Z2-42h"/>
+                        <outletCollection property="estrelasNotaBotao" destination="1EQ-Hg-4AH" collectionClass="NSMutableArray" id="Oe1-AL-utR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xgH-f5-XON" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1103,9 +1119,10 @@
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mug-az-PvS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="mug-az-PvS">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
