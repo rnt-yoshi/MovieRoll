@@ -16,7 +16,7 @@ class DetalhesFilmeViewController: UIViewController {
     @IBOutlet private weak var anoLabel: UILabel!
     @IBOutlet private weak var generoLabel: UILabel!
     @IBOutlet private weak var notaDoFilme: UILabel!
-    @IBOutlet private weak var sinopseTextView: UITextView!
+    @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet private weak var plataformaImageView: UIImageView!
     
     //MARK: - Public Properties
@@ -87,9 +87,8 @@ class DetalhesFilmeViewController: UIViewController {
         anoLabel.text = viewModel.getAno
         generoLabel.text = viewModel.getGenero()
         notaDoFilme.text = ("\(viewModel.getNotaFilme)/10")
-        sinopseTextView.text = viewModel.getSinopse
+        overviewLabel.text = viewModel.getSinopse
         plataformaImageView.image = UIImage(named: viewModel.getPlataforma())
-        
         plataformaImageView.layer.cornerRadius = 10
     }
 }
