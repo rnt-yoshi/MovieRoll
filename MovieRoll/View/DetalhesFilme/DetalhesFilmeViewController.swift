@@ -28,6 +28,7 @@ class DetalhesFilmeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.delegate = self
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         
         configureUI()
     }
@@ -104,5 +105,11 @@ extension DetalhesFilmeViewController: DetalhesFilmeViewModelDelegate {
     func alteraAssistidoButton() {
         guard let viewModel = viewModel else { return }
         navigationItem.rightBarButtonItems?[0].image = UIImage(named: viewModel.getAssistidoButtonImage())
+    }
+}
+
+extension DetalhesFilmeViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }

@@ -183,7 +183,7 @@ class Service {
     }
     
     private func setImages() {
-        movies.removeSubrange(0..<movies.count/4*3)
+        movies.removeSubrange(0..<movies.count/3*2)
         
         for movie in movies {
             
