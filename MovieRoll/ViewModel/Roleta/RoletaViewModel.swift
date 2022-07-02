@@ -14,6 +14,7 @@ protocol RoletaViewModelDelegate {
     func botaoGeneroSelecionado(tag: Int)
     func botaoGeneroSemSelecao(tag: Int)
     func exibirAlerta()
+    func desabilitarBotaoRoletar()
 }
 
 class RoletaViewModel {
@@ -120,6 +121,7 @@ class RoletaViewModel {
     }
     
     func botaoRoletarMovie() {
+        delegate?.desabilitarBotaoRoletar()
         service.fetchDiscover(genre: genres(), average,  yearLte, yearGte, provider: providers()) { movies in
             if movies.count == 0 {
                 DispatchQueue.main.async {

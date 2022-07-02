@@ -23,7 +23,7 @@ class LancamentosViewModel {
     }
     
     var numberOfSection: Int {
-        if service.filmesLancamentos["28"]?.count ?? 0 > 0 {
+        if service.filmesLancamentos.values.first?.count ?? 0 > 0 {
             return service.filmesLancamentos.count
         }
         return 0
@@ -68,7 +68,6 @@ class LancamentosViewModel {
     }
     
     func carregarFilmes(completion: @escaping () -> Void) {
-  
         let group = DispatchGroup()
         
         for genero in service.filmesLancamentos.keys {
@@ -87,11 +86,6 @@ class LancamentosViewModel {
     func getImage(section: Int, row: Int) -> Data {
         let movie = Array(service.filmesLancamentos.values)[section][row]
         
-        if movie.posterImage == Data() {
-            service.getImageFromUrl(movie: movie) { image in
-                movie.posterImage = image
-            }
-        }
         return movie.posterImage
     }
 }

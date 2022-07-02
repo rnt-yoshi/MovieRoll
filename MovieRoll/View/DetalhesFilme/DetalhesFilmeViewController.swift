@@ -69,7 +69,7 @@ class DetalhesFilmeViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
     }
     @objc private func didTouchBackButton(){
-        navigationController?.popViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     @objc private func didTouchFavoritosButton() {

@@ -11,18 +11,15 @@ class RoletaViewController: UIViewController {
     
     //MARK: - Private Properties
     
+    @IBOutlet weak var roletarButton: UIButton!
     @IBOutlet private var generosBotoes: [UIButton]!
-    
     @IBOutlet private weak var dataDeLancamentoTextField: UITextField!
-    
     @IBOutlet private weak var plataformasCollectionView: UICollectionView!
-    
     @IBOutlet private var estrelasNotaBotao: [UIButton]!
-    
+
     private var viewModel = RoletaViewModel()
     
     private var dataLancamentoPickerView = UIPickerView()
-    
     
     //MARK: - Public Properties
     
@@ -37,6 +34,9 @@ class RoletaViewController: UIViewController {
         inicializaPickerView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        roletarButton.isEnabled = true
+    }
     
     //MARK: - Private Methods
     
@@ -100,6 +100,10 @@ class RoletaViewController: UIViewController {
 //MARK: - RoletaViewModel Delegate
 
 extension RoletaViewController: RoletaViewModelDelegate {
+    func desabilitarBotaoRoletar() {
+        roletarButton.isEnabled = false
+    }
+    
     func carregaFilme(movie: Movie) {
         guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
         
