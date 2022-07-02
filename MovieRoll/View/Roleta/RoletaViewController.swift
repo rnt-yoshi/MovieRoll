@@ -132,7 +132,7 @@ extension RoletaViewController: RoletaViewModelDelegate {
         navigationController?.pushViewController(detalhesFilme, animated: true)
     }
     
-    func exibirAlerta() {
+    func exibirAlertaEHabilitarBotao() {
         let alerta = UIAlertController(title: "Nenhum filme encontrado com os filtros escolhidos!", message: "Altere os filtros e tente novamente", preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -140,6 +140,11 @@ extension RoletaViewController: RoletaViewModelDelegate {
         alerta.addAction(okAction)
         
         present(alerta, animated: true)
+        
+        roletarButton.isEnabled = true
+        roletarButton.isHidden = false
+        rollActivityIndicator.stopAnimating()
+        rollActivityIndicator.isHidden = true
     }
     
     func botaoGeneroSelecionado(tag: Int) {
