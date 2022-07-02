@@ -151,6 +151,7 @@ class RoletaViewModel {
     }
     
     func botaoRoletarMovie() {
+        
         delegate?.desabilitarBotaoRoletar()
         service.fetchDiscover(genre: genres, average,  yearLte, yearGte, provider: providers) { movies in
             if movies.count == 0 {

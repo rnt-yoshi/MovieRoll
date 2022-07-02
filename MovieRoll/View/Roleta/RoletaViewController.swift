@@ -16,6 +16,7 @@ class RoletaViewController: UIViewController {
     @IBOutlet private weak var dataDeLancamentoTextField: UITextField!
     @IBOutlet private weak var plataformasCollectionView: UICollectionView!
     @IBOutlet private var estrelasNotaBotao: [UIButton]!
+    @IBOutlet weak var rollActivityIndicator: UIActivityIndicatorView!
     
     //MARK: - Private Properties
     
@@ -33,10 +34,17 @@ class RoletaViewController: UIViewController {
         inicializaCollectionView()
         inicializaTextField()
         inicializaPickerView()
+        
+        rollActivityIndicator.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         roletarButton.isEnabled = true
+        roletarButton.isHidden = false
+        
+        rollActivityIndicator.isHidden = true
+        rollActivityIndicator.stopAnimating()
+        
     }
     
     //MARK: - Private Methods
@@ -106,6 +114,9 @@ class RoletaViewController: UIViewController {
 extension RoletaViewController: RoletaViewModelDelegate {
     func desabilitarBotaoRoletar() {
         roletarButton.isEnabled = false
+        roletarButton.isHidden = true
+        rollActivityIndicator.isHidden = false
+        rollActivityIndicator.startAnimating()
     }
     
     func carregaFilme(movie: Movie) {
