@@ -18,27 +18,48 @@ class HistoricoViewController: UIViewController {
     
     private var segmentedControlIndex = 0
     
+    private var searchController: UISearchController?
+    
     //MARK: - Public Properties
-
+    
     var viewModel: HistoricoViewModel?
-
-
     
     //MARK: - Public Methods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel?.delegate = self
+        viewModel?.loadMovies()
         historicoCollectionView.delegate = self
         historicoCollectionView.dataSource = self
         setupSegmentedControl()
+        
+        createSearchBar()
+        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         historicoCollectionView.reloadData()
     }
     
-
+    
     //MARK: - Private Methods
+    
+    private func createSearchBar(){
+        searchController = UISearchController(searchResultsController: nil)
+        searchController?.searchResultsUpdater = self
+        searchController?.searchBar.sizeToFit()
+        navigationItem.searchController = searchController
+        
+        changeColorTextoSearchBar()
+    }
+    
+    private func changeColorTextoSearchBar(){
+        let textFieldInsideSearchBar = searchController?.searchBar.value(forKey: "searchField") as? UITextField
+        
+        textFieldInsideSearchBar?.textColor = .white
+    }
     
     private func setupSegmentedControl() {
         segmentedControlRoletadosFavoritosAssistidos.setTitleTextAttributes(
@@ -51,6 +72,14 @@ class HistoricoViewController: UIViewController {
     
     @IBAction func actionSegmentedControl(_ sender: Any) {
         segmentedControlIndex = segmentedControlRoletadosFavoritosAssistidos.selectedSegmentIndex
+        historicoCollectionView.reloadData()
+    }
+    
+}
+//MARK: - HistoricoViewModelDelegate
+
+extension HistoricoViewController: HistoricoViewModelDelegate {
+    func reloadCollectionView() {
         historicoCollectionView.reloadData()
     }
     
@@ -68,6 +97,7 @@ extension HistoricoViewController: UICollectionViewDataSource, UICollectionViewD
         guard let cell = historicoCollectionView.dequeueReusableCell(withReuseIdentifier: "historicoCell", for: indexPath) as? HistoricoCollectionViewCell else { return UICollectionViewCell() }
         
         guard let cellViewModel = viewModel?.getCellViewModel(indexPath: indexPath, segmentedControlIndex: segmentedControlIndex) else {return UICollectionViewCell()}
+        
         cell.setupCell(viewModel: cellViewModel)
         return cell
     }
@@ -84,3 +114,15 @@ extension HistoricoViewController: UICollectionViewDataSource, UICollectionViewD
         navigationController?.pushViewController(detalhesFilme, animated: true)
     }
 }
+//MARK: - UISearchBar Results Updating
+
+extension HistoricoViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        viewModel?.searchResults(searchController: searchController)
+    }
+    
+}
+
+
+
