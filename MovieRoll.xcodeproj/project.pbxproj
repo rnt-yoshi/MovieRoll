@@ -255,8 +255,8 @@
 				2B13DBAC286A26CB00349F32 /* Perfil */,
 				2B13DBAD286A26DA00349F32 /* MeusDados */,
 				2B13DBAE286A26E900349F32 /* Historico */,
-				8ADFC420284B7AAC00CBDBA2 /* ConfiguracoesViewController.swift */,
-				8ADFC422284B7ABE00CBDBA2 /* AjudaViewController.swift */,
+				2BF5D3CB2870DEC200B5AAEE /* Configurações */,
+				2BF5D3CC2870DF1C00B5AAEE /* Ajuda */,
 			);
 			path = Perfil;
 			sourceTree = "<group>";
@@ -276,8 +276,8 @@
 		2BA7C7C1284BD30800013C13 /* Roleta */ = {
 			isa = PBXGroup;
 			children = (
-				8A72D0B3283FA12800977B34 /* RoletaViewController.swift */,
 				2B179EAE285291380050487A /* Cells */,
+				8A72D0B3283FA12800977B34 /* RoletaViewController.swift */,
 			);
 			path = Roleta;
 			sourceTree = "<group>";
@@ -288,6 +288,23 @@
 				429FFF2D284BD5200079C159 /* DetalhesFilmeViewController.swift */,
 			);
 			path = DetalhesFilme;
+			sourceTree = "<group>";
+		};
+		2BF5D3CB2870DEC200B5AAEE /* Configurações */ = {
+			isa = PBXGroup;
+			children = (
+				8ADFC420284B7AAC00CBDBA2 /* ConfiguracoesViewController.swift */,
+			);
+			name = "Configurações";
+			path = "Configurações";
+			sourceTree = "<group>";
+		};
+		2BF5D3CC2870DF1C00B5AAEE /* Ajuda */ = {
+			isa = PBXGroup;
+			children = (
+				8ADFC422284B7ABE00CBDBA2 /* AjudaViewController.swift */,
+			);
+			path = Ajuda;
 			sourceTree = "<group>";
 		};
 		421693F02849796A001F431E /* Model */ = {

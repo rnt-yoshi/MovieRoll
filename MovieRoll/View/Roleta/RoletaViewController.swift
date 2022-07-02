@@ -9,16 +9,17 @@ import UIKit
 
 class RoletaViewController: UIViewController {
     
-    //MARK: - Private Properties
+    //MARK: - Outlets
     
     @IBOutlet weak var roletarButton: UIButton!
     @IBOutlet private var generosBotoes: [UIButton]!
     @IBOutlet private weak var dataDeLancamentoTextField: UITextField!
     @IBOutlet private weak var plataformasCollectionView: UICollectionView!
     @IBOutlet private var estrelasNotaBotao: [UIButton]!
-
-    private var viewModel = RoletaViewModel()
     
+    //MARK: - Private Properties
+    
+    private var viewModel = RoletaViewModel()
     private var dataLancamentoPickerView = UIPickerView()
     
     //MARK: - Public Properties
@@ -39,23 +40,6 @@ class RoletaViewController: UIViewController {
     }
     
     //MARK: - Private Methods
-    
-    @IBAction private func generosBotoesAction(_ sender: UIButton) {
-        viewModel.generoPressionado(sender.configuration?.title, alpha: Float(sender.alpha), tag: sender.tag)
-    }
-    
-    @IBAction private func estrelaNotaButtonAction(_ sender: UIButton) {
-        viewModel.estrelaNotaPressionada(sender.tag)
-    }
-    
-    @IBAction private func limparAnosButtonAction(_ sender: Any) {
-        viewModel.limparFiltroDaData()
-        dataDeLancamentoTextField.text = ""
-    }
-    
-    @IBAction private func roletarButtonPressed(_ sender: Any) {
-        viewModel.botaoRoletarMovie()
-    }
     
     private func inicializaCollectionView() {
         plataformasCollectionView.dataSource = self
@@ -95,6 +79,26 @@ class RoletaViewController: UIViewController {
     @objc private func donePickerView() {
         dataDeLancamentoTextField.resignFirstResponder()
     }
+    
+    //MARK: - Actions
+    
+    @IBAction private func generosBotoesAction(_ sender: UIButton) {
+        viewModel.generoPressionado(sender.configuration?.title, alpha: Float(sender.alpha), tag: sender.tag)
+    }
+    
+    @IBAction private func estrelaNotaButtonAction(_ sender: UIButton) {
+        viewModel.estrelaNotaPressionada(sender.tag)
+    }
+    
+    @IBAction private func limparAnosButtonAction(_ sender: Any) {
+        viewModel.limparFiltroDaData()
+        dataDeLancamentoTextField.text = ""
+    }
+    
+    @IBAction private func roletarButtonPressed(_ sender: Any) {
+        viewModel.botaoRoletarMovie()
+    }
+
 }
 
 //MARK: - RoletaViewModel Delegate
@@ -174,6 +178,26 @@ extension RoletaViewController: RoletaViewModelDelegate {
     }
 }
 
+//MARK: - RELEASE DATE: PickerView DataSource & Delegate
+
+extension RoletaViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        viewModel.numberComponents
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        viewModel.numberOfRows(component: component)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        viewModel.titleForRow(row: row, component: component)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        dataDeLancamentoTextField.text = viewModel.getTitleForTextField(row: row, componente: component)
+    }
+}
+
 //MARK: - PROVIDERS: CollectionView DataSource & Delegate
 
 extension RoletaViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -218,23 +242,4 @@ extension RoletaViewController: UICollectionViewDataSource, UICollectionViewDele
     }
 }
 
-//MARK: - RELEASE DATE: PickerView DataSource & Delegate
-
-extension RoletaViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        viewModel.numberComponents
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        viewModel.numberOfRows(component: component)
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        viewModel.titleForRow(row: row, component: component)
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        dataDeLancamentoTextField.text = viewModel.getTitleForTextField(row: row, componente: component)
-    }
-}
 

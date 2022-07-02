@@ -15,11 +15,17 @@ protocol ConfiguracoesViewModelDelegate {
 }
 
 class ConfiguracoesViewModel {
-    //MARK: - Variáveis
-    var delegate: ConfiguracoesViewModelDelegate?
+    //MARK: - Private Properties
+    
     private let service = Service.shared
     private let coreDataService: CoreDataService = .init()
-    //MARK: - Funções Públicas
+    
+    //MARK: - Public Properties
+    
+    var delegate: ConfiguracoesViewModelDelegate?
+
+    //MARK: - Public Methods
+    
     func resetarRoletadosButton() {
         delegate?.exibeAlertaRoletado()
     }

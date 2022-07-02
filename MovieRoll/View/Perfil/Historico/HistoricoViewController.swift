@@ -8,16 +8,21 @@
 import UIKit
 
 class HistoricoViewController: UIViewController {
-    //MARK: - Public Properties
-
-    var viewModel: HistoricoViewModel?
-
-    //MARK: - Private Properties
+    
+    //MARK: - Outlets
     
     @IBOutlet  weak var segmentedControlRoletadosFavoritosAssistidos: UISegmentedControl!
     @IBOutlet private weak var historicoCollectionView: UICollectionView!
     
-     private var segmentedControlIndex = 0
+    //MARK: - Private Properties
+    
+    private var segmentedControlIndex = 0
+    
+    //MARK: - Public Properties
+
+    var viewModel: HistoricoViewModel?
+
+
     
     //MARK: - Public Methods
 
@@ -32,10 +37,6 @@ class HistoricoViewController: UIViewController {
         historicoCollectionView.reloadData()
     }
     
-    @IBAction func actionSegmentedControl(_ sender: Any) {
-        segmentedControlIndex = segmentedControlRoletadosFavoritosAssistidos.selectedSegmentIndex
-        historicoCollectionView.reloadData()
-    }
 
     //MARK: - Private Methods
     
@@ -45,7 +46,16 @@ class HistoricoViewController: UIViewController {
             for: .normal
         )
     }
+    
+    //MARK: - Actions
+    
+    @IBAction func actionSegmentedControl(_ sender: Any) {
+        segmentedControlIndex = segmentedControlRoletadosFavoritosAssistidos.selectedSegmentIndex
+        historicoCollectionView.reloadData()
+    }
+    
 }
+
 //MARK: - UICollectionView dataSource & Delegate
 
 extension HistoricoViewController: UICollectionViewDataSource, UICollectionViewDelegate {

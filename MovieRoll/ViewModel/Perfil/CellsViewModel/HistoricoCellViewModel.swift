@@ -9,13 +9,15 @@ import Foundation
 
 class HistoricoCellViewModel {
     
+    //MARK: - Private Properties
     private let movie: Movie?
     
     init(movie: Movie?) {
         self.movie = movie
     }
+    //MARK: - Public Properties
     
-    func getImage() -> Data {
+    var getImage: Data {
         return movie?.posterImage ?? Data()
     }
 }

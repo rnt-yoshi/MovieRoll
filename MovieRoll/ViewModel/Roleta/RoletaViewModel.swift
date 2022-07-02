@@ -18,13 +18,13 @@ protocol RoletaViewModelDelegate {
 }
 
 class RoletaViewModel {
-    //MARK: - Variaveis
     
-    var delegate: RoletaViewModelDelegate?
+    //MARK: - Private Properties
+
     private let service = Service.shared
     private let coreDataService: CoreDataService = .init()
     
-    private var anos: [[String]] = [
+    private let anos: [[String]] = [
         [
             "De:"
         ],
@@ -72,21 +72,6 @@ class RoletaViewModel {
     private var dataFinal = "2022"
     private var generosFiltro: [String] = []
     
-    //MARK: - Variaveis computadas
-    var getPlataformas: [Int] {
-        return service.plataformas
-    }
-    
-    var numberOfItems: Int {
-        return service.plataformas.count
-    }
-    
-    var numberComponents: Int {
-        return anos.count
-    }
-    
-    //MARK: -  Variaveis Computadas Privadas
-    
     private var yearLte: String {
         return "\(dataFinal)-12-31"
     }
@@ -98,7 +83,52 @@ class RoletaViewModel {
     private var average: String {
         return String(notasFiltrosEstrela)
     }
-    //MARK: - Funções Públicas
+    
+    private var genres: String {
+        var idGenre = ""
+        
+        for genero in generosFiltro {
+            
+            idGenre = "%7C\(getGenresId(genero: genero))"
+            
+        }
+        if idGenre.count > 0 {
+            idGenre =  String(idGenre.dropFirst(3))
+        }
+        return idGenre
+    }
+    
+    private var providers: String {
+        var idProvider = "350%7C337%7C307%7C384%7C8%7C531%7C119%7C619%7C227"
+        
+        if service.plataformaFiltro.count > 0 {
+            idProvider = ""
+            for provider in service.plataformaFiltro {
+                idProvider += "%7C\(provider)"
+            }
+            idProvider =  String(idProvider.dropFirst(3))
+        }
+        return idProvider
+    }
+    
+    //MARK: - Public Properties
+    
+    var delegate: RoletaViewModelDelegate?
+    
+    var getPlataformas: [Int] {
+        return service.plataformas
+    }
+    
+    var numberOfItems: Int {
+        return service.plataformas.count
+    }
+    
+    var numberComponents: Int {
+        return anos.count
+    }
+
+    //MARK: - Public Methods
+    
     func getImagePlataformas(index: Int) -> String {
         return String(service.plataformas[index])
     }
@@ -122,7 +152,7 @@ class RoletaViewModel {
     
     func botaoRoletarMovie() {
         delegate?.desabilitarBotaoRoletar()
-        service.fetchDiscover(genre: genres(), average,  yearLte, yearGte, provider: providers()) { movies in
+        service.fetchDiscover(genre: genres, average,  yearLte, yearGte, provider: providers) { movies in
             if movies.count == 0 {
                 DispatchQueue.main.async {
                     self.delegate?.exibirAlerta()
@@ -196,8 +226,8 @@ class RoletaViewModel {
             movie.id == assistido.id
         }
     }
-    //MARK: -  Funções Privadas
-    
+    //MARK: - Private Methods
+
     private func getGenresId(genero: String) -> String {
         
         for (key, array) in service.generos
@@ -211,30 +241,4 @@ class RoletaViewModel {
         return ""
     }
     
-    private func genres() -> String {
-        var idGenre = ""
-        
-        for genero in generosFiltro {
-            
-            idGenre = "%7C\(getGenresId(genero: genero))"
-            
-        }
-        if idGenre.count > 0 {
-            idGenre =  String(idGenre.dropFirst(3))
-        }
-        return idGenre
-    }
-    
-    private func providers() -> String {
-        var idProvider = "350%7C337%7C307%7C384%7C8%7C531%7C119%7C619%7C227"
-        
-        if service.plataformaFiltro.count > 0 {
-            idProvider = ""
-            for provider in service.plataformaFiltro {
-                idProvider += "%7C\(provider)"
-            }
-            idProvider =  String(idProvider.dropFirst(3))
-        }
-        return idProvider
-    }
 }

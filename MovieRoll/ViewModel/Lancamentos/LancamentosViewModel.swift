@@ -12,12 +12,15 @@ protocol LancamentosViewModelDelegate {
 }
 
 class LancamentosViewModel {
-    //MARK: - Variáveis
-    let service: Service = .init()
-    let coreDataService: CoreDataService = .init()
-
+    //MARK: - Private Properties
+    
+    private let service: Service = .init()
+    private let coreDataService: CoreDataService = .init()
+    
+    //MARK: - Public Properties
+    
     var delegate: LancamentosViewModelDelegate?
-    //MARK: - Variáveis Computadas
+
     var numberOfRows: Int {
             return 1
     }
@@ -29,7 +32,8 @@ class LancamentosViewModel {
         return 0
     }
     
-    //MARK: - Funções Públicas
+    //MARK: - Public Methods
+    
     func numberOfItems(section: Int) -> Int {
         return Array(service.filmesLancamentos.values)[section].count
 

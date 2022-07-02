@@ -9,14 +9,14 @@ import UIKit
 
 class HistoricoCollectionViewCell: UICollectionViewCell {
     
-    //MARK: - Private Properties
+    //MARK: - Outlets
 
     @IBOutlet private weak var historicoImage: UIImageView!
     
     //MARK: - Public Methods
 
     func setupCell(viewModel: HistoricoCellViewModel) {
-        historicoImage.image = UIImage(data: viewModel.getImage())
+        historicoImage.image = UIImage(data: viewModel.getImage)
         historicoImage.layer.cornerRadius = 10
     }
 }

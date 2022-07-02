@@ -8,10 +8,12 @@
 import Foundation
 
 class HistoricoViewModel {
-    //MARK: - Variáveis
+    
+    //MARK: - Private Properties
+    
     private let coreDataService = CoreDataService()
     
-    //MARK: - Funções Públicas
+    //MARK: - Public Methods
     func numberOfItems(segmentedControlIndex: Int) -> Int {
         if segmentedControlIndex == 0 {
             let roletados = coreDataService.pegarListaDeRoletadosNoCoreData()
@@ -43,6 +45,38 @@ class HistoricoViewModel {
         }
         return Movie()
     }
+    
+    func getCellViewModel(indexPath: IndexPath, segmentedControlIndex: Int) -> HistoricoCellViewModel? {
+        var movie : Movie?
+        
+        if segmentedControlIndex == 0 {
+            let filmeRoletado = coreDataService.pegarListaDeRoletadosNoCoreData()
+            movie = coreDataMovieToMovie(coreDataMovie: filmeRoletado[indexPath.row])
+        }
+        if segmentedControlIndex == 1 {
+            let filmeFavorito = coreDataService.pegarListaDeFavoritosNoCoreData()
+            movie = coreDataMovieToMovie(coreDataMovie: filmeFavorito[indexPath.row])
+        }
+        if segmentedControlIndex == 2 {
+            let filmeAssistido = coreDataService.pegarListaDeAssistidosNoCoreData()
+            movie = coreDataMovieToMovie(coreDataMovie: filmeAssistido[indexPath.row])
+        }
+        return HistoricoCellViewModel(movie: movie)
+    }
+    
+    func verificaFavorito(movie: Movie) -> Bool {
+        return coreDataService.pegarListaDeFavoritosNoCoreData().contains { favorito in
+            favorito.id == movie.id
+        }
+    }
+    
+    func verificaAssistido(movie: Movie) -> Bool {
+        return coreDataService.pegarListaDeAssistidosNoCoreData().contains { assistido in
+            movie.id == assistido.id
+        }
+    }
+    
+    //MARK: - Private Methods
     
    private func coreDataMovieToMovie(coreDataMovie: MovieFavorite) -> Movie {
         let movie = Movie()
@@ -89,33 +123,5 @@ class HistoricoViewModel {
         return movie
     }
     
-    func getCellViewModel(indexPath: IndexPath, segmentedControlIndex: Int) -> HistoricoCellViewModel? {
-        var movie : Movie?
-        
-        if segmentedControlIndex == 0 {
-            let filmeRoletado = coreDataService.pegarListaDeRoletadosNoCoreData()
-            movie = coreDataMovieToMovie(coreDataMovie: filmeRoletado[indexPath.row])
-        }
-        if segmentedControlIndex == 1 {
-            let filmeFavorito = coreDataService.pegarListaDeFavoritosNoCoreData()
-            movie = coreDataMovieToMovie(coreDataMovie: filmeFavorito[indexPath.row])
-        }
-        if segmentedControlIndex == 2 {
-            let filmeAssistido = coreDataService.pegarListaDeAssistidosNoCoreData()
-            movie = coreDataMovieToMovie(coreDataMovie: filmeAssistido[indexPath.row])
-        }
-        return HistoricoCellViewModel(movie: movie)
-    }
-    
-    func verificaFavorito(movie: Movie) -> Bool {
-        return coreDataService.pegarListaDeFavoritosNoCoreData().contains { favorito in
-            favorito.id == movie.id
-        }
-    }
-    
-    func verificaAssistido(movie: Movie) -> Bool {
-        return coreDataService.pegarListaDeAssistidosNoCoreData().contains { assistido in
-            movie.id == assistido.id
-        }
-    }
+
 }

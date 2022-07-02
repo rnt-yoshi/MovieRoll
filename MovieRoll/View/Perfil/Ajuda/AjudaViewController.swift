@@ -9,8 +9,6 @@ import UIKit
 
 class AjudaViewController: UIViewController {
     
-    
-    
     //MARK: - Public Methods
 
     override func viewDidLoad() {

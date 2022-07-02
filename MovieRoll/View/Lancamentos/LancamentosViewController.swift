@@ -9,10 +9,13 @@ import UIKit
 
 class LancamentosViewController: UIViewController {
     
-    //MARK: - Private Properties
+    //MARK: - Outlets
 
     @IBOutlet private weak var lancamentosTableView: UITableView!
     @IBOutlet private weak var activityIndicatorLancamento: UIActivityIndicatorView!
+    
+    
+    //MARK: - Private Properties
     
     private var viewModel = LancamentosViewModel()
 
@@ -35,6 +38,7 @@ class LancamentosViewController: UIViewController {
             }
         }
     }
+    
 }
 
 //MARK: - LançamentosViewModel Delegate

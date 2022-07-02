@@ -8,7 +8,7 @@
 import UIKit
 
 class PlataformasCollectionViewCell: UICollectionViewCell {
-    //MARK: - Private Properties
+    //MARK: - Outlets
 
     @IBOutlet private weak var plataformaImageView: UIImageView!
     

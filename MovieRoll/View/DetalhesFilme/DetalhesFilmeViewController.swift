@@ -9,7 +9,7 @@ import UIKit
 
 class DetalhesFilmeViewController: UIViewController {
     
-    //MARK: - Private Properties
+    //MARK: - Outlets
     
     @IBOutlet private weak var posterFilme: UIImageView!
     @IBOutlet private weak var nomeDoFilmeLabel: UILabel!
@@ -35,32 +35,26 @@ class DetalhesFilmeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         customNavigationBar()
-        
-        let backButton = UIBarButtonItem(
-            image: UIImage(named: "back"),
-            style: .done,
-            target: self,
-            action: #selector(didTouchBackButton)
-        )
-        navigationItem.setLeftBarButton(backButton, animated: true)
-        
-        let favoritosButton = UIBarButtonItem(
-            image: UIImage(named: viewModel?.getFavoritarButtonImage() ?? "heart"),
-            style: .done,
-            target: self,
-            action: #selector(didTouchFavoritosButton)
-        )
-        let checkButton = UIBarButtonItem(
-            image: UIImage(named: viewModel?.getAssistidoButtonImage() ?? "check"),
-            style: .done,
-            target: self,
-            action: #selector(didTouchCheckButton)
-        )
-        navigationItem.setRightBarButtonItems([checkButton, favoritosButton], animated: true)
+        navigationItem.setLeftBarButton(backButton(), animated: true)
+        navigationItem.setRightBarButtonItems([checkButton(), favoritesButton()], animated: true)
     }
     
     //MARK: - Private Methods
+    
+    private func configureUI() {
+        guard let viewModel = viewModel else { return }
+        
+        posterFilme.image = UIImage(data: viewModel.getPosterImage)
+        nomeDoFilmeLabel.text = viewModel.getNome
+        anoLabel.text = viewModel.getAno
+        generoLabel.text = viewModel.getGenero
+        notaDoFilme.text = ("\(viewModel.getNotaFilme)/10")
+        overviewLabel.text = viewModel.getSinopse
+        plataformaImageView.image = UIImage(named: viewModel.getPlataforma)
+        plataformaImageView.layer.cornerRadius = 10
+    }
     
     private func customNavigationBar(){
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -68,8 +62,39 @@ class DetalhesFilmeViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.tintColor = .white
     }
+    
+    private func backButton() -> UIBarButtonItem {
+        let backButton = UIBarButtonItem(
+            image: UIImage(named: "back"),
+            style: .done,
+            target: self,
+            action: #selector(didTouchBackButton)
+        )
+        return backButton
+    }
+    
+    private func favoritesButton() -> UIBarButtonItem {
+        let favoritesButton = UIBarButtonItem(
+            image: UIImage(named: viewModel?.getFavoritarButtonImage ?? "heart"),
+            style: .done,
+            target: self,
+            action: #selector(didTouchFavoritosButton)
+        )
+        return favoritesButton
+    }
+    
+    private func checkButton() -> UIBarButtonItem {
+        let checkButton = UIBarButtonItem(
+            image: UIImage(named: viewModel?.getAssistidoButtonImage ?? "check"),
+            style: .done,
+            target: self,
+            action: #selector(didTouchCheckButton)
+        )
+        return checkButton
+    }
+    
     @objc private func didTouchBackButton(){
-        navigationController?.popToRootViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     @objc private func didTouchFavoritosButton() {
@@ -80,18 +105,6 @@ class DetalhesFilmeViewController: UIViewController {
         viewModel?.buttonAssistidoPressed()
     }
     
-    private func configureUI() {
-        guard let viewModel = viewModel else { return }
-        
-        posterFilme.image = UIImage(data: viewModel.getPosterImage)
-        nomeDoFilmeLabel.text = viewModel.getNome
-        anoLabel.text = viewModel.getAno
-        generoLabel.text = viewModel.getGenero()
-        notaDoFilme.text = ("\(viewModel.getNotaFilme)/10")
-        overviewLabel.text = viewModel.getSinopse
-        plataformaImageView.image = UIImage(named: viewModel.getPlataforma())
-        plataformaImageView.layer.cornerRadius = 10
-    }
 }
 
 //MARK: - DetalhesFilmeViewModel Delegate
@@ -99,14 +112,16 @@ class DetalhesFilmeViewController: UIViewController {
 extension DetalhesFilmeViewController: DetalhesFilmeViewModelDelegate {
     func alteraFavoritoButton() {
         guard let viewModel = viewModel else { return }
-        navigationItem.rightBarButtonItems?[1].image = UIImage(named: viewModel.getFavoritarButtonImage())
+        navigationItem.rightBarButtonItems?[1].image = UIImage(named: viewModel.getFavoritarButtonImage)
     }
     
     func alteraAssistidoButton() {
         guard let viewModel = viewModel else { return }
-        navigationItem.rightBarButtonItems?[0].image = UIImage(named: viewModel.getAssistidoButtonImage())
+        navigationItem.rightBarButtonItems?[0].image = UIImage(named: viewModel.getAssistidoButtonImage)
     }
 }
+
+//MARK: - NavigationController IGestureRecognizerDelegate
 
 extension DetalhesFilmeViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {

@@ -13,27 +13,29 @@ protocol DetalhesFilmeViewModelDelegate {
 }
 
 class DetalhesFilmeViewModel {
-    //MARK: - Variáveis
+    
+    //MARK: - Private Properties
+    
+    private let movie: Movie
+    private var ehFavorito: Bool
+    private var foiAssistido: Bool
+    
     private let service = Service.shared
     
     private let coreDataService = CoreDataService()
     
-    var moviesFavorite: [MovieFavorite] = []
-    var moviesWatched: [MovieWatched] = []
-
-    
-    private let movie: Movie
-    var ehFavorito: Bool
-    var foiAssistido: Bool
-    
-    var delegate: DetalhesFilmeViewModelDelegate?
+    private var moviesFavorite: [MovieFavorite] = []
+    private var moviesWatched: [MovieWatched] = []
     
     init(movie: Movie, ehFavorito: Bool, foiAssistido: Bool) {
         self.movie = movie
         self.ehFavorito = ehFavorito
         self.foiAssistido = foiAssistido
     }
-    //MARK: - Variáveis Computadas
+    
+    //MARK: - Public Properties
+    
+    var delegate: DetalhesFilmeViewModelDelegate?
     
     var getPosterImage: Data {
         return movie.posterImage
@@ -47,7 +49,7 @@ class DetalhesFilmeViewModel {
         return String(movie.releaseDate.dropLast(6))
     }
     
-    func getGenero() -> String {
+    var getGenero: String {
         var generoExibido = ""
         for generoId in movie.genreIds {
             switch generoId{
@@ -104,7 +106,7 @@ class DetalhesFilmeViewModel {
         return movie.overview
     }
     
-    func getPlataforma() -> String {
+    var getPlataforma: String {
         for provider in service.plataformaFiltro {
             if movie.providersId.contains(provider) {
                 return String(provider)
@@ -116,8 +118,7 @@ class DetalhesFilmeViewModel {
         return ""
     }
     
-    //MARK: - Funções Públicas
-    func getFavoritarButtonImage() -> String {
+    var getFavoritarButtonImage: String {
         if ehFavorito {
             return "heart"
         } else {
@@ -125,13 +126,15 @@ class DetalhesFilmeViewModel {
         }
     }
     
-    func getAssistidoButtonImage() -> String {
+    var getAssistidoButtonImage: String {
         if foiAssistido {
             return "checkgreen"
         } else {
             return "check"
         }
     }
+    
+    //MARK: - Public Methods
     
     func buttonAssistidoPressed() {
         if foiAssistido {
@@ -157,22 +160,24 @@ class DetalhesFilmeViewModel {
         delegate?.alteraFavoritoButton()
     }
     
+    //MARK: - Private Methods
+    
     private func getFilmeFavoritoParaRemover(movie: Movie) -> MovieFavorite {
         moviesFavorite = coreDataService.pegarListaDeFavoritosNoCoreData()
         
-       return moviesFavorite.first { movieCoredata in
-           movieCoredata.id == movie.id
+        return moviesFavorite.first { movieCoredata in
+            movieCoredata.id == movie.id
             
-       } ?? MovieFavorite()
+        } ?? MovieFavorite()
     }
     
-   private func getFilmeAssistidoParaRemover(movie: Movie) -> MovieWatched {
+    private func getFilmeAssistidoParaRemover(movie: Movie) -> MovieWatched {
         moviesWatched = coreDataService.pegarListaDeAssistidosNoCoreData()
         
-       return moviesWatched.first { movieCoredata in
-           movieCoredata.id == movie.id
+        return moviesWatched.first { movieCoredata in
+            movieCoredata.id == movie.id
             
-       } ?? MovieWatched()
+        } ?? MovieWatched()
     }
     
 }

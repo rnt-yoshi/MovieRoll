@@ -13,10 +13,12 @@ class ConfiguracoesViewController: UIViewController {
      var viewModel: ConfiguracoesViewModel?
     
     //MARK: - Public Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.delegate = self
     }
+    //MARK: - Actions
     
     @IBAction func resetarRoletadosButtonPressed(_ sender: Any) {
         viewModel?.resetarRoletadosButton()

@@ -17,10 +17,9 @@ protocol PerfilViewModelDelegate {
 
 class PerfilViewModel {
     
-    //MARK: - Variaveis
-    private var userPerfil = User(name: "Steve Jobs", image: "profile01")
+    //MARK: - Private  Properties
     
-    var delegate: PerfilViewModelDelegate?
+    private var userPerfil = User(name: "Steve Jobs", image: "profile01")
     
     private var optionsDoPerfil = [
         OptionsDoPerfil(
@@ -44,11 +43,29 @@ class PerfilViewModel {
             imagem: "ajuda"
         )
     ]
-    //MARK: - Variaveis Computadas
+    
+    //MARK: - Public Properties
+
+    var delegate: PerfilViewModelDelegate?
+    
     var numberOfSection: Int {
         return 2
     }
-    //MARK: - Funções Públicas
+    
+    var getMeusDadosViewModel: MeusDadosViewModel? {
+        return MeusDadosViewModel(user: userPerfil)
+    }
+    
+    var getHistoricoViewModel: HistoricoViewModel? {
+        return HistoricoViewModel()
+    }
+    
+    var getConfiguracoesViewMdel: ConfiguracoesViewModel? {
+        return ConfiguracoesViewModel()
+    }
+    
+    //MARK: - Public Methods
+
     func numberOfRows(section: Int) -> Int {
         if section == 0 {
             return 1
@@ -97,18 +114,6 @@ class PerfilViewModel {
         } else {
             return optionsDoPerfil[indexPath.row].subtitulo
         }
-    }
-    
-    func getMeusDadosViewModel() -> MeusDadosViewModel? {
-        return MeusDadosViewModel(user: userPerfil)
-    }
-    
-    func getHistoricoViewModel() -> HistoricoViewModel? {
-        return HistoricoViewModel()
-    }
-    
-    func getConfiguracoesViewMdel() -> ConfiguracoesViewModel? {
-        return ConfiguracoesViewModel()
     }
     
     func opcoesDaTableView(index: Int) {

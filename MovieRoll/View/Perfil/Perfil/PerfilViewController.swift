@@ -9,9 +9,11 @@ import UIKit
 
 class PerfilViewController: UIViewController {
     
-    //MARK: - Private Properties
+    //MARK: - Outlets
     
     @IBOutlet private weak var perfilTableView: UITableView!
+    
+    //MARK: - Private Properties
     
     private let viewModel = PerfilViewModel()
     
@@ -35,7 +37,7 @@ class PerfilViewController: UIViewController {
 extension PerfilViewController: PerfilViewModelDelegate {
     func exibeMeusDados() {
         if let meusDadosVC = storyboard?.instantiateViewController(withIdentifier: "meusDadosVC") as? MeusDadosViewController {
-            meusDadosVC.viewModel = viewModel.getMeusDadosViewModel()
+            meusDadosVC.viewModel = viewModel.getMeusDadosViewModel
             meusDadosVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(meusDadosVC, animated: true)
         }
@@ -43,7 +45,7 @@ extension PerfilViewController: PerfilViewModelDelegate {
     
     func exibeHistorico() {
         if let historicoVC = storyboard?.instantiateViewController(withIdentifier: "historicoVC") as? HistoricoViewController {
-            historicoVC.viewModel = viewModel.getHistoricoViewModel()
+            historicoVC.viewModel = viewModel.getHistoricoViewModel
             historicoVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(historicoVC, animated: true)
         }
@@ -51,7 +53,7 @@ extension PerfilViewController: PerfilViewModelDelegate {
     
     func exibeConfiguracoes() {
         if let configuracoesVC = storyboard?.instantiateViewController(withIdentifier: "configuracoesVC") as? ConfiguracoesViewController {
-            configuracoesVC.viewModel = viewModel.getConfiguracoesViewMdel()
+            configuracoesVC.viewModel = viewModel.getConfiguracoesViewMdel
             configuracoesVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(configuracoesVC, animated: true)
         }

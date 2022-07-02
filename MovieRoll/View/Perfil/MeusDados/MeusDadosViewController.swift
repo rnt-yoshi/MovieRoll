@@ -9,7 +9,7 @@ import UIKit
 
 class MeusDadosViewController: UIViewController {
     
-    //MARK: - Private Properties
+    //MARK: - Outlets
     
     @IBOutlet private weak var meusDadosImage: UIImageView!
     @IBOutlet private weak var meusDadosNomeTextField: UITextField!
@@ -27,6 +27,18 @@ class MeusDadosViewController: UIViewController {
         configuraTela()
     }
     
+    //MARK: - Private Methods
+    
+    private func configuraTela() {
+        guard let viewModel = viewModel else { return }
+        meusDadosNomeTextField.text = viewModel.getUserName
+        
+        meusDadosImage.image = UIImage(named: viewModel.getUserImage)
+        meusDadosImage.layer.cornerRadius = 80
+    }
+    
+    //MARK: - Actions
+    
     @IBAction func alterarFotoButtonAction(_ sender: Any) {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = .photoLibrary
@@ -40,15 +52,6 @@ class MeusDadosViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    //MARK: - Private Methods
-    
-    private func configuraTela() {
-        guard let viewModel = viewModel else { return }
-        meusDadosNomeTextField.text = viewModel.getUserName
-        
-        meusDadosImage.image = UIImage(named: viewModel.getUserImage)
-        meusDadosImage.layer.cornerRadius = 80
-    }
 }
 
 //MARK: - UIImagePickerController Delegate

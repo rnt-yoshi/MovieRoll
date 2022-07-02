@@ -9,7 +9,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    //MARK: - Private Properties
+    //MARK: - Outlets
     
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var senhaTextField: UITextField!
@@ -28,6 +28,8 @@ class LoginViewController: UIViewController {
         senhaTextField.attributedPlaceholder = NSAttributedString(string:"Senha", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
     
+    //MARK: - Actions
+    
     @IBAction private func enterAction(_ sender: Any) {
         if let tabBar = storyboard?.instantiateViewController(withIdentifier: "idTabController") as? TabBarController {
             tabBar.modalPresentationStyle = .fullScreen
@@ -35,4 +37,5 @@ class LoginViewController: UIViewController {
             present(tabBar, animated: true)
         }
     }
+    
 }
