@@ -1142,7 +1142,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z9p-U0-wvd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Roleta" image="logogrey" selectedImage="logo" id="UpR-y2-mbM">
-                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="0.0"/>
+                        <inset key="imageInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="mug-az-PvS">
@@ -1296,9 +1296,9 @@
         <image name="google" width="1080" height="1080"/>
         <image name="grupo" width="1958" height="1646"/>
         <image name="infantil" width="730" height="548"/>
-        <image name="logo" width="35" height="33"/>
+        <image name="logo" width="30" height="30"/>
         <image name="logoApi" width="423.04000854492188" height="35.400001525878906"/>
-        <image name="logogrey" width="35" height="33"/>
+        <image name="logogrey" width="30" height="30"/>
         <image name="logotipo" width="954" height="1028"/>
         <image name="perfil" width="30" height="30"/>
         <image name="rocket" width="30" height="30"/>
