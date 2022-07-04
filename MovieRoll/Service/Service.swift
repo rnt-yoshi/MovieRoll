@@ -183,7 +183,9 @@ class Service {
     }
     
     private func setImages() {
-        movies.removeSubrange(0..<movies.count/3*2)
+        while movies.count > 6 {
+            movies.removeLast()
+        }
         
         for movie in movies {
             

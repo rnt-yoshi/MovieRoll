@@ -82,6 +82,8 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mPV-Kw-S29">
                                 <rect key="frame" x="32" y="355" width="350" height="34"/>
+                                <color key="backgroundColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -95,6 +97,8 @@
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="steve@apple.com" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KE7-ZQ-FHB">
                                 <rect key="frame" x="32" y="429" width="350" height="34"/>
+                                <color key="backgroundColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -154,7 +158,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lEd-VG-hi9">
-                                <rect key="frame" x="0.0" y="44" width="414" height="32"/>
+                                <rect key="frame" x="18" y="44" width="378" height="32"/>
                                 <segments>
                                     <segment title="Roletados"/>
                                     <segment title="Favoritos"/>
@@ -208,9 +212,9 @@
                             <constraint firstItem="1Je-2m-EHT" firstAttribute="top" secondItem="lEd-VG-hi9" secondAttribute="bottom" id="FMn-C8-2qb"/>
                             <constraint firstItem="1Je-2m-EHT" firstAttribute="leading" secondItem="LT8-6R-Uyk" secondAttribute="leading" id="K0B-FV-qFg"/>
                             <constraint firstItem="LT8-6R-Uyk" firstAttribute="trailing" secondItem="1Je-2m-EHT" secondAttribute="trailing" id="X38-cK-BA6"/>
-                            <constraint firstItem="lEd-VG-hi9" firstAttribute="leading" secondItem="LT8-6R-Uyk" secondAttribute="leading" id="g7B-Qf-UC1"/>
+                            <constraint firstItem="lEd-VG-hi9" firstAttribute="leading" secondItem="LT8-6R-Uyk" secondAttribute="leading" constant="18" id="g7B-Qf-UC1"/>
                             <constraint firstItem="lEd-VG-hi9" firstAttribute="top" secondItem="LT8-6R-Uyk" secondAttribute="top" id="l87-Z6-a0s"/>
-                            <constraint firstItem="LT8-6R-Uyk" firstAttribute="trailing" secondItem="lEd-VG-hi9" secondAttribute="trailing" id="tPw-Sc-VTN"/>
+                            <constraint firstItem="LT8-6R-Uyk" firstAttribute="trailing" secondItem="lEd-VG-hi9" secondAttribute="trailing" constant="18" id="tPw-Sc-VTN"/>
                             <constraint firstItem="LT8-6R-Uyk" firstAttribute="bottom" secondItem="1Je-2m-EHT" secondAttribute="bottom" id="yPi-as-6lu"/>
                         </constraints>
                     </view>
@@ -1180,14 +1184,15 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DRc-4a-DSn">
                                 <rect key="frame" x="80" y="341" width="254" height="34"/>
-                                <color key="backgroundColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="0.40175785292063326" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FV2-5M-xVT">
                                 <rect key="frame" x="80" y="383" width="254" height="34"/>
-                                <color key="backgroundColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.18039215689999999" alpha="0.40175785289999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
