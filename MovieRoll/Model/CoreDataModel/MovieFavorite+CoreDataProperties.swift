@@ -2,7 +2,7 @@
 //  MovieFavorite+CoreDataProperties.swift
 //  MovieRoll
 //
-//  Created by Bruno Bezerra on 25/06/22.
+//  Created by Renato Yoshinari on 11/07/22.
 //
 //
 

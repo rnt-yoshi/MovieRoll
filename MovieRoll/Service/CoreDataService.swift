@@ -12,18 +12,14 @@ import CoreData
 class CoreDataService {
     //MARK: - Private Properties
 
-    private let contextFavorites = (UIApplication.shared.delegate as! AppDelegate).persistentContainerFavorite.viewContext
-    
-    private let contextWatched = (UIApplication.shared.delegate as! AppDelegate).persistentContainerWatched.viewContext
-    
-    private let contextRolls = (UIApplication.shared.delegate as! AppDelegate).persistentContainerRolls.viewContext
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
     //MARK: - Public Methods
     
     //mark: Funcs Adicionar Filme
     func adicionarFilmeFavoritoCoreData(movie: Movie) {
-        let coreDataMovie: MovieFavorite = .init(context: contextFavorites)
+        let coreDataMovie: MovieFavorite = .init(context: context)
         
         coreDataMovie.id = Int32(movie.id)
         coreDataMovie.title = movie.title
@@ -34,11 +30,11 @@ class CoreDataService {
         coreDataMovie.genreIds = movie.genreIds
         coreDataMovie.providersId = movie.providersId
         
-        salvarContextoFavorite()
+        salvarContexto()
     }
     
     func adicionarFilmeAssistidoCoreData(movie: Movie) {
-        let coreDataMovie: MovieWatched = .init(context: contextWatched)
+        let coreDataMovie: MovieWatched = .init(context: context)
         
         coreDataMovie.id = Int32(movie.id)
         coreDataMovie.title = movie.title
@@ -49,11 +45,11 @@ class CoreDataService {
         coreDataMovie.genreIds = movie.genreIds
         coreDataMovie.providersId = movie.providersId
         
-        salvarContextoWatch()
+        salvarContexto()
     }
     
     func adicionarFilmeRoletadoCoreData(movie: Movie) {
-        let coreDataMovie: MovieRolls = .init(context: contextRolls)
+        let coreDataMovie: MovieRolls = .init(context: context)
 
         coreDataMovie.id = Int32(movie.id)
         coreDataMovie.title = movie.title
@@ -64,13 +60,13 @@ class CoreDataService {
         coreDataMovie.genreIds = movie.genreIds
         coreDataMovie.providersId = movie.providersId
 
-        salvarContextoRolls()
+        salvarContexto()
     }
     
     //mark: Funcs pegar lista Filmes
     func pegarListaDeFavoritosNoCoreData() -> [MovieFavorite] {
         do {
-            return try contextFavorites.fetch(MovieFavorite.fetchRequest())
+            return try context.fetch(MovieFavorite.fetchRequest())
         } catch {
             print(error)
         }
@@ -79,7 +75,7 @@ class CoreDataService {
     
     func pegarListaDeAssistidosNoCoreData() -> [MovieWatched] {
         do {
-            return try contextWatched.fetch(MovieWatched.fetchRequest())
+            return try context.fetch(MovieWatched.fetchRequest())
         } catch {
             print(error)
         }
@@ -88,7 +84,7 @@ class CoreDataService {
     
     func pegarListaDeRoletadosNoCoreData() -> [MovieRolls] {
         do {
-            return try contextRolls.fetch(MovieRolls.fetchRequest())
+            return try context.fetch(MovieRolls.fetchRequest())
         } catch {
             print(error)
         }
@@ -97,34 +93,24 @@ class CoreDataService {
     
     //mark: Funcs remover filme
     func removerFilmeFavoritoCoreData(coreDataMovie: MovieFavorite) {
-        contextFavorites.delete(coreDataMovie)
-        salvarContextoFavorite()
+        context.delete(coreDataMovie)
+        salvarContexto()
     }
     
     func removerFilmeAssistidoCoreData(coreDataMovie: MovieWatched) {
-        contextWatched.delete(coreDataMovie)
-        salvarContextoWatch()
+        context.delete(coreDataMovie)
+        salvarContexto()
     }
     
     func removerFilmeRoletadoCoreData(coreDataMovie: MovieRolls) {
-        contextRolls.delete(coreDataMovie)
-        salvarContextoRolls()
+        context.delete(coreDataMovie)
+        salvarContexto()
     }
     
     //MARK: - Private Methods
 
-    private func salvarContextoFavorite() {
+    private func salvarContexto() {
         let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
-        appDelegate.saveContextFavorite()
-    }
-    
-    private func salvarContextoWatch() {
-        let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
-        appDelegate.saveContextWatched()
-    }
-    
-    private func salvarContextoRolls() {
-        let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
-        appDelegate.saveContextRolls()
+        appDelegate.saveContext()
     }
 }
