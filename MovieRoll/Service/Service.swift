@@ -159,10 +159,9 @@ class Service {
         }
         
         for movie in movies {
-            let url = "https://image.tmdb.org/t/p/w500\(movie.posterPath)"
-            guard let urlImage =  URL(string: url) else { return }
-            guard let imageData = try? Data(contentsOf: urlImage) else { return }
-            movie.posterImage = imageData
+            getImageFromUrl(movie: movie) { imageData in
+                movie.posterImage = imageData
+            }
         }
     }
     
