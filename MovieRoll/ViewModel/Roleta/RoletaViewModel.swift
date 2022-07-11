@@ -24,6 +24,18 @@ class RoletaViewModel {
     private let service: Service = .init()
     private let coreDataService: CoreDataService = .init()
     
+    private let plataformas: [Int] = [
+        350,
+        337,
+        307,
+        384,
+        8,
+        531,
+        119,
+        619,
+        227
+    ]
+    
     private let anos: [[String]] = [
         [
             "De:"
@@ -116,11 +128,11 @@ class RoletaViewModel {
     var delegate: RoletaViewModelDelegate?
     
     var getPlataformas: [Int] {
-        return service.plataformas
+        return plataformas
     }
     
     var numberOfItems: Int {
-        return service.plataformas.count
+        return plataformas.count
     }
     
     var numberComponents: Int {
@@ -130,7 +142,7 @@ class RoletaViewModel {
     //MARK: - Public Methods
     
     func getImagePlataformas(index: Int) -> String {
-        return String(service.plataformas[index])
+        return String(plataformas[index])
     }
     
     func numberOfRows(component: Int) -> Int {
@@ -205,12 +217,12 @@ class RoletaViewModel {
     }
     
     func adicionaPlataformaFiltro(indexPath: IndexPath) {
-        let plataforma = service.plataformas[indexPath.item]
+        let plataforma = plataformas[indexPath.item]
         service.plataformaFiltro.append(plataforma)
     }
     
     func removePlataformaFiltro(indexPath: IndexPath) {
-        let plataforma = service.plataformas[indexPath.item]
+        let plataforma = plataformas[indexPath.item]
         service.plataformaFiltro.removeAll { plataformaFiltro in
             return  plataforma == plataformaFiltro
         }

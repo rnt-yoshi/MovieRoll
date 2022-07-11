@@ -28,18 +28,6 @@ class Service {
     
     var plataformaFiltro: [Int] = []
     
-    let plataformas: [Int] = [
-        350,
-        337,
-        307,
-        384,
-        8,
-        531,
-        119,
-        619,
-        227
-    ]
-    
     let generos: [String: String] = [
         "28": "Ação",
         "878": "Ficção",
@@ -123,11 +111,8 @@ class Service {
     
     func getImageFromUrl(movie: Movie, completion: @escaping (Data) -> Void )  {
         let url = "https://image.tmdb.org/t/p/w500\(movie.posterPath)"
-        
         guard let urlImage =  URL(string: url) else { return }
-        
         guard let imageData = try? Data(contentsOf: urlImage) else { return }
-        
         completion(imageData)
     }
     
@@ -174,13 +159,9 @@ class Service {
         }
         
         for movie in movies {
-            
             let url = "https://image.tmdb.org/t/p/w500\(movie.posterPath)"
-            
             guard let urlImage =  URL(string: url) else { return }
-            
             guard let imageData = try? Data(contentsOf: urlImage) else { return }
-            
             movie.posterImage = imageData
         }
     }
