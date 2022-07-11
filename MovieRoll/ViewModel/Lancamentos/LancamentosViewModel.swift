@@ -17,6 +17,18 @@ class LancamentosViewModel {
     private let service: Service = .init()
     private let coreDataService: CoreDataService = .init()
     
+    private var filmesLancamentos: [String: [Movie]] = [
+        "28": [],
+        "878": [],
+        "53": [],
+        "27": [],
+        "12": [],
+        "18": [],
+        "10751": [],
+        "10749": [],
+        "35": []
+    ]
+    
     //MARK: - Public Properties
     
     var delegate: LancamentosViewModelDelegate?
@@ -26,8 +38,8 @@ class LancamentosViewModel {
     }
     
     var numberOfSection: Int {
-        if service.filmesLancamentos.values.first?.count ?? 0 > 0 {
-            return service.filmesLancamentos.count
+        if filmesLancamentos.values.first?.count ?? 0 > 0 {
+            return filmesLancamentos.count
         }
         return 0
     }
@@ -35,22 +47,22 @@ class LancamentosViewModel {
     //MARK: - Public Methods
     
     func numberOfItems(section: Int) -> Int {
-        return Array(service.filmesLancamentos.values)[section].count
+        return Array(filmesLancamentos.values)[section].count
 
     }
     
     func retornaTitulo(section: Int) -> String {
-        let chave = Array(service.filmesLancamentos.keys)[section]
+        let chave = Array(filmesLancamentos.keys)[section]
         return service.generos[chave] ?? ""
     }
     
     func retornaFilmes(row: Int, section: Int) -> Movie {
     
-        return Array(service.filmesLancamentos.values)[section][row]
+        return Array(filmesLancamentos.values)[section][row]
     }
     
     func setProvidersMovies(row: Int, section: Int) {
-        let filme = Array(service.filmesLancamentos.values)[section][row]
+        let filme = Array(filmesLancamentos.values)[section][row]
         service.fetchProvidersBy(id: filme.id) { providers in
             DispatchQueue.main.async {
                 filme.providersId = providers
@@ -74,10 +86,10 @@ class LancamentosViewModel {
     func carregarFilmes(completion: @escaping () -> Void) {
         let group = DispatchGroup()
         
-        for genero in service.filmesLancamentos.keys {
+        for genero in filmesLancamentos.keys {
             group.enter()
             service.fetchDiscoverLancamentos(genre: genero) { filmes in
-                self.service.filmesLancamentos[genero] = filmes
+                self.filmesLancamentos[genero] = filmes
 
                 group.leave()
             }
@@ -88,7 +100,7 @@ class LancamentosViewModel {
     }
     
     func getImage(section: Int, row: Int) -> Data {
-        let movie = Array(service.filmesLancamentos.values)[section][row]
+        let movie = Array(filmesLancamentos.values)[section][row]
         
         return movie.posterImage
     }

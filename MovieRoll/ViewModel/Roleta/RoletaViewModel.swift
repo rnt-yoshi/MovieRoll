@@ -21,7 +21,7 @@ class RoletaViewModel {
     
     //MARK: - Private Properties
 
-    private let service = Service.shared
+    private let service: Service = .init()
     private let coreDataService: CoreDataService = .init()
     
     private let anos: [[String]] = [

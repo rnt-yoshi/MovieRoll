@@ -24,21 +24,7 @@ class Service {
     
     //MARK: - Public Properties
     
-    static var shared = Service()
-    
     var movies: [Movie] = []
-    
-    var filmesLancamentos: [String: [Movie]] = [
-        "28": [],
-        "878": [],
-        "53": [],
-        "27": [],
-        "12": [],
-        "18": [],
-        "10751": [],
-        "10749": [],
-        "35": []
-    ]
     
     var plataformaFiltro: [Int] = []
     

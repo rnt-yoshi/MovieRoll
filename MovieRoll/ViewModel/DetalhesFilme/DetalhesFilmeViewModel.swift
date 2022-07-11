@@ -20,9 +20,9 @@ class DetalhesFilmeViewModel {
     private var ehFavorito: Bool
     private var foiAssistido: Bool
     
-    private let service = Service.shared
+    private let service: Service = .init()
     
-    private let coreDataService = CoreDataService()
+    private let coreDataService: CoreDataService = .init()
     
     private var moviesFavorite: [MovieFavorite] = []
     private var moviesWatched: [MovieWatched] = []

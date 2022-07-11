@@ -17,7 +17,7 @@ protocol ConfiguracoesViewModelDelegate {
 class ConfiguracoesViewModel {
     //MARK: - Private Properties
     
-    private let service = Service.shared
+    private let service: Service = .init()
     private let coreDataService: CoreDataService = .init()
     
     //MARK: - Public Properties
