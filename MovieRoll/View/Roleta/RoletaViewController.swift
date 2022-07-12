@@ -68,6 +68,9 @@ class RoletaViewController: UIViewController {
         let okButton = UIBarButtonItem(title: "OK", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.donePickerView))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
         
+        let tap: UIGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.donePickerView))
+        self.view.addGestureRecognizer(tap)
+        
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.black
         toolBar.isTranslucent = false
@@ -85,7 +88,7 @@ class RoletaViewController: UIViewController {
     }
     
     @objc private func donePickerView() {
-        dataDeLancamentoTextField.resignFirstResponder()
+        self.view.endEditing(true)
     }
     
     //MARK: - Actions
