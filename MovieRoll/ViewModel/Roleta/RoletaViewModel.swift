@@ -15,6 +15,7 @@ protocol RoletaViewModelDelegate {
     func botaoGeneroSemSelecao(tag: Int)
     func exibirAlertaEHabilitarBotao()
     func desabilitarBotaoRoletar()
+    func reloadPickerView()
 }
 
 class RoletaViewModel {
@@ -36,48 +37,38 @@ class RoletaViewModel {
         227
     ]
     
-    private let anos: [[String]] = [
+    private let anosDe: [String] = [
+        "2022",
+        "2021",
+        "2020",
+        "2015",
+        "2010",
+        "2005",
+        "2000",
+        "1995",
+        "1990",
+        "1980",
+        "1970",
+        "1960",
+        "1950",
+        "1940",
+        "1930"
+    ]
+    
+    private var anosAte: [String] {
+        return anosDe.filter{ $0 >= dataInicial }
+    }
+    
+    private var anosPickerView: [[String]] { [
         [
             "De:"
         ],
-        [
-            "2022",
-            "2021",
-            "2020",
-            "2015",
-            "2010",
-            "2005",
-            "2000",
-            "1995",
-            "1990",
-            "1980",
-            "1970",
-            "1960",
-            "1950",
-            "1940",
-            "1930"
-        ],
+        anosDe,
         [
             "Até:"
         ],
-        [
-            "2022",
-            "2021",
-            "2020",
-            "2015",
-            "2010",
-            "2005",
-            "2000",
-            "1995",
-            "1990",
-            "1980",
-            "1970",
-            "1960",
-            "1950",
-            "1940",
-            "1930"
-        ]
-    ]
+        anosAte
+    ]}
     
     private var notasFiltrosEstrela = 0.0
     private var dataInicial = "1930"
@@ -136,7 +127,7 @@ class RoletaViewModel {
     }
     
     var numberComponents: Int {
-        return anos.count
+        return anosPickerView.count
     }
 
     //MARK: - Public Methods
@@ -146,19 +137,23 @@ class RoletaViewModel {
     }
     
     func numberOfRows(component: Int) -> Int {
-        return anos[component].count
+        return anosPickerView[component].count
     }
     
     func titleForRow(row: Int, component: Int) -> String {
-        return anos[component][row]
+        return anosPickerView[component][row]
     }
     
     func getTitleForTextField(row: Int, componente: Int) -> String {
         if componente == 1 {
-            dataInicial = anos[componente][row]
+            dataInicial = anosPickerView[componente][row]
+            if dataInicial > dataFinal {
+                dataFinal = dataInicial
+            }
         } else if componente == 3 {
-            dataFinal = anos[componente][row]
+            dataFinal = anosPickerView[componente][row]
         }
+        delegate?.reloadPickerView()
         return "De \(dataInicial) Até \(dataFinal)"
     }
     

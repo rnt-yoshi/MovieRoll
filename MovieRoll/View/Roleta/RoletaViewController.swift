@@ -115,6 +115,10 @@ class RoletaViewController: UIViewController {
 //MARK: - RoletaViewModel Delegate
 
 extension RoletaViewController: RoletaViewModelDelegate {
+    func reloadPickerView() {
+        dataLancamentoPickerView.reloadAllComponents()
+    }
+    
     func desabilitarBotaoRoletar() {
         roletarButton.isEnabled = false
         roletarButton.isHidden = true
