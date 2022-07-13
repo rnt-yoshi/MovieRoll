@@ -36,11 +36,13 @@ class PerfilViewController: UIViewController {
 
 extension PerfilViewController: PerfilViewModelDelegate {
     func exibeMeusDados() {
-        if let meusDadosVC = storyboard?.instantiateViewController(withIdentifier: "meusDadosVC") as? MeusDadosViewController {
-            meusDadosVC.viewModel = viewModel.getMeusDadosViewModel
-            meusDadosVC.navigationItem.largeTitleDisplayMode = .never
-            navigationController?.pushViewController(meusDadosVC, animated: true)
-        }
+//        if let meusDadosVC = storyboard?.instantiateViewController(withIdentifier: "meusDadosVC") as? MeusDadosViewController {
+//            meusDadosVC.viewModel = viewModel.getMeusDadosViewModel
+//            meusDadosVC.navigationItem.largeTitleDisplayMode = .never
+//            navigationController?.pushViewController(meusDadosVC, animated: true)
+//        }
+        let meusDadosVC = MeusDadosViewController()
+        navigationController?.pushViewController(meusDadosVC, animated: true)
     }
     
     func exibeHistorico() {
