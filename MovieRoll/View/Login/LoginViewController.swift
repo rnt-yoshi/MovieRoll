@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseAuth
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
     
@@ -24,7 +27,7 @@ class LoginViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "E-mail"
         label.textColor = .white
-       return label
+        return label
     }()
     
     lazy var emailTextField: UITextField = {
@@ -45,7 +48,7 @@ class LoginViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Senha"
         label.textColor = .white
-       return label
+        return label
     }()
     
     lazy var senhaTextField: UITextField = {
@@ -114,7 +117,7 @@ class LoginViewController: UIViewController {
     }()
     
     //MARK: - Public Methods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
@@ -128,9 +131,9 @@ class LoginViewController: UIViewController {
         view.addSubview(googleButton)
         view.addSubview(facebookButton)
         view.addSubview(cadastrarButton)
-    
+        
         setupConstraints()
-    
+        
     }
     //MARK: - Private Methods
     
@@ -140,7 +143,7 @@ class LoginViewController: UIViewController {
             logoImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 64),
             logoImage.heightAnchor.constraint(equalToConstant: 180),
             logoImage.widthAnchor.constraint(equalToConstant: 180),
-
+            
             emailLabel.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 24),
             emailLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             
@@ -167,7 +170,7 @@ class LoginViewController: UIViewController {
             googleButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
             googleButton.heightAnchor.constraint(equalToConstant: 60),
             googleButton.widthAnchor.constraint(equalToConstant: 60),
-
+            
             facebookButton.topAnchor.constraint(equalTo: entrarButton.bottomAnchor, constant: 24),
             facebookButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
             facebookButton.heightAnchor.constraint(equalToConstant: 50),
@@ -182,6 +185,7 @@ class LoginViewController: UIViewController {
     
     @objc private func esqueciMunhaSenhaButtonAction() {
         
+        
     }
     
     @objc private func entrarButtonAction() {
@@ -191,6 +195,41 @@ class LoginViewController: UIViewController {
     
     @objc private func googleButtonAction() {
         
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+        
+        // Start the sign in flow!
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
+            
+            if error != nil {
+                // ...
+                return
+            }
+            
+            guard
+                let authentication = user?.authentication,
+                let idToken = authentication.idToken
+            else {
+                return
+            }
+            
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                           accessToken: authentication.accessToken)
+            
+            Auth.auth().signIn(with: credential) { authResult, error in
+                
+                if error != nil {
+                    
+                    return
+                }
+                
+                // ...
+            }
+            ServiceAuth.estaLogado = true
+            self.dismiss(animated: true)
+        }
     }
     
     @objc private func facebookButtonAction() {

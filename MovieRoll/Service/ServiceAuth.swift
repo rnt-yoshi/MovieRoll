@@ -5,8 +5,13 @@
 //  Created by Renato Yoshinari on 14/07/22.
 //
 
-import Foundation
+import UIKit
+import FirebaseCore
+import FirebaseAuth
+import GoogleSignIn
 
-class ServiceAuth {
+class ServiceAuth: UIViewController {
     static var estaLogado = false
+    
+
 }
