@@ -15,7 +15,9 @@ class MeusDadosViewController: UIViewController {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleToFill
-        image.backgroundColor = .gray
+        image.layer.masksToBounds = true
+        image.layer.cornerRadius = 64
+        image.backgroundColor = UIColor(named: "darkGrayMovieRoll")
         return image
     }()
         
@@ -42,7 +44,7 @@ class MeusDadosViewController: UIViewController {
             string: "Digite seu nome",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
-        textField.backgroundColor = .darkGray
+        textField.backgroundColor = UIColor(named: "darkGrayMovieRoll")
         textField.borderStyle = .roundedRect
         textField.font = UIFont(name: "AmsiPro-Regular", size: 17)
         return textField
@@ -63,7 +65,7 @@ class MeusDadosViewController: UIViewController {
             string: "Digite seu e-mail",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
-        textField.backgroundColor = .darkGray
+        textField.backgroundColor = UIColor(named: "darkGrayMovieRoll")
         textField.borderStyle = .roundedRect
         textField.font = UIFont(name: "AmsiPro-Regular", size: 17)
         return textField
@@ -84,7 +86,7 @@ class MeusDadosViewController: UIViewController {
             string: "Digite sua senha",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
-        textField.backgroundColor = .darkGray
+        textField.backgroundColor = UIColor(named: "darkGrayMovieRoll")
         textField.borderStyle = .roundedRect
         textField.font = UIFont(name: "AmsiPro-Regular", size: 17)
         return textField
@@ -95,6 +97,7 @@ class MeusDadosViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Salvar", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.font = UIFont(name: "AmsiPro-Bold", size: 17)
         button.backgroundColor = UIColor(named: "orangeMovieRoll")
         button.layer.cornerRadius = 5
         button.addTarget(self, action: #selector(salvarButtonAction), for: .touchUpInside)
@@ -121,6 +124,7 @@ class MeusDadosViewController: UIViewController {
         view.addSubview(meusDadosSenhaTextField)
         view.addSubview(salvarButton)
         setupConstraints()
+        
         configuraTela()
     }
     
@@ -129,7 +133,7 @@ class MeusDadosViewController: UIViewController {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             meusDadosImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            meusDadosImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 16),
+            meusDadosImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
             meusDadosImage.heightAnchor.constraint(equalToConstant: 128),
             meusDadosImage.widthAnchor.constraint(equalToConstant: 128),
 
@@ -168,7 +172,6 @@ class MeusDadosViewController: UIViewController {
         meusDadosNomeTextField.text = viewModel.getUserName
         
         meusDadosImage.image = UIImage(named: viewModel.getUserImage)
-        meusDadosImage.layer.cornerRadius = 80
     }
     
     //MARK: - Actions
@@ -202,4 +205,3 @@ extension MeusDadosViewController: UIImagePickerControllerDelegate, UINavigation
         dismiss(animated: true)
     }
 }
-

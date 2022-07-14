@@ -40,6 +40,10 @@ class ConfiguracoesViewController: UIViewController {
 //MARK: - ConfiguracoesViewModel Delegate
 
 extension ConfiguracoesViewController: ConfiguracoesViewModelDelegate {
+    func navigationBack() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     func exibeAlertaRoletado() {
         
         let alerta = UIAlertController(title: "Você está removendo toda lista de filmes roletados.", message: "Tem certeza que deseja remover toda a lista de filmes roletados?", preferredStyle: .alert)

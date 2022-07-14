@@ -35,13 +35,15 @@ class PerfilViewController: UIViewController {
 //MARK: - PerfilViewModel Delegate
 
 extension PerfilViewController: PerfilViewModelDelegate {
+    func exibeLogin() {
+        let loginVC = LoginViewController()
+        loginVC.modalPresentationStyle = .fullScreen
+        present(loginVC, animated: true)
+    }
+    
     func exibeMeusDados() {
-//        if let meusDadosVC = storyboard?.instantiateViewController(withIdentifier: "meusDadosVC") as? MeusDadosViewController {
-//            meusDadosVC.viewModel = viewModel.getMeusDadosViewModel
-//            meusDadosVC.navigationItem.largeTitleDisplayMode = .never
-//            navigationController?.pushViewController(meusDadosVC, animated: true)
-//        }
         let meusDadosVC = MeusDadosViewController()
+        meusDadosVC.viewModel = viewModel.getMeusDadosViewModel
         navigationController?.pushViewController(meusDadosVC, animated: true)
     }
     

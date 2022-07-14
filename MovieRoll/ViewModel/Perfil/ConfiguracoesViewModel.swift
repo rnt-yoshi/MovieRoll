@@ -12,6 +12,7 @@ protocol ConfiguracoesViewModelDelegate {
     func exibeAlertaFavorito()
     func exibeAlertaAssistido()
     func exibeAlertaDesconectar()
+    func navigationBack()
 }
 
 class ConfiguracoesViewModel {
@@ -63,6 +64,7 @@ class ConfiguracoesViewModel {
     }
     
     func desconectarConta() {
-        
+        ServiceAuth.estaLogado = false
+        delegate?.navigationBack()
     }
 }

@@ -31,6 +31,7 @@
 		429FFF2E284BD5200079C159 /* DetalhesFilmeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429FFF2D284BD5200079C159 /* DetalhesFilmeViewController.swift */; };
 		429FFF30284BD92C0079C159 /* DetalhesFilmeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429FFF2F284BD92C0079C159 /* DetalhesFilmeViewModel.swift */; };
 		8A1B0173284E67E10097D4D6 /* ConfiguracoesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1B0172284E67E10097D4D6 /* ConfiguracoesViewModel.swift */; };
+		8A2F554A2880A0B1008B74CD /* ServiceAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F55492880A0B1008B74CD /* ServiceAuth.swift */; };
 		8A3BA16F284A5F6800C74C77 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA16E284A5F6800C74C77 /* User.swift */; };
 		8A3BA171284A607100C74C77 /* OptionsDoPerfil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA170284A607100C74C77 /* OptionsDoPerfil.swift */; };
 		8A3BA177284A659E00C74C77 /* PerfilViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA176284A659E00C74C77 /* PerfilViewModel.swift */; };
@@ -81,6 +82,7 @@
 		429FFF2D284BD5200079C159 /* DetalhesFilmeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesFilmeViewController.swift; sourceTree = "<group>"; };
 		429FFF2F284BD92C0079C159 /* DetalhesFilmeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesFilmeViewModel.swift; sourceTree = "<group>"; };
 		8A1B0172284E67E10097D4D6 /* ConfiguracoesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguracoesViewModel.swift; sourceTree = "<group>"; };
+		8A2F55492880A0B1008B74CD /* ServiceAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAuth.swift; sourceTree = "<group>"; };
 		8A3BA16E284A5F6800C74C77 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8A3BA170284A607100C74C77 /* OptionsDoPerfil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsDoPerfil.swift; sourceTree = "<group>"; };
 		8A3BA176284A659E00C74C77 /* PerfilViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewModel.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				42863EFE28678BAB0051A6BD /* CoreDataService.swift */,
 				4247B00F284B85E9004A12EE /* Service.swift */,
+				8A2F55492880A0B1008B74CD /* ServiceAuth.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				4256CE47283E4CAA0017DD5F /* SceneDelegate.swift in Sources */,
 				42863EFF28678BAB0051A6BD /* CoreDataService.swift in Sources */,
 				8ADFC423284B7ABE00CBDBA2 /* AjudaViewController.swift in Sources */,
+				8A2F554A2880A0B1008B74CD /* ServiceAuth.swift in Sources */,
 				8A72D0B6283FA14600977B34 /* LancamentosViewController.swift in Sources */,
 				8A72D0B4283FA12800977B34 /* RoletaViewController.swift in Sources */,
 				C635E820284C4EF100DF525E /* RoletaViewModel.swift in Sources */,

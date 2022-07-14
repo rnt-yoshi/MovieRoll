@@ -13,6 +13,7 @@ protocol PerfilViewModelDelegate {
     func exibeHistorico()
     func exibeConfiguracoes()
     func exibeAjuda()
+    func exibeLogin()
 }
 
 class PerfilViewModel {
@@ -117,17 +118,21 @@ class PerfilViewModel {
     }
     
     func opcoesDaTableView(index: Int) {
-        if index == 0 {
-            delegate?.exibeMeusDados()
-        }
-        if index == 1 {
-            delegate?.exibeHistorico()
-        }
-        if index == 2 {
-            delegate?.exibeConfiguracoes()
-        }
-        if index == 3 {
-            delegate?.exibeAjuda()
+        if ServiceAuth.estaLogado{
+            if index == 0 {
+                delegate?.exibeMeusDados()
+            }
+            if index == 1 {
+                delegate?.exibeHistorico()
+            }
+            if index == 2 {
+                delegate?.exibeConfiguracoes()
+            }
+            if index == 3 {
+                delegate?.exibeAjuda()
+            }
+        } else {
+            delegate?.exibeLogin()
         }
     }
 }
