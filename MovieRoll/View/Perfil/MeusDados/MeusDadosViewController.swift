@@ -9,10 +9,6 @@ import UIKit
 
 class MeusDadosViewController: UIViewController {
 
-//    @IBOutlet private weak var meusDadosImage: UIImageView!
-//    @IBOutlet private weak var meusDadosNomeTextField: UITextField!
-//    @IBOutlet private weak var meusDadosEmailTextField: UITextField!
-    
     //MARK: - Componentes
     
     lazy var meusDadosImage: UIImageView = {
@@ -94,6 +90,17 @@ class MeusDadosViewController: UIViewController {
         return textField
     }()
     
+    lazy var salvarButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Salvar", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.backgroundColor = UIColor(named: "orangeMovieRoll")
+        button.layer.cornerRadius = 5
+        button.addTarget(self, action: #selector(salvarButtonAction), for: .touchUpInside)
+        return button
+    }()
+    
     
     //MARK: - Public Properties
     
@@ -112,6 +119,7 @@ class MeusDadosViewController: UIViewController {
         view.addSubview(meusDadosEmailTextField)
         view.addSubview(senhaLabel)
         view.addSubview(meusDadosSenhaTextField)
+        view.addSubview(salvarButton)
         setupConstraints()
         configuraTela()
     }
@@ -149,8 +157,10 @@ class MeusDadosViewController: UIViewController {
             meusDadosSenhaTextField.leadingAnchor.constraint(equalTo: senhaLabel.leadingAnchor),
             meusDadosSenhaTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             
+            salvarButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8),
+            salvarButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            salvarButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
-        
     }
     
     private func configuraTela() {
@@ -162,15 +172,7 @@ class MeusDadosViewController: UIViewController {
     }
     
     //MARK: - Actions
-    
-//    @IBAction func alterarFotoButtonAction(_ sender: Any) {
-//        let imagePicker = UIImagePickerController()
-//        imagePicker.sourceType = .photoLibrary
-//        imagePicker.delegate = self
-//
-//        present(imagePicker, animated: true)
-//    }
-    
+        
     @objc func alterarFotoButtonAction() {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = .photoLibrary
@@ -179,7 +181,7 @@ class MeusDadosViewController: UIViewController {
         present(imagePicker, animated: true)
     }
     
-    @IBAction func salvarButtonAction(_ sender: Any) {
+    @objc func salvarButtonAction(_ sender: Any) {
         viewModel?.setUserName(nome: meusDadosNomeTextField.text)
         navigationController?.popViewController(animated: true)
     }

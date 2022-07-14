@@ -203,7 +203,6 @@ class RoletaViewModel {
         for index in 0...4 {
             if index > tag {
                 delegate?.estrelaVazia(tag: index)
-                
             } else {
                 delegate?.estrelaCheia(tag: index)
             }
