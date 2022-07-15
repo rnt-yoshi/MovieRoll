@@ -37,7 +37,6 @@ class PerfilViewController: UIViewController {
 extension PerfilViewController: PerfilViewModelDelegate {
     func exibeLogin() {
         let loginVC = LoginViewController()
-        loginVC.modalPresentationStyle = .fullScreen
         present(loginVC, animated: true)
     }
     

@@ -227,6 +227,7 @@ class LoginViewController: UIViewController {
                 
                 // ...
             }
+            
             ServiceAuth.estaLogado = true
             self.dismiss(animated: true)
         }

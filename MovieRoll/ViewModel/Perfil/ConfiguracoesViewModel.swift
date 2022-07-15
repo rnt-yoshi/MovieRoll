@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 protocol ConfiguracoesViewModelDelegate {
     func exibeAlertaRoletado()
@@ -38,7 +39,9 @@ class ConfiguracoesViewModel {
     func resetarAssistidosButton() {
         delegate?.exibeAlertaAssistido()
     }
+    
     func desconectarContaButton() {
+        
         delegate?.exibeAlertaDesconectar()
     }
     
@@ -64,6 +67,13 @@ class ConfiguracoesViewModel {
     }
     
     func desconectarConta() {
+        
+        let firebaseAuth = Auth.auth()
+     do {
+       try firebaseAuth.signOut()
+     } catch let signOutError as NSError {
+       print("Error signing out: %@", signOutError)
+     }
         ServiceAuth.estaLogado = false
         delegate?.navigationBack()
     }
