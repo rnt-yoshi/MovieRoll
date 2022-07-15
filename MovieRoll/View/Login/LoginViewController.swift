@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.attributedPlaceholder = NSAttributedString(
             string: "Digite seu e-mail",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]
         )
         textField.backgroundColor = UIColor(named: "darkGrayMovieRoll")
         textField.borderStyle = .roundedRect
@@ -56,7 +56,7 @@ class LoginViewController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.attributedPlaceholder = NSAttributedString(
             string: "Digite sua senha",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]
         )
         textField.backgroundColor = UIColor(named: "darkGrayMovieRoll")
         textField.borderStyle = .roundedRect
@@ -189,8 +189,16 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func entrarButtonAction() {
-        ServiceAuth.estaLogado = true
-        self.dismiss(animated: true)
+        
+        guard let email = emailTextField.text else { return }
+        guard let password = senhaTextField.text else { return }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+          guard let strongSelf = self else { return }
+
+            ServiceAuth.estaLogado = true
+            strongSelf.dismiss(animated: true)
+        }
     }
     
     @objc private func googleButtonAction() {
@@ -238,6 +246,9 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func cadastrarButtonAction() {
+        
+        let meusDadosVC = MeusDadosViewController()
+        present(meusDadosVC, animated: true)
         
     }
 }

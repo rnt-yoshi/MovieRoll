@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MeusDadosViewController: UIViewController {
 
@@ -42,7 +43,7 @@ class MeusDadosViewController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.attributedPlaceholder = NSAttributedString(
             string: "Digite seu nome",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]
         )
         textField.backgroundColor = UIColor(named: "darkGrayMovieRoll")
         textField.borderStyle = .roundedRect
@@ -61,9 +62,10 @@ class MeusDadosViewController: UIViewController {
     lazy var meusDadosEmailTextField: UITextField = {
         let textField = UITextField(frame: .zero)
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.keyboardType = .emailAddress
         textField.attributedPlaceholder = NSAttributedString(
             string: "Digite seu e-mail",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]
         )
         textField.backgroundColor = UIColor(named: "darkGrayMovieRoll")
         textField.borderStyle = .roundedRect
@@ -84,7 +86,7 @@ class MeusDadosViewController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.attributedPlaceholder = NSAttributedString(
             string: "Digite sua senha",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]
         )
         textField.backgroundColor = UIColor(named: "darkGrayMovieRoll")
         textField.borderStyle = .roundedRect
@@ -161,9 +163,9 @@ class MeusDadosViewController: UIViewController {
             meusDadosSenhaTextField.leadingAnchor.constraint(equalTo: senhaLabel.leadingAnchor),
             meusDadosSenhaTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             
-            salvarButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8),
-            salvarButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            salvarButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+            salvarButton.topAnchor.constraint(equalTo: meusDadosSenhaTextField.bottomAnchor, constant: 45),
+            salvarButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            salvarButton.widthAnchor.constraint(equalToConstant: 170)
         ])
     }
     
@@ -184,9 +186,15 @@ class MeusDadosViewController: UIViewController {
         present(imagePicker, animated: true)
     }
     
-    @objc func salvarButtonAction(_ sender: Any) {
-        viewModel?.setUserName(nome: meusDadosNomeTextField.text)
-        navigationController?.popViewController(animated: true)
+    @objc func salvarButtonAction() {
+//        viewModel?.setUserName(nome: meusDadosNomeTextField.text)
+//        navigationController?.popViewController(animated: true)
+        guard let email = meusDadosEmailTextField.text else { return }
+        guard let password = meusDadosSenhaTextField.text else { return }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            self.dismiss(animated: true)
+        }
     }
     
 }
