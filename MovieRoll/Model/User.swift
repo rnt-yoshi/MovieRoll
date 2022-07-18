@@ -9,10 +9,12 @@ import UIKit
 
 class User {
     var name: String
-    var image: String
+    var email: String
+    var image: Data
     
-    init(name: String, image: String) {
+    init(name: String, email: String, image: Data) {
         self.name = name
+        self.email = email
         self.image = image
     }
 }

@@ -74,7 +74,6 @@ class ConfiguracoesViewModel {
      } catch let signOutError as NSError {
        print("Error signing out: %@", signOutError)
      }
-        ServiceAuth.estaLogado = false
         delegate?.navigationBack()
     }
 }

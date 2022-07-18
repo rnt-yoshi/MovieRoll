@@ -26,11 +26,14 @@ class PerfilViewController: UIViewController {
         perfilTableView.dataSource = self
         
         viewModel.delegate = self
+        viewModel.pegarInformacoesDoUsuario()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        viewModel.pegarInformacoesDoUsuario()
         perfilTableView.reloadData()
     }
+    
 }
 //MARK: - PerfilViewModel Delegate
 
@@ -70,6 +73,8 @@ extension PerfilViewController: PerfilViewModelDelegate {
         }
     }
     
+    
+    
 }
 
 //MARK: - TableView DataSource & Delegate
@@ -90,7 +95,11 @@ extension PerfilViewController: UITableViewDataSource, UITableViewDelegate{
         
         var content = cell.defaultContentConfiguration()
         
-        content.image = UIImage(named: viewModel.getImage(indexPath: indexPath))
+        if indexPath.section == 0 {
+            content.image = UIImage(data: viewModel.getImage(indexPath: indexPath))
+        } else {
+            content.image = UIImage(named: viewModel.getImage(indexPath: indexPath))
+        }
         content.imageProperties.maximumSize = CGSize(
             width: viewModel.getMaximumSize(indexPath: indexPath),
             height: viewModel.getMaximumSize(indexPath: indexPath)

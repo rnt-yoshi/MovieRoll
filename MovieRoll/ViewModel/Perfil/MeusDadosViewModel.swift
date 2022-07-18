@@ -22,7 +22,7 @@ class MeusDadosViewModel {
         return user.name
     }
     
-    var getUserImage: String {
+    var getUserImage: Data {
         return user.image
     }
     
@@ -33,7 +33,7 @@ class MeusDadosViewModel {
         user.name = nome
     }
     
-    func setUserImage(image: String) {
+    func setUserImage(image: Data) {
         user.image = image
     }
 }

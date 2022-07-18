@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 protocol PerfilViewModelDelegate {
     func exibeMeusDados()
@@ -20,7 +21,8 @@ class PerfilViewModel {
     
     //MARK: - Private  Properties
     
-    private var userPerfil = User(name: "Steve Jobs", image: "profile01")
+    
+   // private var userPerfil = User(name: "Steve Jobs", image: "profile01")
     
     private var optionsDoPerfil = [
         OptionsDoPerfil(
@@ -46,7 +48,8 @@ class PerfilViewModel {
     ]
     
     //MARK: - Public Properties
-
+    
+    let serviceAuth: ServiceAuth = .init()
     var delegate: PerfilViewModelDelegate?
     
     var numberOfSection: Int {
@@ -54,7 +57,7 @@ class PerfilViewModel {
     }
     
     var getMeusDadosViewModel: MeusDadosViewModel? {
-        return MeusDadosViewModel(user: userPerfil)
+        return MeusDadosViewModel(user: ServiceAuth.userPerfil)
     }
     
     var getHistoricoViewModel: HistoricoViewModel? {
@@ -77,12 +80,18 @@ class PerfilViewModel {
         return 0
     }
     
-    func getImage(indexPath: IndexPath) -> String {
+    func getImage(indexPath: IndexPath) -> Data {
         if indexPath.section == 0 {
-            return userPerfil.image
-        } else {
+            return ServiceAuth.userPerfil.image
+        }
+        return Data()
+    }
+    
+    func getImage(indexPath: IndexPath) -> String {
+        if indexPath.section == 1 {
             return optionsDoPerfil[indexPath.row].imagem
         }
+        return String()
     }
     
     func getMaximumSize(indexPath: IndexPath) -> Int {
@@ -103,7 +112,7 @@ class PerfilViewModel {
     
     func getText(indexPath: IndexPath) -> String {
         if indexPath.section == 0 {
-            return userPerfil.name
+            return ServiceAuth.userPerfil.email
         } else {
             return optionsDoPerfil[indexPath.row].titulo
         }
@@ -117,8 +126,12 @@ class PerfilViewModel {
         }
     }
     
+    func pegarInformacoesDoUsuario() {
+        serviceAuth.informacoesDoUsuario()
+    }
+    
     func opcoesDaTableView(index: Int) {
-        if ServiceAuth.estaLogado{
+        if Auth.auth().currentUser != nil {
             if index == 0 {
                 delegate?.exibeMeusDados()
             }

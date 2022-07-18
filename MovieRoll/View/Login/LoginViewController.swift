@@ -58,6 +58,7 @@ class LoginViewController: UIViewController {
             string: "Digite sua senha",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]
         )
+        textField.isSecureTextEntry = true
         textField.backgroundColor = UIColor(named: "darkGrayMovieRoll")
         textField.borderStyle = .roundedRect
         textField.font = UIFont(name: "AmsiPro-Regular", size: 17)
@@ -118,6 +119,8 @@ class LoginViewController: UIViewController {
     
     //MARK: - Public Methods
     
+    let viewModel = LoginViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
@@ -133,7 +136,7 @@ class LoginViewController: UIViewController {
         view.addSubview(cadastrarButton)
         
         setupConstraints()
-        
+        viewModel.delegate = self
     }
     //MARK: - Private Methods
     
@@ -189,56 +192,14 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func entrarButtonAction() {
-        
-        guard let email = emailTextField.text else { return }
-        guard let password = senhaTextField.text else { return }
-        
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-          guard let strongSelf = self else { return }
-
-            ServiceAuth.estaLogado = true
-            strongSelf.dismiss(animated: true)
-        }
+        viewModel.efetuarLoginEmailSenha(
+            email: emailTextField.text,
+            password: senhaTextField.text
+        )
     }
     
     @objc private func googleButtonAction() {
-        
-        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-        
-        // Create Google Sign In configuration object.
-        let config = GIDConfiguration(clientID: clientID)
-        
-        // Start the sign in flow!
-        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
-            
-            if error != nil {
-                // ...
-                return
-            }
-            
-            guard
-                let authentication = user?.authentication,
-                let idToken = authentication.idToken
-            else {
-                return
-            }
-            
-            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-                                                           accessToken: authentication.accessToken)
-            
-            Auth.auth().signIn(with: credential) { authResult, error in
-                
-                if error != nil {
-                    
-                    return
-                }
-                
-                // ...
-            }
-            
-            ServiceAuth.estaLogado = true
-            self.dismiss(animated: true)
-        }
+        viewModel.efetuarLoginGoogle()
     }
     
     @objc private func facebookButtonAction() {
@@ -250,5 +211,23 @@ class LoginViewController: UIViewController {
         let meusDadosVC = MeusDadosViewController()
         present(meusDadosVC, animated: true)
         
+    }
+}
+
+extension LoginViewController: LoginViewModelDelegate {
+    func dismissModal() {
+        dismiss(animated: true)
+    }
+    
+    func loginGoogle(configuration: GIDConfiguration) {
+        GIDSignIn.sharedInstance.signIn(
+            with: configuration,
+            presenting: self
+        ) { [unowned self] user, error in
+            self.viewModel.tratarLoginGoogle(
+                user: user,
+                error: error
+            )
+        }
     }
 }

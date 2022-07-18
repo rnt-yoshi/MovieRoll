@@ -173,7 +173,7 @@ class MeusDadosViewController: UIViewController {
         guard let viewModel = viewModel else { return }
         meusDadosNomeTextField.text = viewModel.getUserName
         
-        meusDadosImage.image = UIImage(named: viewModel.getUserImage)
+        meusDadosImage.image = UIImage(data: viewModel.getUserImage)
     }
     
     //MARK: - Actions
