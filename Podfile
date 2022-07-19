@@ -6,7 +6,9 @@ target 'MovieRoll' do
   use_frameworks!
 
   # Pods for MovieRoll
-	pod 'FirebaseAuth'
-	pod 'GoogleSignIn'
+    pod 'FirebaseAuth'
+    pod 'GoogleSignIn'
+    pod 'FacebookCore'
+    pod 'FacebookLogin'
 
 end
