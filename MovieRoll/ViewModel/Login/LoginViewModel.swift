@@ -8,10 +8,12 @@
 import Foundation
 import FirebaseAuth
 import GoogleSignIn
+import FacebookLogin
 
 protocol LoginViewModelDelegate {
     func loginGoogle(configuration: GIDConfiguration)
     func dismissModal()
+    func loginFacebook(loginManager: LoginManager)
 }
 
 class LoginViewModel{
@@ -55,6 +57,18 @@ class LoginViewModel{
         // login do google deu certo
         salvarDadosNoFirebase(user: user)
         
+        delegate?.dismissModal()
+    }
+    
+    func efetuarLoginFacebook() {
+        
+        let loginManager = LoginManager()
+        
+        delegate?.loginFacebook(loginManager: loginManager)
+    }
+    
+    func tratarLoginFacebook(result:LoginManagerLoginResult?, error: Error?) {
+        serviceAuth.tratarResultadoLoginFacebook(result: result, error: error)
         delegate?.dismissModal()
     }
     

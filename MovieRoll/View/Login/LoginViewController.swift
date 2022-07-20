@@ -9,6 +9,8 @@ import UIKit
 import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
+import FacebookLogin
+
 
 class LoginViewController: UIViewController {
     
@@ -37,6 +39,7 @@ class LoginViewController: UIViewController {
             string: "Digite seu e-mail",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]
         )
+        textField.autocapitalizationType = UITextAutocapitalizationType.none
         textField.backgroundColor = UIColor(named: "darkGrayMovieRoll")
         textField.borderStyle = .roundedRect
         textField.font = UIFont(name: "AmsiPro-Regular", size: 17)
@@ -203,7 +206,7 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func facebookButtonAction() {
-        
+        viewModel.efetuarLoginFacebook()
     }
     
     @objc private func cadastrarButtonAction() {
@@ -215,6 +218,12 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: LoginViewModelDelegate {
+    func loginFacebook(loginManager: LoginManager) {
+        loginManager.logIn(permissions: ["public_profile"], from: self) { result, error in
+    self.viewModel.tratarLoginFacebook(result: result, error: error)
+}
+    }
+    
     func dismissModal() {
         dismiss(animated: true)
     }

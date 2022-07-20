@@ -95,11 +95,8 @@ extension PerfilViewController: UITableViewDataSource, UITableViewDelegate{
         
         var content = cell.defaultContentConfiguration()
         
-        if indexPath.section == 0 {
-            content.image = UIImage(data: viewModel.getImage(indexPath: indexPath))
-        } else {
-            content.image = UIImage(named: viewModel.getImage(indexPath: indexPath))
-        }
+        content.image = UIImage(data: viewModel.getImage(indexPath: indexPath)) ?? UIImage(named: viewModel.getImage(indexPath: indexPath))
+        
         content.imageProperties.maximumSize = CGSize(
             width: viewModel.getMaximumSize(indexPath: indexPath),
             height: viewModel.getMaximumSize(indexPath: indexPath)

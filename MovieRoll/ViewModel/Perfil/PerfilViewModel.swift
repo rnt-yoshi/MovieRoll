@@ -112,7 +112,7 @@ class PerfilViewModel {
     
     func getText(indexPath: IndexPath) -> String {
         if indexPath.section == 0 {
-            return ServiceAuth.userPerfil.email
+            return ServiceAuth.userPerfil.name
         } else {
             return optionsDoPerfil[indexPath.row].titulo
         }

@@ -9,6 +9,7 @@ import UIKit
 import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
+import FacebookLogin
 
 class ServiceAuth: UIViewController {
     
@@ -64,4 +65,29 @@ class ServiceAuth: UIViewController {
         
         return config
     }
+    
+    func tratarResultadoLoginFacebook(result: LoginManagerLoginResult?, error: Error?) {
+        switch result {
+            
+        case .none:
+            print("Um erro aconteceu")
+        case .some(let loginResult):
+            
+            guard let token = loginResult.token?.tokenString else {
+                return
+            }
+            
+            let credencial = pegarConfiguracaoFacebook(
+                token: token
+            )
+            
+            salvarNoFirebase(com: credencial)
+        }
+    }
+    
+    private func pegarConfiguracaoFacebook(token: String) -> AuthCredential {
+            return FacebookAuthProvider.credential(
+                withAccessToken: token
+            )
+        }
 }
