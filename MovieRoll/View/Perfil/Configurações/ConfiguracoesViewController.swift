@@ -33,6 +33,9 @@ class ConfiguracoesViewController: UIViewController {
     }
     
     @IBAction func desconectarContaButtonPressed(_ sender: Any) {
+        viewModel?.resetarFilmesRoletados()
+        viewModel?.resetarFilmesFavoritos()
+        viewModel?.resetarFilmesAssistidos()
         viewModel?.desconectarContaButton()
     }
 }

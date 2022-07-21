@@ -210,7 +210,6 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func cadastrarButtonAction() {
-        
         let meusDadosVC = MeusDadosViewController()
         present(meusDadosVC, animated: true)
         
@@ -218,8 +217,18 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: LoginViewModelDelegate {
+    func alertaErroLogin() {
+        let alerta = UIAlertController(title: "Erro ao fazer o login", message: "Tente novamente.", preferredStyle: .alert)
+
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        
+        alerta.addAction(okAction)
+    
+        present(alerta, animated: true)
+    }
+    
     func loginFacebook(loginManager: LoginManager) {
-        loginManager.logIn(permissions: ["public_profile"], from: self) { result, error in
+        loginManager.logIn(permissions: ["public_profile", "email"], from: self) { result, error in
     self.viewModel.tratarLoginFacebook(result: result, error: error)
 }
     }

@@ -8,32 +8,25 @@
 import Foundation
 
 class MeusDadosViewModel {
-    //MARK: - Private Properties
-    
-    private var user: User
-    
-    init(user: User) {
-        self.user = user
-    }
     
     //MARK: - Public Properties
     
     var getUserName: String {
-        return user.name
+        return ServiceAuth.userPerfil.name
     }
     
     var getUserImage: Data {
-        return user.image
+        return ServiceAuth.userPerfil.image
     }
     
     //MARK: - Public Methods
     
     func setUserName(nome: String?) {
         guard let nome = nome else { return }
-        user.name = nome
+        ServiceAuth.userPerfil.name = nome
     }
     
     func setUserImage(image: Data) {
-        user.image = image
+        ServiceAuth.userPerfil.image = image
     }
 }

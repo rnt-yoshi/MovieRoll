@@ -14,21 +14,12 @@ protocol LoginViewModelDelegate {
     func loginGoogle(configuration: GIDConfiguration)
     func dismissModal()
     func loginFacebook(loginManager: LoginManager)
+    func alertaErroLogin()
 }
 
 class LoginViewModel{
     let serviceAuth: ServiceAuth = .init()
     var delegate: LoginViewModelDelegate?
-    
-    func verificaUsuarioLogado() -> Bool {
-        let currentUser = Auth.auth().currentUser
-        
-        if currentUser == nil {
-            return false
-        } else {
-            return true
-        }
-    }
     
     func efetuarLoginEmailSenha(email: String?, password: String?) {
         guard let email = email else { return }
@@ -36,7 +27,10 @@ class LoginViewModel{
         
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
             guard let self = self else { return }
-            
+            if error != nil {
+                self.delegate?.alertaErroLogin()
+                return
+            }
             self.delegate?.dismissModal()
         }
     }

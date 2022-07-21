@@ -27,8 +27,8 @@ class ServiceAuth: UIViewController {
             guard let imageData =  try? Data(contentsOf: photo) else { return }
             ServiceAuth.userPerfil.image = imageData
         }
-        ServiceAuth.userPerfil.name = currentUser?.displayName ?? "Desconectado"
-        ServiceAuth.userPerfil.email = currentUser?.email ?? "Desconectado"
+        ServiceAuth.userPerfil.name = currentUser?.displayName ?? currentUser?.email ?? "Desconectado"
+        ServiceAuth.userPerfil.email = currentUser?.email ?? ""
     }
     
     func salvarNoFirebase(com credencial: AuthCredential) {

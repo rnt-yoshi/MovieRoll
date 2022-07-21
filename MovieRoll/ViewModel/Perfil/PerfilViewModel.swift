@@ -57,7 +57,7 @@ class PerfilViewModel {
     }
     
     var getMeusDadosViewModel: MeusDadosViewModel? {
-        return MeusDadosViewModel(user: ServiceAuth.userPerfil)
+        return MeusDadosViewModel()
     }
     
     var getHistoricoViewModel: HistoricoViewModel? {
