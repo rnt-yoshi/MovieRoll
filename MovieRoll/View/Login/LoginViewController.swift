@@ -112,9 +112,9 @@ final class LoginViewController: UIViewController {
     lazy var cadastrarButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Cadastrar-se", for: .normal)
+        button.setTitle("Não tem uma conta? Crie uma agora", for: .normal)
         button.setTitleColor(UIColor(named: "blueMovieRoll"), for: .normal)
-        button.titleLabel?.font = UIFont(name: "AmsiPro-Bold", size: 20)
+        button.titleLabel?.font = UIFont(name: "AmsiPro-Bold", size: 16)
         button.addTarget(self, action: #selector(cadastrarButtonAction), for: .touchUpInside)
         return button
     }()
@@ -179,17 +179,16 @@ final class LoginViewController: UIViewController {
             esqueciMunhaSenhaButton.trailingAnchor.constraint(equalTo: senhaTextField.trailingAnchor),
             
             entrarButton.topAnchor.constraint(equalTo: esqueciMunhaSenhaButton.bottomAnchor, constant: 24),
-            entrarButton.leadingAnchor.constraint(equalTo: senhaTextField.leadingAnchor),
-            entrarButton.trailingAnchor.constraint(equalTo: senhaTextField.trailingAnchor),
-            
+            entrarButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            entrarButton.widthAnchor.constraint(equalToConstant: 170),
             
             googleButton.topAnchor.constraint(equalTo: entrarButton.bottomAnchor, constant: 22),
-            googleButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
+            googleButton.leadingAnchor.constraint(equalTo: entrarButton.leadingAnchor),
             googleButton.heightAnchor.constraint(equalToConstant: 60),
             googleButton.widthAnchor.constraint(equalToConstant: 60),
             
             facebookButton.topAnchor.constraint(equalTo: entrarButton.bottomAnchor, constant: 24),
-            facebookButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
+            facebookButton.trailingAnchor.constraint(equalTo: entrarButton.trailingAnchor),
             facebookButton.heightAnchor.constraint(equalToConstant: 50),
             facebookButton.widthAnchor.constraint(equalToConstant: 50),
             
