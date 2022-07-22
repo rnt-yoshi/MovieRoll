@@ -31,12 +31,13 @@ class ServiceAuth: UIViewController {
         ServiceAuth.userPerfil.email = currentUser?.email ?? ""
     }
     
-    func salvarNoFirebase(com credencial: AuthCredential) {
+    func salvarNoFirebase(com credencial: AuthCredential, completion: @escaping (Bool) -> Void) {
         Auth.auth().signIn(with: credencial) { authResult, error in
             if let error = error {
                 print(error)
             }
-            // ...
+            self.informacoesDoUsuario()
+            completion(true)
             return
         }
     }
@@ -66,7 +67,7 @@ class ServiceAuth: UIViewController {
         return config
     }
     
-    func tratarResultadoLoginFacebook(result: LoginManagerLoginResult?, error: Error?) {
+    func tratarResultadoLoginFacebook(result: LoginManagerLoginResult?, error: Error?, completion: @escaping (Bool) -> Void) {
         switch result {
             
         case .none:
@@ -81,7 +82,7 @@ class ServiceAuth: UIViewController {
                 token: token
             )
             
-            salvarNoFirebase(com: credencial)
+            salvarNoFirebase(com: credencial, completion: completion)
         }
     }
     
