@@ -111,7 +111,8 @@ class MeusDadosViewController: UIViewController {
     lazy var eyeButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "eye"), for: .normal)
+        button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        button.tintColor = UIColor.gray
         button.addTarget(self, action: #selector(eyeButtonAction), for: .touchUpInside)
         return button
     }()
@@ -182,10 +183,9 @@ class MeusDadosViewController: UIViewController {
             salvarButton.widthAnchor.constraint(equalToConstant: 170),
             
             eyeButton.centerYAnchor.constraint(equalTo: meusDadosSenhaTextField.centerYAnchor),
-            eyeButton.heightAnchor.constraint(equalTo: meusDadosSenhaTextField.heightAnchor),
-            eyeButton.trailingAnchor.constraint(equalTo: meusDadosSenhaTextField.trailingAnchor, constant: -4),
-            
-    
+            eyeButton.heightAnchor.constraint(equalToConstant: 20),
+            eyeButton.widthAnchor.constraint(equalToConstant: 25),
+            eyeButton.trailingAnchor.constraint(equalTo: meusDadosSenhaTextField.trailingAnchor, constant: -6),
         ])
     }
     
@@ -210,7 +210,7 @@ class MeusDadosViewController: UIViewController {
     }
     
     @objc func eyeButtonAction() {
-        
+        viewModel?.eyeButtonPressed(visivel: meusDadosSenhaTextField.isSecureTextEntry)
     }
     
 }
@@ -231,6 +231,16 @@ extension MeusDadosViewController: UIImagePickerControllerDelegate, UINavigation
 }
 
 extension MeusDadosViewController: MeusDadosViewModelDelegate {
+    func secureSenhaTextField() {
+        eyeButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        meusDadosSenhaTextField.isSecureTextEntry = true
+    }
+    
+    func notSecureSenhaTextField() {
+        eyeButton.setImage(UIImage(systemName: "eye"), for: .normal)
+        meusDadosSenhaTextField.isSecureTextEntry = false
+    }
+    
     func dismissModal() {
         self.dismiss(animated: true)
     }

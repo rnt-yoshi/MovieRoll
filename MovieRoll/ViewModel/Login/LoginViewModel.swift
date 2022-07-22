@@ -15,6 +15,8 @@ protocol LoginViewModelDelegate {
     func dismissModal()
     func loginFacebook(loginManager: LoginManager)
     func alertaErroLogin()
+    func secureSenhaTextField()
+    func notSecureSenhaTextField()
 }
 
 class LoginViewModel{
@@ -70,5 +72,13 @@ class LoginViewModel{
         guard let credencial = serviceAuth.pegarCredencialGoogle(de: user) else { return }
 
         serviceAuth.salvarNoFirebase(com: credencial)
+    }
+    
+    func eyeButtonPressed(visivel: Bool) {
+        if visivel {
+            delegate?.notSecureSenhaTextField()
+        } else {
+            delegate?.secureSenhaTextField()
+        }
     }
 }

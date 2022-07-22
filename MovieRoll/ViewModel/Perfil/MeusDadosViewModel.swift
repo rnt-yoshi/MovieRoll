@@ -12,6 +12,8 @@ protocol MeusDadosViewModelDelegate {
     func dismissModal()
     func alertaErrorEmail()
     func alertaErrorPassword()
+    func secureSenhaTextField()
+    func notSecureSenhaTextField()
 }
 
 class MeusDadosViewModel {
@@ -60,6 +62,14 @@ class MeusDadosViewModel {
           
         
             self.delegate?.dismissModal()
+        }
+    }
+    
+    func eyeButtonPressed(visivel: Bool) {
+        if visivel {
+            delegate?.notSecureSenhaTextField()
+        } else {
+            delegate?.secureSenhaTextField()
         }
     }
 }

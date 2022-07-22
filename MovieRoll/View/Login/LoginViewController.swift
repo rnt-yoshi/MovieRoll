@@ -119,6 +119,15 @@ final class LoginViewController: UIViewController {
         return button
     }()
     
+    lazy var eyeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        button.tintColor = UIColor.gray
+        button.addTarget(self, action: #selector(eyeButtonAction), for: .touchUpInside)
+        return button
+    }()
+    
     //MARK: - Public Methods
     
     let viewModel = LoginViewModel()
@@ -136,6 +145,7 @@ final class LoginViewController: UIViewController {
         view.addSubview(googleButton)
         view.addSubview(facebookButton)
         view.addSubview(cadastrarButton)
+        view.addSubview(eyeButton)
         
         setupConstraints()
         viewModel.delegate = self
@@ -184,6 +194,11 @@ final class LoginViewController: UIViewController {
             
             cadastrarButton.topAnchor.constraint(equalTo: facebookButton.bottomAnchor, constant: 40),
             cadastrarButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            eyeButton.centerYAnchor.constraint(equalTo: senhaTextField.centerYAnchor),
+            eyeButton.heightAnchor.constraint(equalToConstant: 20),
+            eyeButton.widthAnchor.constraint(equalToConstant: 25),
+            eyeButton.trailingAnchor.constraint(equalTo: senhaTextField.trailingAnchor, constant: -6),
         ])
     }
     //MARK: - Actions
@@ -214,9 +229,23 @@ final class LoginViewController: UIViewController {
         present(meusDadosVC, animated: true)
         
     }
+    
+    @objc private func eyeButtonAction() {
+        viewModel.eyeButtonPressed(visivel: senhaTextField.isSecureTextEntry)
+    }
 }
 
 extension LoginViewController: LoginViewModelDelegate {
+    func secureSenhaTextField() {
+        eyeButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        senhaTextField.isSecureTextEntry = true
+    }
+    
+    func notSecureSenhaTextField() {
+        eyeButton.setImage(UIImage(systemName: "eye"), for: .normal)
+        senhaTextField.isSecureTextEntry = false
+    }
+    
     func alertaErroLogin() {
         let alerta = UIAlertController(title: "Erro ao fazer o login", message: "Tente novamente.", preferredStyle: .alert)
 
