@@ -29,7 +29,8 @@ class PerfilViewController: UIViewController {
         viewModel.pegarInformacoesDoUsuario()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         viewModel.pegarInformacoesDoUsuario()
         perfilTableView.reloadData()
     }
@@ -72,9 +73,6 @@ extension PerfilViewController: PerfilViewModelDelegate {
             present(ajudaVC, animated: true)
         }
     }
-    
-    
-    
 }
 
 //MARK: - TableView DataSource & Delegate

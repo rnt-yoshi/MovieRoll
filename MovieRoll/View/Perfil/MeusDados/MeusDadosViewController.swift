@@ -208,7 +208,11 @@ final class MeusDadosViewController: UIViewController {
     }
     
     @objc func salvarButtonAction() {
-        viewModel?.botaoSalvarAction(email: meusDadosEmailTextField.text, password: meusDadosSenhaTextField.text)
+        viewModel?.botaoSalvarAction(
+            nome: meusDadosNomeTextField.text,
+            email: meusDadosEmailTextField.text,
+            password: meusDadosSenhaTextField.text
+        )
     }
     
     @objc func eyeButtonAction() {
@@ -232,6 +236,16 @@ extension MeusDadosViewController: UIImagePickerControllerDelegate, UINavigation
 }
 
 extension MeusDadosViewController: MeusDadosViewModelDelegate {
+    func alertaErroAutenticacao() {
+        let alerta = UIAlertController(title: "Erro na autenticação", message: "Tente mais tarde", preferredStyle: .alert)
+
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        
+        alerta.addAction(okAction)
+    
+        present(alerta, animated: true)
+    }
+    
     func secureSenhaTextField() {
         eyeButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         meusDadosSenhaTextField.isSecureTextEntry = true
@@ -243,7 +257,8 @@ extension MeusDadosViewController: MeusDadosViewModelDelegate {
     }
     
     func dismissModal() {
-        self.dismiss(animated: true)
+        self.view.window!.rootViewController?.dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     func alertaErrorPassword() {

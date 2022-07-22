@@ -265,6 +265,7 @@ extension LoginViewController: LoginViewModelDelegate {
     }
     
     func dismissModal() {
+        presentingViewController?.childViewControllerForPointerLock?.children.last?.viewWillAppear(true)
         dismiss(animated: true)
     }
     
