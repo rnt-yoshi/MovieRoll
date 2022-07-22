@@ -38,6 +38,7 @@
 		8A3BA171284A607100C74C77 /* OptionsDoPerfil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA170284A607100C74C77 /* OptionsDoPerfil.swift */; };
 		8A3BA177284A659E00C74C77 /* PerfilViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA176284A659E00C74C77 /* PerfilViewModel.swift */; };
 		8A4C2BEF2885F05C005B781F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C2BEE2885F05C005B781F /* LoginViewModel.swift */; };
+		8A625E52288AD6E400B1C79E /* ViewControllerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A625E51288AD6E400B1C79E /* ViewControllerPreview.swift */; };
 		8A66262F287C6DA40088A401 /* MovieRolls+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A662629287C6DA40088A401 /* MovieRolls+CoreDataClass.swift */; };
 		8A662630287C6DA40088A401 /* MovieRolls+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A66262A287C6DA40088A401 /* MovieRolls+CoreDataProperties.swift */; };
 		8A662631287C6DA40088A401 /* MovieFavorite+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A66262B287C6DA40088A401 /* MovieFavorite+CoreDataClass.swift */; };
@@ -94,6 +95,7 @@
 		8A3BA170284A607100C74C77 /* OptionsDoPerfil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsDoPerfil.swift; sourceTree = "<group>"; };
 		8A3BA176284A659E00C74C77 /* PerfilViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewModel.swift; sourceTree = "<group>"; };
 		8A4C2BEE2885F05C005B781F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		8A625E51288AD6E400B1C79E /* ViewControllerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPreview.swift; sourceTree = "<group>"; };
 		8A662629287C6DA40088A401 /* MovieRolls+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieRolls+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8A66262A287C6DA40088A401 /* MovieRolls+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieRolls+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8A66262B287C6DA40088A401 /* MovieFavorite+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieFavorite+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				4256CE4A283E4CAA0017DD5F /* Main.storyboard */,
 				4256CE4F283E4CAB0017DD5F /* LaunchScreen.storyboard */,
 				4256CE4D283E4CAB0017DD5F /* Assets.xcassets */,
+				8A625E51288AD6E400B1C79E /* ViewControllerPreview.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 				8A2F554A2880A0B1008B74CD /* ServiceAuth.swift in Sources */,
 				8A72D0B6283FA14600977B34 /* LancamentosViewController.swift in Sources */,
 				8A72D0B4283FA12800977B34 /* RoletaViewController.swift in Sources */,
+				8A625E52288AD6E400B1C79E /* ViewControllerPreview.swift in Sources */,
 				C635E820284C4EF100DF525E /* RoletaViewModel.swift in Sources */,
 				4247B010284B85E9004A12EE /* Service.swift in Sources */,
 				8AF6492D284E350400308711 /* HistoricoCollectionViewCell.swift in Sources */,

@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class MeusDadosViewController: UIViewController {
+final class MeusDadosViewController: UIViewController {
 
     //MARK: - Componentes
     
@@ -117,8 +117,6 @@ class MeusDadosViewController: UIViewController {
         return button
     }()
     
-    
-    
     //MARK: - Public Properties
     
     var viewModel: MeusDadosViewModel?
@@ -158,25 +156,28 @@ class MeusDadosViewController: UIViewController {
             alterarFotoButton.topAnchor.constraint(equalTo: meusDadosImage.bottomAnchor, constant: 16),
             
             nameLabel.topAnchor.constraint(equalTo: alterarFotoButton.bottomAnchor, constant: 24),
-            nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
             
             meusDadosNomeTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4),
             meusDadosNomeTextField.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-            meusDadosNomeTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            meusDadosNomeTextField.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
             
             emailLabel.topAnchor.constraint(equalTo: meusDadosNomeTextField.bottomAnchor, constant: 24),
-            emailLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            emailLabel.leadingAnchor.constraint(equalTo: meusDadosNomeTextField.leadingAnchor),
+            emailLabel.trailingAnchor.constraint(equalTo: meusDadosNomeTextField.trailingAnchor),
             
             meusDadosEmailTextField.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 4),
             meusDadosEmailTextField.leadingAnchor.constraint(equalTo: emailLabel.leadingAnchor),
-            meusDadosEmailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            meusDadosEmailTextField.trailingAnchor.constraint(equalTo: emailLabel.trailingAnchor),
             
             senhaLabel.topAnchor.constraint(equalTo: meusDadosEmailTextField.bottomAnchor, constant: 24),
-            senhaLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            senhaLabel.leadingAnchor.constraint(equalTo: meusDadosEmailTextField.leadingAnchor),
+            senhaLabel.trailingAnchor.constraint(equalTo: meusDadosEmailTextField.trailingAnchor),
             
             meusDadosSenhaTextField.topAnchor.constraint(equalTo: senhaLabel.bottomAnchor, constant: 4),
             meusDadosSenhaTextField.leadingAnchor.constraint(equalTo: senhaLabel.leadingAnchor),
-            meusDadosSenhaTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            meusDadosSenhaTextField.trailingAnchor.constraint(equalTo: senhaLabel.trailingAnchor),
             
             salvarButton.topAnchor.constraint(equalTo: meusDadosSenhaTextField.bottomAnchor, constant: 45),
             salvarButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -212,7 +213,6 @@ class MeusDadosViewController: UIViewController {
     @objc func eyeButtonAction() {
         viewModel?.eyeButtonPressed(visivel: meusDadosSenhaTextField.isSecureTextEntry)
     }
-    
 }
 
 //MARK: - UIImagePickerController Delegate
@@ -263,6 +263,18 @@ extension MeusDadosViewController: MeusDadosViewModelDelegate {
         alerta.addAction(okAction)
     
         present(alerta, animated: true)
+    }
+}
 
+import SwiftUI
+
+struct MeusDadosViewControllerPreviews: PreviewProvider {
+    static var previews: some View {
+        ForEach(deviceNames, id: \.self) { deviceName in
+            ViewControllerPreview {
+                MeusDadosViewController()
+            }.previewDevice(PreviewDevice(rawValue: deviceName))
+                .previewDisplayName(deviceName)
+        }
     }
 }

@@ -161,24 +161,26 @@ final class LoginViewController: UIViewController {
             
             emailLabel.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 24),
             emailLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 64),
+            emailLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -64),
             
             emailTextField.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 2),
             emailTextField.leadingAnchor.constraint(equalTo: emailLabel.leadingAnchor),
-            emailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -64),
+            emailTextField.trailingAnchor.constraint(equalTo: emailLabel.trailingAnchor),
             
             senhaLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 16),
-            senhaLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 64),
+            senhaLabel.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
+            senhaLabel.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
             
             senhaTextField.topAnchor.constraint(equalTo: senhaLabel.bottomAnchor, constant: 2),
             senhaTextField.leadingAnchor.constraint(equalTo: senhaLabel.leadingAnchor),
-            senhaTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -64),
+            senhaTextField.trailingAnchor.constraint(equalTo: senhaLabel.trailingAnchor),
             
             esqueciMunhaSenhaButton.topAnchor.constraint(equalTo: senhaTextField.bottomAnchor, constant: 2),
             esqueciMunhaSenhaButton.trailingAnchor.constraint(equalTo: senhaTextField.trailingAnchor),
             
             entrarButton.topAnchor.constraint(equalTo: esqueciMunhaSenhaButton.bottomAnchor, constant: 24),
-            entrarButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 64),
-            entrarButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -64),
+            entrarButton.leadingAnchor.constraint(equalTo: senhaTextField.leadingAnchor),
+            entrarButton.trailingAnchor.constraint(equalTo: senhaTextField.trailingAnchor),
             
             
             googleButton.topAnchor.constraint(equalTo: entrarButton.bottomAnchor, constant: 22),
@@ -281,19 +283,13 @@ extension LoginViewController: LoginViewModelDelegate {
 
 import SwiftUI
 
-extension LoginViewController: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> LoginViewController {
-        return LoginViewController()
-    }
-    
-    func updateUIViewController(_ uiViewController: LoginViewController, context: Context) {
-        
-    }
-    
-}
-
 struct LoginViewControllerPreviews: PreviewProvider {
     static var previews: some View {
-        LoginViewController()
+        ForEach(deviceNames, id: \.self) { deviceName in
+            ViewControllerPreview {
+                LoginViewController()
+            }.previewDevice(PreviewDevice(rawValue: deviceName))
+                .previewDisplayName(deviceName)
+        }
     }
 }
