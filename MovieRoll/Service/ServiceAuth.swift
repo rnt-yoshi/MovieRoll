@@ -27,7 +27,7 @@ class ServiceAuth: UIViewController {
             guard let imageData =  try? Data(contentsOf: photo) else { return }
             ServiceAuth.userPerfil.image = imageData
         }
-        ServiceAuth.userPerfil.name = currentUser?.displayName ?? currentUser?.email ?? "Desconectado"
+        ServiceAuth.userPerfil.name = currentUser?.displayName ?? ""
         ServiceAuth.userPerfil.email = currentUser?.email ?? ""
     }
     

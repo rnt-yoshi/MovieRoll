@@ -26,6 +26,10 @@ class MeusDadosViewModel {
         return ServiceAuth.userPerfil.name
     }
     
+    var getUserEmail: String {
+        return ServiceAuth.userPerfil.email
+    }
+    
     var getUserImage: Data {
         return ServiceAuth.userPerfil.image
     }

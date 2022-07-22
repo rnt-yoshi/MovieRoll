@@ -193,6 +193,7 @@ final class MeusDadosViewController: UIViewController {
     private func configuraTela() {
         guard let viewModel = viewModel else { return }
         meusDadosNomeTextField.text = viewModel.getUserName
+        meusDadosEmailTextField.text = viewModel.getUserEmail
         meusDadosImage.image = UIImage(data: viewModel.getUserImage)
     }
     

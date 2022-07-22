@@ -112,7 +112,13 @@ class PerfilViewModel {
     
     func getText(indexPath: IndexPath) -> String {
         if indexPath.section == 0 {
-            return ServiceAuth.userPerfil.name
+            if ServiceAuth.userPerfil.name != "" {
+                return ServiceAuth.userPerfil.name
+            }
+            if ServiceAuth.userPerfil.email != "" {
+                return ServiceAuth.userPerfil.email
+            }
+            return "Desconectado"
         } else {
             return optionsDoPerfil[indexPath.row].titulo
         }
