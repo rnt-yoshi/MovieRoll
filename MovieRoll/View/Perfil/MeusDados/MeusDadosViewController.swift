@@ -67,6 +67,7 @@ class MeusDadosViewController: UIViewController {
             string: "Digite seu e-mail",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]
         )
+        textField.autocapitalizationType = UITextAutocapitalizationType.none
         textField.backgroundColor = UIColor(named: "darkGrayMovieRoll")
         textField.borderStyle = .roundedRect
         textField.font = UIFont(name: "AmsiPro-Regular", size: 17)
@@ -88,6 +89,7 @@ class MeusDadosViewController: UIViewController {
             string: "Digite sua senha",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]
         )
+        textField.isSecureTextEntry = true
         textField.backgroundColor = UIColor(named: "darkGrayMovieRoll")
         textField.borderStyle = .roundedRect
         textField.font = UIFont(name: "AmsiPro-Regular", size: 17)
@@ -105,6 +107,15 @@ class MeusDadosViewController: UIViewController {
         button.addTarget(self, action: #selector(salvarButtonAction), for: .touchUpInside)
         return button
     }()
+    
+    lazy var eyeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "eye"), for: .normal)
+        button.addTarget(self, action: #selector(eyeButtonAction), for: .touchUpInside)
+        return button
+    }()
+    
     
     
     //MARK: - Public Properties
@@ -125,9 +136,12 @@ class MeusDadosViewController: UIViewController {
         view.addSubview(senhaLabel)
         view.addSubview(meusDadosSenhaTextField)
         view.addSubview(salvarButton)
+        view.addSubview(eyeButton)
         setupConstraints()
         
         configuraTela()
+        
+        viewModel?.delegate = self
     }
     
     //MARK: - Private Methods
@@ -165,14 +179,19 @@ class MeusDadosViewController: UIViewController {
             
             salvarButton.topAnchor.constraint(equalTo: meusDadosSenhaTextField.bottomAnchor, constant: 45),
             salvarButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            salvarButton.widthAnchor.constraint(equalToConstant: 170)
+            salvarButton.widthAnchor.constraint(equalToConstant: 170),
+            
+            eyeButton.centerYAnchor.constraint(equalTo: meusDadosSenhaTextField.centerYAnchor),
+            eyeButton.heightAnchor.constraint(equalTo: meusDadosSenhaTextField.heightAnchor),
+            eyeButton.trailingAnchor.constraint(equalTo: meusDadosSenhaTextField.trailingAnchor, constant: -4),
+            
+    
         ])
     }
     
     private func configuraTela() {
         guard let viewModel = viewModel else { return }
         meusDadosNomeTextField.text = viewModel.getUserName
-        
         meusDadosImage.image = UIImage(data: viewModel.getUserImage)
     }
     
@@ -187,14 +206,11 @@ class MeusDadosViewController: UIViewController {
     }
     
     @objc func salvarButtonAction() {
-//        viewModel?.setUserName(nome: meusDadosNomeTextField.text)
-//        navigationController?.popViewController(animated: true)
-        guard let email = meusDadosEmailTextField.text else { return }
-        guard let password = meusDadosSenhaTextField.text else { return }
+        viewModel?.botaoSalvarAction(email: meusDadosEmailTextField.text, password: meusDadosSenhaTextField.text)
+    }
+    
+    @objc func eyeButtonAction() {
         
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            self.dismiss(animated: true)
-        }
     }
     
 }
@@ -211,5 +227,32 @@ extension MeusDadosViewController: UIImagePickerControllerDelegate, UINavigation
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true)
+    }
+}
+
+extension MeusDadosViewController: MeusDadosViewModelDelegate {
+    func dismissModal() {
+        self.dismiss(animated: true)
+    }
+    
+    func alertaErrorPassword() {
+        let alerta = UIAlertController(title: "Atenção", message: "Senha precisa ter 6 caracteres", preferredStyle: .alert)
+
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        
+        alerta.addAction(okAction)
+    
+        present(alerta, animated: true)
+    }
+ 
+    func alertaErrorEmail() {
+        let alerta = UIAlertController(title: "Atenção", message: "E-mail no formato inválido", preferredStyle: .alert)
+
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        
+        alerta.addAction(okAction)
+    
+        present(alerta, animated: true)
+
     }
 }

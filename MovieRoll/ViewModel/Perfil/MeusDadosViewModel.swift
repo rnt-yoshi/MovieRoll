@@ -6,10 +6,19 @@
 //
 
 import Foundation
+import FirebaseAuth
+
+protocol MeusDadosViewModelDelegate {
+    func dismissModal()
+    func alertaErrorEmail()
+    func alertaErrorPassword()
+}
 
 class MeusDadosViewModel {
     
     //MARK: - Public Properties
+    
+    var delegate: MeusDadosViewModelDelegate?
     
     var getUserName: String {
         return ServiceAuth.userPerfil.name
@@ -28,5 +37,29 @@ class MeusDadosViewModel {
     
     func setUserImage(image: Data) {
         ServiceAuth.userPerfil.image = image
+    }
+    
+    func botaoSalvarAction(email: String?, password: String?) {
+        guard let email = email else { return }
+        guard let password = password else { return }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            
+            if error != nil {
+                guard let descricaoError = error?.localizedDescription else { return }
+                if descricaoError.contains("email") {
+                    self.delegate?.alertaErrorEmail()
+                    return
+                }
+                if descricaoError.contains("password") {
+                    self.delegate?.alertaErrorPassword()
+                    return
+                }
+            }
+            
+          
+        
+            self.delegate?.dismissModal()
+        }
     }
 }

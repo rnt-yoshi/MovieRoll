@@ -11,8 +11,7 @@ import FirebaseAuth
 import GoogleSignIn
 import FacebookLogin
 
-
-class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
     
     //MARK: - Components
     
@@ -71,7 +70,7 @@ class LoginViewController: UIViewController {
     lazy var esqueciMunhaSenhaButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Esqueci minha senha.", for: .normal)
+        button.setTitle("Esqueci minha senha", for: .normal)
         button.setTitleColor(UIColor(named: "blueMovieRoll"), for: .normal)
         button.titleLabel?.font = UIFont(name: "AmsiPro-Regular", size: 14)
         button.addTarget(self, action: #selector(esqueciMunhaSenhaButtonAction), for: .touchUpInside)
@@ -113,7 +112,7 @@ class LoginViewController: UIViewController {
     lazy var cadastrarButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Cadastrar-se.", for: .normal)
+        button.setTitle("Cadastrar-se", for: .normal)
         button.setTitleColor(UIColor(named: "blueMovieRoll"), for: .normal)
         button.titleLabel?.font = UIFont(name: "AmsiPro-Bold", size: 20)
         button.addTarget(self, action: #selector(cadastrarButtonAction), for: .touchUpInside)
@@ -151,25 +150,25 @@ class LoginViewController: UIViewController {
             logoImage.widthAnchor.constraint(equalToConstant: 180),
             
             emailLabel.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 24),
-            emailLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            emailLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 64),
             
             emailTextField.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 2),
             emailTextField.leadingAnchor.constraint(equalTo: emailLabel.leadingAnchor),
-            emailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            emailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -64),
             
             senhaLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 16),
-            senhaLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            senhaLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 64),
             
             senhaTextField.topAnchor.constraint(equalTo: senhaLabel.bottomAnchor, constant: 2),
             senhaTextField.leadingAnchor.constraint(equalTo: senhaLabel.leadingAnchor),
-            senhaTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            senhaTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -64),
             
             esqueciMunhaSenhaButton.topAnchor.constraint(equalTo: senhaTextField.bottomAnchor, constant: 2),
             esqueciMunhaSenhaButton.trailingAnchor.constraint(equalTo: senhaTextField.trailingAnchor),
             
             entrarButton.topAnchor.constraint(equalTo: esqueciMunhaSenhaButton.bottomAnchor, constant: 24),
-            entrarButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            entrarButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            entrarButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 64),
+            entrarButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -64),
             
             
             googleButton.topAnchor.constraint(equalTo: entrarButton.bottomAnchor, constant: 22),
@@ -211,6 +210,7 @@ class LoginViewController: UIViewController {
     
     @objc private func cadastrarButtonAction() {
         let meusDadosVC = MeusDadosViewController()
+        meusDadosVC.viewModel = MeusDadosViewModel()
         present(meusDadosVC, animated: true)
         
     }
@@ -247,5 +247,24 @@ extension LoginViewController: LoginViewModelDelegate {
                 error: error
             )
         }
+    }
+}
+
+import SwiftUI
+
+extension LoginViewController: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> LoginViewController {
+        return LoginViewController()
+    }
+    
+    func updateUIViewController(_ uiViewController: LoginViewController, context: Context) {
+        
+    }
+    
+}
+
+struct LoginViewControllerPreviews: PreviewProvider {
+    static var previews: some View {
+        LoginViewController()
     }
 }
