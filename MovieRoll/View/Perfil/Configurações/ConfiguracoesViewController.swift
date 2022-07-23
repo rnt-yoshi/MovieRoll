@@ -207,15 +207,15 @@ extension ConfiguracoesViewController: ConfiguracoesViewModelDelegate {
     }
 }
 
-import SwiftUI
-
-struct ConfiguracaoViewControllerPreviews: PreviewProvider {
-    static var previews: some View {
-        ForEach(deviceNames, id: \.self) { deviceName in
-            ViewControllerPreview {
-                ConfiguracoesViewController()
-            }.previewDevice(PreviewDevice(rawValue: deviceName))
-                .previewDisplayName(deviceName)
-        }
-    }
-}
+//import SwiftUI
+//
+//struct ConfiguracaoViewControllerPreviews: PreviewProvider {
+//    static var previews: some View {
+//        ForEach(deviceNames, id: \.self) { deviceName in
+//            ViewControllerPreview {
+//                ConfiguracoesViewController()
+//            }.previewDevice(PreviewDevice(rawValue: deviceName))
+//                .previewDisplayName(deviceName)
+//        }
+//    }
+//}
