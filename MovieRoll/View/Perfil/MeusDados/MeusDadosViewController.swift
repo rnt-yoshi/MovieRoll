@@ -258,6 +258,7 @@ extension MeusDadosViewController: MeusDadosViewModelDelegate {
     }
     
     func dismissModal() {
+        presentingViewController?.presentingViewController?.childViewControllerForPointerLock?.children.last?.viewWillAppear(true)
         self.view.window!.rootViewController?.dismiss(animated: true)
         self.navigationController?.popViewController(animated: true)
     }
