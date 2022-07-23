@@ -9,8 +9,6 @@ import SwiftUI
 import Foundation
 
 let deviceNames: [String] = [
-    "iPhone 8",
-    "iPhone 11",
     "iPhone 13 Pro Max"
 ]
 

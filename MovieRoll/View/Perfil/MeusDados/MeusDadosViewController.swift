@@ -156,15 +156,15 @@ final class MeusDadosViewController: UIViewController {
             alterarFotoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             alterarFotoButton.topAnchor.constraint(equalTo: meusDadosImage.bottomAnchor, constant: 16),
             
-            nameLabel.topAnchor.constraint(equalTo: alterarFotoButton.bottomAnchor, constant: 24),
-            nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
-            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
+            nameLabel.topAnchor.constraint(equalTo: alterarFotoButton.bottomAnchor, constant: 16),
+            nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 64),
+            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -64),
             
             meusDadosNomeTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4),
             meusDadosNomeTextField.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
             meusDadosNomeTextField.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
             
-            emailLabel.topAnchor.constraint(equalTo: meusDadosNomeTextField.bottomAnchor, constant: 24),
+            emailLabel.topAnchor.constraint(equalTo: meusDadosNomeTextField.bottomAnchor, constant: 16),
             emailLabel.leadingAnchor.constraint(equalTo: meusDadosNomeTextField.leadingAnchor),
             emailLabel.trailingAnchor.constraint(equalTo: meusDadosNomeTextField.trailingAnchor),
             
@@ -172,7 +172,7 @@ final class MeusDadosViewController: UIViewController {
             meusDadosEmailTextField.leadingAnchor.constraint(equalTo: emailLabel.leadingAnchor),
             meusDadosEmailTextField.trailingAnchor.constraint(equalTo: emailLabel.trailingAnchor),
             
-            senhaLabel.topAnchor.constraint(equalTo: meusDadosEmailTextField.bottomAnchor, constant: 24),
+            senhaLabel.topAnchor.constraint(equalTo: meusDadosEmailTextField.bottomAnchor, constant: 16),
             senhaLabel.leadingAnchor.constraint(equalTo: meusDadosEmailTextField.leadingAnchor),
             senhaLabel.trailingAnchor.constraint(equalTo: meusDadosEmailTextField.trailingAnchor),
             
@@ -283,15 +283,15 @@ extension MeusDadosViewController: MeusDadosViewModelDelegate {
     }
 }
 
-import SwiftUI
-
-struct MeusDadosViewControllerPreviews: PreviewProvider {
-    static var previews: some View {
-        ForEach(deviceNames, id: \.self) { deviceName in
-            ViewControllerPreview {
-                MeusDadosViewController()
-            }.previewDevice(PreviewDevice(rawValue: deviceName))
-                .previewDisplayName(deviceName)
-        }
-    }
-}
+//import SwiftUI
+//
+//struct MeusDadosViewControllerPreviews: PreviewProvider {
+//    static var previews: some View {
+//        ForEach(deviceNames, id: \.self) { deviceName in
+//            ViewControllerPreview {
+//                MeusDadosViewController()
+//            }.previewDevice(PreviewDevice(rawValue: deviceName))
+//                .previewDisplayName(deviceName)
+//        }
+//    }
+//}

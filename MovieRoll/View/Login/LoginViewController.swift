@@ -281,15 +281,15 @@ extension LoginViewController: LoginViewModelDelegate {
     }
 }
 
-import SwiftUI
-
-struct LoginViewControllerPreviews: PreviewProvider {
-    static var previews: some View {
-        ForEach(deviceNames, id: \.self) { deviceName in
-            ViewControllerPreview {
-                LoginViewController()
-            }.previewDevice(PreviewDevice(rawValue: deviceName))
-                .previewDisplayName(deviceName)
-        }
-    }
-}
+//import SwiftUI
+//
+//struct LoginViewControllerPreviews: PreviewProvider {
+//    static var previews: some View {
+//        ForEach(deviceNames, id: \.self) { deviceName in
+//            ViewControllerPreview {
+//                LoginViewController()
+//            }.previewDevice(PreviewDevice(rawValue: deviceName))
+//                .previewDisplayName(deviceName)
+//        }
+//    }
+//}
