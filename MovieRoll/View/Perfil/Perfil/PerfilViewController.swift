@@ -47,6 +47,7 @@ extension PerfilViewController: PerfilViewModelDelegate {
     func exibeMeusDados() {
         let meusDadosVC = MeusDadosViewController()
         meusDadosVC.viewModel = viewModel.getMeusDadosViewModel
+        meusDadosVC.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(meusDadosVC, animated: true)
     }
     
@@ -59,11 +60,11 @@ extension PerfilViewController: PerfilViewModelDelegate {
     }
     
     func exibeConfiguracoes() {
-        if let configuracoesVC = storyboard?.instantiateViewController(withIdentifier: "configuracoesVC") as? ConfiguracoesViewController {
-            configuracoesVC.viewModel = viewModel.getConfiguracoesViewMdel
-            configuracoesVC.navigationItem.largeTitleDisplayMode = .never
-            navigationController?.pushViewController(configuracoesVC, animated: true)
-        }
+        let configuracoesVC = ConfiguracoesViewController()
+        configuracoesVC.viewModel = viewModel.getConfiguracoesViewMdel
+        configuracoesVC.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(configuracoesVC, animated: true)
+        
     }
     
     func exibeAjuda() {

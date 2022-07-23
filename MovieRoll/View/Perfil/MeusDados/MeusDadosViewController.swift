@@ -126,6 +126,7 @@ final class MeusDadosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
+        title = "Meus Dados"
         view.addSubview(meusDadosImage)
         view.addSubview(alterarFotoButton)
         view.addSubview(nameLabel)
