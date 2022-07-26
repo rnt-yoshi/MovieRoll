@@ -82,10 +82,10 @@ extension LancamentosViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let tableHeader = view as! UITableViewHeaderFooterView
-        tableHeader.tintColor = UIColor.black
-        tableHeader.textLabel?.textColor = .white
-        tableHeader.textLabel?.font = UIFont(name: "AmsiPro-Bold", size: 18)
+        let tableHeader = view as? UITableViewHeaderFooterView
+        tableHeader?.tintColor = UIColor.black
+        tableHeader?.textLabel?.textColor = .white
+        tableHeader?.textLabel?.font = UIFont(name: "AmsiPro-Bold", size: 18)
     }
 }
 
