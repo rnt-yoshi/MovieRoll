@@ -1,6 +1,6 @@
 # MovieRoll
 <p align="center">
-<img src="images/logo.png" style="width:300px">
+<img src="images/logo.png" style="width:1000px">
 
 
 
