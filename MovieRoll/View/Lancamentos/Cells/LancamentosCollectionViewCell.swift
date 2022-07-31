@@ -15,7 +15,8 @@ class LancamentosCollectionViewCell: UICollectionViewCell {
     //MARK: - Public Methods
 
     func configure(section: Int, row: Int, viewModel: LancamentosViewModel) {
-        imagemFilmeUIImageView.image = UIImage(data: viewModel.getImage(section: section, row: row))
+//        imagemFilmeUIImageView.image = UIImage(data: viewModel.getImage(section: section, row: row))
+        imagemFilmeUIImageView.load(url: viewModel.getImage(section: section, row: row), placeholder: UIImage())
         imagemFilmeUIImageView.layer.cornerRadius = 10
     }
 }

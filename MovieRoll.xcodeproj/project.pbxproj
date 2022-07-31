@@ -10,6 +10,7 @@
 		2182C2863E3E1CC0CB3C62C4 /* Pods_MovieRoll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4517763D7A1EFFD5393E6868 /* Pods_MovieRoll.framework */; };
 		2B4B04212867F0130033C076 /* MovieRolls.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B4B041F2867F0130033C076 /* MovieRolls.xcdatamodeld */; };
 		2B5022BE2880DAE30064B0C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B5022BD2880DAE30064B0C4 /* GoogleService-Info.plist */; };
+		2B5C323C2897026A00E00237 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C323B2897026A00E00237 /* UIImageView.swift */; };
 		2B808F62286A95FE00E2C069 /* AmsiPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2B808F5B286A95FD00E2C069 /* AmsiPro-Regular.otf */; };
 		2B808F63286A95FE00E2C069 /* AmsiPro-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2B808F5C286A95FD00E2C069 /* AmsiPro-SemiBold.otf */; };
 		2B808F65286A95FE00E2C069 /* AmsiPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2B808F5E286A95FD00E2C069 /* AmsiPro-Bold.otf */; };
@@ -62,6 +63,7 @@
 /* Begin PBXFileReference section */
 		2B4B04202867F0130033C076 /* MovieRolls.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieRolls.xcdatamodel; sourceTree = "<group>"; };
 		2B5022BD2880DAE30064B0C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2B5C323B2897026A00E00237 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		2B808F5B286A95FD00E2C069 /* AmsiPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmsiPro-Regular.otf"; sourceTree = "<group>"; };
 		2B808F5C286A95FD00E2C069 /* AmsiPro-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmsiPro-SemiBold.otf"; sourceTree = "<group>"; };
 		2B808F5E286A95FD00E2C069 /* AmsiPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmsiPro-Bold.otf"; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			children = (
 				4256CE44283E4CAA0017DD5F /* AppDelegate.swift */,
 				4256CE46283E4CAA0017DD5F /* SceneDelegate.swift */,
+				2B5C323B2897026A00E00237 /* UIImageView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -593,6 +596,7 @@
 				8A3BA16F284A5F6800C74C77 /* User.swift in Sources */,
 				4256CE47283E4CAA0017DD5F /* SceneDelegate.swift in Sources */,
 				42863EFF28678BAB0051A6BD /* CoreDataService.swift in Sources */,
+				2B5C323C2897026A00E00237 /* UIImageView.swift in Sources */,
 				8ADFC423284B7ABE00CBDBA2 /* AjudaViewController.swift in Sources */,
 				8A2F554A2880A0B1008B74CD /* ServiceAuth.swift in Sources */,
 				8A72D0B6283FA14600977B34 /* LancamentosViewController.swift in Sources */,

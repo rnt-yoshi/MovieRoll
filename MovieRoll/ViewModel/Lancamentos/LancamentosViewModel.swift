@@ -61,14 +61,25 @@ class LancamentosViewModel {
         return Array(filmesLancamentos.values)[section][row]
     }
     
-    func setProvidersMovies(row: Int, section: Int) {
-        let filme = Array(filmesLancamentos.values)[section][row]
-        service.fetchProvidersBy(id: filme.id) { providers in
-            DispatchQueue.main.async {
-                filme.providersId = providers
-                self.delegate?.didSelectItem(movie: filme)
-            }
+    func setProvidersDataImage(row: Int, section: Int) {
+        let group = DispatchGroup()
+        
+        let movie = Array(filmesLancamentos.values)[section][row]
+        
+        group.enter()
+        setProviders(movie: movie) {
+            group.leave()
         }
+   
+        group.enter()
+        setDataImage(movie: movie) {
+            group.leave()
+        }
+        
+        group.notify(queue: .main) {
+            self.delegate?.didSelectItem(movie: movie)
+        }
+
     }
 
     func verificaFavorito(movie: Movie) -> Bool {
@@ -99,9 +110,27 @@ class LancamentosViewModel {
         }
     }
     
-    func getImage(section: Int, row: Int) -> Data {
+    func getImage(section: Int, row: Int) -> URL {
         let movie = Array(filmesLancamentos.values)[section][row]
+        let url = service.getUrl(movie: movie)
         
-        return movie.posterImage
+        return url
     }
+    
+    //MARK: - Private Methods
+    
+    private func setProviders(movie: Movie, completion: @escaping () -> Void) {
+        service.fetchProvidersBy(id: movie.id) { providers in
+                movie.providersId = providers
+            completion()
+        }
+    }
+    
+    private func setDataImage(movie: Movie, completion: @escaping () -> Void) {
+        service.getImageFromUrl(movie: movie) { image in
+            movie.posterImage = image
+            completion()
+        }
+    }
+
 }

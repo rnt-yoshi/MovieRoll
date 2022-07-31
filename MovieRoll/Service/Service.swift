@@ -100,7 +100,6 @@ class Service {
             do {
                 let movies = try decoder.decode(MoviesResult.self, from: data)
                 self.movies = movies.results
-                self.setImages()
                 completion(self.movies)
             } catch {
                 print(error)
@@ -112,8 +111,23 @@ class Service {
     func getImageFromUrl(movie: Movie, completion: @escaping (Data) -> Void )  {
         let url = "https://image.tmdb.org/t/p/w500\(movie.posterPath)"
         guard let urlImage =  URL(string: url) else { return }
-        guard let imageData = try? Data(contentsOf: urlImage) else { return }
-        completion(imageData)
+        
+        let request = URLRequest(url: urlImage)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, _, _ in
+
+            if let data = data {
+                completion(data)
+            }
+        }
+        task.resume()
+    }
+    
+    func getUrl(movie: Movie) -> URL {
+        let url = "https://image.tmdb.org/t/p/w500\(movie.posterPath)"
+        guard let urlImage =  URL(string: url) else { return URL(fileURLWithPath: "") }
+        return urlImage
+        
     }
     
     //MARK: - Private Methods
@@ -151,18 +165,6 @@ class Service {
             providersId.append(item.providerId)
         }
         return providersId
-    }
-    
-    private func setImages() {
-        while movies.count > 6 {
-            movies.removeLast()
-        }
-        
-        for movie in movies {
-            getImageFromUrl(movie: movie) { imageData in
-                movie.posterImage = imageData
-            }
-        }
     }
     
 }

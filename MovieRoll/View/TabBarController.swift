@@ -12,8 +12,5 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         selectedIndex = 1
-        let navigation = viewControllers?.first as? UINavigationController
-        let controller = navigation?.topViewController
-        _ = controller?.view
     }
 }

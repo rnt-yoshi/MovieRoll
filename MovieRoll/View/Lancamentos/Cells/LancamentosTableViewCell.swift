@@ -49,7 +49,7 @@ extension LancamentosTableViewCell: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel?.setProvidersMovies(row: indexPath.row, section: collectionView.tag)
+        viewModel?.setProvidersDataImage(row: indexPath.row, section: collectionView.tag)
     }
 }
 
