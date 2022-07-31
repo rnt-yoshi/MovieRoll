@@ -16,6 +16,11 @@ protocol RoletaViewModelDelegate {
     func exibirAlertaEHabilitarBotao()
     func desabilitarBotaoRoletar()
     func reloadPickerView()
+    func cleanGenres()
+    func cleanScore()
+    func cleanDate()
+    func cleanProviders()
+
 }
 
 class RoletaViewModel {
@@ -132,6 +137,21 @@ class RoletaViewModel {
 
     //MARK: - Public Methods
     
+    func cleanFilters () {
+        
+        cleanFilterGenres()
+        cleanFilterScore()
+        cleanFilterDates()
+        cleanFilterProviders()
+        
+    }
+    
+    func cleanFilterDates() {
+        dataInicial = "1930"
+        dataFinal = "2022"
+        delegate?.cleanDate()
+    }
+    
     func getImagePlataformas(index: Int) -> String {
         return String(plataformas[index])
     }
@@ -181,10 +201,6 @@ class RoletaViewModel {
         }
     }
     
-    func limparFiltroDaData() {
-        dataInicial = "1930"
-        dataFinal = "2022"
-    }
     
     func generoPressionado(_ genero: String?, alpha: Float, tag: Int) {
         guard let genero = genero else { return }
@@ -234,6 +250,25 @@ class RoletaViewModel {
         }
     }
     //MARK: - Private Methods
+    
+    private func cleanFilterGenres() {
+        
+        generosFiltro = []
+        delegate?.cleanGenres()
+
+    }
+    
+    private func cleanFilterScore() {
+        notasFiltrosEstrela = 0.0
+        delegate?.cleanScore()
+
+    }
+    
+    private func cleanFilterProviders() {
+        service.plataformaFiltro = []
+        delegate?.cleanProviders()
+
+    }
 
     private func getGenresId(genero: String) -> String {
         

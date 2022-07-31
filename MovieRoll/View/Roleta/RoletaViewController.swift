@@ -17,6 +17,8 @@ class RoletaViewController: UIViewController {
     @IBOutlet private weak var plataformasCollectionView: UICollectionView!
     @IBOutlet private var estrelasNotaBotao: [UIButton]!
     @IBOutlet weak var rollActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var cleanFiltersButton: UIBarButtonItem!
+
     
     //MARK: - Private Properties
     
@@ -36,6 +38,7 @@ class RoletaViewController: UIViewController {
         inicializaPickerView()
         
         rollActivityIndicator.isHidden = true
+        cleanFiltersButton.tintColor = UIColor(named: "blueMovieRoll")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +47,7 @@ class RoletaViewController: UIViewController {
         
         rollActivityIndicator.isHidden = true
         rollActivityIndicator.stopAnimating()
+        
         
     }
     
@@ -99,19 +103,57 @@ class RoletaViewController: UIViewController {
     }
     
     @IBAction private func limparAnosButtonAction(_ sender: Any) {
-        viewModel.limparFiltroDaData()
-        dataDeLancamentoTextField.text = ""
+        viewModel.cleanFilterDates()
     }
     
     @IBAction private func roletarButtonPressed(_ sender: Any) {
         viewModel.botaoRoletarMovie()
     }
+    
+    @IBAction func cleanFiltersAction(_ sender: Any) {
+        viewModel.cleanFilters()
+    }
+    
 
 }
 
 //MARK: - RoletaViewModel Delegate
 
 extension RoletaViewController: RoletaViewModelDelegate {
+    func cleanGenres() {
+        
+        for genreButton in generosBotoes {
+        genreButton.alpha = 1
+        genreButton.layer.borderWidth = 0
+        }
+    }
+    
+    func cleanScore() {
+        for star in estrelasNotaBotao {
+            star.configuration?.image = UIImage(systemName: "star")
+            star.configuration?.baseForegroundColor = .systemYellow
+            
+        }
+    }
+    
+    func cleanDate() {
+        dataDeLancamentoTextField.text = ""
+    }
+    
+    func cleanProviders() {
+        guard let selectedItems = plataformasCollectionView.indexPathsForSelectedItems else { return }
+        
+        for selectedItem in selectedItems {
+            let cell = plataformasCollectionView.cellForItem(at: selectedItem)
+            
+            cell?.alpha = 1
+            cell?.layer.borderWidth = 0
+            plataformasCollectionView.deselectItem(at: selectedItem, animated: true)
+        }
+
+        
+    }
+    
     func reloadPickerView() {
         dataLancamentoPickerView.reloadAllComponents()
     }

@@ -615,8 +615,16 @@
                             <constraint firstItem="icg-DT-vA4" firstAttribute="leading" secondItem="gJF-0y-zVj" secondAttribute="leading" id="mq4-kC-8oc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ZBh-4H-eV5"/>
+                    <navigationItem key="navigationItem" id="ZBh-4H-eV5">
+                        <barButtonItem key="rightBarButtonItem" title="Limpar Filtros" id="hVL-Z3-6hr">
+                            <color key="tintColor" red="0.0" green="0.65172868969999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="cleanFiltersAction:" destination="CJU-TO-Pve" id="tuW-36-wF0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="cleanFiltersButton" destination="hVL-Z3-6hr" id="z1I-im-Ae0"/>
                         <outlet property="dataDeLancamentoTextField" destination="a4l-0J-AfY" id="hzP-tO-AeX"/>
                         <outlet property="plataformasCollectionView" destination="gNs-tw-YDf" id="a1I-R4-wwG"/>
                         <outlet property="roletarButton" destination="THp-sk-NYM" id="xxN-sX-RqB"/>
@@ -921,7 +929,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" largeTitles="YES" id="jK2-PM-Uyh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="102.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
@@ -951,7 +959,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" largeTitles="YES" id="fJn-bq-8uO">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="102.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
