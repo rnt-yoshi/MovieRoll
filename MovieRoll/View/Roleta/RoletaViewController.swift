@@ -120,38 +120,26 @@ class RoletaViewController: UIViewController {
 //MARK: - RoletaViewModel Delegate
 
 extension RoletaViewController: RoletaViewModelDelegate {
-    func cleanGenres() {
-        
-        for genreButton in generosBotoes {
-        genreButton.alpha = 1
-        genreButton.layer.borderWidth = 0
-        }
+    func cleanGenres(tag: Int) {
+        generosBotoes[tag].alpha = 1
+        generosBotoes[tag].layer.borderWidth = 0
     }
     
-    func cleanScore() {
-        for star in estrelasNotaBotao {
-            star.configuration?.image = UIImage(systemName: "star")
-            star.configuration?.baseForegroundColor = .systemYellow
-            
-        }
+    func cleanScore(tag: Int) {
+            estrelasNotaBotao[tag].configuration?.image = UIImage(systemName: "star")
+            estrelasNotaBotao[tag].configuration?.baseForegroundColor = .systemYellow
     }
     
     func cleanDate() {
         dataDeLancamentoTextField.text = ""
     }
     
-    func cleanProviders() {
-        guard let selectedItems = plataformasCollectionView.indexPathsForSelectedItems else { return }
-        
-        for selectedItem in selectedItems {
-            let cell = plataformasCollectionView.cellForItem(at: selectedItem)
-            
-            cell?.alpha = 1
-            cell?.layer.borderWidth = 0
-            plataformasCollectionView.deselectItem(at: selectedItem, animated: true)
-        }
-
-        
+    func cleanProviders(item: Int) {
+        let indexPath: IndexPath = .init(item: item, section: 0)
+        let cell = plataformasCollectionView.cellForItem(at: indexPath)
+        cell?.alpha = 1
+        cell?.layer.borderWidth = 0
+        plataformasCollectionView.deselectItem(at: indexPath, animated: true)
     }
     
     func reloadPickerView() {

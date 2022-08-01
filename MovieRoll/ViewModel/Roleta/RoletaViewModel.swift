@@ -16,10 +16,10 @@ protocol RoletaViewModelDelegate {
     func exibirAlertaEHabilitarBotao()
     func desabilitarBotaoRoletar()
     func reloadPickerView()
-    func cleanGenres()
-    func cleanScore()
+    func cleanGenres(tag: Int)
+    func cleanScore(tag: Int)
     func cleanDate()
-    func cleanProviders()
+    func cleanProviders(item: Int)
 
 }
 
@@ -107,7 +107,9 @@ class RoletaViewModel {
     }
     
     private var providers: String {
-        var idProvider = "350%7C337%7C307%7C384%7C8%7C531%7C119%7C619%7C227"
+//        var idProvider = "350%7C337%7C307%7C384%7C8%7C531%7C119%7C619%7C227"
+        guard let randomProvider = plataformas.randomElement() else { return "" }
+        var idProvider = "\(randomProvider)"
         
         if service.plataformaFiltro.count > 0 {
             idProvider = ""
@@ -137,7 +139,7 @@ class RoletaViewModel {
 
     //MARK: - Public Methods
     
-    func cleanFilters () {
+    func cleanFilters() {
         
         cleanFilterGenres()
         cleanFilterScore()
@@ -254,32 +256,34 @@ class RoletaViewModel {
     private func cleanFilterGenres() {
         
         generosFiltro = []
-        delegate?.cleanGenres()
+        for tag in 0..<9 {
+            delegate?.cleanGenres(tag: tag)
+        }
 
     }
     
     private func cleanFilterScore() {
         notasFiltrosEstrela = 0.0
-        delegate?.cleanScore()
+        for tag in 0..<5 {
+            delegate?.cleanScore(tag: tag)
+        }
 
     }
     
     private func cleanFilterProviders() {
         service.plataformaFiltro = []
-        delegate?.cleanProviders()
+        for item in 0..<plataformas.count {
+            delegate?.cleanProviders(item: item)
+        }
 
     }
 
     private func getGenresId(genero: String) -> String {
-        
-        for (key, array) in service.generos
-        {
-            if (array.contains(genero))
-            {
+        for (key, array) in service.generos {
+            if array.contains(genero) {
                 return key
             }
         }
-        
         return ""
     }
     
