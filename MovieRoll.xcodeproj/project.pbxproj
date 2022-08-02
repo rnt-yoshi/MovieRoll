@@ -137,6 +137,7 @@
 				4256CE4A283E4CAA0017DD5F /* Main.storyboard */,
 				4256CE4F283E4CAB0017DD5F /* LaunchScreen.storyboard */,
 				4256CE4D283E4CAB0017DD5F /* Assets.xcassets */,
+				2B5C323B2897026A00E00237 /* UIImageView.swift */,
 				8A625E51288AD6E400B1C79E /* ViewControllerPreview.swift */,
 			);
 			path = Resources;
@@ -147,7 +148,6 @@
 			children = (
 				4256CE44283E4CAA0017DD5F /* AppDelegate.swift */,
 				4256CE46283E4CAA0017DD5F /* SceneDelegate.swift */,
-				2B5C323B2897026A00E00237 /* UIImageView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";

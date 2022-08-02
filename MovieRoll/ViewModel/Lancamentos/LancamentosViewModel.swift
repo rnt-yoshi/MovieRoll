@@ -38,7 +38,8 @@ class LancamentosViewModel {
     }
     
     var numberOfSection: Int {
-        if filmesLancamentos.values.first?.count ?? 0 > 0 {
+        guard let first = filmesLancamentos.values.first  else { return 0 }
+        if first.count > 0 {
             return filmesLancamentos.count
         }
         return 0

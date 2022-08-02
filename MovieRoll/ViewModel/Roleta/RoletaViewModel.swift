@@ -16,10 +16,10 @@ protocol RoletaViewModelDelegate {
     func exibirAlertaEHabilitarBotao()
     func desabilitarBotaoRoletar()
     func reloadPickerView()
-    func cleanGenres(tag: Int)
-    func cleanScore(tag: Int)
+    func cleanGenres()
+    func cleanScore()
     func cleanDate()
-    func cleanProviders(item: Int)
+    func cleanProviders()
 
 }
 
@@ -107,7 +107,6 @@ class RoletaViewModel {
     }
     
     private var providers: String {
-//        var idProvider = "350%7C337%7C307%7C384%7C8%7C531%7C119%7C619%7C227"
         guard let randomProvider = plataformas.randomElement() else { return "" }
         var idProvider = "\(randomProvider)"
         
@@ -254,28 +253,18 @@ class RoletaViewModel {
     //MARK: - Private Methods
     
     private func cleanFilterGenres() {
-        
         generosFiltro = []
-        for tag in 0..<9 {
-            delegate?.cleanGenres(tag: tag)
-        }
-
+        delegate?.cleanGenres()
     }
     
     private func cleanFilterScore() {
         notasFiltrosEstrela = 0.0
-        for tag in 0..<5 {
-            delegate?.cleanScore(tag: tag)
-        }
-
+        delegate?.cleanScore()
     }
     
     private func cleanFilterProviders() {
         service.plataformaFiltro = []
-        for item in 0..<plataformas.count {
-            delegate?.cleanProviders(item: item)
-        }
-
+        delegate?.cleanProviders()
     }
 
     private func getGenresId(genero: String) -> String {
