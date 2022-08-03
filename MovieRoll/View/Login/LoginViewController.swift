@@ -11,7 +11,7 @@ import FirebaseAuth
 import GoogleSignIn
 import FacebookLogin
 
-final class LoginViewController: UIViewController {
+class LoginViewController: UIViewController {
     
     //MARK: - Components
     
@@ -228,7 +228,6 @@ final class LoginViewController: UIViewController {
         let meusDadosVC = MeusDadosViewController()
         meusDadosVC.viewModel = MeusDadosViewModel()
         present(meusDadosVC, animated: true)
-        
     }
     
     @objc private func eyeButtonAction() {
@@ -281,15 +280,3 @@ extension LoginViewController: LoginViewModelDelegate {
     }
 }
 
-//import SwiftUI
-//
-//struct LoginViewControllerPreviews: PreviewProvider {
-//    static var previews: some View {
-//        ForEach(deviceNames, id: \.self) { deviceName in
-//            ViewControllerPreview {
-//                LoginViewController()
-//            }.previewDevice(PreviewDevice(rawValue: deviceName))
-//                .previewDisplayName(deviceName)
-//        }
-//    }
-//}

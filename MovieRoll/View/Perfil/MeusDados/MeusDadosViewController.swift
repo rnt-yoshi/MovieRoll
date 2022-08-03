@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-final class MeusDadosViewController: UIViewController {
+class MeusDadosViewController: UIViewController {
 
     //MARK: - Componentes
     
@@ -22,14 +22,6 @@ final class MeusDadosViewController: UIViewController {
         return image
     }()
         
-    lazy var alterarFotoButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Alterar Foto", for: .normal)
-        button.addTarget(self, action: #selector(alterarFotoButtonAction), for: .touchUpInside)
-        return button
-    }()
-    
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -117,6 +109,16 @@ final class MeusDadosViewController: UIViewController {
         return button
     }()
     
+    lazy var closeButton: UIButton = {
+        let button = UIButton(type: .close)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = UIColor(named: "darkGrayMovieRoll")
+        button.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
+        return button
+    }()
+    
+    
+    
     //MARK: - Public Properties
     
     var viewModel: MeusDadosViewModel?
@@ -128,7 +130,6 @@ final class MeusDadosViewController: UIViewController {
         view.backgroundColor = .black
         title = "Meus Dados"
         view.addSubview(meusDadosImage)
-        view.addSubview(alterarFotoButton)
         view.addSubview(nameLabel)
         view.addSubview(meusDadosNomeTextField)
         view.addSubview(emailLabel)
@@ -137,6 +138,7 @@ final class MeusDadosViewController: UIViewController {
         view.addSubview(meusDadosSenhaTextField)
         view.addSubview(salvarButton)
         view.addSubview(eyeButton)
+        view.addSubview(closeButton)
         setupConstraints()
         
         configuraTela()
@@ -153,10 +155,7 @@ final class MeusDadosViewController: UIViewController {
             meusDadosImage.heightAnchor.constraint(equalToConstant: 128),
             meusDadosImage.widthAnchor.constraint(equalToConstant: 128),
 
-            alterarFotoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            alterarFotoButton.topAnchor.constraint(equalTo: meusDadosImage.bottomAnchor, constant: 16),
-            
-            nameLabel.topAnchor.constraint(equalTo: alterarFotoButton.bottomAnchor, constant: 16),
+            nameLabel.topAnchor.constraint(equalTo: meusDadosImage.bottomAnchor, constant: 16),
             nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 64),
             nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -64),
             
@@ -188,6 +187,9 @@ final class MeusDadosViewController: UIViewController {
             eyeButton.heightAnchor.constraint(equalToConstant: 20),
             eyeButton.widthAnchor.constraint(equalToConstant: 25),
             eyeButton.trailingAnchor.constraint(equalTo: meusDadosSenhaTextField.trailingAnchor, constant: -6),
+            
+            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -4),
+            closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 4),
         ])
     }
     
@@ -195,18 +197,10 @@ final class MeusDadosViewController: UIViewController {
         guard let viewModel = viewModel else { return }
         meusDadosNomeTextField.text = viewModel.getUserName
         meusDadosEmailTextField.text = viewModel.getUserEmail
-        meusDadosImage.image = UIImage(data: viewModel.getUserImage)
+        meusDadosImage.image = UIImage(data: viewModel.getUserImage) ?? UIImage(named: "perfil")
     }
     
     //MARK: - Actions
-        
-    @objc func alterarFotoButtonAction() {
-        let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.delegate = self
-        
-        present(imagePicker, animated: true)
-    }
     
     @objc func salvarButtonAction() {
         viewModel?.botaoSalvarAction(
@@ -219,19 +213,8 @@ final class MeusDadosViewController: UIViewController {
     @objc func eyeButtonAction() {
         viewModel?.eyeButtonPressed(visivel: meusDadosSenhaTextField.isSecureTextEntry)
     }
-}
-
-//MARK: - UIImagePickerController Delegate
     
-extension MeusDadosViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[.originalImage] as?  UIImage {
-            meusDadosImage.image = image
-        }
-        dismiss(animated: true)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    @objc func closeButtonAction() {
         dismiss(animated: true)
     }
 }
@@ -283,16 +266,3 @@ extension MeusDadosViewController: MeusDadosViewModelDelegate {
         present(alerta, animated: true)
     }
 }
-
-//import SwiftUI
-//
-//struct MeusDadosViewControllerPreviews: PreviewProvider {
-//    static var previews: some View {
-//        ForEach(deviceNames, id: \.self) { deviceName in
-//            ViewControllerPreview {
-//                MeusDadosViewController()
-//            }.previewDevice(PreviewDevice(rawValue: deviceName))
-//                .previewDisplayName(deviceName)
-//        }
-//    }
-//}

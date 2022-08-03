@@ -34,7 +34,6 @@ class PerfilViewController: UIViewController {
         viewModel.pegarInformacoesDoUsuario()
         perfilTableView.reloadData()
     }
-    
 }
 //MARK: - PerfilViewModel Delegate
 
@@ -48,6 +47,11 @@ extension PerfilViewController: PerfilViewModelDelegate {
         let meusDadosVC = MeusDadosViewController()
         meusDadosVC.viewModel = viewModel.getMeusDadosViewModel
         meusDadosVC.navigationItem.largeTitleDisplayMode = .never
+        meusDadosVC.meusDadosSenhaTextField.isHidden = true
+        meusDadosVC.eyeButton.isHidden = true
+        meusDadosVC.senhaLabel.isHidden = true
+        meusDadosVC.salvarButton.isHidden = true
+        meusDadosVC.closeButton.isHidden = true
         navigationController?.pushViewController(meusDadosVC, animated: true)
     }
     
@@ -64,7 +68,6 @@ extension PerfilViewController: PerfilViewModelDelegate {
         configuracoesVC.viewModel = viewModel.getConfiguracoesViewMdel
         configuracoesVC.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(configuracoesVC, animated: true)
-        
     }
     
     func exibeAjuda() {
@@ -94,7 +97,7 @@ extension PerfilViewController: UITableViewDataSource, UITableViewDelegate{
         
         var content = cell.defaultContentConfiguration()
         
-        content.image = UIImage(data: viewModel.getImage(indexPath: indexPath)) ?? UIImage(named: viewModel.getImage(indexPath: indexPath))
+        content.image = UIImage(data: viewModel.getImage(indexPath: indexPath)) ?? UIImage(named: viewModel.getImage(indexPath: indexPath)) ?? UIImage(named: "perfil")
         
         content.imageProperties.maximumSize = CGSize(
             width: viewModel.getMaximumSize(indexPath: indexPath),
