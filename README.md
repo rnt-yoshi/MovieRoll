@@ -69,9 +69,11 @@ Login Google | Login Facebook | Login Email/Senha
 
 <div align="center">
 
+
+
 Lançamentos | Login Facebook | l
 ---|---|---
-<img width="264" style="border-radius: 5px" height="568" alt="Demonstração do Aplicativo MovieRoll" src="https://user-images.githubusercontent.com/49598328/182738818-21265e18-b3c7-4120-81a1-a3d3bc7b0714.mp4"> | <img width="264" style="border-radius: 5px" height="568" alt="Demonstração do Aplicativo MovieRoll" src=" "> | <img width="264" style="border-radius: 5px" height="568" alt="Demonstração do Aplicativo MovieRoll" src=" "> |
+<img width="264" style="border-radius: 5px" height="568" alt="Demonstração do Aplicativo MovieRoll" src="https://user-images.githubusercontent.com/101955186/182739545-1805cb2a-bb92-47fc-be76-2d31137adce6.mp4"> | <img width="264" style="border-radius: 5px" height="568" alt="Demonstração do Aplicativo MovieRoll" src=" "> | <img width="264" style="border-radius: 5px" height="568" alt="Demonstração do Aplicativo MovieRoll" src=" "> |
 
 </div>
 
