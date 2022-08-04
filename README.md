@@ -161,20 +161,9 @@ $ open MovieRoll.xcworkspace
 
 ---
 ##  **Autores**
-
-<div align="center">
-
-<a href="https://github.com/akabezerra">
- <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/akabezerra" width="100px;" alt="Foto de Perfil Bruno Bezerra"/>
- <br />
-  <p>
- <sub><b>Bruno Bezerra</b></sub></a>
-<p>
-
-[![Linkedin Badge](https://img.shields.io/badge/-Bruno_Bezerra-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/akabezerra/)
-[![Github Badge](https://img.shields.io/badge/-Bruno_Bezerra-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/akabezerra)
   
-  <div align="center">
+ <div align="center">
+   
 
 <a href="https://github.com/vhenriquebm">
  <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/vhenriquebm" width="100px;" alt="Foto de Perfil Vitor Henrique"/>
@@ -188,6 +177,31 @@ $ open MovieRoll.xcworkspace
   
   <div align="center">
 
+<a href="https://github.com/ygorgsilva">
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/ygorgsilva" width="100px;" alt="Foto de Perfil Ygor Silva"/>
+ <br />
+  <p>
+ <sub><b>Ygor Silva</b></sub></a>
+<p>
+
+[![Linkedin Badge](https://img.shields.io/badge/-Ygor_Silva-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/faltacolocar/)
+[![Github Badge](https://img.shields.io/badge/-Artur_Araujo-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/ygorgsilva)
+
+<div align="center">
+
+<a href="https://github.com/akabezerra">
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/akabezerra" width="100px;" alt="Foto de Perfil Bruno Bezerra"/>
+ <br />
+  <p>
+ <sub><b>Bruno Bezerra</b></sub></a>
+<p>
+
+[![Linkedin Badge](https://img.shields.io/badge/-Bruno_Bezerra-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/akabezerra/)
+[![Github Badge](https://img.shields.io/badge/-Bruno_Bezerra-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/akabezerra)
+  
+  
+  <div align="center">
+
 <a href="https://github.com/rnt-yoshi">
  <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/rnt-yoshi" width="100px;" alt="Foto de Perfil Renato Yoshinari"/>
  <br />
@@ -198,19 +212,9 @@ $ open MovieRoll.xcworkspace
 [![Linkedin Badge](https://img.shields.io/badge/-Renato_Yoshinari-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/renato-yoshinari-873a1339/)
 [![Github Badge](https://img.shields.io/badge/-Renato_Yoshinari-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/rnt-yoshi)
   
-   <div align="center">
-
-<a href="https://github.com/felippeandrade">
- <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/felippeandrade" width="100px;" alt="Foto de Perfil Raul Andrade"/>
- <br />
-  <p>
- <sub><b>Raul Andrade</b></sub></a>
-<p>
-
-[![Linkedin Badge](https://img.shields.io/badge/-Raul_Andrade-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/felippeandrade/)
-[![Github Badge](https://img.shields.io/badge/-Raul_Andrade-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/felippeandrade)
-
-   <div align="center">
+  
+  <div align="center">
+       
 
 <a href="https://github.com/ArturFAraujo">
  <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/ArturFAraujo" width="100px;" alt="Foto de Perfil Artur Araujo"/>
@@ -223,8 +227,17 @@ $ open MovieRoll.xcworkspace
 [![Github Badge](https://img.shields.io/badge/-Artur_Araujo-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/ArturFAraujo)
   
   
-  
+   <div align="center">
 
+<a href="https://github.com/felippeandrade">
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/felippeandrade" width="100px;" alt="Foto de Perfil Raul Andrade"/>
+ <br />
+  <p>
+ <sub><b>Raul Andrade</b></sub></a>
+<p>
+
+[![Linkedin Badge](https://img.shields.io/badge/-Raul_Andrade-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/felippeandrade/)
+[![Github Badge](https://img.shields.io/badge/-Raul_Andrade-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/felippeandrade)
 
 
 
