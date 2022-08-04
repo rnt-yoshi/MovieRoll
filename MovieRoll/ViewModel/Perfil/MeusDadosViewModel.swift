@@ -10,9 +10,7 @@ import FirebaseAuth
 
 protocol MeusDadosViewModelDelegate {
     func dismissModal()
-    func alertaErrorEmail()
-    func alertaErrorPassword()
-    func alertaErroAutenticacao()
+    func alertaErroAutenticacao(message: String)
     func secureSenhaTextField()
     func notSecureSenhaTextField()
 }
@@ -52,36 +50,40 @@ class MeusDadosViewModel {
         guard let email = email else { return }
         guard let password = password else { return }
         
-        if Auth.auth().currentUser == nil {
-            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                if error != nil {
-                    guard let descricaoError = error?.localizedDescription else { return }
-                    if descricaoError.contains("email") {
-                        self.delegate?.alertaErrorEmail()
-                        return
-                    }
-                    if descricaoError.contains("password") {
-                        self.delegate?.alertaErrorPassword()
-                        return
-                    }
-                    self.delegate?.alertaErroAutenticacao()
-                    return
-                }
-                self.alterarUserName(nome: nome)
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            let error = error as? NSError
+            
+            if error?.code == 17034 {
+                self.delegate?.alertaErroAutenticacao(message: "Entre com um e-mail e tente novamente.")
+                return
             }
-        } else {
-            alterarUserName(nome: nome)
+            
+            if error?.code == 17007 {
+                self.delegate?.alertaErroAutenticacao(message: "Email já cadastrado, tente novamente.")
+                return
+            }
+            
+            if error?.code == 17026 {
+                self.delegate?.alertaErroAutenticacao(message: "Senha precisa conter pelo menos 6 caracteres, tente novamente.")
+                return
+            }
+            
+            if error?.code == 17008 {
+                self.delegate?.alertaErroAutenticacao(message: "Email não está no formato correto, tente novamente.")
+                return
+            }
+            self.alterarUserName(nome: nome)
+            
+            Auth.auth().currentUser?.sendEmailVerification { error in
+
+            }
         }
     }
     
     private func alterarUserName(nome: String) {
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = nome
-        changeRequest?.commitChanges { error in
-            if error != nil {
-                guard let descriptionError = error?.localizedDescription else { return }
-                print(descriptionError)
-            }
+        changeRequest?.commitChanges { _ in
             self.serviceAuth.informacoesDoUsuario()
             self.delegate?.dismissModal()
         }

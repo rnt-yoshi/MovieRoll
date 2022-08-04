@@ -205,7 +205,25 @@ class LoginViewController: UIViewController {
     //MARK: - Actions
     
     @objc private func esqueciMunhaSenhaButtonAction() {
+        let alerta = UIAlertController(title: "Redefinição de Senha", message: "Será enviado um link de renovação de senha para o email abaixo.", preferredStyle: .alert)
+
+        alerta.addTextField { textfield in
+            textfield.placeholder = "Digite seu e-mail"
+            textfield.text = self.emailTextField.text
+        }
         
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: { [weak alerta] (_) in
+            let textField = alerta?.textFields?.first
+            self.viewModel.esqueciMinhaSenhaButtonPrecionado(email: textField?.text)
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .destructive)
+        
+        alerta.addAction(cancelAction)
+        alerta.addAction(okAction)
+        
+    
+        present(alerta, animated: true)
         
     }
     
@@ -246,8 +264,8 @@ extension LoginViewController: LoginViewModelDelegate {
         senhaTextField.isSecureTextEntry = false
     }
     
-    func alertaErroLogin() {
-        let alerta = UIAlertController(title: "Erro ao fazer o login", message: "Tente novamente.", preferredStyle: .alert)
+    func alertaErroLogin(message: String) {
+        let alerta = UIAlertController(title: "Atenção", message: message, preferredStyle: .alert)
 
         let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         

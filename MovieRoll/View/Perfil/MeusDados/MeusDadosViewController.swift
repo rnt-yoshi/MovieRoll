@@ -220,8 +220,8 @@ class MeusDadosViewController: UIViewController {
 }
 
 extension MeusDadosViewController: MeusDadosViewModelDelegate {
-    func alertaErroAutenticacao() {
-        let alerta = UIAlertController(title: "Erro na autenticação", message: "Tente mais tarde", preferredStyle: .alert)
+    func alertaErroAutenticacao(message: String) {
+        let alerta = UIAlertController(title: "Atenção", message: message, preferredStyle: .alert)
 
         let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         

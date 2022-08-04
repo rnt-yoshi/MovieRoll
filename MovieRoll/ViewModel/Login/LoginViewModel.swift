@@ -14,7 +14,7 @@ protocol LoginViewModelDelegate {
     func loginGoogle(configuration: GIDConfiguration)
     func dismissModal()
     func loginFacebook(loginManager: LoginManager)
-    func alertaErroLogin()
+    func alertaErroLogin(message: String)
     func secureSenhaTextField()
     func notSecureSenhaTextField()
 }
@@ -29,8 +29,20 @@ class LoginViewModel{
         
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
             guard let self = self else { return }
-            if error != nil {
-                self.delegate?.alertaErroLogin()
+            let error = error as? NSError
+            
+            if error?.code == 17011 {
+                self.delegate?.alertaErroLogin(message: "Email não resgistrado, tente novamente.")
+                return
+            }
+            
+            if error?.code == 17009 {
+                self.delegate?.alertaErroLogin(message: "Senha inválida, tente novamente.")
+                return
+            }
+            
+            if error?.code == 17008 {
+                self.delegate?.alertaErroLogin(message: "Email não está no formato correto, tente novamente.")
                 return
             }
             self.delegate?.dismissModal()
@@ -83,6 +95,26 @@ class LoginViewModel{
             delegate?.notSecureSenhaTextField()
         } else {
             delegate?.secureSenhaTextField()
+        }
+    }
+    
+    func esqueciMinhaSenhaButtonPrecionado(email: String?) {
+        guard let email = email else { return }
+        
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            let error = error as? NSError
+            
+            if error?.code == 17011 {
+                self.delegate?.alertaErroLogin(message: "Email não resgistrado, tente novamente.")
+            }
+            
+            if error?.code == 17008 {
+                self.delegate?.alertaErroLogin(message: "Email não está no formato correto, tente novamente.")
+            }
+            
+            if error?.code == 17034 {
+                self.delegate?.alertaErroLogin(message: "Entre com um e-mail e tente novamente.")
+            }
         }
     }
 }
