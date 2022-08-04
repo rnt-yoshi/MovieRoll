@@ -4,6 +4,11 @@
 [tmdb-api-url]: https://www.themoviedb.org/documentation/api
 
 
+
+https://user-images.githubusercontent.com/101955186/182740459-112480ff-f7b3-4a49-a2b4-ea32b3efd57e.mp4
+
+
+
 <p align="center">
   <img alt="movieroll" src="https://github.com/vhenriquebm/MovieRoll/blob/develop/images/capa.png" width="1000px"/>
 <p>
@@ -61,9 +66,14 @@ UIButton, UILabel, UICollectionView e UITableView).
 
 <div align="center">
 
-Login Google | Login Facebook | Login Email/Senha 
----|---|---
-<img width="264" style="border-radius: 5px" height="568" alt="Demonstração do Aplicativo MovieRoll" src=" "> | <img width="264" style="border-radius: 5px" height="568" alt="Demonstração do Aplicativo MovieRoll" src=" "> | <img width="264" style="border-radius: 5px" height="568" alt="Demonstração do Aplicativo MovieRoll" src=" "> |
+
+
+https://user-images.githubusercontent.com/101955186/182740245-551ff831-58d4-4b4f-96c0-6a4663e73769.mp4
+  
+https://user-images.githubusercontent.com/101955186/182740459-112480ff-f7b3-4a49-a2b4-ea32b3efd57e.mp4
+
+
+
 
 </div>
 
