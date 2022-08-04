@@ -5,9 +5,6 @@
 
 
 
-https://user-images.githubusercontent.com/101955186/182740459-112480ff-f7b3-4a49-a2b4-ea32b3efd57e.mp4
-
-
 
 <p align="center">
   <img alt="movieroll" src="https://github.com/vhenriquebm/MovieRoll/blob/develop/images/capa.png" width="1000px"/>
@@ -73,17 +70,11 @@ https://user-images.githubusercontent.com/101955186/182740245-551ff831-58d4-4b4f
 https://user-images.githubusercontent.com/101955186/182740459-112480ff-f7b3-4a49-a2b4-ea32b3efd57e.mp4
 
 
-
-
 </div>
 
 <div align="center">
 
 
-
-Lançamentos | Login Facebook | l
----|---|---
-<img width="264" style="border-radius: 5px" height="568" alt="Demonstração do Aplicativo MovieRoll" src="https://user-images.githubusercontent.com/101955186/182739545-1805cb2a-bb92-47fc-be76-2d31137adce6.mp4"> | <img width="264" style="border-radius: 5px" height="568" alt="Demonstração do Aplicativo MovieRoll" src=" "> | <img width="264" style="border-radius: 5px" height="568" alt="Demonstração do Aplicativo MovieRoll" src=" "> |
 
 </div>
 
