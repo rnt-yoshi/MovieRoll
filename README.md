@@ -1,20 +1,6 @@
 
 <!-- URLs -->
 
-
-
-
-https://user-images.githubusercontent.com/101955186/183225856-9e3120bf-ec83-4b6d-94a0-091bd657e7d6.mov
-
-
-
-
-
-
-
-
-
-
 [digital-house-url]: https://www.digitalhouse.com/br/
 [tmdb-api-url]: https://www.themoviedb.org/documentation/api
 
