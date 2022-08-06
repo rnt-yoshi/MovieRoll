@@ -4,6 +4,14 @@
 
 
 
+https://user-images.githubusercontent.com/101955186/183225856-9e3120bf-ec83-4b6d-94a0-091bd657e7d6.mov
+
+
+
+
+
+
+
 
 
 
@@ -71,7 +79,7 @@ UIButton, UILabel, UICollectionView e UITableView).
 <div align="center">
 
 
-**Telas Principais - Fluxo**
+**Telas Principais**: Fluxo
 
 
 https://user-images.githubusercontent.com/101955186/182740245-551ff831-58d4-4b4f-96c0-6a4663e73769.mp4
@@ -80,9 +88,15 @@ https://user-images.githubusercontent.com/101955186/182740459-112480ff-f7b3-4a49
   
 https://user-images.githubusercontent.com/101955186/182744561-9e1121cf-899b-4507-b1c3-b07bc0785452.mp4
 
-**Login - Fluxo**
+**Login**: Fluxo
+  
+https://user-images.githubusercontent.com/101955186/183225300-4ea8bd13-60a7-483f-8916-5cc7f1b42e89.mov
+  
+https://user-images.githubusercontent.com/101955186/183225856-9e3120bf-ec83-4b6d-94a0-091bd657e7d6.mov
 
 https://user-images.githubusercontent.com/101955186/183223634-1053c59c-abbf-48a2-9aa4-e3d51d0879b3.mov
+  
+https://user-images.githubusercontent.com/101955186/183224388-58e2221d-6238-4bcf-9d9e-cbd9e0654f93.mov
 
   
 
@@ -194,7 +208,7 @@ $ open MovieRoll.xcworkspace
  <sub><b>Ygor Silva</b></sub></a>
 <p>
 
-[![Linkedin Badge](https://img.shields.io/badge/-Ygor_Silva-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/faltacolocar/)
+[![Linkedin Badge](https://img.shields.io/badge/-Ygor_Silva-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/ygor-guimarães-silva-b3abbb146/)
 [![Github Badge](https://img.shields.io/badge/-Artur_Araujo-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/ygorgsilva)
 
 <div align="center">
@@ -233,7 +247,7 @@ $ open MovieRoll.xcworkspace
  <sub><b>Artur Araujo</b></sub></a>
 <p>
 
-[![Linkedin Badge](https://img.shields.io/badge/-Artur_Araujo-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/faltacolocar/)
+[![Linkedin Badge](https://img.shields.io/badge/-Artur_Araujo-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/artur-frança-5b0229236/)
 [![Github Badge](https://img.shields.io/badge/-Artur_Araujo-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/ArturFAraujo)
   
   
