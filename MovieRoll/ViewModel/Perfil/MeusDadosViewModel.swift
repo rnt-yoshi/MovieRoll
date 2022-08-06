@@ -59,7 +59,7 @@ class MeusDadosViewModel {
             }
             
             if error?.code == 17007 {
-                self.delegate?.alertaErroAutenticacao(message: "Email já cadastrado, tente novamente.")
+                self.delegate?.alertaErroAutenticacao(message: "E-mail já cadastrado, tente novamente.")
                 return
             }
             
@@ -69,7 +69,7 @@ class MeusDadosViewModel {
             }
             
             if error?.code == 17008 {
-                self.delegate?.alertaErroAutenticacao(message: "Email não está no formato correto, tente novamente.")
+                self.delegate?.alertaErroAutenticacao(message: "E-mail não está no formato correto, tente novamente.")
                 return
             }
             self.alterarUserName(nome: nome)

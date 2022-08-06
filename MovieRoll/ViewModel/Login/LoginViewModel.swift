@@ -32,7 +32,7 @@ class LoginViewModel{
             let error = error as? NSError
             
             if error?.code == 17011 {
-                self.delegate?.alertaErroLogin(message: "Email não resgistrado, tente novamente.")
+                self.delegate?.alertaErroLogin(message: "E-mail não registrado, tente novamente.")
                 return
             }
             
@@ -42,7 +42,7 @@ class LoginViewModel{
             }
             
             if error?.code == 17008 {
-                self.delegate?.alertaErroLogin(message: "Email não está no formato correto, tente novamente.")
+                self.delegate?.alertaErroLogin(message: "E-mail não está no formato correto, tente novamente.")
                 return
             }
             self.delegate?.dismissModal()
@@ -105,11 +105,11 @@ class LoginViewModel{
             let error = error as? NSError
             
             if error?.code == 17011 {
-                self.delegate?.alertaErroLogin(message: "Email não resgistrado, tente novamente.")
+                self.delegate?.alertaErroLogin(message: "E-mail não registrado, tente novamente.")
             }
             
             if error?.code == 17008 {
-                self.delegate?.alertaErroLogin(message: "Email não está no formato correto, tente novamente.")
+                self.delegate?.alertaErroLogin(message: "E-mail não está no formato correto, tente novamente.")
             }
             
             if error?.code == 17034 {
