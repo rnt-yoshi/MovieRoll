@@ -24,8 +24,6 @@ class Service {
     
     //MARK: - Public Properties
     
-    var movies: [Movie] = []
-    
     var plataformaFiltro: [Int] = []
     
     let generos: [String: String] = [
@@ -54,11 +52,10 @@ class Service {
             
             do {
                 let movies = try decoder.decode(MoviesResult.self, from: data)
-                self.movies = movies.results
-                self.removeRoletadosDaListaMovies()
-                self.removeFavoritosDaListaMovies()
-                self.removeAssistidosDaListaMovies()
-                completion(self.movies)
+                let noRoletedMovies = self.removeRoletadosDaListaMovies(movies: movies.results)
+                let noFavoritedMovies = self.removeFavoritosDaListaMovies(movies: noRoletedMovies)
+                let noWatchedMovies = self.removeAssistidosDaListaMovies(movies: noFavoritedMovies)
+                completion(noWatchedMovies)
             } catch {
                 print(error)
             }
@@ -99,8 +96,7 @@ class Service {
             
             do {
                 let movies = try decoder.decode(MoviesResult.self, from: data)
-                self.movies = movies.results
-                completion(self.movies)
+                completion(movies.results)
             } catch {
                 print(error)
             }
@@ -132,31 +128,37 @@ class Service {
     
     //MARK: - Private Methods
     
-    private func removeAssistidosDaListaMovies() {
+    private func removeAssistidosDaListaMovies(movies: [Movie]) -> [Movie] {
         let assistidos = coreDataService.pegarListaDeAssistidosNoCoreData()
+        var newMovies = movies
         for assistido in assistidos {
-            movies.removeAll { movie in
-                assistido.id == movie.id
+            newMovies.removeAll { movie in
+                assistido.title == movie.title
             }
         }
+        return newMovies
     }
     
-    private func removeFavoritosDaListaMovies() {
+    private func removeFavoritosDaListaMovies(movies: [Movie]) -> [Movie] {
         let favoritos = coreDataService.pegarListaDeFavoritosNoCoreData()
+        var newMovies = movies
         for favorito in favoritos {
-            movies.removeAll { movie in
-                return favorito.id == movie.id
+            newMovies.removeAll { movie in
+                return favorito.title == movie.title
             }
         }
+        return newMovies
     }
     
-    private func removeRoletadosDaListaMovies() {
+    private func removeRoletadosDaListaMovies(movies: [Movie]) -> [Movie] {
         let roletados = coreDataService.pegarListaDeRoletadosNoCoreData()
+        var newMovies = movies
         for roletado in roletados {
-            movies.removeAll { movie in
-                return roletado.id == movie.id
+            newMovies.removeAll { movie in
+                return roletado.title == movie.title
             }
         }
+        return newMovies
     }
     
     private func setProviderIds(flatrate: [Flatrate]) -> [Int] {
