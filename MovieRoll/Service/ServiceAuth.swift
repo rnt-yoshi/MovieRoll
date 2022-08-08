@@ -13,36 +13,36 @@ import FacebookLogin
 
 class ServiceAuth: UIViewController {
     
-    static var userPerfil = User(
+    static var userProfile = User(
         name: "",
         email: "",
         image: Data()
     )
     
-    func informacoesDoUsuario() {
+    func userInfo() {
         let currentUser = Auth.auth().currentUser
         
-        ServiceAuth.userPerfil.image = Data()
+        ServiceAuth.userProfile.image = Data()
         if let photo = currentUser?.photoURL {
             guard let imageData =  try? Data(contentsOf: photo) else { return }
-            ServiceAuth.userPerfil.image = imageData
+            ServiceAuth.userProfile.image = imageData
         }
-        ServiceAuth.userPerfil.name = currentUser?.displayName ?? ""
-        ServiceAuth.userPerfil.email = currentUser?.email ?? ""
+        ServiceAuth.userProfile.name = currentUser?.displayName ?? ""
+        ServiceAuth.userProfile.email = currentUser?.email ?? ""
     }
     
-    func salvarNoFirebase(com credencial: AuthCredential, completion: @escaping (Bool) -> Void) {
+    func saveInFirebase(com credencial: AuthCredential, completion: @escaping (Bool) -> Void) {
         Auth.auth().signIn(with: credencial) { authResult, error in
             if let error = error {
                 print(error)
             }
-            self.informacoesDoUsuario()
+            self.userInfo()
             completion(true)
             return
         }
     }
     
-    func pegarCredencialGoogle(de user: GIDGoogleUser?) -> AuthCredential? {
+    func getGoogleCredential(de user: GIDGoogleUser?) -> AuthCredential? {
         guard
             let authentication = user?.authentication,
             let idToken = authentication.idToken
@@ -58,7 +58,7 @@ class ServiceAuth: UIViewController {
         return credential
     }
     
-    func pegarConfiguracaoGoogle() -> GIDConfiguration? {
+    func getGoogleConfiguration() -> GIDConfiguration? {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return nil }
         
         // Create Google Sign In configuration object.
@@ -67,7 +67,7 @@ class ServiceAuth: UIViewController {
         return config
     }
     
-    func tratarResultadoLoginFacebook(result: LoginManagerLoginResult?, error: Error?, completion: @escaping (Bool) -> Void) {
+    func treatFacebookLoginResult(result: LoginManagerLoginResult?, error: Error?, completion: @escaping (Bool) -> Void) {
         switch result {
             
         case .none:
@@ -78,15 +78,15 @@ class ServiceAuth: UIViewController {
                 return
             }
             
-            let credencial = pegarConfiguracaoFacebook(
+            let credential = getFacebookConfiguration(
                 token: token
             )
             
-            salvarNoFirebase(com: credencial, completion: completion)
+            saveInFirebase(com: credential, completion: completion)
         }
     }
     
-    private func pegarConfiguracaoFacebook(token: String) -> AuthCredential {
+    private func getFacebookConfiguration(token: String) -> AuthCredential {
             return FacebookAuthProvider.credential(
                 withAccessToken: token
             )

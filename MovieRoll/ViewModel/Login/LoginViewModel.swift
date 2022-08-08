@@ -50,7 +50,7 @@ class LoginViewModel{
     }
     
     func efetuarLoginGoogle() {
-        guard let configuration = serviceAuth.pegarConfiguracaoGoogle() else { return }
+        guard let configuration = serviceAuth.getGoogleConfiguration() else { return }
         
         delegate?.loginGoogle(configuration: configuration)
     }
@@ -78,16 +78,16 @@ class LoginViewModel{
     }
     
     func tratarLoginFacebook(result:LoginManagerLoginResult?, error: Error?) {
-        serviceAuth.tratarResultadoLoginFacebook(result: result, error: error) { _ in
+        serviceAuth.treatFacebookLoginResult(result: result, error: error) { _ in
             self.delegate?.dismissModal()
         }
         
     }
     
     private func salvarDadosNoFirebase(user: GIDGoogleUser?, completion: @escaping (Bool) -> Void) {
-        guard let credencial = serviceAuth.pegarCredencialGoogle(de: user) else { return }
+        guard let credencial = serviceAuth.getGoogleCredential(de: user) else { return }
 
-        serviceAuth.salvarNoFirebase(com: credencial, completion: completion)
+        serviceAuth.saveInFirebase(com: credencial, completion: completion)
     }
     
     func eyeButtonPressed(visivel: Bool) {

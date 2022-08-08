@@ -23,26 +23,26 @@ class MeusDadosViewModel {
     var delegate: MeusDadosViewModelDelegate?
     
     var getUserName: String {
-        return ServiceAuth.userPerfil.name
+        return ServiceAuth.userProfile.name
     }
     
     var getUserEmail: String {
-        return ServiceAuth.userPerfil.email
+        return ServiceAuth.userProfile.email
     }
     
     var getUserImage: Data {
-        return ServiceAuth.userPerfil.image
+        return ServiceAuth.userProfile.image
     }
     
     //MARK: - Public Methods
     
     func setUserName(nome: String?) {
         guard let nome = nome else { return }
-        ServiceAuth.userPerfil.name = nome
+        ServiceAuth.userProfile.name = nome
     }
     
     func setUserImage(image: Data) {
-        ServiceAuth.userPerfil.image = image
+        ServiceAuth.userProfile.image = image
     }
     
     func botaoSalvarAction(nome: String?, email: String?, password: String?) {
@@ -84,7 +84,7 @@ class MeusDadosViewModel {
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = nome
         changeRequest?.commitChanges { _ in
-            self.serviceAuth.informacoesDoUsuario()
+            self.serviceAuth.userInfo()
             self.delegate?.dismissModal()
         }
     }

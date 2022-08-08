@@ -82,7 +82,7 @@ class PerfilViewModel {
     
     func getImage(indexPath: IndexPath) -> Data {
         if indexPath.section == 0 {
-            return ServiceAuth.userPerfil.image
+            return ServiceAuth.userProfile.image
         }
         return Data()
     }
@@ -112,11 +112,11 @@ class PerfilViewModel {
     
     func getText(indexPath: IndexPath) -> String {
         if indexPath.section == 0 {
-            if ServiceAuth.userPerfil.name != "" {
-                return ServiceAuth.userPerfil.name
+            if ServiceAuth.userProfile.name != "" {
+                return ServiceAuth.userProfile.name
             }
-            if ServiceAuth.userPerfil.email != "" {
-                return ServiceAuth.userPerfil.email
+            if ServiceAuth.userProfile.email != "" {
+                return ServiceAuth.userProfile.email
             }
             return "Desconectado"
         } else {
@@ -133,7 +133,7 @@ class PerfilViewModel {
     }
     
     func pegarInformacoesDoUsuario() {
-        serviceAuth.informacoesDoUsuario()
+        serviceAuth.userInfo()
     }
     
     func opcoesDaTableView(index: Int) {
