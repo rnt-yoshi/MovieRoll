@@ -26,6 +26,8 @@ class Service {
     
     var plataformaFiltro: [Int] = []
     
+    var teste = 0
+    
     let generos: [String: String] = [
         "28": "Ação",
         "878": "Ficção",
