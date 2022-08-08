@@ -52,10 +52,28 @@ class Service {
             
             do {
                 let movies = try decoder.decode(MoviesResult.self, from: data)
-                let noRoletedMovies = self.removeRoletadosDaListaMovies(movies: movies.results)
-                let noFavoritedMovies = self.removeFavoritosDaListaMovies(movies: noRoletedMovies)
-                let noWatchedMovies = self.removeAssistidosDaListaMovies(movies: noFavoritedMovies)
-                completion(noWatchedMovies)
+                var moviesRoll: [Movie] = []
+                let group = DispatchGroup()
+                
+                group.enter()
+                self.removeFavoritosDaListaMovies(movies: movies.results) { movies in
+                    moviesRoll.append(contentsOf: movies)
+                    group.leave()
+                }
+                group.enter()
+                self.removeRoletadosDaListaMovies(movies: movies.results) { movies in
+                    moviesRoll.append(contentsOf: movies)
+                    group.leave()
+                }
+                group.enter()
+                self.removeAssistidosDaListaMovies(movies: movies.results) { movies in
+                    moviesRoll.append(contentsOf: movies)
+                    group.leave()
+                }
+                
+                group.notify(queue: .main) {
+                    completion(moviesRoll)
+                }
             } catch {
                 print(error)
             }
@@ -128,37 +146,44 @@ class Service {
     
     //MARK: - Private Methods
     
-    private func removeAssistidosDaListaMovies(movies: [Movie]) -> [Movie] {
-        let assistidos = coreDataService.pegarListaDeAssistidosNoCoreData()
+    private func removeAssistidosDaListaMovies(movies: [Movie], completion: @escaping ([Movie]) -> Void) {
         var newMovies = movies
-        for assistido in assistidos {
-            newMovies.removeAll { movie in
-                assistido.title == movie.title
+        DispatchQueue.main.async {
+            let assistidos = self.coreDataService.pegarListaDeAssistidosNoCoreData()
+            for assistido in assistidos {
+                newMovies.removeAll { movie in
+                    assistido.title == movie.title
+                }
             }
+            completion(newMovies)
         }
-        return newMovies
     }
     
-    private func removeFavoritosDaListaMovies(movies: [Movie]) -> [Movie] {
-        let favoritos = coreDataService.pegarListaDeFavoritosNoCoreData()
+    private func removeFavoritosDaListaMovies(movies: [Movie], completion: @escaping ([Movie]) -> Void) {
         var newMovies = movies
-        for favorito in favoritos {
-            newMovies.removeAll { movie in
-                return favorito.title == movie.title
+        DispatchQueue.main.async {
+            let favoritos = self.coreDataService.pegarListaDeFavoritosNoCoreData()
+            for favorito in favoritos {
+                newMovies.removeAll { movie in
+                    return favorito.title == movie.title
+                }
             }
+            completion(newMovies)
         }
-        return newMovies
     }
     
-    private func removeRoletadosDaListaMovies(movies: [Movie]) -> [Movie] {
-        let roletados = coreDataService.pegarListaDeRoletadosNoCoreData()
+    private func removeRoletadosDaListaMovies(movies: [Movie], completion: @escaping ([Movie]) -> Void){
         var newMovies = movies
-        for roletado in roletados {
-            newMovies.removeAll { movie in
-                return roletado.title == movie.title
+        DispatchQueue.main.async {
+            let roletados = self.coreDataService.pegarListaDeRoletadosNoCoreData()
+            
+            for roletado in roletados {
+                newMovies.removeAll { movie in
+                    return roletado.title == movie.title
+                }
             }
+            completion(newMovies)
         }
-        return newMovies
     }
     
     private func setProviderIds(flatrate: [Flatrate]) -> [Int] {
