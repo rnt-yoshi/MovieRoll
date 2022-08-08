@@ -107,7 +107,7 @@ class DetalhesFilmeViewModel {
     }
     
     var getPlataforma: String {
-        for provider in service.plataformaFiltro {
+        for provider in service.filterProvider {
             if movie.providersId.contains(provider) {
                 return String(provider)
             }

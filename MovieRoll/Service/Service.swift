@@ -24,9 +24,9 @@ class Service {
     
     //MARK: - Public Properties
     
-    var plataformaFiltro: [Int] = []
+    var filterProvider: [Int] = []
     
-    let generos: [String: String] = [
+    let genre: [String: String] = [
         "28": "Ação",
         "878": "Ficção",
         "53": "Suspense",
@@ -56,17 +56,17 @@ class Service {
                 let group = DispatchGroup()
                 
                 group.enter()
-                self.removeFavoritosDaListaMovies(movies: movies.results) { movies in
+                self.removeFavoritesFromMoviesList(movies: movies.results) { movies in
                     moviesRoll.append(contentsOf: movies)
                     group.leave()
                 }
                 group.enter()
-                self.removeRoletadosDaListaMovies(movies: movies.results) { movies in
+                self.removeSortedFromMoviesList(movies: movies.results) { movies in
                     moviesRoll.append(contentsOf: movies)
                     group.leave()
                 }
                 group.enter()
-                self.removeAssistidosDaListaMovies(movies: movies.results) { movies in
+                self.removeWatchedFromMoviesList(movies: movies.results) { movies in
                     moviesRoll.append(contentsOf: movies)
                     group.leave()
                 }
@@ -146,7 +146,7 @@ class Service {
     
     //MARK: - Private Methods
     
-    private func removeAssistidosDaListaMovies(movies: [Movie], completion: @escaping ([Movie]) -> Void) {
+    private func removeWatchedFromMoviesList(movies: [Movie], completion: @escaping ([Movie]) -> Void) {
         var newMovies = movies
         DispatchQueue.main.async {
             let assistidos = self.coreDataService.pegarListaDeAssistidosNoCoreData()
@@ -159,7 +159,7 @@ class Service {
         }
     }
     
-    private func removeFavoritosDaListaMovies(movies: [Movie], completion: @escaping ([Movie]) -> Void) {
+    private func removeFavoritesFromMoviesList(movies: [Movie], completion: @escaping ([Movie]) -> Void) {
         var newMovies = movies
         DispatchQueue.main.async {
             let favoritos = self.coreDataService.pegarListaDeFavoritosNoCoreData()
@@ -172,7 +172,7 @@ class Service {
         }
     }
     
-    private func removeRoletadosDaListaMovies(movies: [Movie], completion: @escaping ([Movie]) -> Void){
+    private func removeSortedFromMoviesList(movies: [Movie], completion: @escaping ([Movie]) -> Void){
         var newMovies = movies
         DispatchQueue.main.async {
             let roletados = self.coreDataService.pegarListaDeRoletadosNoCoreData()

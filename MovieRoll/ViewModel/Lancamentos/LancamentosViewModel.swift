@@ -54,7 +54,7 @@ class LancamentosViewModel {
     
     func retornaTitulo(section: Int) -> String {
         let chave = Array(filmesLancamentos.keys)[section]
-        return service.generos[chave] ?? ""
+        return service.genre[chave] ?? ""
     }
     
     func retornaFilmes(row: Int, section: Int) -> Movie {

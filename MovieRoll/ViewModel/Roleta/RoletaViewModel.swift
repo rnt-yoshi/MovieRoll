@@ -110,9 +110,9 @@ class RoletaViewModel {
         guard let randomProvider = plataformas.randomElement() else { return "" }
         var idProvider = "\(randomProvider)"
         
-        if service.plataformaFiltro.count > 0 {
+        if service.filterProvider.count > 0 {
             idProvider = ""
-            for provider in service.plataformaFiltro {
+            for provider in service.filterProvider {
                 idProvider += "%7C\(provider)"
             }
             idProvider =  String(idProvider.dropFirst(3))
@@ -229,12 +229,12 @@ class RoletaViewModel {
     
     func adicionaPlataformaFiltro(indexPath: IndexPath) {
         let plataforma = plataformas[indexPath.item]
-        service.plataformaFiltro.append(plataforma)
+        service.filterProvider.append(plataforma)
     }
     
     func removePlataformaFiltro(indexPath: IndexPath) {
         let plataforma = plataformas[indexPath.item]
-        service.plataformaFiltro.removeAll { plataformaFiltro in
+        service.filterProvider.removeAll { plataformaFiltro in
             return  plataforma == plataformaFiltro
         }
     }
@@ -263,12 +263,12 @@ class RoletaViewModel {
     }
     
     private func cleanFilterProviders() {
-        service.plataformaFiltro = []
+        service.filterProvider = []
         delegate?.cleanProviders()
     }
 
     private func getGenresId(genero: String) -> String {
-        for (key, array) in service.generos {
+        for (key, array) in service.genre {
             if array.contains(genero) {
                 return key
             }
