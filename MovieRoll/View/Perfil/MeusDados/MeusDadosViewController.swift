@@ -63,6 +63,7 @@ class MeusDadosViewController: UIViewController {
         textField.backgroundColor = UIColor(named: "darkGrayMovieRoll")
         textField.borderStyle = .roundedRect
         textField.font = UIFont(name: "AmsiPro-Regular", size: 17)
+        textField.delegate = self
         return textField
     }()
     
@@ -85,6 +86,7 @@ class MeusDadosViewController: UIViewController {
         textField.backgroundColor = UIColor(named: "darkGrayMovieRoll")
         textField.borderStyle = .roundedRect
         textField.font = UIFont(name: "AmsiPro-Regular", size: 17)
+        textField.delegate = self
         return textField
     }()
     
@@ -140,6 +142,7 @@ class MeusDadosViewController: UIViewController {
         view.addSubview(eyeButton)
         view.addSubview(closeButton)
         setupConstraints()
+        hideKeyboardWhenTappedAround()
         
         configuraTela()
         
@@ -200,6 +203,16 @@ class MeusDadosViewController: UIViewController {
         meusDadosImage.image = UIImage(data: viewModel.getUserImage) ?? UIImage(named: "perfil")
     }
     
+    private func hideKeyboardWhenTappedAround() {
+        let tapGesture = UITapGestureRecognizer(target: self,
+                         action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    @objc private func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
     //MARK: - Actions
     
     @objc func salvarButtonAction() {
@@ -218,7 +231,7 @@ class MeusDadosViewController: UIViewController {
         dismiss(animated: true)
     }
 }
-
+//MARK: - MeusDados ViewModelDelegate
 extension MeusDadosViewController: MeusDadosViewModelDelegate {
     func alertaErroAutenticacao(message: String) {
         let alerta = UIAlertController(title: "Atenção", message: message, preferredStyle: .alert)
@@ -266,3 +279,14 @@ extension MeusDadosViewController: MeusDadosViewModelDelegate {
         present(alerta, animated: true)
     }
 }
+
+//MARK: - UITextField Delegate
+
+extension MeusDadosViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+

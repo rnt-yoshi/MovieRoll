@@ -42,6 +42,7 @@ class LoginViewController: UIViewController {
         textField.backgroundColor = UIColor(named: "darkGrayMovieRoll")
         textField.borderStyle = .roundedRect
         textField.font = UIFont(name: "AmsiPro-Regular", size: 17)
+        textField.delegate = self
         return textField
     }()
     
@@ -64,6 +65,7 @@ class LoginViewController: UIViewController {
         textField.backgroundColor = UIColor(named: "darkGrayMovieRoll")
         textField.borderStyle = .roundedRect
         textField.font = UIFont(name: "AmsiPro-Regular", size: 17)
+        textField.delegate = self
         return textField
     }()
     
@@ -146,6 +148,7 @@ class LoginViewController: UIViewController {
         view.addSubview(facebookButton)
         view.addSubview(cadastrarButton)
         view.addSubview(eyeButton)
+        hideKeyboardWhenTappedAround()
         
         setupConstraints()
         viewModel.delegate = self
@@ -251,7 +254,19 @@ class LoginViewController: UIViewController {
     @objc private func eyeButtonAction() {
         viewModel.eyeButtonPressed(visivel: senhaTextField.isSecureTextEntry)
     }
+    
+    private func hideKeyboardWhenTappedAround() {
+        let tapGesture = UITapGestureRecognizer(target: self,
+                         action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    @objc private func hideKeyboard() {
+        view.endEditing(true)
+    }
 }
+
+//MARK: - Login VieModel Delegate
 
 extension LoginViewController: LoginViewModelDelegate {
     func secureSenhaTextField() {
@@ -295,6 +310,16 @@ extension LoginViewController: LoginViewModelDelegate {
                 error: error
             )
         }
+    }
+}
+
+//MARK: - UITextField Delegate
+
+extension LoginViewController: UITextFieldDelegate {
+    
+     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 
