@@ -167,7 +167,7 @@ extension RoletaViewController: RoletaViewModelDelegate {
         let ehFavorito = viewModel.verificaFavorito(movie: movie)
         let foiAssistido = viewModel.verificaAssistido(movie: movie)
         
-        let viewModel = MovieDetailsViewModel(movie: movie, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
+        let viewModel = MovieDetailsViewModel(movie: movie, isFavorite: ehFavorito, isWatched: foiAssistido)
         
         detalhesFilme.viewModel = viewModel
         

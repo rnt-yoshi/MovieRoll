@@ -27,10 +27,10 @@ class MovieDetailsViewModel {
     private var moviesFavorite: [MovieFavorite] = []
     private var moviesWatched: [MovieWatched] = []
     
-    init(movie: Movie, ehFavorito: Bool, foiAssistido: Bool) {
+    init(movie: Movie, isFavorite: Bool, isWatched: Bool) {
         self.movie = movie
-        self.ehFavorito = ehFavorito
-        self.foiAssistido = foiAssistido
+        self.ehFavorito = isFavorite
+        self.foiAssistido = isWatched
     }
     
     //MARK: - Public Properties

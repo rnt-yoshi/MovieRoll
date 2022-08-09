@@ -7,12 +7,12 @@
 
 import UIKit
 
-class LancamentosViewController: UIViewController {
+class ReleasesViewController: UIViewController {
     
     //MARK: - Outlets
 
-    @IBOutlet private weak var lancamentosTableView: UITableView!
-    @IBOutlet private weak var activityIndicatorLancamento: UIActivityIndicatorView!
+    @IBOutlet private weak var releasesTableView: UITableView!
+    @IBOutlet private weak var activityIndicatorRelease: UIActivityIndicatorView!
     
     
     //MARK: - Private Properties
@@ -24,41 +24,41 @@ class LancamentosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activityIndicatorLancamento.hidesWhenStopped = true
-        activityIndicatorLancamento.startAnimating()
+        activityIndicatorRelease.hidesWhenStopped = true
+        activityIndicatorRelease.startAnimating()
         
-        lancamentosTableView.delegate = self
-        lancamentosTableView.dataSource = self
+        releasesTableView.delegate = self
+        releasesTableView.dataSource = self
         viewModel.delegate = self
         
         viewModel.carregarFilmes {
             DispatchQueue.main.async {
-                self.activityIndicatorLancamento.stopAnimating()
-                self.lancamentosTableView.reloadData()
+                self.activityIndicatorRelease.stopAnimating()
+                self.releasesTableView.reloadData()
             }
         }
     }
     
 }
 
-//MARK: - LançamentosViewModel Delegate
+//MARK: - ReleasesViewModel Delegate
 
-extension LancamentosViewController: LancamentosViewModelDelegate {
+extension ReleasesViewController: ReleasesViewModelDelegate {
     func didSelectItem(movie: Movie) {
-        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? MoviesDetailsViewController else { return }
-        let ehFavorito = viewModel.verificaFavorito(movie: movie)
-        let foiAssistido = viewModel.verificaAssistido(movie: movie)
+        guard let movieDetails = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? MoviesDetailsViewController else { return }
+        let isFavorite = viewModel.checksFavorite(movie: movie)
+        let isWatched = viewModel.checksWatched(movie: movie)
 
-        let viewModel = MovieDetailsViewModel(movie: movie, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
-        detalhesFilme.viewModel = viewModel
-        navigationController?.pushViewController(detalhesFilme, animated: true)
+        let viewModel = MovieDetailsViewModel(movie: movie, isFavorite: isFavorite, isWatched: isWatched)
+        movieDetails.viewModel = viewModel
+        navigationController?.pushViewController(movieDetails, animated: true)
     }
 
 }
 
 //MARK: - TableView DataSource & Delegate
 
-extension LancamentosViewController: UITableViewDataSource, UITableViewDelegate {
+extension ReleasesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows
     }
@@ -72,11 +72,11 @@ extension LancamentosViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = lancamentosTableView.dequeueReusableCell(withIdentifier: "idCellTable", for: indexPath) as? LancamentosTableViewCell else { return UITableViewCell() }
+        guard let cell = releasesTableView.dequeueReusableCell(withIdentifier: "idCellTable", for: indexPath) as? LancamentosTableViewCell else { return UITableViewCell() }
 
         cell.config(viewModel: viewModel, section: indexPath.section)
-        cell.lancamentosCollectionView.tag = indexPath.section
-        cell.lancamentosCollectionView.reloadData()
+        cell.releasesCollectionView.tag = indexPath.section
+        cell.releasesCollectionView.reloadData()
         
         return cell
     }

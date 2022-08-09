@@ -651,8 +651,8 @@
         <!--Lançamentos-->
         <scene sceneID="6xK-fU-koV">
             <objects>
-                <viewController id="XXJ-TE-DvH" customClass="LancamentosViewController" customModule="MovieRoll" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="C49-z1-ttk">
+                <viewController id="XXJ-TE-DvH" customClass="ReleasesViewController" customModule="MovieRoll" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C49-z1-ttk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -727,7 +727,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="lancamentosCollectionView" destination="uaU-ng-UaL" id="vwj-eY-UrW"/>
+                                            <outlet property="releasesCollectionView" destination="uaU-ng-UaL" id="vwj-eY-UrW"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -750,8 +750,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Lançamentos" id="96H-jz-a2R"/>
                     <connections>
-                        <outlet property="activityIndicatorLancamento" destination="zY7-Sr-Rzg" id="TTZ-aF-hHZ"/>
-                        <outlet property="lancamentosTableView" destination="hzZ-aW-cqL" id="TS1-v7-rwC"/>
+                        <outlet property="activityIndicatorRelease" destination="zY7-Sr-Rzg" id="TTZ-aF-hHZ"/>
+                        <outlet property="releasesTableView" destination="hzZ-aW-cqL" id="TS1-v7-rwC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mPx-FB-uDT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

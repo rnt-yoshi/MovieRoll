@@ -111,7 +111,7 @@ extension HistoricoViewController: UICollectionViewDataSource, UICollectionViewD
         let ehFavorito = viewModel.verificaFavorito(movie: movie)
         let foiAssistido = viewModel.verificaAssistido(movie: movie)
         
-        let detalhesFilmeViewModel = MovieDetailsViewModel(movie: movie, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
+        let detalhesFilmeViewModel = MovieDetailsViewModel(movie: movie, isFavorite: ehFavorito, isWatched: foiAssistido)
         detalhesFilme.viewModel = detalhesFilmeViewModel
         navigationController?.pushViewController(detalhesFilme, animated: true)
     }

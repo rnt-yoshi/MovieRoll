@@ -11,7 +11,7 @@ class LancamentosTableViewCell: UITableViewCell {
     
     //MARK: - Public Properties
 
-    @IBOutlet  weak var lancamentosCollectionView: UICollectionView!
+    @IBOutlet  weak var releasesCollectionView: UICollectionView!
     
     //MARK: - private Properties
 
@@ -22,8 +22,8 @@ class LancamentosTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        lancamentosCollectionView.dataSource = self
-        lancamentosCollectionView.delegate = self
+        releasesCollectionView.dataSource = self
+        releasesCollectionView.delegate = self
     }
     func config(viewModel: LancamentosViewModel, section: Int) {
         self.viewModel = viewModel
@@ -39,7 +39,7 @@ extension LancamentosTableViewCell: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = lancamentosCollectionView.dequeueReusableCell(withReuseIdentifier: "idCellCollection", for: indexPath) as? LancamentosCollectionViewCell else { return UICollectionViewCell()}
+        guard let cell = releasesCollectionView.dequeueReusableCell(withReuseIdentifier: "idCellCollection", for: indexPath) as? LancamentosCollectionViewCell else { return UICollectionViewCell()}
           
         guard let viewModel = viewModel, let section = section else { return UICollectionViewCell()}
       

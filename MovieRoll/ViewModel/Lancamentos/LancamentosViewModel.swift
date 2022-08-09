@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol LancamentosViewModelDelegate {
+protocol ReleasesViewModelDelegate {
     func didSelectItem (movie: Movie)
 }
 
@@ -31,7 +31,7 @@ class LancamentosViewModel {
     
     //MARK: - Public Properties
     
-    var delegate: LancamentosViewModelDelegate?
+    var delegate: ReleasesViewModelDelegate?
 
     var numberOfRows: Int {
             return 1
@@ -83,13 +83,13 @@ class LancamentosViewModel {
 
     }
 
-    func verificaFavorito(movie: Movie) -> Bool {
+    func checksFavorite(movie: Movie) -> Bool {
         return coreDataService.pegarListaDeFavoritosNoCoreData().contains { favorito in
             movie.id == favorito.id
         }
     }
     
-    func verificaAssistido(movie: Movie) -> Bool {
+    func checksWatched(movie: Movie) -> Bool {
         return coreDataService.pegarListaDeAssistidosNoCoreData().contains { assistido in
             movie.id == assistido.id
         }

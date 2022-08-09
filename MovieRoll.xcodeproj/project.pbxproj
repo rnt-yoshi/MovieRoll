@@ -46,7 +46,7 @@
 		8A662633287C6DA40088A401 /* MovieWatched+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A66262D287C6DA40088A401 /* MovieWatched+CoreDataClass.swift */; };
 		8A662634287C6DA40088A401 /* MovieWatched+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A66262E287C6DA40088A401 /* MovieWatched+CoreDataProperties.swift */; };
 		8A72D0B4283FA12800977B34 /* RoletaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A72D0B3283FA12800977B34 /* RoletaViewController.swift */; };
-		8A72D0B6283FA14600977B34 /* LancamentosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A72D0B5283FA14600977B34 /* LancamentosViewController.swift */; };
+		8A72D0B6283FA14600977B34 /* ReleasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A72D0B5283FA14600977B34 /* ReleasesViewController.swift */; };
 		8ADFC41D284B7A6000CBDBA2 /* MyDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADFC41C284B7A6000CBDBA2 /* MyDataViewController.swift */; };
 		8ADFC41F284B7A8C00CBDBA2 /* HistoricoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADFC41E284B7A8C00CBDBA2 /* HistoricoViewController.swift */; };
 		8ADFC421284B7AAC00CBDBA2 /* ConfiguracoesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADFC420284B7AAC00CBDBA2 /* ConfiguracoesViewController.swift */; };
@@ -103,7 +103,7 @@
 		8A66262D287C6DA40088A401 /* MovieWatched+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieWatched+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8A66262E287C6DA40088A401 /* MovieWatched+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieWatched+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8A72D0B3283FA12800977B34 /* RoletaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoletaViewController.swift; sourceTree = "<group>"; };
-		8A72D0B5283FA14600977B34 /* LancamentosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LancamentosViewController.swift; sourceTree = "<group>"; };
+		8A72D0B5283FA14600977B34 /* ReleasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleasesViewController.swift; sourceTree = "<group>"; };
 		8ADFC41C284B7A6000CBDBA2 /* MyDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDataViewController.swift; sourceTree = "<group>"; };
 		8ADFC41E284B7A8C00CBDBA2 /* HistoricoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoViewController.swift; sourceTree = "<group>"; };
 		8ADFC420284B7AAC00CBDBA2 /* ConfiguracoesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguracoesViewController.swift; sourceTree = "<group>"; };
@@ -291,12 +291,12 @@
 			path = Roleta;
 			sourceTree = "<group>";
 		};
-		2BD40F86284FD24600AD1859 /* DetalhesFilme */ = {
+		2BD40F86284FD24600AD1859 /* MovieDetails */ = {
 			isa = PBXGroup;
 			children = (
 				429FFF2D284BD5200079C159 /* MoviesDetailsViewController.swift */,
 			);
-			path = DetalhesFilme;
+			path = MovieDetails;
 			sourceTree = "<group>";
 		};
 		2BF5D3CB2870DEC200B5AAEE /* Configurações */ = {
@@ -333,8 +333,8 @@
 			children = (
 				426A912328504B0D009D1AE2 /* TabBarController.swift */,
 				422B4B202850848A00E67014 /* Login */,
-				2BD40F86284FD24600AD1859 /* DetalhesFilme */,
-				4247B017284B8D1F004A12EE /* Lancamentos */,
+				2BD40F86284FD24600AD1859 /* MovieDetails */,
+				4247B017284B8D1F004A12EE /* Releases */,
 				2BA7C7C1284BD30800013C13 /* Roleta */,
 				2BA7C7BE284BD2A100013C13 /* Perfil */,
 			);
@@ -361,13 +361,13 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		4247B017284B8D1F004A12EE /* Lancamentos */ = {
+		4247B017284B8D1F004A12EE /* Releases */ = {
 			isa = PBXGroup;
 			children = (
-				8A72D0B5283FA14600977B34 /* LancamentosViewController.swift */,
+				8A72D0B5283FA14600977B34 /* ReleasesViewController.swift */,
 				2B179EAF285291440050487A /* Cells */,
 			);
-			path = Lancamentos;
+			path = Releases;
 			sourceTree = "<group>";
 		};
 		4247B01C284B967F004A12EE /* Lancamentos */ = {
@@ -596,7 +596,7 @@
 				2B5C323C2897026A00E00237 /* UIImageView.swift in Sources */,
 				8ADFC423284B7ABE00CBDBA2 /* AjudaViewController.swift in Sources */,
 				8A2F554A2880A0B1008B74CD /* ServiceAuth.swift in Sources */,
-				8A72D0B6283FA14600977B34 /* LancamentosViewController.swift in Sources */,
+				8A72D0B6283FA14600977B34 /* ReleasesViewController.swift in Sources */,
 				8A72D0B4283FA12800977B34 /* RoletaViewController.swift in Sources */,
 				C635E820284C4EF100DF525E /* RoletaViewModel.swift in Sources */,
 				4247B010284B85E9004A12EE /* Service.swift in Sources */,
