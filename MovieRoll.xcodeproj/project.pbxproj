@@ -36,7 +36,7 @@
 		8A1B0173284E67E10097D4D6 /* ConfiguracoesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1B0172284E67E10097D4D6 /* ConfiguracoesViewModel.swift */; };
 		8A2F554A2880A0B1008B74CD /* ServiceAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F55492880A0B1008B74CD /* ServiceAuth.swift */; };
 		8A3BA16F284A5F6800C74C77 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA16E284A5F6800C74C77 /* User.swift */; };
-		8A3BA171284A607100C74C77 /* OptionsDoPerfil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA170284A607100C74C77 /* OptionsDoPerfil.swift */; };
+		8A3BA171284A607100C74C77 /* ProfileOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA170284A607100C74C77 /* ProfileOptions.swift */; };
 		8A3BA177284A659E00C74C77 /* PerfilViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BA176284A659E00C74C77 /* PerfilViewModel.swift */; };
 		8A4C2BEF2885F05C005B781F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C2BEE2885F05C005B781F /* LoginViewModel.swift */; };
 		8A66262F287C6DA40088A401 /* MovieRolls+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A662629287C6DA40088A401 /* MovieRolls+CoreDataClass.swift */; };
@@ -93,7 +93,7 @@
 		8A1B0172284E67E10097D4D6 /* ConfiguracoesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguracoesViewModel.swift; sourceTree = "<group>"; };
 		8A2F55492880A0B1008B74CD /* ServiceAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAuth.swift; sourceTree = "<group>"; };
 		8A3BA16E284A5F6800C74C77 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		8A3BA170284A607100C74C77 /* OptionsDoPerfil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsDoPerfil.swift; sourceTree = "<group>"; };
+		8A3BA170284A607100C74C77 /* ProfileOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptions.swift; sourceTree = "<group>"; };
 		8A3BA176284A659E00C74C77 /* PerfilViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewModel.swift; sourceTree = "<group>"; };
 		8A4C2BEE2885F05C005B781F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8A662629287C6DA40088A401 /* MovieRolls+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieRolls+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -322,7 +322,7 @@
 				2B4B03F82867E6480033C076 /* CoreDataModel */,
 				4205B16828537BE90041ED5C /* Movie.swift */,
 				2B84BA9A285BC1B000C996D2 /* Provider.swift */,
-				8A3BA170284A607100C74C77 /* OptionsDoPerfil.swift */,
+				8A3BA170284A607100C74C77 /* ProfileOptions.swift */,
 				8A3BA16E284A5F6800C74C77 /* User.swift */,
 			);
 			path = Model;
@@ -567,7 +567,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				426A9122285049A5009D1AE2 /* LoginViewController.swift in Sources */,
-				8A3BA171284A607100C74C77 /* OptionsDoPerfil.swift in Sources */,
+				8A3BA171284A607100C74C77 /* ProfileOptions.swift in Sources */,
 				2B84BA9B285BC1B000C996D2 /* Provider.swift in Sources */,
 				429FFF2E284BD5200079C159 /* DetalhesFilmeViewController.swift in Sources */,
 				8A1B0173284E67E10097D4D6 /* ConfiguracoesViewModel.swift in Sources */,

@@ -89,7 +89,7 @@ class PerfilViewModel {
     
     func getImage(indexPath: IndexPath) -> String {
         if indexPath.section == 1 {
-            return optionsDoPerfil[indexPath.row].imagem
+            return optionsDoPerfil[indexPath.row].image
         }
         return String()
     }
@@ -120,7 +120,7 @@ class PerfilViewModel {
             }
             return "Desconectado"
         } else {
-            return optionsDoPerfil[indexPath.row].titulo
+            return optionsDoPerfil[indexPath.row].title
         }
     }
     
@@ -128,7 +128,7 @@ class PerfilViewModel {
         if indexPath.section == 0 {
             return nil
         } else {
-            return optionsDoPerfil[indexPath.row].subtitulo
+            return optionsDoPerfil[indexPath.row].caption
         }
     }
     

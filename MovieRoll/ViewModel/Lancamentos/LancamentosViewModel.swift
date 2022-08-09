@@ -100,7 +100,7 @@ class LancamentosViewModel {
         
         for genero in filmesLancamentos.keys {
             group.enter()
-            service.fetchDiscoverLancamentos(genre: genero) { filmes in
+            service.fetchDiscoverReleases(genre: genero) { filmes in
                 self.filmesLancamentos[genero] = filmes
 
                 group.leave()

@@ -8,14 +8,14 @@
 import Foundation
 
 class OptionsDoPerfil {
-    var titulo: String
-    var subtitulo: String
-    var imagem: String
+    var title: String
+    var caption: String
+    var image: String
     
     init(titulo: String, subtitulo: String, imagem: String) {
-        self.titulo = titulo
-        self.subtitulo = subtitulo
-        self.imagem = imagem
+        self.title = titulo
+        self.caption = subtitulo
+        self.image = imagem
     }
 }
 
