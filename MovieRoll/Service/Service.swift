@@ -52,27 +52,17 @@ class Service {
             
             do {
                 let movies = try decoder.decode(MoviesResult.self, from: data)
-                var moviesRoll: [Movie] = []
-                let group = DispatchGroup()
+                var moviesRoll = movies.results
                 
-                group.enter()
-                self.removeFavoritesFromMoviesList(movies: movies.results) { movies in
-                    moviesRoll.append(contentsOf: movies)
-                    group.leave()
-                }
-                group.enter()
-                self.removeSortedFromMoviesList(movies: movies.results) { movies in
-                    moviesRoll.append(contentsOf: movies)
-                    group.leave()
-                }
-                group.enter()
-                self.removeWatchedFromMoviesList(movies: movies.results) { movies in
-                    moviesRoll.append(contentsOf: movies)
-                    group.leave()
-                }
-                
-                group.notify(queue: .main) {
-                    completion(moviesRoll)
+                self.removeFavoritesFromMoviesList(movies: moviesRoll ) { movies in
+                    moviesRoll = movies
+                    self.removeSortedFromMoviesList(movies: moviesRoll) { movies in
+                        moviesRoll = movies
+                        self.removeWatchedFromMoviesList(movies: moviesRoll) { movies in
+                            moviesRoll = movies
+                            completion(moviesRoll)
+                        }
+                    }
                 }
             } catch {
                 print(error)
