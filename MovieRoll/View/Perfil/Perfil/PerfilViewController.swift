@@ -44,7 +44,7 @@ extension PerfilViewController: PerfilViewModelDelegate {
     }
     
     func exibeMeusDados() {
-        let meusDadosVC = MeusDadosViewController()
+        let meusDadosVC = MyDataViewController()
         meusDadosVC.viewModel = viewModel.getMeusDadosViewModel
         meusDadosVC.navigationItem.largeTitleDisplayMode = .never
         meusDadosVC.meusDadosSenhaTextField.isHidden = true

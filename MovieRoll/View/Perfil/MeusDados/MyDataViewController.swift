@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class MeusDadosViewController: UIViewController {
+class MyDataViewController: UIViewController {
 
     //MARK: - Componentes
     
@@ -232,7 +232,7 @@ class MeusDadosViewController: UIViewController {
     }
 }
 //MARK: - MeusDados ViewModelDelegate
-extension MeusDadosViewController: MeusDadosViewModelDelegate {
+extension MyDataViewController: MeusDadosViewModelDelegate {
     func alertaErroAutenticacao(message: String) {
         let alerta = UIAlertController(title: "Atenção", message: message, preferredStyle: .alert)
 
@@ -282,7 +282,7 @@ extension MeusDadosViewController: MeusDadosViewModelDelegate {
 
 //MARK: - UITextField Delegate
 
-extension MeusDadosViewController: UITextFieldDelegate {
+extension MyDataViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

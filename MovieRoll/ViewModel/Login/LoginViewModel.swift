@@ -14,9 +14,9 @@ protocol LoginViewModelDelegate {
     func loginGoogle(configuration: GIDConfiguration)
     func dismissModal()
     func loginFacebook(loginManager: LoginManager)
-    func alertaErroLogin(message: String)
-    func secureSenhaTextField()
-    func notSecureSenhaTextField()
+    func errorAlertLogin(message: String)
+    func securePasswordTextField()
+    func notSecurePasswordTextField()
 }
 
 class LoginViewModel{
@@ -32,17 +32,17 @@ class LoginViewModel{
             let error = error as? NSError
             
             if error?.code == 17011 {
-                self.delegate?.alertaErroLogin(message: "E-mail não registrado, tente novamente.")
+                self.delegate?.errorAlertLogin(message: "E-mail não registrado, tente novamente.")
                 return
             }
             
             if error?.code == 17009 {
-                self.delegate?.alertaErroLogin(message: "Senha inválida, tente novamente.")
+                self.delegate?.errorAlertLogin(message: "Senha inválida, tente novamente.")
                 return
             }
             
             if error?.code == 17008 {
-                self.delegate?.alertaErroLogin(message: "E-mail não está no formato correto, tente novamente.")
+                self.delegate?.errorAlertLogin(message: "E-mail não está no formato correto, tente novamente.")
                 return
             }
             self.delegate?.dismissModal()
@@ -77,7 +77,7 @@ class LoginViewModel{
         delegate?.loginFacebook(loginManager: loginManager)
     }
     
-    func tratarLoginFacebook(result:LoginManagerLoginResult?, error: Error?) {
+    func handleLoginFacebook(result:LoginManagerLoginResult?, error: Error?) {
         serviceAuth.treatFacebookLoginResult(result: result, error: error) { _ in
             self.delegate?.dismissModal()
         }
@@ -92,28 +92,28 @@ class LoginViewModel{
     
     func eyeButtonPressed(visivel: Bool) {
         if visivel {
-            delegate?.notSecureSenhaTextField()
+            delegate?.notSecurePasswordTextField()
         } else {
-            delegate?.secureSenhaTextField()
+            delegate?.securePasswordTextField()
         }
     }
     
-    func esqueciMinhaSenhaButtonPrecionado(email: String?) {
+    func forgotMyPasswordPressedButton(email: String?) {
         guard let email = email else { return }
         
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             let error = error as? NSError
             
             if error?.code == 17011 {
-                self.delegate?.alertaErroLogin(message: "E-mail não registrado, tente novamente.")
+                self.delegate?.errorAlertLogin(message: "E-mail não registrado, tente novamente.")
             }
             
             if error?.code == 17008 {
-                self.delegate?.alertaErroLogin(message: "E-mail não está no formato correto, tente novamente.")
+                self.delegate?.errorAlertLogin(message: "E-mail não está no formato correto, tente novamente.")
             }
             
             if error?.code == 17034 {
-                self.delegate?.alertaErroLogin(message: "Entre com um e-mail e tente novamente.")
+                self.delegate?.errorAlertLogin(message: "Entre com um e-mail e tente novamente.")
             }
         }
     }
