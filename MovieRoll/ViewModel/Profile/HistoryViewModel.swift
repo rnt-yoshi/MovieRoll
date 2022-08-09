@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-protocol HistoricoViewModelDelegate {
+protocol HistoryViewModelDelegate {
     
     func reloadCollectionView()
 }
 
-class HistoricoViewModel {
+class HistoryViewModel {
     
     //MARK: - Private Properties
     
@@ -21,19 +21,19 @@ class HistoricoViewModel {
     
     private var filteredRollMovies: [MovieRolls] = []
     private var filteredFavoriteMovies: [MovieFavorite] = []
-    private var filteredWatcheMovies: [MovieWatched] = []
+    private var filteredWatchedMovies: [MovieWatched] = []
     
     
     //MARK: - Public Properties
     
-    var delegate: HistoricoViewModelDelegate?
+    var delegate: HistoryViewModelDelegate?
 
     //MARK: - Public Methods
     
     func loadMovies(){
         filteredRollMovies = coreDataService.pegarListaDeRoletadosNoCoreData()
         filteredFavoriteMovies = coreDataService.pegarListaDeFavoritosNoCoreData()
-        filteredWatcheMovies = coreDataService.pegarListaDeAssistidosNoCoreData()
+        filteredWatchedMovies = coreDataService.pegarListaDeAssistidosNoCoreData()
 
     }
     
@@ -48,7 +48,7 @@ class HistoricoViewModel {
         if searchText.isEmpty{
             filteredRollMovies = rollMovies
             filteredFavoriteMovies = FavoriteMovies
-            filteredWatcheMovies = WatchedMovies
+            filteredWatchedMovies = WatchedMovies
             
         }else {
             
@@ -59,7 +59,7 @@ class HistoricoViewModel {
                 movie.title?.range(of: searchText, options: .caseInsensitive) != nil
             }
             
-            filteredWatcheMovies = WatchedMovies.filter { movie in
+            filteredWatchedMovies = WatchedMovies.filter { movie in
                 movie.title?.range(of: searchText, options: .caseInsensitive) != nil
             }
         }
@@ -69,63 +69,63 @@ class HistoricoViewModel {
     
     func numberOfItems(segmentedControlIndex: Int) -> Int {
         if segmentedControlIndex == 0 {
-            let roletados = filteredRollMovies
-            return roletados.count
+            let roulette = filteredRollMovies
+            return roulette.count
         }
         if segmentedControlIndex == 1 {
-            let favoritos = filteredFavoriteMovies
-            return favoritos.count
+            let favorites = filteredFavoriteMovies
+            return favorites.count
         }
         if segmentedControlIndex == 2 {
-            let assistidos = filteredWatcheMovies
-            return assistidos.count
+            let watched = filteredWatchedMovies
+            return watched.count
         }
         return 0
     }
     
-    func retornaFilme(indexFilme: Int, indexSegmenterController: Int) -> Movie {
+    func returnsMovie(indexMovie: Int, indexSegmenterController: Int) -> Movie {
         if indexSegmenterController == 0 {
-            let filmeRoletado = filteredRollMovies
-            return coreDataMovieToMovie(coreDataMovie: filmeRoletado[indexFilme])
+            let rouletteMovie = filteredRollMovies
+            return coreDataMovieToMovie(coreDataMovie: rouletteMovie[indexMovie])
         }
         if indexSegmenterController == 1 {
-            let filmeFavorito = filteredFavoriteMovies
-            return coreDataMovieToMovie(coreDataMovie: filmeFavorito[indexFilme])
+            let favoriteMovie = filteredFavoriteMovies
+            return coreDataMovieToMovie(coreDataMovie: favoriteMovie[indexMovie])
         }
         if indexSegmenterController == 2 {
-            let filmeAssistido = filteredWatcheMovies
-            return coreDataMovieToMovie(coreDataMovie: filmeAssistido[indexFilme])
+            let watchedMovie = filteredWatchedMovies
+            return coreDataMovieToMovie(coreDataMovie: watchedMovie[indexMovie])
         }
         return Movie()
     }
     
-    func getCellViewModel(indexPath: IndexPath, segmentedControlIndex: Int) -> HistoricoCellViewModel? {
+    func getCellViewModel(indexPath: IndexPath, segmentedControlIndex: Int) -> HistoryCellViewModel? {
         var movie : Movie?
         
         if segmentedControlIndex == 0 {
-            let filmeRoletado = filteredRollMovies
-            movie = coreDataMovieToMovie(coreDataMovie: filmeRoletado[indexPath.row])
+            let rouletteMovie = filteredRollMovies
+            movie = coreDataMovieToMovie(coreDataMovie: rouletteMovie[indexPath.row])
         }
         if segmentedControlIndex == 1 {
-            let filmeFavorito = filteredFavoriteMovies
-            movie = coreDataMovieToMovie(coreDataMovie: filmeFavorito[indexPath.row])
+            let favoriteMovie = filteredFavoriteMovies
+            movie = coreDataMovieToMovie(coreDataMovie: favoriteMovie[indexPath.row])
         }
         if segmentedControlIndex == 2 {
-            let filmeAssistido = filteredWatcheMovies
-            movie = coreDataMovieToMovie(coreDataMovie: filmeAssistido[indexPath.row])
+            let watchedMovie = filteredWatchedMovies
+            movie = coreDataMovieToMovie(coreDataMovie: watchedMovie[indexPath.row])
         }
-        return HistoricoCellViewModel(movie: movie)
+        return HistoryCellViewModel(movie: movie)
     }
     
     func checksFavorite(movie: Movie) -> Bool {
-        return filteredFavoriteMovies.contains { favorito in
-            favorito.id == movie.id
+        return filteredFavoriteMovies.contains { favorite in
+            favorite.id == movie.id
         }
     }
     
     func checksWatched(movie: Movie) -> Bool {
-        return filteredWatcheMovies.contains { assistido in
-            movie.id == assistido.id
+        return filteredWatchedMovies.contains { watched in
+            movie.id == watched.id
         }
     }
     

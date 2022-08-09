@@ -15,7 +15,7 @@ class HistoryCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Public Methods
 
-    func setupCell(viewModel: HistoricoCellViewModel) {
+    func setupCell(viewModel: HistoryCellViewModel) {
         historyImage.image = UIImage(data: viewModel.getImage)
         historyImage.layer.cornerRadius = 10
     }

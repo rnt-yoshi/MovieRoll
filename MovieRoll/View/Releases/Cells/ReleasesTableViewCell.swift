@@ -16,7 +16,7 @@ class ReleasesTableViewCell: UITableViewCell {
     //MARK: - private Properties
 
     private var section: Int?
-    private var viewModel: LancamentosViewModel?
+    private var viewModel: ReleasesViewModel?
     
     //MARK: - Public Methods
 
@@ -25,7 +25,7 @@ class ReleasesTableViewCell: UITableViewCell {
         releasesCollectionView.dataSource = self
         releasesCollectionView.delegate = self
     }
-    func config(viewModel: LancamentosViewModel, section: Int) {
+    func config(viewModel: ReleasesViewModel, section: Int) {
         self.viewModel = viewModel
         self.section = section
     }

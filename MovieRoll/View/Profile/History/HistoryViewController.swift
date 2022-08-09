@@ -22,7 +22,7 @@ class HistoryViewController: UIViewController {
     
     //MARK: - Public Properties
     
-    var viewModel: HistoricoViewModel?
+    var viewModel: HistoryViewModel?
     
     //MARK: - Public Methods
     
@@ -80,7 +80,7 @@ class HistoryViewController: UIViewController {
 }
 //MARK: - HistoricoViewModelDelegate
 
-extension HistoryViewController: HistoricoViewModelDelegate {
+extension HistoryViewController: HistoryViewModelDelegate {
     func reloadCollectionView() {
         historyCollectionView.reloadData()
     }
@@ -106,7 +106,7 @@ extension HistoryViewController: UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let viewModel = viewModel else { return }
-        let movie = viewModel.retornaFilme(indexFilme: indexPath.item, indexSegmenterController: segmentedControlIndex)
+        let movie = viewModel.returnsMovie(indexMovie: indexPath.item, indexSegmenterController: segmentedControlIndex)
         guard let movieDetails = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? MoviesDetailsViewController else { return }
         let isFavorite = viewModel.checksFavorite(movie: movie)
         let isWatched = viewModel.checksWatched(movie: movie)

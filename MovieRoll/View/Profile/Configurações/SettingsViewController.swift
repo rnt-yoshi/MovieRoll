@@ -119,15 +119,15 @@ class SettingsViewController: UIViewController {
     //MARK: - Actions
     
     @objc func resetRouletteButtonAction() {
-        viewModel?.resetarRoletadosButton()
+        viewModel?.resetRouletteButton()
     }
     
     @objc func resetFavoritesButtonAction() {
-        viewModel?.resetarFavoritosButton()
+        viewModel?.resetFavoritesButton()
     }
     
     @objc func resetWatchedButtonAction() {
-        viewModel?.resetarAssistidosButton()
+        viewModel?.resetWatchedButton()
     }
     
     @objc func disconnectAccountButtonAction() {

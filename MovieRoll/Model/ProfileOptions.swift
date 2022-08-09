@@ -7,15 +7,15 @@
 
 import Foundation
 
-class OptionsDoPerfil {
+class ProfileOptions {
     var title: String
     var caption: String
     var image: String
     
-    init(titulo: String, subtitulo: String, imagem: String) {
-        self.title = titulo
-        self.caption = subtitulo
-        self.image = imagem
+    init(title: String, caption: String, image: String) {
+        self.title = title
+        self.caption = caption
+        self.image = image
     }
 }
 

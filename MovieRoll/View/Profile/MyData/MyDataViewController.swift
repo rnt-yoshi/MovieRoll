@@ -216,7 +216,7 @@ class MyDataViewController: UIViewController {
     //MARK: - Actions
     
     @objc func saveButtonAction() {
-        viewModel?.botaoSalvarAction(
+        viewModel?.saveButtonAction(
             nome: myNameDataTextField.text,
             email: myEmailDataTextField.text,
             password: myPasswordDataTextField.text

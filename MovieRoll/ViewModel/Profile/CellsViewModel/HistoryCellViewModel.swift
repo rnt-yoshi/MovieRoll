@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HistoricoCellViewModel {
+class HistoryCellViewModel {
     
     //MARK: - Private Properties
     private let movie: Movie?

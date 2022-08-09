@@ -95,11 +95,11 @@ class RoletaViewController: UIViewController {
     //MARK: - Actions
     
     @IBAction private func generosBotoesAction(_ sender: UIButton) {
-        viewModel.generoPressionado(sender.configuration?.title, alpha: Float(sender.alpha), tag: sender.tag)
+        viewModel.pressedGenre(sender.configuration?.title, alpha: Float(sender.alpha), tag: sender.tag)
     }
     
     @IBAction private func estrelaNotaButtonAction(_ sender: UIButton) {
-        viewModel.estrelaNotaPressionada(sender.tag)
+        viewModel.pressedStarNote(sender.tag)
     }
     
     @IBAction private func limparAnosButtonAction(_ sender: Any) {
@@ -107,7 +107,7 @@ class RoletaViewController: UIViewController {
     }
     
     @IBAction private func roletarButtonPressed(_ sender: Any) {
-        viewModel.botaoRoletarMovie()
+        viewModel.rouletteMovieButton()
     }
     
     @IBAction func cleanFiltersAction(_ sender: Any) {
@@ -119,7 +119,7 @@ class RoletaViewController: UIViewController {
 
 //MARK: - RoletaViewModel Delegate
 
-extension RoletaViewController: RoletaViewModelDelegate {
+extension RoletaViewController: RouletteViewModelDelegate {
     func cleanGenres() {
         for genreButton in genreButtons {
             genreButton.alpha = 1
@@ -154,18 +154,18 @@ extension RoletaViewController: RoletaViewModelDelegate {
         releaseDatePickerView.reloadAllComponents()
     }
     
-    func desabilitarBotaoRoletar() {
+    func disableRouletteButton() {
         rouletteButton.isEnabled = false
         rouletteButton.isHidden = true
         rollActivityIndicator.isHidden = false
         rollActivityIndicator.startAnimating()
     }
     
-    func carregaFilme(movie: Movie) {
+    func loadMovie(movie: Movie) {
         guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? MoviesDetailsViewController else { return }
         
-        let ehFavorito = viewModel.verificaFavorito(movie: movie)
-        let foiAssistido = viewModel.verificaAssistido(movie: movie)
+        let ehFavorito = viewModel.checksFavorite(movie: movie)
+        let foiAssistido = viewModel.checksWatched(movie: movie)
         
         let viewModel = MovieDetailsViewModel(movie: movie, isFavorite: ehFavorito, isWatched: foiAssistido)
         
@@ -174,7 +174,7 @@ extension RoletaViewController: RoletaViewModelDelegate {
         navigationController?.pushViewController(detalhesFilme, animated: true)
     }
     
-    func exibirAlertaEHabilitarBotao() {
+    func showAlertAndEnableButton() {
         let alerta = UIAlertController(title: "Nenhum filme encontrado com os filtros escolhidos!", message: "Altere os filtros e tente novamente", preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -189,19 +189,19 @@ extension RoletaViewController: RoletaViewModelDelegate {
         rollActivityIndicator.isHidden = true
     }
     
-    func botaoGeneroSelecionado(tag: Int) {
+    func selectedGenreButton(tag: Int) {
         genreButtons[tag].alpha = 0.60
         genreButtons[tag].layer.cornerRadius = 10
         genreButtons[tag].layer.borderWidth = 3
         genreButtons[tag].layer.borderColor = UIColor.orange.cgColor
     }
     
-    func botaoGeneroSemSelecao(tag: Int) {
+    func diselectedGenreButton(tag: Int) {
         genreButtons[tag].alpha = 1
         genreButtons[tag].layer.borderWidth = 0
     }
     
-    func estrelaVazia(tag: Int) {
+    func emptyStar(tag: Int) {
         starsNoteButton[tag].configuration?.image = UIImage(systemName: "star")
         starsNoteButton[tag].configuration?.baseForegroundColor = .systemYellow
         starsNoteButton[tag].transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
@@ -218,7 +218,7 @@ extension RoletaViewController: RoletaViewModelDelegate {
         )
     }
     
-    func estrelaCheia(tag: Int) {
+    func fullStar(tag: Int) {
         starsNoteButton[tag].configuration?.image = UIImage(systemName: "star.fill")
         starsNoteButton[tag].configuration?.baseForegroundColor = .systemYellow
         starsNoteButton[tag].transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
@@ -273,7 +273,7 @@ extension RoletaViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? PlatformsCollectionViewCell else { return }
-        viewModel.adicionaPlataformaFiltro(indexPath: indexPath)
+        viewModel.addFilterPlatform(indexPath: indexPath)
         cell.alpha = 0.60
         cell.layer.cornerRadius = 10
         cell.layer.borderWidth = 3
@@ -282,7 +282,7 @@ extension RoletaViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? PlatformsCollectionViewCell else { return }
-        viewModel.removePlataformaFiltro(indexPath: indexPath)
+        viewModel.removePlatformFilter(indexPath: indexPath)
         cell.alpha = 1
         cell.layer.borderWidth = 0
     }

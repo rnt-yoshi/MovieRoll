@@ -23,7 +23,7 @@ class LoginViewModel{
     let serviceAuth: ServiceAuth = .init()
     var delegate: LoginViewModelDelegate?
     
-    func efetuarLoginEmailSenha(email: String?, password: String?) {
+    func concludeLoginEmailPassword(email: String?, password: String?) {
         guard let email = email else { return }
         guard let password = password else { return }
         
@@ -49,13 +49,13 @@ class LoginViewModel{
         }
     }
     
-    func efetuarLoginGoogle() {
+    func concludeLoginGoogle() {
         guard let configuration = serviceAuth.getGoogleConfiguration() else { return }
         
         delegate?.loginGoogle(configuration: configuration)
     }
     
-    func tratarLoginGoogle(user: GIDGoogleUser?, error: Error?) {
+    func prepareLoginGoogle(user: GIDGoogleUser?, error: Error?) {
         // tratativa de erro
         if let error = error {
             print(error)
@@ -63,14 +63,14 @@ class LoginViewModel{
         }
         
         // login do google deu certo
-        salvarDadosNoFirebase(user: user) { _ in
+        saveDataInFirebase(user: user) { _ in
             self.delegate?.dismissModal()
         }
         
         
     }
     
-    func efetuarLoginFacebook() {
+    func concludeLoginFacebook() {
         
         let loginManager = LoginManager()
         
@@ -84,10 +84,10 @@ class LoginViewModel{
         
     }
     
-    private func salvarDadosNoFirebase(user: GIDGoogleUser?, completion: @escaping (Bool) -> Void) {
-        guard let credencial = serviceAuth.getGoogleCredential(de: user) else { return }
+    private func saveDataInFirebase(user: GIDGoogleUser?, completion: @escaping (Bool) -> Void) {
+        guard let credential = serviceAuth.getGoogleCredential(de: user) else { return }
 
-        serviceAuth.saveInFirebase(com: credencial, completion: completion)
+        serviceAuth.saveInFirebase(com: credential, completion: completion)
     }
     
     func eyeButtonPressed(visivel: Bool) {

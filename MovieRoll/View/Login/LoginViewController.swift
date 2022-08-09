@@ -231,18 +231,18 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func loginButtonAction() {
-        viewModel.efetuarLoginEmailSenha(
+        viewModel.concludeLoginEmailPassword(
             email: emailTextField.text,
             password: passwordTextField.text
         )
     }
     
     @objc private func googleButtonAction() {
-        viewModel.efetuarLoginGoogle()
+        viewModel.concludeLoginGoogle()
     }
     
     @objc private func facebookButtonAction() {
-        viewModel.efetuarLoginFacebook()
+        viewModel.concludeLoginFacebook()
     }
     
     @objc private func registerButtonAction() {
@@ -305,7 +305,7 @@ extension LoginViewController: LoginViewModelDelegate {
             with: configuration,
             presenting: self
         ) { [unowned self] user, error in
-            self.viewModel.tratarLoginGoogle(
+            self.viewModel.prepareLoginGoogle(
                 user: user,
                 error: error
             )

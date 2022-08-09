@@ -17,7 +17,7 @@ class ReleasesViewController: UIViewController {
     
     //MARK: - Private Properties
     
-    private var viewModel = LancamentosViewModel()
+    private var viewModel = ReleasesViewModel()
 
        //MARK: - Public Methods
     
@@ -31,7 +31,7 @@ class ReleasesViewController: UIViewController {
         releasesTableView.dataSource = self
         viewModel.delegate = self
         
-        viewModel.carregarFilmes {
+        viewModel.loadMovies {
             DispatchQueue.main.async {
                 self.activityIndicatorRelease.stopAnimating()
                 self.releasesTableView.reloadData()
@@ -68,7 +68,7 @@ extension ReleasesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModel.retornaTitulo(section: section)
+        return viewModel.returnsTitle(section: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

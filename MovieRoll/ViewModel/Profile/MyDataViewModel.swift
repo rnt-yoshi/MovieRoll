@@ -45,7 +45,7 @@ class MeusDadosViewModel {
         ServiceAuth.userProfile.image = image
     }
     
-    func botaoSalvarAction(nome: String?, email: String?, password: String?) {
+    func saveButtonAction(nome: String?, email: String?, password: String?) {
         guard let nome = nome else { return }
         guard let email = email else { return }
         guard let password = password else { return }
@@ -72,7 +72,7 @@ class MeusDadosViewModel {
                 self.delegate?.authenticationAlertError(message: "E-mail não está no formato correto, tente novamente.")
                 return
             }
-            self.alterarUserName(nome: nome)
+            self.changeUserName(nome: nome)
             
             Auth.auth().currentUser?.sendEmailVerification { error in
 
@@ -80,7 +80,7 @@ class MeusDadosViewModel {
         }
     }
     
-    private func alterarUserName(nome: String) {
+    private func changeUserName(nome: String) {
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = nome
         changeRequest?.commitChanges { _ in

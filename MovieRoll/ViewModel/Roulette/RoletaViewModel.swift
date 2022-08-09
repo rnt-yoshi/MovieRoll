@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol RoletaViewModelDelegate {
-    func carregaFilme(movie: Movie)
-    func estrelaVazia(tag: Int)
-    func estrelaCheia(tag: Int)
-    func botaoGeneroSelecionado(tag: Int)
-    func botaoGeneroSemSelecao(tag: Int)
-    func exibirAlertaEHabilitarBotao()
-    func desabilitarBotaoRoletar()
+protocol RouletteViewModelDelegate {
+    func loadMovie(movie: Movie)
+    func emptyStar(tag: Int)
+    func fullStar(tag: Int)
+    func selectedGenreButton(tag: Int)
+    func diselectedGenreButton(tag: Int)
+    func showAlertAndEnableButton()
+    func disableRouletteButton()
     func reloadPickerView()
     func cleanGenres()
     func cleanScore()
@@ -30,7 +30,7 @@ class RoletaViewModel {
     private let service: Service = .init()
     private let coreDataService: CoreDataService = .init()
     
-    private let plataformas: [Int] = [
+    private let platforms: [Int] = [
         350,
         337,
         307,
@@ -42,7 +42,7 @@ class RoletaViewModel {
         227
     ]
     
-    private let anosDe: [String] = [
+    private let era: [String] = [
         "2022",
         "2021",
         "2020",
@@ -60,42 +60,42 @@ class RoletaViewModel {
         "1930"
     ]
     
-    private var anosAte: [String] {
-        return anosDe.filter{ $0 >= dataInicial }
+    private var untilTheTime: [String] {
+        return era.filter{ $0 >= initialDate }
     }
     
-    private var anosPickerView: [[String]] { [
+    private var yearsPickerView: [[String]] { [
         [
             "De:"
         ],
-        anosDe,
+        era,
         [
             "Até:"
         ],
-        anosAte
+        untilTheTime
     ]}
     
-    private var notasFiltrosEstrela = 0.0
-    private var dataInicial = "1930"
-    private var dataFinal = "2022"
-    private var generosFiltro: [String] = []
+    private var noteFilterStar = 0.0
+    private var initialDate = "1930"
+    private var finalDate = "2022"
+    private var genresFilter: [String] = []
     
     private var yearLte: String {
-        return "\(dataFinal)-12-31"
+        return "\(finalDate)-12-31"
     }
     
     private var yearGte: String {
-        return "\(dataInicial)-01-01"
+        return "\(initialDate)-01-01"
     }
     
     private var average: String {
-        return String(notasFiltrosEstrela)
+        return String(noteFilterStar)
     }
     
     private var genres: String {
         var idGenre = ""
         
-        for genero in generosFiltro {
+        for genero in genresFilter {
             
             idGenre = "%7C\(getGenresId(genero: genero))"
             
@@ -107,7 +107,7 @@ class RoletaViewModel {
     }
     
     private var providers: String {
-        guard let randomProvider = plataformas.randomElement() else { return "" }
+        guard let randomProvider = platforms.randomElement() else { return "" }
         var idProvider = "\(randomProvider)"
         
         if service.filterProvider.count > 0 {
@@ -122,18 +122,18 @@ class RoletaViewModel {
     
     //MARK: - Public Properties
     
-    var delegate: RoletaViewModelDelegate?
+    var delegate: RouletteViewModelDelegate?
     
-    var getPlataformas: [Int] {
-        return plataformas
+    var getPlatforms: [Int] {
+        return platforms
     }
     
     var numberOfItems: Int {
-        return plataformas.count
+        return platforms.count
     }
     
     var numberComponents: Int {
-        return anosPickerView.count
+        return yearsPickerView.count
     }
 
     //MARK: - Public Methods
@@ -148,43 +148,43 @@ class RoletaViewModel {
     }
     
     func cleanFilterDates() {
-        dataInicial = "1930"
-        dataFinal = "2022"
+        initialDate = "1930"
+        finalDate = "2022"
         delegate?.cleanDate()
     }
     
     func getImagePlatforms(index: Int) -> String {
-        return String(plataformas[index])
+        return String(platforms[index])
     }
     
     func numberOfRows(component: Int) -> Int {
-        return anosPickerView[component].count
+        return yearsPickerView[component].count
     }
     
     func titleForRow(row: Int, component: Int) -> String {
-        return anosPickerView[component][row]
+        return yearsPickerView[component][row]
     }
     
     func getTitleForTextField(row: Int, componente: Int) -> String {
         if componente == 1 {
-            dataInicial = anosPickerView[componente][row]
-            if dataInicial > dataFinal {
-                dataFinal = dataInicial
+            initialDate = yearsPickerView[componente][row]
+            if initialDate > finalDate {
+                finalDate = initialDate
             }
         } else if componente == 3 {
-            dataFinal = anosPickerView[componente][row]
+            finalDate = yearsPickerView[componente][row]
         }
         delegate?.reloadPickerView()
-        return "De \(dataInicial) Até \(dataFinal)"
+        return "De \(initialDate) Até \(finalDate)"
     }
     
-    func botaoRoletarMovie() {
+    func rouletteMovieButton() {
         
-        delegate?.desabilitarBotaoRoletar()
+        delegate?.disableRouletteButton()
         service.fetchDiscover(genre: genres, average,  yearLte, yearGte, provider: providers) { movies in
             if movies.count == 0 {
                 DispatchQueue.main.async {
-                    self.delegate?.exibirAlertaEHabilitarBotao()
+                    self.delegate?.showAlertAndEnableButton()
                     return
                 }
             }
@@ -195,7 +195,7 @@ class RoletaViewModel {
                     DispatchQueue.main.async {
                         movie.providersId.append(contentsOf: providerId)
                         self.coreDataService.adicionarFilmeRoletadoCoreData(movie: movie)
-                        self.delegate?.carregaFilme(movie: movie)
+                        self.delegate?.loadMovie(movie: movie)
                     }
                 }
             }
@@ -203,62 +203,62 @@ class RoletaViewModel {
     }
     
     
-    func generoPressionado(_ genero: String?, alpha: Float, tag: Int) {
+    func pressedGenre(_ genero: String?, alpha: Float, tag: Int) {
         guard let genero = genero else { return }
         if alpha == 1 {
-            generosFiltro.append(genero)
-            delegate?.botaoGeneroSelecionado(tag: tag)
+            genresFilter.append(genero)
+            delegate?.selectedGenreButton(tag: tag)
         } else {
-            generosFiltro.removeAll { generoFiltro in
+            genresFilter.removeAll { generoFiltro in
                 return genero == generoFiltro
             }
-            delegate?.botaoGeneroSemSelecao(tag: tag)
+            delegate?.diselectedGenreButton(tag: tag)
         }
     }
     
-    func estrelaNotaPressionada(_ tag: Int) {
+    func pressedStarNote(_ tag: Int) {
         for index in 0...4 {
             if index > tag {
-                delegate?.estrelaVazia(tag: index)
+                delegate?.emptyStar(tag: index)
             } else {
-                delegate?.estrelaCheia(tag: index)
+                delegate?.fullStar(tag: index)
             }
         }
-        notasFiltrosEstrela = Double(tag) * 1.875
+        noteFilterStar = Double(tag) * 1.875
     }
     
-    func adicionaPlataformaFiltro(indexPath: IndexPath) {
-        let plataforma = plataformas[indexPath.item]
-        service.filterProvider.append(plataforma)
+    func addFilterPlatform(indexPath: IndexPath) {
+        let platform = platforms[indexPath.item]
+        service.filterProvider.append(platform)
     }
     
-    func removePlataformaFiltro(indexPath: IndexPath) {
-        let plataforma = plataformas[indexPath.item]
-        service.filterProvider.removeAll { plataformaFiltro in
-            return  plataforma == plataformaFiltro
+    func removePlatformFilter(indexPath: IndexPath) {
+        let platform = platforms[indexPath.item]
+        service.filterProvider.removeAll { platformFilter in
+            return  platform == platformFilter
         }
     }
     
-    func verificaFavorito(movie: Movie) -> Bool {
-        return coreDataService.pegarListaDeFavoritosNoCoreData().contains { favorito in
-            movie.id == favorito.id
+    func checksFavorite(movie: Movie) -> Bool {
+        return coreDataService.pegarListaDeFavoritosNoCoreData().contains { favorite in
+            movie.id == favorite.id
         }
     }
     
-    func verificaAssistido(movie: Movie) -> Bool {
-        return coreDataService.pegarListaDeAssistidosNoCoreData().contains { assistido in
-            movie.id == assistido.id
+    func checksWatched(movie: Movie) -> Bool {
+        return coreDataService.pegarListaDeAssistidosNoCoreData().contains { watched in
+            movie.id == watched.id
         }
     }
     //MARK: - Private Methods
     
     private func cleanFilterGenres() {
-        generosFiltro = []
+        genresFilter = []
         delegate?.cleanGenres()
     }
     
     private func cleanFilterScore() {
-        notasFiltrosEstrela = 0.0
+        noteFilterStar = 0.0
         delegate?.cleanScore()
     }
     

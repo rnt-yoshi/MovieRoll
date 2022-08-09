@@ -24,26 +24,26 @@ class ProfileViewModel {
     
    // private var userPerfil = User(name: "Steve Jobs", image: "profile01")
     
-    private var optionsDoPerfil = [
-        OptionsDoPerfil(
-            titulo: "Meus Dados",
-            subtitulo: "Meus dados pessoais.",
-            imagem: "meusdados"
+    private var profileOptions = [
+        ProfileOptions(
+            title: "Meus Dados",
+            caption: "Meus dados pessoais.",
+            image: "meusdados"
         ),
-        OptionsDoPerfil(
-            titulo: "Histórico",
-            subtitulo: "Histórico da Roleta, favoritos e assistidos.",
-            imagem: "roleta"
+        ProfileOptions(
+            title: "Histórico",
+            caption: "Histórico da Roleta, favoritos e assistidos.",
+            image: "roleta"
         ),
-        OptionsDoPerfil(
-            titulo: "Configurações",
-            subtitulo: "Configurações do app.",
-            imagem: "config"
+        ProfileOptions(
+            title: "Configurações",
+            caption: "Configurações do app.",
+            image: "config"
         ),
-        OptionsDoPerfil(
-            titulo: "Ajuda",
-            subtitulo: "Ajuda do app.",
-            imagem: "ajuda"
+        ProfileOptions(
+            title: "Ajuda",
+            caption: "Ajuda do app.",
+            image: "ajuda"
         )
     ]
     
@@ -56,15 +56,15 @@ class ProfileViewModel {
         return 2
     }
     
-    var getMeusDadosViewModel: MeusDadosViewModel? {
+    var getMyDataViewModel: MeusDadosViewModel? {
         return MeusDadosViewModel()
     }
     
-    var getHistoricoViewModel: HistoricoViewModel? {
-        return HistoricoViewModel()
+    var getHistoryViewModel: HistoryViewModel? {
+        return HistoryViewModel()
     }
     
-    var getConfiguracoesViewMdel: SettingsViewModel? {
+    var getSettingsViewMdel: SettingsViewModel? {
         return SettingsViewModel()
     }
     
@@ -75,7 +75,7 @@ class ProfileViewModel {
             return 1
         }
         if section == 1 {
-            return optionsDoPerfil.count
+            return profileOptions.count
         }
         return 0
     }
@@ -89,7 +89,7 @@ class ProfileViewModel {
     
     func getImage(indexPath: IndexPath) -> String {
         if indexPath.section == 1 {
-            return optionsDoPerfil[indexPath.row].image
+            return profileOptions[indexPath.row].image
         }
         return String()
     }
@@ -120,7 +120,7 @@ class ProfileViewModel {
             }
             return "Desconectado"
         } else {
-            return optionsDoPerfil[indexPath.row].title
+            return profileOptions[indexPath.row].title
         }
     }
     
@@ -128,7 +128,7 @@ class ProfileViewModel {
         if indexPath.section == 0 {
             return nil
         } else {
-            return optionsDoPerfil[indexPath.row].caption
+            return profileOptions[indexPath.row].caption
         }
     }
     
@@ -136,7 +136,7 @@ class ProfileViewModel {
         serviceAuth.userInfo()
     }
     
-    func opcoesDaTableView(index: Int) {
+    func optionsFromTableView(index: Int) {
         if Auth.auth().currentUser != nil {
             if index == 0 {
                 delegate?.showMyData()

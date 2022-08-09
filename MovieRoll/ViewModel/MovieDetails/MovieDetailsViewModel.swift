@@ -17,8 +17,8 @@ class MovieDetailsViewModel {
     //MARK: - Private Properties
     
     private let movie: Movie
-    private var ehFavorito: Bool
-    private var foiAssistido: Bool
+    private var isFavorite: Bool
+    private var isWatched: Bool
     
     private let service: Service = .init()
     
@@ -29,8 +29,8 @@ class MovieDetailsViewModel {
     
     init(movie: Movie, isFavorite: Bool, isWatched: Bool) {
         self.movie = movie
-        self.ehFavorito = isFavorite
-        self.foiAssistido = isWatched
+        self.isFavorite = isFavorite
+        self.isWatched = isWatched
     }
     
     //MARK: - Public Properties
@@ -50,52 +50,52 @@ class MovieDetailsViewModel {
     }
     
     var getGenre: String {
-        var generoExibido = ""
+        var shownGenre = ""
         for generoId in movie.genreIds {
             switch generoId{
             case 28:
-                generoExibido += ", Ação"
+                shownGenre += ", Ação"
             case 12:
-                generoExibido += ", Aventura"
+                shownGenre += ", Aventura"
             case 16:
-                generoExibido += ", Animação"
+                shownGenre += ", Animação"
             case 35:
-                generoExibido += ", Comédia"
+                shownGenre += ", Comédia"
             case 80:
-                generoExibido += ", Crime"
+                shownGenre += ", Crime"
             case 18:
-                generoExibido += ", Drama"
+                shownGenre += ", Drama"
             case 10751:
-                generoExibido += ", Família"
+                shownGenre += ", Família"
             case 14:
-                generoExibido += ", Fantasia"
+                shownGenre += ", Fantasia"
             case 36:
-                generoExibido += ", História"
+                shownGenre += ", História"
             case 27:
-                generoExibido += ", Terror"
+                shownGenre += ", Terror"
             case 10402:
-                generoExibido += ", Música"
+                shownGenre += ", Música"
             case 9648:
-                generoExibido += ", Mistério"
+                shownGenre += ", Mistério"
             case 10749:
-                generoExibido += ", Romance"
+                shownGenre += ", Romance"
             case 878:
-                generoExibido += ", Ficção"
+                shownGenre += ", Ficção"
             case 10770:
-                generoExibido += ", Cinema TV"
+                shownGenre += ", Cinema TV"
             case 53:
-                generoExibido += ", Suspense"
+                shownGenre += ", Suspense"
             case 10752:
-                generoExibido += ", Guerra"
+                shownGenre += ", Guerra"
             case 37:
-                generoExibido += ", Faroeste"
+                shownGenre += ", Faroeste"
             case 99:
-                generoExibido += ", Documentário"
+                shownGenre += ", Documentário"
             default:
                 return ""
             }
         }
-        return String(generoExibido.dropFirst(2))
+        return String(shownGenre.dropFirst(2))
     }
     
     var getMovieNote: String {
@@ -106,7 +106,7 @@ class MovieDetailsViewModel {
         return movie.overview
     }
     
-    var getPlataforma: String {
+    var getPlatform: String {
         for provider in service.filterProvider {
             if movie.providersId.contains(provider) {
                 return String(provider)
@@ -119,7 +119,7 @@ class MovieDetailsViewModel {
     }
     
     var getFavoriteButtonImage: String {
-        if ehFavorito {
+        if isFavorite {
             return "heart"
         } else {
             return "heartnil"
@@ -127,7 +127,7 @@ class MovieDetailsViewModel {
     }
     
     var getWatchedButtonImage: String {
-        if foiAssistido {
+        if isWatched {
             return "checkgreen"
         } else {
             return "check"
@@ -137,32 +137,32 @@ class MovieDetailsViewModel {
     //MARK: - Public Methods
     
     func watchedButtonPressed() {
-        if foiAssistido {
-            let filmeParaRemover = getFilmeAssistidoParaRemover(movie: movie)
-            coreDataService.removerFilmeAssistidoCoreData(coreDataMovie: filmeParaRemover)
+        if isWatched {
+            let movieToRemove = getWatchedMovieToRemove(movie: movie)
+            coreDataService.removerFilmeAssistidoCoreData(coreDataMovie: movieToRemove)
         } else {
             coreDataService.adicionarFilmeAssistidoCoreData(movie: movie)
             
         }
-        foiAssistido = !foiAssistido
+        isWatched = !isWatched
         delegate?.changeWatchedMovieButton()
     }
     
     func FavoriteButtonPressed() {
-        if ehFavorito {
+        if isFavorite {
             
-            let filmeParaRemover = getFilmeFavoritoParaRemover(movie: movie)
-            coreDataService.removerFilmeFavoritoCoreData(coreDataMovie: filmeParaRemover)
+            let movieToRemove = getFavoriteMovieToRemove(movie: movie)
+            coreDataService.removerFilmeFavoritoCoreData(coreDataMovie: movieToRemove)
         } else {
             coreDataService.adicionarFilmeFavoritoCoreData(movie: movie)
         }
-        ehFavorito = !ehFavorito
+        isFavorite = !isFavorite
         delegate?.changeFavoriteMovieButton()
     }
     
     //MARK: - Private Methods
     
-    private func getFilmeFavoritoParaRemover(movie: Movie) -> MovieFavorite {
+    private func getFavoriteMovieToRemove(movie: Movie) -> MovieFavorite {
         moviesFavorite = coreDataService.pegarListaDeFavoritosNoCoreData()
         
         return moviesFavorite.first { movieCoredata in
@@ -171,7 +171,7 @@ class MovieDetailsViewModel {
         } ?? MovieFavorite()
     }
     
-    private func getFilmeAssistidoParaRemover(movie: Movie) -> MovieWatched {
+    private func getWatchedMovieToRemove(movie: Movie) -> MovieWatched {
         moviesWatched = coreDataService.pegarListaDeAssistidosNoCoreData()
         
         return moviesWatched.first { movieCoredata in

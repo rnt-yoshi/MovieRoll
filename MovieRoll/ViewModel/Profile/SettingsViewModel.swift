@@ -28,15 +28,15 @@ class SettingsViewModel {
 
     //MARK: - Public Methods
     
-    func resetarRoletadosButton() {
+    func resetRouletteButton() {
         delegate?.showRouletteAlert()
     }
     
-    func resetarFavoritosButton() {
+    func resetFavoritesButton() {
         delegate?.showFavoriteAlert()
     }
     
-    func resetarAssistidosButton() {
+    func resetWatchedButton() {
         delegate?.showWatchedAlert()
     }
     
@@ -46,23 +46,23 @@ class SettingsViewModel {
     }
     
     func resetRouletteMovies() {
-        let roletados = coreDataService.pegarListaDeRoletadosNoCoreData()
-        for roletado in roletados {
-            coreDataService.removerFilmeRoletadoCoreData(coreDataMovie: roletado)
+        let roulette = coreDataService.pegarListaDeRoletadosNoCoreData()
+        for roulette in roulette {
+            coreDataService.removerFilmeRoletadoCoreData(coreDataMovie: roulette)
         }
     }
     
     func resetFavoriteMovies() {
-        let favoritos = coreDataService.pegarListaDeFavoritosNoCoreData()
-        for favorito in favoritos {
-            coreDataService.removerFilmeFavoritoCoreData(coreDataMovie: favorito)
+        let favorites = coreDataService.pegarListaDeFavoritosNoCoreData()
+        for favorite in favorites {
+            coreDataService.removerFilmeFavoritoCoreData(coreDataMovie: favorite)
         }
     }
     
     func resetWatchedMovies() {
-        let assistidos = coreDataService.pegarListaDeAssistidosNoCoreData()
-        for assistido in assistidos {
-            coreDataService.removerFilmeAssistidoCoreData(coreDataMovie: assistido)
+        let watched = coreDataService.pegarListaDeAssistidosNoCoreData()
+        for watched in watched {
+            coreDataService.removerFilmeAssistidoCoreData(coreDataMovie: watched)
         }
     }
     

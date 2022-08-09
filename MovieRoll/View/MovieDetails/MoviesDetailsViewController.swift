@@ -52,7 +52,7 @@ class MoviesDetailsViewController: UIViewController {
         genreLabel.text = viewModel.getGenre
         movieNote.text = ("\(viewModel.getMovieNote)/10")
         overviewLabel.text = viewModel.getSynopsis
-        platformImageView.image = UIImage(named: viewModel.getPlataforma)
+        platformImageView.image = UIImage(named: viewModel.getPlatform)
         platformImageView.layer.cornerRadius = 10
     }
     

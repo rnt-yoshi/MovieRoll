@@ -45,7 +45,7 @@ extension ProfileViewController: ProfileViewModelDelegate {
     
     func showMyData() {
         let meusDadosVC = MyDataViewController()
-        meusDadosVC.viewModel = viewModel.getMeusDadosViewModel
+        meusDadosVC.viewModel = viewModel.getMyDataViewModel
         meusDadosVC.navigationItem.largeTitleDisplayMode = .never
         meusDadosVC.myPasswordDataTextField.isHidden = true
         meusDadosVC.eyeButton.isHidden = true
@@ -57,7 +57,7 @@ extension ProfileViewController: ProfileViewModelDelegate {
     
     func showHistory() {
         if let historicoVC = storyboard?.instantiateViewController(withIdentifier: "historicoVC") as? HistoryViewController {
-            historicoVC.viewModel = viewModel.getHistoricoViewModel
+            historicoVC.viewModel = viewModel.getHistoryViewModel
             historicoVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(historicoVC, animated: true)
         }
@@ -65,7 +65,7 @@ extension ProfileViewController: ProfileViewModelDelegate {
     
     func showSettings() {
         let configuracoesVC = SettingsViewController()
-        configuracoesVC.viewModel = viewModel.getConfiguracoesViewMdel
+        configuracoesVC.viewModel = viewModel.getSettingsViewMdel
         configuracoesVC.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(configuracoesVC, animated: true)
     }
@@ -117,7 +117,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.opcoesDaTableView(index: indexPath.row)
+        viewModel.optionsFromTableView(index: indexPath.row)
     }
 }
 
