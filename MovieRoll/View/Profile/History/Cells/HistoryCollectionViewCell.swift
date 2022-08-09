@@ -7,16 +7,16 @@
 
 import UIKit
 
-class HistoricoCollectionViewCell: UICollectionViewCell {
+class HistoryCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Outlets
 
-    @IBOutlet private weak var historicoImage: UIImageView!
+    @IBOutlet private weak var historyImage: UIImageView!
     
     //MARK: - Public Methods
 
     func setupCell(viewModel: HistoricoCellViewModel) {
-        historicoImage.image = UIImage(data: viewModel.getImage)
-        historicoImage.layer.cornerRadius = 10
+        historyImage.image = UIImage(data: viewModel.getImage)
+        historyImage.layer.cornerRadius = 10
     }
 }

@@ -7,70 +7,70 @@
 
 import UIKit
 
-class PerfilViewController: UIViewController {
+class ProfileViewController: UIViewController {
     
     //MARK: - Outlets
     
-    @IBOutlet private weak var perfilTableView: UITableView!
+    @IBOutlet private weak var profileTableView: UITableView!
     
     //MARK: - Private Properties
     
-    private let viewModel = PerfilViewModel()
+    private let viewModel = ProfileViewModel()
     
     //MARK: - Public Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        perfilTableView.delegate = self
-        perfilTableView.dataSource = self
+        profileTableView.delegate = self
+        profileTableView.dataSource = self
         
         viewModel.delegate = self
-        viewModel.pegarInformacoesDoUsuario()
+        viewModel.getDataFromUser()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        viewModel.pegarInformacoesDoUsuario()
-        perfilTableView.reloadData()
+        viewModel.getDataFromUser()
+        profileTableView.reloadData()
     }
 }
 //MARK: - PerfilViewModel Delegate
 
-extension PerfilViewController: PerfilViewModelDelegate {
-    func exibeLogin() {
+extension ProfileViewController: ProfileViewModelDelegate {
+    func showLogin() {
         let loginVC = LoginViewController()
         present(loginVC, animated: true)
     }
     
-    func exibeMeusDados() {
+    func showMyData() {
         let meusDadosVC = MyDataViewController()
         meusDadosVC.viewModel = viewModel.getMeusDadosViewModel
         meusDadosVC.navigationItem.largeTitleDisplayMode = .never
-        meusDadosVC.meusDadosSenhaTextField.isHidden = true
+        meusDadosVC.myPasswordDataTextField.isHidden = true
         meusDadosVC.eyeButton.isHidden = true
-        meusDadosVC.senhaLabel.isHidden = true
-        meusDadosVC.salvarButton.isHidden = true
+        meusDadosVC.passwordLabel.isHidden = true
+        meusDadosVC.saveButton.isHidden = true
         meusDadosVC.closeButton.isHidden = true
         navigationController?.pushViewController(meusDadosVC, animated: true)
     }
     
-    func exibeHistorico() {
-        if let historicoVC = storyboard?.instantiateViewController(withIdentifier: "historicoVC") as? HistoricoViewController {
+    func showHistory() {
+        if let historicoVC = storyboard?.instantiateViewController(withIdentifier: "historicoVC") as? HistoryViewController {
             historicoVC.viewModel = viewModel.getHistoricoViewModel
             historicoVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(historicoVC, animated: true)
         }
     }
     
-    func exibeConfiguracoes() {
-        let configuracoesVC = ConfiguracoesViewController()
+    func showSettings() {
+        let configuracoesVC = SettingsViewController()
         configuracoesVC.viewModel = viewModel.getConfiguracoesViewMdel
         configuracoesVC.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(configuracoesVC, animated: true)
     }
     
-    func exibeAjuda() {
+    func showHelp() {
         if let ajudaVC = storyboard?.instantiateViewController(withIdentifier: "ajudaVC") as? AjudaViewController {
             ajudaVC.modalPresentationStyle = .pageSheet
             ajudaVC.modalTransitionStyle = .coverVertical
@@ -81,7 +81,7 @@ extension PerfilViewController: PerfilViewModelDelegate {
 
 //MARK: - TableView DataSource & Delegate
 
-extension PerfilViewController: UITableViewDataSource, UITableViewDelegate{
+extension ProfileViewController: UITableViewDataSource, UITableViewDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSection
     }

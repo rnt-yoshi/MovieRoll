@@ -153,7 +153,7 @@ class RoletaViewModel {
         delegate?.cleanDate()
     }
     
-    func getImagePlataformas(index: Int) -> String {
+    func getImagePlatforms(index: Int) -> String {
         return String(plataformas[index])
     }
     

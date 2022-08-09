@@ -117,13 +117,13 @@ class HistoricoViewModel {
         return HistoricoCellViewModel(movie: movie)
     }
     
-    func verificaFavorito(movie: Movie) -> Bool {
+    func checksFavorite(movie: Movie) -> Bool {
         return filteredFavoriteMovies.contains { favorito in
             favorito.id == movie.id
         }
     }
     
-    func verificaAssistido(movie: Movie) -> Bool {
+    func checksWatched(movie: Movie) -> Bool {
         return filteredWatcheMovies.contains { assistido in
             movie.id == assistido.id
         }

@@ -8,15 +8,15 @@
 import Foundation
 import FirebaseAuth
 
-protocol ConfiguracoesViewModelDelegate {
-    func exibeAlertaRoletado()
-    func exibeAlertaFavorito()
-    func exibeAlertaAssistido()
-    func exibeAlertaDesconectar()
+protocol SettingsViewModelDelegate {
+    func showRouletteAlert()
+    func showFavoriteAlert()
+    func showWatchedAlert()
+    func showDiscconectAlert()
     func navigationBack()
 }
 
-class ConfiguracoesViewModel {
+class SettingsViewModel {
     //MARK: - Private Properties
     
     private let service: Service = .init()
@@ -24,49 +24,49 @@ class ConfiguracoesViewModel {
     
     //MARK: - Public Properties
     
-    var delegate: ConfiguracoesViewModelDelegate?
+    var delegate: SettingsViewModelDelegate?
 
     //MARK: - Public Methods
     
     func resetarRoletadosButton() {
-        delegate?.exibeAlertaRoletado()
+        delegate?.showRouletteAlert()
     }
     
     func resetarFavoritosButton() {
-        delegate?.exibeAlertaFavorito()
+        delegate?.showFavoriteAlert()
     }
     
     func resetarAssistidosButton() {
-        delegate?.exibeAlertaAssistido()
+        delegate?.showWatchedAlert()
     }
     
-    func desconectarContaButton() {
+    func discconectAccountButton() {
         
-        delegate?.exibeAlertaDesconectar()
+        delegate?.showDiscconectAlert()
     }
     
-    func resetarFilmesRoletados() {
+    func resetRouletteMovies() {
         let roletados = coreDataService.pegarListaDeRoletadosNoCoreData()
         for roletado in roletados {
             coreDataService.removerFilmeRoletadoCoreData(coreDataMovie: roletado)
         }
     }
     
-    func resetarFilmesFavoritos() {
+    func resetFavoriteMovies() {
         let favoritos = coreDataService.pegarListaDeFavoritosNoCoreData()
         for favorito in favoritos {
             coreDataService.removerFilmeFavoritoCoreData(coreDataMovie: favorito)
         }
     }
     
-    func resetarFilmesAssistidos() {
+    func resetWatchedMovies() {
         let assistidos = coreDataService.pegarListaDeAssistidosNoCoreData()
         for assistido in assistidos {
             coreDataService.removerFilmeAssistidoCoreData(coreDataMovie: assistido)
         }
     }
     
-    func desconectarConta() {
+    func discconectAccount() {
         
         let firebaseAuth = Auth.auth()
      do {

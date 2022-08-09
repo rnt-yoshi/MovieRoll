@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LancamentosTableViewCell: UITableViewCell {
+class ReleasesTableViewCell: UITableViewCell {
     
     //MARK: - Public Properties
 
@@ -33,13 +33,13 @@ class LancamentosTableViewCell: UITableViewCell {
 
 //MARK: - CollectionView DataSource & Delegate
 
-extension LancamentosTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
+extension ReleasesTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel?.numberOfItems(section: self.section ?? 0) ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = releasesCollectionView.dequeueReusableCell(withReuseIdentifier: "idCellCollection", for: indexPath) as? LancamentosCollectionViewCell else { return UICollectionViewCell()}
+        guard let cell = releasesCollectionView.dequeueReusableCell(withReuseIdentifier: "idCellCollection", for: indexPath) as? ReleasesCollectionViewCell else { return UICollectionViewCell()}
           
         guard let viewModel = viewModel, let section = section else { return UICollectionViewCell()}
       

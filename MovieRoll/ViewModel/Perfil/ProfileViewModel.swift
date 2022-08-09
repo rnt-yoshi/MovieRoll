@@ -9,15 +9,15 @@ import Foundation
 import UIKit
 import FirebaseAuth
 
-protocol PerfilViewModelDelegate {
-    func exibeMeusDados()
-    func exibeHistorico()
-    func exibeConfiguracoes()
-    func exibeAjuda()
-    func exibeLogin()
+protocol ProfileViewModelDelegate {
+    func showMyData()
+    func showHistory()
+    func showSettings()
+    func showHelp()
+    func showLogin()
 }
 
-class PerfilViewModel {
+class ProfileViewModel {
     
     //MARK: - Private  Properties
     
@@ -50,7 +50,7 @@ class PerfilViewModel {
     //MARK: - Public Properties
     
     let serviceAuth: ServiceAuth = .init()
-    var delegate: PerfilViewModelDelegate?
+    var delegate: ProfileViewModelDelegate?
     
     var numberOfSection: Int {
         return 2
@@ -64,8 +64,8 @@ class PerfilViewModel {
         return HistoricoViewModel()
     }
     
-    var getConfiguracoesViewMdel: ConfiguracoesViewModel? {
-        return ConfiguracoesViewModel()
+    var getConfiguracoesViewMdel: SettingsViewModel? {
+        return SettingsViewModel()
     }
     
     //MARK: - Public Methods
@@ -132,26 +132,26 @@ class PerfilViewModel {
         }
     }
     
-    func pegarInformacoesDoUsuario() {
+    func getDataFromUser() {
         serviceAuth.userInfo()
     }
     
     func opcoesDaTableView(index: Int) {
         if Auth.auth().currentUser != nil {
             if index == 0 {
-                delegate?.exibeMeusDados()
+                delegate?.showMyData()
             }
             if index == 1 {
-                delegate?.exibeHistorico()
+                delegate?.showHistory()
             }
             if index == 2 {
-                delegate?.exibeConfiguracoes()
+                delegate?.showSettings()
             }
             if index == 3 {
-                delegate?.exibeAjuda()
+                delegate?.showHelp()
             }
         } else {
-            delegate?.exibeLogin()
+            delegate?.showLogin()
         }
     }
 }

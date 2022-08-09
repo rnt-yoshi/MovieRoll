@@ -72,7 +72,7 @@ extension ReleasesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = releasesTableView.dequeueReusableCell(withIdentifier: "idCellTable", for: indexPath) as? LancamentosTableViewCell else { return UITableViewCell() }
+        guard let cell = releasesTableView.dequeueReusableCell(withIdentifier: "idCellTable", for: indexPath) as? ReleasesTableViewCell else { return UITableViewCell() }
 
         cell.config(viewModel: viewModel, section: indexPath.section)
         cell.releasesCollectionView.tag = indexPath.section

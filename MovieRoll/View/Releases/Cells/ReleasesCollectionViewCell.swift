@@ -7,16 +7,16 @@
 
 import UIKit
 
-class LancamentosCollectionViewCell: UICollectionViewCell {
+class ReleasesCollectionViewCell: UICollectionViewCell {
     //MARK: - Private Properties
 
-    @IBOutlet private weak var imagemFilmeUIImageView: UIImageView!
+    @IBOutlet private weak var movieImageUIImageView: UIImageView!
   
     //MARK: - Public Methods
 
     func configure(section: Int, row: Int, viewModel: LancamentosViewModel) {
 //        imagemFilmeUIImageView.image = UIImage(data: viewModel.getImage(section: section, row: row))
-        imagemFilmeUIImageView.load(url: viewModel.getImage(section: section, row: row), placeholder: UIImage())
-        imagemFilmeUIImageView.layer.cornerRadius = 10
+        movieImageUIImageView.load(url: viewModel.getImage(section: section, row: row), placeholder: UIImage())
+        movieImageUIImageView.layer.cornerRadius = 10
     }
 }

@@ -12,7 +12,7 @@ class MyDataViewController: UIViewController {
 
     //MARK: - Componentes
     
-    lazy var meusDadosImage: UIImageView = {
+    lazy var myDataImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleToFill
@@ -30,7 +30,7 @@ class MyDataViewController: UIViewController {
        return label
     }()
     
-    lazy var meusDadosNomeTextField: UITextField = {
+    lazy var myNameDataTextField: UITextField = {
         let textField = UITextField(frame: .zero)
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.attributedPlaceholder = NSAttributedString(
@@ -51,7 +51,7 @@ class MyDataViewController: UIViewController {
        return label
     }()
     
-    lazy var meusDadosEmailTextField: UITextField = {
+    lazy var myEmailDataTextField: UITextField = {
         let textField = UITextField(frame: .zero)
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.keyboardType = .emailAddress
@@ -67,7 +67,7 @@ class MyDataViewController: UIViewController {
         return textField
     }()
     
-    lazy var senhaLabel: UILabel = {
+    lazy var passwordLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Senha"
@@ -75,7 +75,7 @@ class MyDataViewController: UIViewController {
        return label
     }()
     
-    lazy var meusDadosSenhaTextField: UITextField = {
+    lazy var myPasswordDataTextField: UITextField = {
         let textField = UITextField(frame: .zero)
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.attributedPlaceholder = NSAttributedString(
@@ -90,7 +90,7 @@ class MyDataViewController: UIViewController {
         return textField
     }()
     
-    lazy var salvarButton: UIButton = {
+    lazy var saveButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Salvar", for: .normal)
@@ -98,7 +98,7 @@ class MyDataViewController: UIViewController {
         button.titleLabel?.font = UIFont(name: "AmsiPro-Bold", size: 17)
         button.backgroundColor = UIColor(named: "orangeMovieRoll")
         button.layer.cornerRadius = 5
-        button.addTarget(self, action: #selector(salvarButtonAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(saveButtonAction), for: .touchUpInside)
         return button
     }()
     
@@ -131,20 +131,20 @@ class MyDataViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .black
         title = "Meus Dados"
-        view.addSubview(meusDadosImage)
+        view.addSubview(myDataImage)
         view.addSubview(nameLabel)
-        view.addSubview(meusDadosNomeTextField)
+        view.addSubview(myNameDataTextField)
         view.addSubview(emailLabel)
-        view.addSubview(meusDadosEmailTextField)
-        view.addSubview(senhaLabel)
-        view.addSubview(meusDadosSenhaTextField)
-        view.addSubview(salvarButton)
+        view.addSubview(myEmailDataTextField)
+        view.addSubview(passwordLabel)
+        view.addSubview(myPasswordDataTextField)
+        view.addSubview(saveButton)
         view.addSubview(eyeButton)
         view.addSubview(closeButton)
         setupConstraints()
         hideKeyboardWhenTappedAround()
         
-        configuraTela()
+        configureScreen()
         
         viewModel?.delegate = self
     }
@@ -153,54 +153,54 @@ class MyDataViewController: UIViewController {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            meusDadosImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            meusDadosImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
-            meusDadosImage.heightAnchor.constraint(equalToConstant: 128),
-            meusDadosImage.widthAnchor.constraint(equalToConstant: 128),
+            myDataImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            myDataImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
+            myDataImage.heightAnchor.constraint(equalToConstant: 128),
+            myDataImage.widthAnchor.constraint(equalToConstant: 128),
 
-            nameLabel.topAnchor.constraint(equalTo: meusDadosImage.bottomAnchor, constant: 16),
+            nameLabel.topAnchor.constraint(equalTo: myDataImage.bottomAnchor, constant: 16),
             nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 64),
             nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -64),
             
-            meusDadosNomeTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4),
-            meusDadosNomeTextField.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-            meusDadosNomeTextField.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
+            myNameDataTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4),
+            myNameDataTextField.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
+            myNameDataTextField.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
             
-            emailLabel.topAnchor.constraint(equalTo: meusDadosNomeTextField.bottomAnchor, constant: 16),
-            emailLabel.leadingAnchor.constraint(equalTo: meusDadosNomeTextField.leadingAnchor),
-            emailLabel.trailingAnchor.constraint(equalTo: meusDadosNomeTextField.trailingAnchor),
+            emailLabel.topAnchor.constraint(equalTo: myNameDataTextField.bottomAnchor, constant: 16),
+            emailLabel.leadingAnchor.constraint(equalTo: myNameDataTextField.leadingAnchor),
+            emailLabel.trailingAnchor.constraint(equalTo: myNameDataTextField.trailingAnchor),
             
-            meusDadosEmailTextField.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 4),
-            meusDadosEmailTextField.leadingAnchor.constraint(equalTo: emailLabel.leadingAnchor),
-            meusDadosEmailTextField.trailingAnchor.constraint(equalTo: emailLabel.trailingAnchor),
+            myEmailDataTextField.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 4),
+            myEmailDataTextField.leadingAnchor.constraint(equalTo: emailLabel.leadingAnchor),
+            myEmailDataTextField.trailingAnchor.constraint(equalTo: emailLabel.trailingAnchor),
             
-            senhaLabel.topAnchor.constraint(equalTo: meusDadosEmailTextField.bottomAnchor, constant: 16),
-            senhaLabel.leadingAnchor.constraint(equalTo: meusDadosEmailTextField.leadingAnchor),
-            senhaLabel.trailingAnchor.constraint(equalTo: meusDadosEmailTextField.trailingAnchor),
+            passwordLabel.topAnchor.constraint(equalTo: myEmailDataTextField.bottomAnchor, constant: 16),
+            passwordLabel.leadingAnchor.constraint(equalTo: myEmailDataTextField.leadingAnchor),
+            passwordLabel.trailingAnchor.constraint(equalTo: myEmailDataTextField.trailingAnchor),
             
-            meusDadosSenhaTextField.topAnchor.constraint(equalTo: senhaLabel.bottomAnchor, constant: 4),
-            meusDadosSenhaTextField.leadingAnchor.constraint(equalTo: senhaLabel.leadingAnchor),
-            meusDadosSenhaTextField.trailingAnchor.constraint(equalTo: senhaLabel.trailingAnchor),
+            myPasswordDataTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 4),
+            myPasswordDataTextField.leadingAnchor.constraint(equalTo: passwordLabel.leadingAnchor),
+            myPasswordDataTextField.trailingAnchor.constraint(equalTo: passwordLabel.trailingAnchor),
             
-            salvarButton.topAnchor.constraint(equalTo: meusDadosSenhaTextField.bottomAnchor, constant: 45),
-            salvarButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            salvarButton.widthAnchor.constraint(equalToConstant: 170),
+            saveButton.topAnchor.constraint(equalTo: myPasswordDataTextField.bottomAnchor, constant: 45),
+            saveButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            saveButton.widthAnchor.constraint(equalToConstant: 170),
             
-            eyeButton.centerYAnchor.constraint(equalTo: meusDadosSenhaTextField.centerYAnchor),
+            eyeButton.centerYAnchor.constraint(equalTo: myPasswordDataTextField.centerYAnchor),
             eyeButton.heightAnchor.constraint(equalToConstant: 20),
             eyeButton.widthAnchor.constraint(equalToConstant: 25),
-            eyeButton.trailingAnchor.constraint(equalTo: meusDadosSenhaTextField.trailingAnchor, constant: -6),
+            eyeButton.trailingAnchor.constraint(equalTo: myPasswordDataTextField.trailingAnchor, constant: -6),
             
             closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -4),
             closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 4),
         ])
     }
     
-    private func configuraTela() {
+    private func configureScreen() {
         guard let viewModel = viewModel else { return }
-        meusDadosNomeTextField.text = viewModel.getUserName
-        meusDadosEmailTextField.text = viewModel.getUserEmail
-        meusDadosImage.image = UIImage(data: viewModel.getUserImage) ?? UIImage(named: "perfil")
+        myNameDataTextField.text = viewModel.getUserName
+        myEmailDataTextField.text = viewModel.getUserEmail
+        myDataImage.image = UIImage(data: viewModel.getUserImage) ?? UIImage(named: "perfil")
     }
     
     private func hideKeyboardWhenTappedAround() {
@@ -215,25 +215,25 @@ class MyDataViewController: UIViewController {
     
     //MARK: - Actions
     
-    @objc func salvarButtonAction() {
+    @objc func saveButtonAction() {
         viewModel?.botaoSalvarAction(
-            nome: meusDadosNomeTextField.text,
-            email: meusDadosEmailTextField.text,
-            password: meusDadosSenhaTextField.text
+            nome: myNameDataTextField.text,
+            email: myEmailDataTextField.text,
+            password: myPasswordDataTextField.text
         )
     }
     
     @objc func eyeButtonAction() {
-        viewModel?.eyeButtonPressed(visivel: meusDadosSenhaTextField.isSecureTextEntry)
+        viewModel?.eyeButtonPressed(visivel: myPasswordDataTextField.isSecureTextEntry)
     }
     
     @objc func closeButtonAction() {
         dismiss(animated: true)
     }
 }
-//MARK: - MeusDados ViewModelDelegate
-extension MyDataViewController: MeusDadosViewModelDelegate {
-    func alertaErroAutenticacao(message: String) {
+//MARK: - MyData ViewModelDelegate
+extension MyDataViewController: MyDataViewModelDelegate {
+    func authenticationAlertError(message: String) {
         let alerta = UIAlertController(title: "Atenção", message: message, preferredStyle: .alert)
 
         let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
@@ -243,14 +243,14 @@ extension MyDataViewController: MeusDadosViewModelDelegate {
         present(alerta, animated: true)
     }
     
-    func secureSenhaTextField() {
+    func securePasswordTextField() {
         eyeButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
-        meusDadosSenhaTextField.isSecureTextEntry = true
+        myPasswordDataTextField.isSecureTextEntry = true
     }
     
-    func notSecureSenhaTextField() {
+    func notSecurePasswordTextField() {
         eyeButton.setImage(UIImage(systemName: "eye"), for: .normal)
-        meusDadosSenhaTextField.isSecureTextEntry = false
+        myPasswordDataTextField.isSecureTextEntry = false
     }
     
     func dismissModal() {
@@ -259,24 +259,24 @@ extension MyDataViewController: MeusDadosViewModelDelegate {
         self.navigationController?.popViewController(animated: true)
     }
     
-    func alertaErrorPassword() {
-        let alerta = UIAlertController(title: "Atenção", message: "Senha precisa ter 6 caracteres", preferredStyle: .alert)
+    func alertErrorPassword() {
+        let alert = UIAlertController(title: "Atenção", message: "Senha precisa ter 6 caracteres", preferredStyle: .alert)
 
         let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         
-        alerta.addAction(okAction)
+        alert.addAction(okAction)
     
-        present(alerta, animated: true)
+        present(alert, animated: true)
     }
  
-    func alertaErrorEmail() {
-        let alerta = UIAlertController(title: "Atenção", message: "E-mail no formato inválido", preferredStyle: .alert)
+    func alertErrorEmail() {
+        let alert = UIAlertController(title: "Atenção", message: "E-mail no formato inválido", preferredStyle: .alert)
 
         let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         
-        alerta.addAction(okAction)
+        alert.addAction(okAction)
     
-        present(alerta, animated: true)
+        present(alert, animated: true)
     }
 }
 

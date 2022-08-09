@@ -7,12 +7,12 @@
 
 import UIKit
 
-class HistoricoViewController: UIViewController {
+class HistoryViewController: UIViewController {
     
     //MARK: - Outlets
     
-    @IBOutlet  weak var segmentedControlRoletadosFavoritosAssistidos: UISegmentedControl!
-    @IBOutlet private weak var historicoCollectionView: UICollectionView!
+    @IBOutlet  weak var segmentedControlRouletteFavoritesWatched: UISegmentedControl!
+    @IBOutlet private weak var historyCollectionView: UICollectionView!
     
     //MARK: - Private Properties
     
@@ -30,8 +30,8 @@ class HistoricoViewController: UIViewController {
         super.viewDidLoad()
         viewModel?.delegate = self
         viewModel?.loadMovies()
-        historicoCollectionView.delegate = self
-        historicoCollectionView.dataSource = self
+        historyCollectionView.delegate = self
+        historyCollectionView.dataSource = self
         setupSegmentedControl()
         
         createSearchBar()
@@ -42,7 +42,7 @@ class HistoricoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel?.loadMovies()
-        historicoCollectionView.reloadData()
+        historyCollectionView.reloadData()
     }
     
     
@@ -54,17 +54,17 @@ class HistoricoViewController: UIViewController {
         searchController?.searchBar.sizeToFit()
         navigationItem.searchController = searchController
         
-        changeColorTextoSearchBar()
+        changeColorTextSearchBar()
     }
     
-    private func changeColorTextoSearchBar(){
+    private func changeColorTextSearchBar(){
         let textFieldInsideSearchBar = searchController?.searchBar.value(forKey: "searchField") as? UITextField
         
         textFieldInsideSearchBar?.textColor = .white
     }
     
     private func setupSegmentedControl() {
-        segmentedControlRoletadosFavoritosAssistidos.setTitleTextAttributes(
+        segmentedControlRouletteFavoritesWatched.setTitleTextAttributes(
             [.foregroundColor: UIColor.white],
             for: .normal
         )
@@ -73,30 +73,30 @@ class HistoricoViewController: UIViewController {
     //MARK: - Actions
     
     @IBAction func actionSegmentedControl(_ sender: Any) {
-        segmentedControlIndex = segmentedControlRoletadosFavoritosAssistidos.selectedSegmentIndex
-        historicoCollectionView.reloadData()
+        segmentedControlIndex = segmentedControlRouletteFavoritesWatched.selectedSegmentIndex
+        historyCollectionView.reloadData()
     }
     
 }
 //MARK: - HistoricoViewModelDelegate
 
-extension HistoricoViewController: HistoricoViewModelDelegate {
+extension HistoryViewController: HistoricoViewModelDelegate {
     func reloadCollectionView() {
-        historicoCollectionView.reloadData()
+        historyCollectionView.reloadData()
     }
     
 }
 
 //MARK: - UICollectionView dataSource & Delegate
 
-extension HistoricoViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension HistoryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel?.numberOfItems(segmentedControlIndex: segmentedControlIndex) ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = historicoCollectionView.dequeueReusableCell(withReuseIdentifier: "historicoCell", for: indexPath) as? HistoricoCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = historyCollectionView.dequeueReusableCell(withReuseIdentifier: "historicoCell", for: indexPath) as? HistoryCollectionViewCell else { return UICollectionViewCell() }
         
         guard let cellViewModel = viewModel?.getCellViewModel(indexPath: indexPath, segmentedControlIndex: segmentedControlIndex) else {return UICollectionViewCell()}
         
@@ -107,18 +107,18 @@ extension HistoricoViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let viewModel = viewModel else { return }
         let movie = viewModel.retornaFilme(indexFilme: indexPath.item, indexSegmenterController: segmentedControlIndex)
-        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? MoviesDetailsViewController else { return }
-        let ehFavorito = viewModel.verificaFavorito(movie: movie)
-        let foiAssistido = viewModel.verificaAssistido(movie: movie)
+        guard let movieDetails = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? MoviesDetailsViewController else { return }
+        let isFavorite = viewModel.checksFavorite(movie: movie)
+        let isWatched = viewModel.checksWatched(movie: movie)
         
-        let detalhesFilmeViewModel = MovieDetailsViewModel(movie: movie, isFavorite: ehFavorito, isWatched: foiAssistido)
-        detalhesFilme.viewModel = detalhesFilmeViewModel
-        navigationController?.pushViewController(detalhesFilme, animated: true)
+        let movieDetailsViewModel = MovieDetailsViewModel(movie: movie, isFavorite: isFavorite, isWatched: isWatched)
+        movieDetails.viewModel = movieDetailsViewModel
+        navigationController?.pushViewController(movieDetails, animated: true)
     }
 }
 //MARK: - UISearchBar Results Updating
 
-extension HistoricoViewController: UISearchResultsUpdating {
+extension HistoryViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         viewModel?.searchResults(searchController: searchController)

@@ -8,11 +8,11 @@
 import Foundation
 import FirebaseAuth
 
-protocol MeusDadosViewModelDelegate {
+protocol MyDataViewModelDelegate {
     func dismissModal()
-    func alertaErroAutenticacao(message: String)
-    func secureSenhaTextField()
-    func notSecureSenhaTextField()
+    func authenticationAlertError(message: String)
+    func securePasswordTextField()
+    func notSecurePasswordTextField()
 }
 
 class MeusDadosViewModel {
@@ -20,7 +20,7 @@ class MeusDadosViewModel {
     //MARK: - Public Properties
     
     let serviceAuth: ServiceAuth = .init()
-    var delegate: MeusDadosViewModelDelegate?
+    var delegate: MyDataViewModelDelegate?
     
     var getUserName: String {
         return ServiceAuth.userProfile.name
@@ -54,22 +54,22 @@ class MeusDadosViewModel {
             let error = error as? NSError
             
             if error?.code == 17034 {
-                self.delegate?.alertaErroAutenticacao(message: "Entre com um e-mail e tente novamente.")
+                self.delegate?.authenticationAlertError(message: "Entre com um e-mail e tente novamente.")
                 return
             }
             
             if error?.code == 17007 {
-                self.delegate?.alertaErroAutenticacao(message: "E-mail já cadastrado, tente novamente.")
+                self.delegate?.authenticationAlertError(message: "E-mail já cadastrado, tente novamente.")
                 return
             }
             
             if error?.code == 17026 {
-                self.delegate?.alertaErroAutenticacao(message: "Senha precisa conter pelo menos 6 caracteres, tente novamente.")
+                self.delegate?.authenticationAlertError(message: "Senha precisa conter pelo menos 6 caracteres, tente novamente.")
                 return
             }
             
             if error?.code == 17008 {
-                self.delegate?.alertaErroAutenticacao(message: "E-mail não está no formato correto, tente novamente.")
+                self.delegate?.authenticationAlertError(message: "E-mail não está no formato correto, tente novamente.")
                 return
             }
             self.alterarUserName(nome: nome)
@@ -91,9 +91,9 @@ class MeusDadosViewModel {
     
     func eyeButtonPressed(visivel: Bool) {
         if visivel {
-            delegate?.notSecureSenhaTextField()
+            delegate?.notSecurePasswordTextField()
         } else {
-            delegate?.secureSenhaTextField()
+            delegate?.securePasswordTextField()
         }
     }
 }
