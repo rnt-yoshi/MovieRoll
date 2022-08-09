@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol DetalhesFilmeViewModelDelegate {
-    func alteraFavoritoButton()
-    func alteraAssistidoButton()
+protocol MovieDetailsViewModelDelegate {
+    func changeFavoriteMovieButton()
+    func changeWatchedMovieButton()
 }
 
-class DetalhesFilmeViewModel {
+class MovieDetailsViewModel {
     
     //MARK: - Private Properties
     
@@ -35,21 +35,21 @@ class DetalhesFilmeViewModel {
     
     //MARK: - Public Properties
     
-    var delegate: DetalhesFilmeViewModelDelegate?
+    var delegate: MovieDetailsViewModelDelegate?
     
     var getPosterImage: Data {
         return movie.posterImage
     }
     
-    var getNome: String {
+    var getName: String {
         return movie.title
     }
     
-    var getAno: String {
+    var getYear: String {
         return String(movie.releaseDate.dropLast(6))
     }
     
-    var getGenero: String {
+    var getGenre: String {
         var generoExibido = ""
         for generoId in movie.genreIds {
             switch generoId{
@@ -98,11 +98,11 @@ class DetalhesFilmeViewModel {
         return String(generoExibido.dropFirst(2))
     }
     
-    var getNotaFilme: String {
+    var getMovieNote: String {
         return String(movie.voteAverage)
     }
     
-    var getSinopse: String {
+    var getSynopsis: String {
         return movie.overview
     }
     
@@ -118,7 +118,7 @@ class DetalhesFilmeViewModel {
         return ""
     }
     
-    var getFavoritarButtonImage: String {
+    var getFavoriteButtonImage: String {
         if ehFavorito {
             return "heart"
         } else {
@@ -126,7 +126,7 @@ class DetalhesFilmeViewModel {
         }
     }
     
-    var getAssistidoButtonImage: String {
+    var getWatchedButtonImage: String {
         if foiAssistido {
             return "checkgreen"
         } else {
@@ -136,7 +136,7 @@ class DetalhesFilmeViewModel {
     
     //MARK: - Public Methods
     
-    func buttonAssistidoPressed() {
+    func watchedButtonPressed() {
         if foiAssistido {
             let filmeParaRemover = getFilmeAssistidoParaRemover(movie: movie)
             coreDataService.removerFilmeAssistidoCoreData(coreDataMovie: filmeParaRemover)
@@ -145,10 +145,10 @@ class DetalhesFilmeViewModel {
             
         }
         foiAssistido = !foiAssistido
-        delegate?.alteraAssistidoButton()
+        delegate?.changeWatchedMovieButton()
     }
     
-    func buttonFavoritoPressed() {
+    func FavoriteButtonPressed() {
         if ehFavorito {
             
             let filmeParaRemover = getFilmeFavoritoParaRemover(movie: movie)
@@ -157,7 +157,7 @@ class DetalhesFilmeViewModel {
             coreDataService.adicionarFilmeFavoritoCoreData(movie: movie)
         }
         ehFavorito = !ehFavorito
-        delegate?.alteraFavoritoButton()
+        delegate?.changeFavoriteMovieButton()
     }
     
     //MARK: - Private Methods

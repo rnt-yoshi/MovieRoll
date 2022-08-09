@@ -107,11 +107,11 @@ extension HistoricoViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let viewModel = viewModel else { return }
         let movie = viewModel.retornaFilme(indexFilme: indexPath.item, indexSegmenterController: segmentedControlIndex)
-        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
+        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? MoviesDetailsViewController else { return }
         let ehFavorito = viewModel.verificaFavorito(movie: movie)
         let foiAssistido = viewModel.verificaAssistido(movie: movie)
         
-        let detalhesFilmeViewModel = DetalhesFilmeViewModel(movie: movie, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
+        let detalhesFilmeViewModel = MovieDetailsViewModel(movie: movie, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
         detalhesFilme.viewModel = detalhesFilmeViewModel
         navigationController?.pushViewController(detalhesFilme, animated: true)
     }

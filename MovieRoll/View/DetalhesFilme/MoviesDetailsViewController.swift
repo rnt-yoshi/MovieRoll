@@ -7,21 +7,21 @@
 
 import UIKit
 
-class DetalhesFilmeViewController: UIViewController {
+class MoviesDetailsViewController: UIViewController {
     
     //MARK: - Outlets
     
     @IBOutlet private weak var posterFilme: UIImageView!
-    @IBOutlet private weak var nomeDoFilmeLabel: UILabel!
-    @IBOutlet private weak var anoLabel: UILabel!
-    @IBOutlet private weak var generoLabel: UILabel!
-    @IBOutlet private weak var notaDoFilme: UILabel!
+    @IBOutlet private weak var movieNameLabel: UILabel!
+    @IBOutlet private weak var yearLabel: UILabel!
+    @IBOutlet private weak var genreLabel: UILabel!
+    @IBOutlet private weak var movieNote: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
-    @IBOutlet private weak var plataformaImageView: UIImageView!
+    @IBOutlet private weak var platformImageView: UIImageView!
     
     //MARK: - Public Properties
 
-    var viewModel: DetalhesFilmeViewModel?
+    var viewModel: MovieDetailsViewModel?
     
     //MARK: - Public Methods
     
@@ -47,13 +47,13 @@ class DetalhesFilmeViewController: UIViewController {
         guard let viewModel = viewModel else { return }
         
         posterFilme.image = UIImage(data: viewModel.getPosterImage)
-        nomeDoFilmeLabel.text = viewModel.getNome
-        anoLabel.text = viewModel.getAno
-        generoLabel.text = viewModel.getGenero
-        notaDoFilme.text = ("\(viewModel.getNotaFilme)/10")
-        overviewLabel.text = viewModel.getSinopse
-        plataformaImageView.image = UIImage(named: viewModel.getPlataforma)
-        plataformaImageView.layer.cornerRadius = 10
+        movieNameLabel.text = viewModel.getName
+        yearLabel.text = viewModel.getYear
+        genreLabel.text = viewModel.getGenre
+        movieNote.text = ("\(viewModel.getMovieNote)/10")
+        overviewLabel.text = viewModel.getSynopsis
+        platformImageView.image = UIImage(named: viewModel.getPlataforma)
+        platformImageView.layer.cornerRadius = 10
     }
     
     private func customNavigationBar(){
@@ -75,17 +75,17 @@ class DetalhesFilmeViewController: UIViewController {
     
     private func favoritesButton() -> UIBarButtonItem {
         let favoritesButton = UIBarButtonItem(
-            image: UIImage(named: viewModel?.getFavoritarButtonImage ?? "heart"),
+            image: UIImage(named: viewModel?.getFavoriteButtonImage ?? "heart"),
             style: .done,
             target: self,
-            action: #selector(didTouchFavoritosButton)
+            action: #selector(didTouchFavoritesButton)
         )
         return favoritesButton
     }
     
     private func checkButton() -> UIBarButtonItem {
         let checkButton = UIBarButtonItem(
-            image: UIImage(named: viewModel?.getAssistidoButtonImage ?? "check"),
+            image: UIImage(named: viewModel?.getWatchedButtonImage ?? "check"),
             style: .done,
             target: self,
             action: #selector(didTouchCheckButton)
@@ -97,33 +97,33 @@ class DetalhesFilmeViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    @objc private func didTouchFavoritosButton() {
-        viewModel?.buttonFavoritoPressed()
+    @objc private func didTouchFavoritesButton() {
+        viewModel?.FavoriteButtonPressed()
     }
     
     @objc private func didTouchCheckButton() {
-        viewModel?.buttonAssistidoPressed()
+        viewModel?.watchedButtonPressed()
     }
     
 }
 
-//MARK: - DetalhesFilmeViewModel Delegate
+//MARK: - MoviesDetailsViewModel Delegate
 
-extension DetalhesFilmeViewController: DetalhesFilmeViewModelDelegate {
-    func alteraFavoritoButton() {
+extension MoviesDetailsViewController: MovieDetailsViewModelDelegate {
+    func changeFavoriteMovieButton() {
         guard let viewModel = viewModel else { return }
-        navigationItem.rightBarButtonItems?[1].image = UIImage(named: viewModel.getFavoritarButtonImage)
+        navigationItem.rightBarButtonItems?[1].image = UIImage(named: viewModel.getFavoriteButtonImage)
     }
     
-    func alteraAssistidoButton() {
+    func changeWatchedMovieButton() {
         guard let viewModel = viewModel else { return }
-        navigationItem.rightBarButtonItems?[0].image = UIImage(named: viewModel.getAssistidoButtonImage)
+        navigationItem.rightBarButtonItems?[0].image = UIImage(named: viewModel.getWatchedButtonImage)
     }
 }
 
 //MARK: - NavigationController IGestureRecognizerDelegate
 
-extension DetalhesFilmeViewController: UIGestureRecognizerDelegate {
+extension MoviesDetailsViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }

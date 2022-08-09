@@ -45,11 +45,11 @@ class LancamentosViewController: UIViewController {
 
 extension LancamentosViewController: LancamentosViewModelDelegate {
     func didSelectItem(movie: Movie) {
-        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? DetalhesFilmeViewController else { return }
+        guard let detalhesFilme = storyboard?.instantiateViewController(withIdentifier: "detalhesFilme") as? MoviesDetailsViewController else { return }
         let ehFavorito = viewModel.verificaFavorito(movie: movie)
         let foiAssistido = viewModel.verificaAssistido(movie: movie)
 
-        let viewModel = DetalhesFilmeViewModel(movie: movie, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
+        let viewModel = MovieDetailsViewModel(movie: movie, ehFavorito: ehFavorito, foiAssistido: foiAssistido)
         detalhesFilme.viewModel = viewModel
         navigationController?.pushViewController(detalhesFilme, animated: true)
     }
