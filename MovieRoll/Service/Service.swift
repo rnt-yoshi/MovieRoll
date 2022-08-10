@@ -52,27 +52,17 @@ class Service {
             
             do {
                 let movies = try decoder.decode(MoviesResult.self, from: data)
-                var moviesRoll: [Movie] = []
-                let group = DispatchGroup()
+                var moviesRoll = movies.results
                 
-                group.enter()
-                self.removeFavoritesFromMoviesList(movies: movies.results) { movies in
-                    moviesRoll.append(contentsOf: movies)
-                    group.leave()
-                }
-                group.enter()
-                self.removeSortedFromMoviesList(movies: movies.results) { movies in
-                    moviesRoll.append(contentsOf: movies)
-                    group.leave()
-                }
-                group.enter()
-                self.removeWatchedFromMoviesList(movies: movies.results) { movies in
-                    moviesRoll.append(contentsOf: movies)
-                    group.leave()
-                }
-                
-                group.notify(queue: .main) {
-                    completion(moviesRoll)
+                self.removeFavoritesFromMoviesList(movies: moviesRoll ) { movies in
+                    moviesRoll = movies
+                    self.removeSortedFromMoviesList(movies: moviesRoll) { movies in
+                        moviesRoll = movies
+                        self.removeWatchedFromMoviesList(movies: moviesRoll) { movies in
+                            moviesRoll = movies
+                            completion(moviesRoll)
+                        }
+                    }
                 }
             } catch {
                 print(error)
@@ -102,7 +92,7 @@ class Service {
         task.resume()
     }
     
-    func fetchDiscoverLancamentos(genre: String, completion: @escaping ([Movie]) -> Void) {
+    func fetchDiscoverReleases(genre: String, completion: @escaping ([Movie]) -> Void) {
         guard let url = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=7f90c16b1428bbd2961cbdfd637dba99&language=pt-BR&include_adult=false&include_video=false&page=1&primary_release_date.gte=2021-10-01&primary_release_date.lte=2022-12-12&with_genres=\(genre)&with_watch_providers=350%7C337%7C307%7C384%7C8%7C531%7C119%7C619%7C227&watch_region=BR&with_watch_monetization_types=flatrate") else { return }
         
         let session = URLSession.shared

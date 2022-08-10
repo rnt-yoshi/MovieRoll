@@ -14,16 +14,16 @@ protocol LoginViewModelDelegate {
     func loginGoogle(configuration: GIDConfiguration)
     func dismissModal()
     func loginFacebook(loginManager: LoginManager)
-    func alertaErroLogin(message: String)
-    func secureSenhaTextField()
-    func notSecureSenhaTextField()
+    func errorAlertLogin(message: String)
+    func securePasswordTextField()
+    func notSecurePasswordTextField()
 }
 
 class LoginViewModel{
     let serviceAuth: ServiceAuth = .init()
     var delegate: LoginViewModelDelegate?
     
-    func efetuarLoginEmailSenha(email: String?, password: String?) {
+    func concludeLoginEmailPassword(email: String?, password: String?) {
         guard let email = email else { return }
         guard let password = password else { return }
         
@@ -32,30 +32,30 @@ class LoginViewModel{
             let error = error as? NSError
             
             if error?.code == 17011 {
-                self.delegate?.alertaErroLogin(message: "E-mail não registrado, tente novamente.")
+                self.delegate?.errorAlertLogin(message: "E-mail não registrado, tente novamente.")
                 return
             }
             
             if error?.code == 17009 {
-                self.delegate?.alertaErroLogin(message: "Senha inválida, tente novamente.")
+                self.delegate?.errorAlertLogin(message: "Senha inválida, tente novamente.")
                 return
             }
             
             if error?.code == 17008 {
-                self.delegate?.alertaErroLogin(message: "E-mail não está no formato correto, tente novamente.")
+                self.delegate?.errorAlertLogin(message: "E-mail não está no formato correto, tente novamente.")
                 return
             }
             self.delegate?.dismissModal()
         }
     }
     
-    func efetuarLoginGoogle() {
+    func concludeLoginGoogle() {
         guard let configuration = serviceAuth.getGoogleConfiguration() else { return }
         
         delegate?.loginGoogle(configuration: configuration)
     }
     
-    func tratarLoginGoogle(user: GIDGoogleUser?, error: Error?) {
+    func prepareLoginGoogle(user: GIDGoogleUser?, error: Error?) {
         // tratativa de erro
         if let error = error {
             print(error)
@@ -63,57 +63,57 @@ class LoginViewModel{
         }
         
         // login do google deu certo
-        salvarDadosNoFirebase(user: user) { _ in
+        saveDataInFirebase(user: user) { _ in
             self.delegate?.dismissModal()
         }
         
         
     }
     
-    func efetuarLoginFacebook() {
+    func concludeLoginFacebook() {
         
         let loginManager = LoginManager()
         
         delegate?.loginFacebook(loginManager: loginManager)
     }
     
-    func tratarLoginFacebook(result:LoginManagerLoginResult?, error: Error?) {
+    func handleLoginFacebook(result:LoginManagerLoginResult?, error: Error?) {
         serviceAuth.treatFacebookLoginResult(result: result, error: error) { _ in
             self.delegate?.dismissModal()
         }
         
     }
     
-    private func salvarDadosNoFirebase(user: GIDGoogleUser?, completion: @escaping (Bool) -> Void) {
-        guard let credencial = serviceAuth.getGoogleCredential(de: user) else { return }
+    private func saveDataInFirebase(user: GIDGoogleUser?, completion: @escaping (Bool) -> Void) {
+        guard let credential = serviceAuth.getGoogleCredential(de: user) else { return }
 
-        serviceAuth.saveInFirebase(com: credencial, completion: completion)
+        serviceAuth.saveInFirebase(com: credential, completion: completion)
     }
     
     func eyeButtonPressed(visivel: Bool) {
         if visivel {
-            delegate?.notSecureSenhaTextField()
+            delegate?.notSecurePasswordTextField()
         } else {
-            delegate?.secureSenhaTextField()
+            delegate?.securePasswordTextField()
         }
     }
     
-    func esqueciMinhaSenhaButtonPrecionado(email: String?) {
+    func forgotMyPasswordPressedButton(email: String?) {
         guard let email = email else { return }
         
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             let error = error as? NSError
             
             if error?.code == 17011 {
-                self.delegate?.alertaErroLogin(message: "E-mail não registrado, tente novamente.")
+                self.delegate?.errorAlertLogin(message: "E-mail não registrado, tente novamente.")
             }
             
             if error?.code == 17008 {
-                self.delegate?.alertaErroLogin(message: "E-mail não está no formato correto, tente novamente.")
+                self.delegate?.errorAlertLogin(message: "E-mail não está no formato correto, tente novamente.")
             }
             
             if error?.code == 17034 {
-                self.delegate?.alertaErroLogin(message: "Entre com um e-mail e tente novamente.")
+                self.delegate?.errorAlertLogin(message: "Entre com um e-mail e tente novamente.")
             }
         }
     }
