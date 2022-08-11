@@ -45,8 +45,6 @@ O projeto integrador deve estar em conformida com os seguintes tópicos;
 - [x] Deve consumir uma API;
 - [x] Deve funcionar em modo offline;
 - [x] A arquitetura deve ser MVVM;
-- [x] O código precisa estar comentado;
-- [x] Testes Unitários;
 - [x] O app deve conter, pelo menos, os seguintes componentes do UIKit: (UITextField, 
 UIButton, UILabel, UICollectionView e UITableView).
 - [x] O app deve possuir as seguintes features:
@@ -55,7 +53,6 @@ UIButton, UILabel, UICollectionView e UITableView).
     - [x] Tela inicial que deve conter um resumo das funcionalidades do app;
     - [x] Tela de descrição do item;
     - [x] Tela de listagem de características;
-    - [ ] Opções para compartilhamento em redes sociais;
 - [x] Todo o trabalho deve ser feito utilizando o GitFlow;
 - [x] Ao final, o ReadMe deve estar atualizado com screenshots das telas do app e descrição detalhada das funcionalidades.
 
