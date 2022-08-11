@@ -195,7 +195,7 @@ $ open MovieRoll.xcworkspace
 <p>
 
 [![Linkedin Badge](https://img.shields.io/badge/-Ygor_Silva-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/ygor-guimarães-silva-b3abbb146/)
-[![Github Badge](https://img.shields.io/badge/-Artur_Araujo-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/ygorgsilva)
+[![Github Badge](https://img.shields.io/badge/-Ygor_Silva-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/ygorgsilva)
 
 <div align="center">
 
